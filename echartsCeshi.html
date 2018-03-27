@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="bootstrap.css"/>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<script src="js/echarts.js"></script>
+<script>
+    /**
+     *  Author: harry.lang
+     *  Date: 2017/9/29
+     *  Description: Created by harrylang on 2017/9/29.
+     */
+    var BTY_CONFIG = (function () {
+        var config = {
+            planet: [{
+                name: '电子政务能力水平',
+                link: 'https://www.baidu.com/?电子政务能力水平'
+            }, {
+                name: '大安全',
+                link: 'https://www.baidu.com/?大安全'
+            }, {
+                name: '大运维',
+                link: 'https://www.baidu.com/?大运维'
+            }, {
+                name: '大网络',
+                link: 'https://www.baidu.com/?大网络'
+            }, {
+                name: '大计算',
+                link: 'https://www.baidu.com/?大计算'
+            }, {
+                name: '大数据',
+                link: 'https://www.baidu.com/?大数据'
+            }, {
+                name: '大社群',
+                link: 'https://www.baidu.com/?大社群'
+            }, {
+                name: '大服务',
+                link: 'https://www.baidu.com/?大服务'
+            }, {
+                name: '大协同',
+                link: 'https://www.baidu.com/?大协同'
+            }],
+            share: [
+                '第一师', '第二师', '第三师', '第四师', '第五师', '第六师', '第七师', '第八师', '第九师', '第十师', '建工师', '第十二师', '第十三师', '第十四师',
+                '兵团建设',
+                '第一师兵团公共资源交易中心',
+                '第二师兵团公共资源交易中心',
+                '第三师兵团公共资源交易中心',
+                '第四师兵团公共资源交易中心',
+                '第五师兵团公共资源交易中心',
+                '第六师兵团公共资源交易中心',
+                '第七师兵团公共资源交易中心',
+                '第八师兵团公共资源交易中心',
+                '第九师兵团公共资源交易中心',
+                '第十师兵团公共资源交易中心',
+                '建工师兵团公共资源交易中心',
+                '第十二师兵团公共资源交易中心',
+                '第十三师兵团公共资源交易中心',
+                '第十四师兵团公共资源交易中心',
+                '兵团保密局',
+                '兵团档案局',
+                '兵团文化局',
+                '兵团民宗局',
+                '兵团发改委',
+                '兵团教育局',
+                '兵团科技局',
+                '兵团工信委',
+                '兵团公安局',
+                '兵团民政局',
+                '兵团司法局',
+                '兵团财务局',
+                '兵团人社局',
+                '兵团国土局',
+                '兵团建设局',
+                '兵团交通局',
+                '兵团水利局',
+                '兵团农业局',
+                '兵团商务局',
+                '兵团卫生局',
+                '兵团食药监局',
+                '兵团人口计生委',
+                '兵团审计局',
+                '兵团统计局',
+                '兵团质监局',
+                '兵团外事局',
+                '兵团安监局',
+                '兵团监狱局',
+                '霍尔果斯开发区兵团分区',
+                '喀什开发区兵团分区'
+            ],
+            collection: ['国家数据共享交换平台', '全国信用信息共享平台', '兵团数据开发平台']
+
+        };
+        return config;
+    }());
+
+    function getPos(center, r, angle) {
+        var p = {
+            x: center[0] + r * Math.cos(angle * Math.PI / 180),
+            y: center[1] + r * Math.sin(angle * Math.PI / 180)
+        };
+        return [p.x, p.y];
+    }
+
+    var start = [52.5, 91];
+    var center = [52.5, 36];
+    var points = [{
+        name: '兵团大数据平台',
+        value: start,
+        symbolSize: 1,
+        label: {
+            normal: {position: 'top', offset: [0, -20]}
+        }
+    }];
+    var lines = [];
+    for (var i = 0; i < BTY_CONFIG.share.length; i++) {
+        var baseR = 46;
+        var r = parseInt(Math.random() * baseR);
+        var angle = parseInt(Math.random() * 360);
+        var p = getPos(center, r, angle);
+
+        var curveness = Math.abs(p[0] - start[0]) / 50 * 0.8;
+
+        lines.push({
+            name: BTY_CONFIG.share[i],
+            coords: [p, start],
+            lineStyle: {
+                normal: {
+                    curveness: p[0] < start[0] ? curveness : -curveness
+                }
+            }
+        });
+        points.push({
+            name: BTY_CONFIG.share[i],
+            value: p
+        });
+    }
+
+
+    var option = {
+        grid: {
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0
+        },
+        xAxis: {
+            type: 'value',
+            axisLine: {show: false},
+            splitLine: {show: false}
+        },
+        yAxis: {
+            type: 'value',
+            axisLine: {show: false},
+            splitLine: {show: false}
+        },
+        series: [{
+            type: 'scatter',
+            symbolSize: 0,
+            data: [[100, 100]]
+        }, {
+            type: 'lines',
+            coordinateSystem: 'cartesian2d',
+            data: lines,
+            effect: {
+                show: true,
+                period: 6,
+                trailLength: 0.4,
+                color: '#0dd0d9',
+                symbolSize: 6
+            },
+            lineStyle: {
+                normal: {
+                    color: '#0dd0d9',
+                    type: 'dotted',
+                    //curveness: 0.3
+                }
+            }
+        }, {
+            type: 'scatter',
+            symbol: 'image://circle.png',
+            symbolSize: 18,
+            data: points,
+            label: {
+                normal: {
+                    color: '#fff',
+                    show: true,
+                    position: 'bottom',
+                    formatter: function (params) {
+                        return params.name;
+                    }
+                }
+            }
+        }]
+    };
+
+
+
+    var chart = echarts.init(document.getElementById('main'));
+    chart.setOption(option);
+</script>
+</body>
+</html>

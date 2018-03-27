@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+	var s  = Symbol()
+	class Private{
+		constructor(){
+
+		}
+
+		foo(){
+			this[s]()
+		}
+		this.foo[s](){
+			console.log("s")
+		}
+	}
+	var p = new Private()
+	p[s]()
+
+</script>

@@ -1,0 +1,50 @@
+<html>
+
+　　<head>
+
+　　<script type="text/javascript">
+
+　　function child_click(){
+
+　　alert("调用的子页面函数");
+
+　　}
+
+　　</script>
+
+　　</head>
+
+　　<body>
+
+　　<input type="button" value="调用父页面函数" onclick='parent.window.parent_click();' />
+
+　　<input type="button" value="调用本页面函数" onclick="child_click();" />
+
+　　</body>
+
+　　</html>
+	<script type="text/javascript">
+		
+		let x= 3
+		function add(y=x) {
+			let x= 4
+			console.log(y)
+		}
+		add()
+	var t = {a:'c',b:'d'}
+	var t2 = {a:'c',b:'d'}
+	function turn(obj){
+		obj = {a:'baidu'}
+	}
+	turn(t)
+	function tunr1(obj){
+		obj.a = 'jj'
+	}
+	console.log(t)
+	tunr1(t2)
+	console.log(t2)
+
+
+
+
+	</script>

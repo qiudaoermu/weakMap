@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        circle {
+            -webkit-transition: stroke-dasharray .25s;
+            transition: stroke-dasharray .25s;
+        }
+    </style>
+</head>
+<body>
+<svg width="440" height="440" viewbox="0 0 440 440">
+    <circle cx="220" cy="220" r="170" stroke-width="50" stroke="#D1D3D7" fill="none"></circle>
+    <circle cx="220" cy="220" r="170" stroke-width="50" stroke="#00A5E0" fill="none" transform="matrix(0,-1,1,0,0,440)" stroke-dasharray="0 1069"></circle>
+</svg>
+<p>拖我：<input id="range" type="range" min="0" max="100" value="0" style="width:300px;"></p>
+</body>
+</html>
+
+<script>
+    if (window.addEventListener) {
+        var range = document.querySelector("#range"),
+             circle = document.querySelectorAll("circle")[1];
+        if (range && circle) {
+            range.addEventListener("change", function() {
+                var percent = this.value / 100, perimeter = Math.PI * 2 * 180;
+                circle.setAttribute('stroke-dasharray', perimeter * percent + " " + perimeter * (1- percent));
+            });
+        }
+    }
+</script>

@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a35ea5a-8cdb-485c-bedf-acd05e7e9d73" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/ceshi.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/AnimationsKey.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Object.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/__proto__.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/bootstrap.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/border-box.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/callbackJson.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/caller.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/currentTarge.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/data/p.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/devpendAndProduction/package-lock.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/devpendAndProduction/package.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/document.ready.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/flex.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/iframeP.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.editorconfig" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.eslintignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.eslintrc-browser.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.eslintrc-node.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.gitattributes" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.github/ISSUE_TEMPLATE.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.github/PULL_REQUEST_TEMPLATE.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.mailmap" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.npmignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.npmrc" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/CODE_OF_CONDUCT.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/CONTRIBUTING.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/Gruntfile.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/release.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/release/cdn.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/release/dist.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/release/ensure-sizzle.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/build.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/dist.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/lib/spawn_test.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/node_smoke_tests.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/promises_aplus_tests.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/qunit_fixture.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/sourcemap.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/build/tasks/testswarm.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/dist/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/npo/npo.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit-assert-step/MIT-LICENSE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit-assert-step/qunit-assert-step.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit/LICENSE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit/MIT-LICENSE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit/qunit.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/qunit/qunit.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/requirejs/require.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/sinon/LICENSE.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/external/sinon/sinon.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/core/camelCase.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/core/toType.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/css/finalPropName.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/css/var/rboxStyle.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/var/isAttached.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/var/isFunction.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/var/isWindow.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/src/wrapper.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/1x1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/ajax/onunload.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/ajax/unreleasedXHR.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/badcall.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/badjson.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/cleanScript.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/core/aliased.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/core/cc_on.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/core/dynamic_ready.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/core/onready.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/csp.include.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/css/cssWidthBeforeDocReady.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/css/cssWidthBrowserZoom.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/dashboard.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/data/dataAttrs.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/dimensions/documentLarge.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/focusElem.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/focusinCrossFrame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/interactiveReady.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/onbeforeunload.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/promiseReady.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/syncReady.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/event/triggerunload.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/iframe.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/iframeTest.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/inner_module.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/jquery-1.9.1.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/json_obj.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/manipulation/iframe-denied.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/manipulation/scripts-context.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/mock.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/module.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/name.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/absolute.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/body.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/boxes.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/fixed.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/relative.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/scroll.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/static.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/offset/table.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/qunit-fixture.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/qunit-fixture.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/readywait.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/selector/html5_selector.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/selector/sizzle_cache.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/support/bodyBackground.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/support/csp.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/support/csp.log" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/support/getComputedSupport.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/test.include.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/test2.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/test3.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/testinit.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/testrunner.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/testsuite.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/text.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/data/with_fries.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/delegatetest.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/hovertest.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/integration/data/gh-1764-fullscreen-iframe.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/integration/data/gh-1764-fullscreen-iframe.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/integration/data/gh-1764-fullscreen.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/integration/gh-1764-fullscreen.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/integration/gh-2343-ie-radio-click.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/jquery.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/karma.context.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/karma.debug.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/localfile.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/middleware-mockserver.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/networkerror.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/document_missing.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/document_passed.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/document_present_originally.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/iterable_with_native_symbol.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/iterable_with_symbol_polyfill.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/lib/ensure_global_not_created.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/lib/ensure_iterability_es6.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/node_smoke_tests/lib/ensure_jquery.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/promises_aplus_adapters/.eslintrc.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/promises_aplus_adapters/deferred.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/promises_aplus_adapters/when.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/ajax.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/animation.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/attributes.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/basic.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/callbacks.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/core.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/css.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/data.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/deferred.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/deprecated.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/dimensions.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/effects.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/event.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/exports.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/manipulation.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/offset.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/queue.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/ready.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/selector.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/serialize.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/support.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/traversing.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/tween.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/unit/wrap.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jquery/test/xhtml.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/jsonp.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/module.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/parent.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/promise.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/quicksort.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reduce.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/set.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/son.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/sonFrame.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/stopImmediatePropagation.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/transitions.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/trim.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/utils.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/三列布局.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/居中.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/手写event" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/手写event.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/私有变量.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/箭头函数.html" />
+      <change beforePath="$PROJECT_DIR$/canvas.html" afterPath="$PROJECT_DIR$/canvas.html" />
+      <change beforePath="$PROJECT_DIR$/jquery/AUTHORS.txt" afterPath="$PROJECT_DIR$/jquery/AUTHORS.txt" />
+      <change beforePath="$PROJECT_DIR$/jquery/README.md" afterPath="$PROJECT_DIR$/jquery/README.md" />
+      <change beforePath="$PROJECT_DIR$/jquery/bower.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/core.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.js" afterPath="$PROJECT_DIR$/jquery/dist/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.min.js" afterPath="$PROJECT_DIR$/jquery/dist/jquery.min.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.min.map" afterPath="$PROJECT_DIR$/jquery/dist/jquery.min.map" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.slim.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.slim.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/dist/jquery.slim.min.map" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/package.json" afterPath="$PROJECT_DIR$/jquery/package.json" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/ajax.js" afterPath="$PROJECT_DIR$/jquery/src/ajax.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/ajax/jsonp.js" afterPath="$PROJECT_DIR$/jquery/src/ajax/jsonp.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/ajax/load.js" afterPath="$PROJECT_DIR$/jquery/src/ajax/load.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/ajax/var/nonce.js" afterPath="$PROJECT_DIR$/jquery/src/ajax/var/nonce.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/ajax/xhr.js" afterPath="$PROJECT_DIR$/jquery/src/ajax/xhr.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/attributes/classes.js" afterPath="$PROJECT_DIR$/jquery/src/attributes/classes.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/attributes/val.js" afterPath="$PROJECT_DIR$/jquery/src/attributes/val.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/callbacks.js" afterPath="$PROJECT_DIR$/jquery/src/callbacks.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core.js" afterPath="$PROJECT_DIR$/jquery/src/core.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core/DOMEval.js" afterPath="$PROJECT_DIR$/jquery/src/core/DOMEval.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core/access.js" afterPath="$PROJECT_DIR$/jquery/src/core/access.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core/init.js" afterPath="$PROJECT_DIR$/jquery/src/core/init.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core/ready-no-deferred.js" afterPath="$PROJECT_DIR$/jquery/src/core/ready-no-deferred.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/core/stripAndCollapse.js" afterPath="$PROJECT_DIR$/jquery/src/core/stripAndCollapse.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css.js" afterPath="$PROJECT_DIR$/jquery/src/css.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css/adjustCSS.js" afterPath="$PROJECT_DIR$/jquery/src/css/adjustCSS.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css/curCSS.js" afterPath="$PROJECT_DIR$/jquery/src/css/curCSS.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css/support.js" afterPath="$PROJECT_DIR$/jquery/src/css/support.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css/var/isHiddenWithinTree.js" afterPath="$PROJECT_DIR$/jquery/src/css/var/isHiddenWithinTree.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/css/var/rmargin.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/data.js" afterPath="$PROJECT_DIR$/jquery/src/data.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/data/Data.js" afterPath="$PROJECT_DIR$/jquery/src/data/Data.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/deferred.js" afterPath="$PROJECT_DIR$/jquery/src/deferred.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/deprecated.js" afterPath="$PROJECT_DIR$/jquery/src/deprecated.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/dimensions.js" afterPath="$PROJECT_DIR$/jquery/src/dimensions.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/effects.js" afterPath="$PROJECT_DIR$/jquery/src/effects.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/effects/Tween.js" afterPath="$PROJECT_DIR$/jquery/src/effects/Tween.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/event.js" afterPath="$PROJECT_DIR$/jquery/src/event.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/event/trigger.js" afterPath="$PROJECT_DIR$/jquery/src/event/trigger.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/jquery.js" afterPath="$PROJECT_DIR$/jquery/src/jquery.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/manipulation.js" afterPath="$PROJECT_DIR$/jquery/src/manipulation.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/manipulation/buildFragment.js" afterPath="$PROJECT_DIR$/jquery/src/manipulation/buildFragment.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/manipulation/var/rscriptType.js" afterPath="$PROJECT_DIR$/jquery/src/manipulation/var/rscriptType.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/offset.js" afterPath="$PROJECT_DIR$/jquery/src/offset.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/serialize.js" afterPath="$PROJECT_DIR$/jquery/src/serialize.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/traversing/findFilter.js" afterPath="$PROJECT_DIR$/jquery/src/traversing/findFilter.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/var/rnothtmlwhite.js" afterPath="$PROJECT_DIR$/jquery/src/var/rnothtmlwhite.js" />
+      <change beforePath="$PROJECT_DIR$/jquery/src/wrap.js" afterPath="$PROJECT_DIR$/jquery/src/wrap.js" />
+      <change beforePath="$PROJECT_DIR$/透视.html" afterPath="$PROJECT_DIR$/透视.html" />
+    </list>
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/.gitattributes">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".eslintrc-node.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/.eslintrc-node.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".eslintrc-browser.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/.eslintrc-browser.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".eslintrc.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/.eslintrc.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jquery/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gruntfile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jquery/Gruntfile.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2808">
+              <caret line="294" column="15" lean-forward="true" selection-start-line="294" selection-start-column="15" selection-end-line="294" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>newDefer</find>
+      <find>DOMContentLoaded</find>
+      <find>resolveWith</find>
+      <find>originalEvent</find>
+      <find>conso</find>
+      <find>window.console.log(types)</find>
+      <find>init</find>
+      <find>qunit_fixture</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/jquery/dist/jquery.js" />
+        <option value="$PROJECT_DIR$/jquery/.eslintignore" />
+        <option value="$PROJECT_DIR$/jquery/src/event.js" />
+        <option value="$PROJECT_DIR$/document.ready.html" />
+        <option value="$PROJECT_DIR$/jquery/src/core.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/jquery/Gruntfile.js" />
+        <option value="$PROJECT_DIR$/jquery/package.json" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER">
+    <package-json value="$PROJECT_DIR$/package.json" />
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/devpendAndProduction/node_modules" />
+    <handled-path value="$PROJECT_DIR$/jquery/node_modules" />
+    <handled-path value="$PROJECT_DIR$/node_modules" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="63" />
+    <option name="y" value="22" />
+    <option name="width" value="1504" />
+    <option name="height" value="967" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource ProjectPane="true" />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ceshi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ceshi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ceshi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ceshi" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a35ea5a-8cdb-485c-bedf-acd05e7e9d73" name="Default" comment="" />
+      <created>1521984026459</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1521984026459</updated>
+      <workItem from="1521984027664" duration="4572000" />
+      <workItem from="1522044438043" duration="15474000" />
+      <workItem from="1522121611926" duration="2594000" />
+      <workItem from="1522130624364" duration="5147000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="27787000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26215646" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34894612" sideWeight="0.5021142" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0011709601" sideWeight="0.49788582" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/jquery/src/css/support.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/document.ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="166" column="40" lean-forward="true" selection-start-line="166" selection-start-column="40" selection-end-line="166" selection-end-column="40" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1182#2946#0" expanded="false" />
+            <element signature="e#6326#6565#0" expanded="false" />
+            <element signature="e#6806#6970#0" expanded="false" />
+            <element signature="e#7016#7399#0" expanded="false" />
+            <element signature="e#7476#8052#0" expanded="false" />
+            <element signature="e#8585#9048#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintrc-browser.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105469">
+          <caret line="5551" column="54" lean-forward="false" selection-start-line="5551" selection-start-column="54" selection-end-line="5551" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/document.ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3496">
+          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+          <folding>
+            <element signature="e#739#1942#0" expanded="false" />
+            <element signature="e#2109#13671#0" expanded="false" />
+            <element signature="e#5744#7930#0" expanded="false" />
+            <element signature="e#7968#9880#0" expanded="false" />
+            <element signature="e#9922#11751#0" expanded="false" />
+            <element signature="e#11787#12313#0" expanded="false" />
+            <element signature="e#12465#13669#0" expanded="false" />
+            <element signature="e#13895#15100#0" expanded="false" />
+            <element signature="e#15302#16032#0" expanded="false" />
+            <element signature="e#16132#17155#0" expanded="false" />
+            <element signature="e#16639#17153#0" expanded="false" />
+            <element signature="e#18347#19466#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/document.ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="29" lean-forward="false" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="958" column="4" lean-forward="false" selection-start-line="958" selection-start-column="4" selection-end-line="958" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-399">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/exports/amd.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/offset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2429">
+          <caret line="183" column="4" lean-forward="false" selection-start-line="183" selection-start-column="4" selection-end-line="183" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/dist/core.js" />
+    <entry file="file://$PROJECT_DIR$/jquery/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/bower.json" />
+    <entry file="file://$PROJECT_DIR$/jquery/node_modules/grunt/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-684">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/node_modules/grunt/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/CONTRIBUTING.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/CODE_OF_CONDUCT.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/AUTHORS.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.npmrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/document.ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/selector.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/selector-sizzle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/var/isWindow.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105241">
+          <caret line="5551" column="54" lean-forward="false" selection-start-line="5551" selection-start-column="54" selection-end-line="5551" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/css/support.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/var/push.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="8" lean-forward="false" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="193" column="33" lean-forward="true" selection-start-line="193" selection-start-column="33" selection-end-line="193" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#1182#2946#0" expanded="false" />
+            <element signature="e#6326#6565#0" expanded="false" />
+            <element signature="e#6806#6970#0" expanded="false" />
+            <element signature="e#7016#7399#0" expanded="false" />
+            <element signature="e#7476#8052#0" expanded="false" />
+            <element signature="e#8585#9048#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/css.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="423" column="4" lean-forward="true" selection-start-line="423" selection-start-column="4" selection-end-line="423" selection-end-column="4" />
+          <folding>
+            <element signature="e#5737#7838#0" expanded="false" />
+            <element signature="e#9050#11130#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="true" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/var/class2type.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/var/arr.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/src/event.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="103" column="15" lean-forward="false" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
+          <folding>
+            <element signature="e#739#1942#0" expanded="false" />
+            <element signature="e#2109#13671#0" expanded="false" />
+            <element signature="e#5744#7930#0" expanded="false" />
+            <element signature="e#7968#9880#0" expanded="false" />
+            <element signature="e#9922#11751#0" expanded="false" />
+            <element signature="e#11787#12313#0" expanded="false" />
+            <element signature="e#12465#13669#0" expanded="false" />
+            <element signature="e#13895#15100#0" expanded="false" />
+            <element signature="e#15302#16032#0" expanded="false" />
+            <element signature="e#16132#17155#0" expanded="false" />
+            <element signature="e#16639#17153#0" expanded="false" />
+            <element signature="e#18347#19466#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintrc-node.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintrc-browser.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.editorconfig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3249">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/.eslintrc.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/Gruntfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2808">
+          <caret line="294" column="15" lean-forward="true" selection-start-line="294" selection-start-column="15" selection-end-line="294" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jquery/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="74" column="4" lean-forward="false" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

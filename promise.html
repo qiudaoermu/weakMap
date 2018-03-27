@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+//Promise管理异步流程
+function time(){
+	return new Promise(function(resolve,reject){
+			setTimeout(function(){
+				resolve(console.log(3))
+		},1000)
+			console.log(4)
+	})
+}
+
+time().then(function(value){
+	console.log(value)
+})
+
+//es6私有变量
+
+class My{
+	constructor(name){
+		this.snaf = name
+	}
+	foo(baz){
+		bar.call(this,baz)
+	}
+}
+function bar(baz){
+	return this.snaf = baz
+}
+var m = new My('cc')
+console.log(m.snaf)//ff
+m.foo('dd')
+console.log(m.snaf) //dd
+</script>
+</html>

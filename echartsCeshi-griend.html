@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<script src="http://www.echartsjs.com/gallery/vendors/echarts/echarts-all-3.js"></script>
+<script>
+
+    option = {
+        grid:{
+            bottom:'26%',
+        },
+        title: {
+            text: '浏览器占比变化',
+            subtext: '纯属虚构',
+            top: 10,
+            left: 10
+        },
+        tooltip: {
+            trigger: 'item',
+            backgroundColor : 'rgba(0,0,250,0.2)'
+        },
+
+
+
+
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: true,
+                data: (function (){
+                    var now = new Date();
+                    var res = [];
+                    var len = 30;
+                    while (len--) {
+                        res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                        now = new Date(now - 2000);
+                    }
+                    return res;
+                })()
+            },
+            {
+                type: 'category',
+                boundaryGap: true,
+                data: (function (){
+                    var res = [];
+                    var len = 30;
+                    while (len--) {
+                        res.push(len + 1);
+                    }
+                    return res;
+                })()
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                scale: true,
+                name: '价格',
+                max: 30,
+                min: 0,
+                boundaryGap: [0.2, 0.2]
+            },
+            {
+                type: 'value',
+                scale: true,
+                name: '预购量',
+                max: 1200,
+                min: 0,
+                boundaryGap: [0.2, 0.2]
+            }
+        ],
+        legend:{
+            show:true,
+            data:["预购队列",'最新成交价']
+        },
+
+        series: [
+            {
+                name:'预购队列',
+                type:'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                itemStyle:{
+                    normal:{
+                        color: new echarts.graphic.LinearGradient(
+                            0, 0, 0, 1,
+                            [
+                                {offset: 0, color: '#83bff6'},
+                                {offset: 0.5, color: '#188df0'},
+                                {offset: 1, color: '#188df0'}
+                            ]
+                        )
+                    }
+                },
+                data:(function (){
+                    var res = [];
+                    var len = 30;
+                    while (len--) {
+                        res.push(Math.round(Math.random() * 1000));
+                    }
+                    return res;
+                })()
+            },
+            {
+                name:'最新成交价',
+                type:'line',
+                itemStyle:{
+                    normal:{
+                        color:
+                            new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    {offset: 0, color: '#83bff6'},
+                                    {offset: 0.5, color: '#188df0'},
+                                    {offset: 1, color: '#188df0'}
+                                ])
+                    }
+                },
+                data:(function (){
+                    var res = [];
+                    var len = 0;
+                    while (len < 40) {
+                        res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                        len++;
+                    }
+                    return res;
+                })()
+            }
+        ]
+    };
+
+
+
+
+
+
+    var chart = echarts.init(document.getElementById('main'));
+    chart.setOption(option);
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5自由者</title>
+    <style>
+        #svgForStroke {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            stroke-dasharray: 180%;
+            stroke-dashoffset: 90%;
+            stroke: #ED6E5C;
+            /*stroke-linecap:round;*/
+            fill: none;
+            transform: rotateX(45deg);
+            -webkit-transform: rotateX(45deg);
+
+        }
+
+        #svgForStroke2 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            stroke-dasharray: 180%;
+            stroke-dashoffset: 80%;
+            stroke: #92ed5c;
+            /*stroke-linecap:round;*/
+            fill: none;
+            transform: rotateX(90deg);
+            -webkit-transform: rotateX(45deg);
+
+        }
+        #div1
+        {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            margin: 50px;
+            padding:10px;
+            border: 1px solid black;
+
+            -webkit-perspective:600; /* Safari and Chrome */
+        }
+
+        #div2
+        {
+            padding:50px;
+            position: absolute;
+            border: 1px solid black;
+            background-color: yellow;
+            transform: rotateX(45deg);
+            -webkit-transform: rotateX(45deg); /* Safari and Chrome */
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <div id="div2">HELLO</div>
+
+    <svg id="svgForStroke" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50%" cy="50%" r="40%" stroke-width="5%"></circle>
+    </svg>
+
+
+</div>
+
+<script></script>
+</body>
+</html>

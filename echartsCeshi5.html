@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="main" style="width: 600px;height:400px;"></div>
+<script src="ecahrts3.54/echarts.js"></script>
+<script>
+    option = {
+        title: {
+
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最新成交价', '预购队列']
+        },
+
+        dataZoom: {
+            show: false,
+            start: 0,
+            end: 100
+        },
+        legend: {
+            data:['最新成交价', '预购队列']
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                dataView: {readOnly: false},
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        dataZoom: {
+            show: false,
+            start: 0,
+            end: 100
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: true,
+                data: (function (){
+                    var now = new Date();
+                    var res = [];
+                    var len = 10;
+                    while (len--) {
+                        res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                        now = new Date(now - 2000);
+                    }
+                    return res;
+                })(),
+                axisLabel:{
+                    interval:0
+                }
+
+            },
+            {
+                show:false,
+                type: 'category',
+
+                boundaryGap: true,
+                data: (function (){
+                    var res = [];
+                    var len = 10;
+                    while (len--) {
+                        res.push(len + 1);
+                    }
+                    return res;
+                })()
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                scale: true,
+                name: 'm b',
+                max: 30,
+                min: 0,
+                boundaryGap: [0.2, 0.2],
+                axisPointer:{
+                    label:{show:false}
+                },
+                axisLine:{
+                    show:true
+                },
+                axisLabel:{
+                    color:'#fff'
+                },
+            },
+            {
+                type: 'value',
+                scale: true,
+                name: '预购量',
+                max: 1200,
+                min: 0,
+                boundaryGap: [0.2, 0.2],
+                axisLabel:{
+                    color:'#fff',
+                    formatter: '{value} ml'
+                }
+
+            }
+        ],
+        series: [
+            {
+                name:'预购队列',
+                type:'bar',
+                xAxisIndex: 1,
+                yAxisIndex: 1,
+                data:(function (){
+                    var res = [];
+                    var len = 10;
+                    while (len--) {
+                        res.push(Math.round(Math.random() * 1000));
+                    }
+                    return res;
+                })()
+            },
+            {
+                name:'最新成交价',
+                type:'line',
+                data:(function (){
+                    var res = [];
+                    var len = 0;
+                    while (len < 10) {
+                        res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                        len++;
+                    }
+                    return res;
+                })()
+            }
+        ]
+    };
+    var chart = echarts.init(document.getElementById('main'));
+    chart.setOption(option);
+   
+
+</script>
+</body>
+</html>

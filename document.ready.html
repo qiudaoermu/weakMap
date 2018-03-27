@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+   console.log("Domloaded")
+
+    document.addEventListener("DOMContentLoaded",function () {
+        console.log("DomLoaded")
+    })
+</script>
+<style>
+	ul{
+		width: 500px;
+		height: 400px;
+		background: #5bc0de;
+		position: relative;
+	}
+	li{
+		list-style: none;
+		width: 100px;
+		height: 50px;
+		border: 1px solid #ddd;
+	}
+	.numberOne{
+		background: darkred;
+	}
+	.numberTwo{
+		position: absolute;
+		top:20px
+	}
+</style>
+<body>
+	<ul>
+		<li class="numberOne"></li>
+		<li class="numberTwo"></li>
+		<li></li>
+	</ul>
+</body>
+<script src="jquery/dist/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        
+    });
+    console.log($('.numberOne').offset({top:100}));
+	console.log($('.numberOne').position().top);
+	console.log($('.numberTwo'))
+
+	$('body').on('click','numberTwo',function () {
+		console.log(',numberTwo')
+    })
+
+</script>
+
+</html>

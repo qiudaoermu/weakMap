@@ -1,0 +1,19 @@
+<html>
+<head>
+    <script type="text/javascript">
+
+
+        
+        function say(){
+            alert("child.html");
+        }
+        function callParent(){
+            parent.say();
+            parent.window.document.getElementById("button").value="调用结束";
+        }
+    </script>
+</head>
+<body>
+    <input id="button" type="button" value="调用parent.html中的say()函数" onclick="callParent()"/>
+</body>
+</html>

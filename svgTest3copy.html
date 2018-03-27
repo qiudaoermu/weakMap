@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .demo2{
+        transform-origin: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        stroke: #ED6E5C;
+        fill: none;
+        transform: perspective(600px)rotateX(155deg) rotateY(3deg);
+      }
+
+    .demo3{
+        transform-origin: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        stroke: #ED6E5C;
+        fill: none;
+        transform: perspective(600px) rotateX(155deg) rotateY(3deg) rotate(-90deg);
+    }
+    .demo4{
+        transform-origin: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        stroke: #5ccded;
+        fill: none;
+        transform: perspective(600px) rotateX(155deg) rotateY(3deg) rotate(91deg);
+
+    }
+    .demo5{
+        transform-origin: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 200px;
+        stroke: #ED6E5C;
+        fill: none;
+        transform: perspective(600px) rotateX(155deg) rotateY(3deg) rotate(180deg);
+    }
+    #div1
+    {
+        position: relative;
+        height: 550px;
+        width: 550px;
+        margin: 50px;
+        padding:10px;
+        border: 1px solid black;
+        perspective:600px;
+    }
+
+    #svgId{
+        border:1px solid #000;
+    }
+</style>
+<body>
+    <div id="div1">
+        <svg xmlns="http://www.w3.org/200/svg" height="400" width="400" id="svgId">
+            <circle class="demo2" id="J_progress_bar" cx="155" cy="155" r="150" fill="none" stroke="red" stroke-width="15"/>
+            <circle class="demo3" id="J_progress_bar2" cx="155" cy="155" r="150" fill="none" stroke="red" stroke-width="15"/>
+            <circle class="demo4" id="J_progress_bar3" cx="155" cy="155" r="150" fill="none" stroke="red" stroke-width="15"/>
+            <circle class="demo5" id="J_progress_bar4" cx="155" cy="155" r="150" fill="none" stroke="red" stroke-width="15"/>
+        </svg>
+    </div>
+</body>
+<script>
+    var demo2 =  document.querySelector("#J_progress_bar");
+    var demo3 =  document.querySelector("#J_progress_bar2");
+    var demo4 =  document.querySelector("#J_progress_bar3");
+    var demo5 =  document.querySelector("#J_progress_bar4");
+    var circleLength = Math.floor(2 * Math.PI * demo2.getAttribute("r"));
+
+
+    demo2.setAttribute("stroke-dasharray","" + circleLength * 23 / 100 + ",1000");
+    demo3.setAttribute("stroke-dasharray","" + circleLength * 23 / 100 + ",1000");
+    demo4.setAttribute("stroke-dasharray","" + circleLength * 23 / 100 + ",1000");
+    demo5.setAttribute("stroke-dasharray","" + circleLength * 23 / 100 + ",1000");
+</script>
+</html>
