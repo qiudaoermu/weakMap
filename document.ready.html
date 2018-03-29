@@ -26,6 +26,7 @@
 	}
 	.numberOne{
 		background: darkred;
+		display: none;
 	}
 	.numberTwo{
 		position: absolute;
@@ -34,29 +35,33 @@
 </style>
 <body>
 	<ul>
-		<li class="numberOne"></li>
+		<li class="numberOne">1</li>
+		<li class="numberOne">1</li>
 		<li class="numberTwo">
-			<li></li>
+			<li>2</li>
 		</li>
-		<li></li>
+		<li>3</li>
 		<input id='ip' placeholder="30"/>
 	</ul>
 </body>
 <script src="jquery/dist/jquery.js"></script>
 <script>
+    $('.numberOne').show()
+	console.log($("li").eq(2).html())
 	console.log($('#ip').val());
+    //console.log($('.numberOne').offset({top:100}));
+    console.log($('.numberOne').position().top);
+    console.log($('.numberTwo').css({width:100}));
+    $('.numberTwo').css({background:'red'})
     $(document).ready(function () {
         
     });
-    console.log($('.numberOne').offset({top:100}));
-	console.log($('.numberOne').position().top);
-	console.log($('.numberTwo').css({width:100}));
+
 	$('.numberOne').hasClass("sx");
 
 	$('body').on('click','numberTwo',function () {
 		console.log(',numberTwo')
     })
-
 
 
 

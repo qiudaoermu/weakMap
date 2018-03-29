@@ -9,12 +9,17 @@
 <script type="text/javascript">
 	
 	var a = {
-	c:{
-		fn:function(){
-	  	 console.log(this)
-     	}
-	}
-}
+				c:{
+					fn:function(){
+				  		 console.log(this)
+			     	}
+				},
+				d:function(){
+					console.log(this)
+				}
+			}
+	a.c.fn()
+	a.d()
       
 </script>
 </html>
