@@ -35,22 +35,30 @@
 <body>
 	<ul>
 		<li class="numberOne"></li>
-		<li class="numberTwo"></li>
+		<li class="numberTwo">
+			<li></li>
+		</li>
 		<li></li>
+		<input id='ip' placeholder="30"/>
 	</ul>
 </body>
 <script src="jquery/dist/jquery.js"></script>
 <script>
+	console.log($('#ip').val());
     $(document).ready(function () {
         
     });
     console.log($('.numberOne').offset({top:100}));
 	console.log($('.numberOne').position().top);
-	console.log($('.numberTwo'))
+	console.log($('.numberTwo').css({width:100}));
+	$('.numberOne').hasClass("sx");
 
 	$('body').on('click','numberTwo',function () {
 		console.log(',numberTwo')
     })
+
+
+
 
 </script>
 
