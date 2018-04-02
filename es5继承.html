@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	function Parent3(name){
+	    this.name = name;
+	    this.play = [1,2,3];
+	}
+	function Child3(name){
+	    Parent3.call(this,name);
+	    this.type = "child3";
+	}
+	var c = new Child3('child3')
+	console.log(c.name)
+
+
+
+</script>
+</html>
