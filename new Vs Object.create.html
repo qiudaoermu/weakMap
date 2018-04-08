@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+
+</body>
+<script type="text/javascript">
+
+	var Klass = function(){
+
+	}
+	Klass.prototype.a = function(){
+			console.log("a")
+	}
+	var ne = new Klass()
+	ne.a()
+
+	var cre = Object.create(Klass.prototype)
+	cre.a()
+	var count = 10240;
+	console.time("new");
+	for(var i=0;i<count;i++){
+		let object = new Klass()
+	}
+	console.timeEnd("new");
+
+	console.time("create")
+	for(var i=0;i<count;i++){
+		let object = Object.create(Klass.prototype)
+	}
+	console.timeEnd("create")
+</script>
+</html>

@@ -10,14 +10,61 @@
 //Promise管理异步流程
 function time(){
 	return new Promise(function(resolve,reject){
-			setTimeout(function(){
-				resolve(console.log(3))
+		setTimeout(function(){
+				resolve(3)
 		},1000)
-			console.log(4)
+		//console.log(4)
 	})
 }
 
 time().then(function(value){
+	console.log(value)
+	console.log(4)
+})
+
+function Cromise(fn){
+	var arr = []
+	var value = null;
+	this.then =function(callback){
+			
+			arr.forEach(function(i,v){
+					
+				callback(i)
+			})
+	}
+	function resolve(value){
+		arr.push(value);
+	}
+	
+	function fn(resolve,reject){
+			resolve()
+	}
+	fn(resolve)
+}
+function cc(fn){
+	function resolve(value){
+			console.log(value)
+	}
+
+	function fn(callback){
+			
+	}
+
+	fn(resolve)
+}
+
+
+cc(function(resolve){
+		resolve(3)
+})
+
+function ctime(){
+	return new Cromise(function(resolve){
+			resolve("baidu")
+	})
+}
+
+ctime().then(function(value){
 	console.log(value)
 })
 
