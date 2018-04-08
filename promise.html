@@ -21,21 +21,39 @@ time().then(function(value){
 	console.log(value)
 	console.log(4)
 })
-
+//promise源码解析
 function Cromise(fn){
 	var arr = []
 	var t = null;
-	this.then =function(callback){
-			callback(t)
+	var self = this
+	self.then = function(callback){
+			arr.push(callback)
 	}
-
+	
 	function resolve(value){
 		t = value
+		
+		arr.forEach(function(callback,value){
+				callback(t)
+		})
+		
 	}
-	
-	
 	fn&&fn(resolve)
 }
+
+
+function ctime(){
+	return new Cromise(function(resolve){
+			
+			setTimeout(function(){
+				resolve("baidu")
+			},1000)
+})
+}
+
+ctime().then(function(value){
+	console.log(value)
+})
 
 
 function cc(fn){
@@ -57,11 +75,14 @@ function doit(fn){
 	function resolve(){
 		console.log("resolve")
 	}
-  fn&&fn(resolve)
+
+    fn&&fn(resolve)
 }
+
 doit(function(resolve){
 	resolve()
 })
+
 cc(function(resolve){
 		resolve(3)
 })
@@ -70,18 +91,6 @@ cc(function(resolve){
 
 
 
-function ctime(){
-	return new Cromise(function(resolve){
-			
-			setTimeout(function(){
-				resolve("baidu")
-			},1000)
-})
-}
-
-ctime().then(function(value){
-	console.log(value)
-})
 
 //es6私有变量
 
