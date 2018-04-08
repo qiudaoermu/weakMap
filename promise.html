@@ -24,23 +24,20 @@ time().then(function(value){
 
 function Cromise(fn){
 	var arr = []
-	var value = null;
+	var t = null;
 	this.then =function(callback){
-			
-			arr.forEach(function(i,v){
-					
-				callback(i)
-			})
+			callback(t)
 	}
+
 	function resolve(value){
-		arr.push(value);
+		t = value
 	}
 	
-	function fn(resolve,reject){
-			resolve()
-	}
-	fn(resolve)
+	
+	fn&&fn(resolve)
 }
+
+
 function cc(fn){
 	function resolve(value){
 			console.log(value)
@@ -54,14 +51,32 @@ function cc(fn){
 }
 
 
+
+
+function doit(fn){
+	function resolve(){
+		console.log("resolve")
+	}
+  fn&&fn(resolve)
+}
+doit(function(resolve){
+	resolve()
+})
 cc(function(resolve){
 		resolve(3)
 })
 
+
+
+
+
 function ctime(){
 	return new Cromise(function(resolve){
-			resolve("baidu")
-	})
+			
+			setTimeout(function(){
+				resolve("baidu")
+			},1000)
+})
 }
 
 ctime().then(function(value){

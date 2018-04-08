@@ -17,5 +17,20 @@
 	var b = new Array();
 	b.constructor === Array;
 	console.log(b.__proto__ === Array.prototype)
+
+	function Super() {}
+ 
+	function Sub() {}
+	Sub.prototype = new Super();
+	Sub.prototype.constructor = Sub;
+	 
+	var sub = new Sub();
+	 
+	Sub.prototype.constructor === Sub; // ② true
+	sub.constructor === Sub; // ④ true
+	sub.__proto__ === Sub.prototype; // ⑤ true
+	console.log(Sub.prototype.__proto__== Super.prototype); // ⑦ true
+	console.log(Sub.prototype)
+	
 </script>
 </html>
