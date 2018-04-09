@@ -15,11 +15,15 @@
 			     	}
 				},
 				d:function(){
-					console.log(this)
+				    console.log(this);
+				    return function () {
+                        console.log(this)
+                    }
+
 				}
-			}
-	a.c.fn()
-	a.d()
+			};
+	a.c.fn();
+	a.d()();
       
 </script>
 </html>

@@ -20,7 +20,7 @@ function f1(){
 　　}, 1000);
 }
 
-f1()
+f1();
 //回调函数
 function fn1 () {
   console.log('Function 1')
@@ -39,7 +39,7 @@ function fn3 () {
 
 function fn2 (f) {
   setTimeout(() => {
-    console.log('Function 2')
+    console.log('Function 2');
     f()
   }, 500)
 }
@@ -56,7 +56,7 @@ class AsyncFunArr {
   }
 
   next () {
-    const fn = this.funcArr.shift()
+    const fn = this.funcArr.shift();
     if (typeof fn === 'function') fn()
   }
 
@@ -65,9 +65,9 @@ class AsyncFunArr {
   }
 }
 
-const asyncFunArr = new AsyncFunArr(fn1, fn2, fn3)
+const asyncFunArr = new AsyncFunArr(fn1, fn2, fn3);
 function fn4 () {
-  console.log('Function 1')
+  console.log('Function 1');
   asyncFunArr.next()
 }
 
