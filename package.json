@@ -2,10 +2,11 @@
   "name": "1",
   "version": "1.0.0",
   "description": "1",
+  "ErrorMessage":"errorPackage",
   "main": "1",
   "scripts": {
     "test": "1",
-    "build": "webpack"
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
