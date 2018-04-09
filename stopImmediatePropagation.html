@@ -14,7 +14,7 @@
 <div id="s"></div>
 </body>
 <script type="text/javascript">
-	var s = document.getElementById('s')
+	var s = document.getElementById('s');
 	function onClickFn(e) {
 			e.stopImmediatePropagation()//阻止其它事件 只能是同类事件
 			console.log(3)
@@ -22,7 +22,7 @@
 	function onClickTwo(){
 		console.log('onClickTwo')
 	}
-	s.addEventListener('click',onClickFn,false)
+	s.addEventListener('click',onClickFn,false);
 	s.addEventListener('click',onClickTwo,false)
 </script>
 </html>
