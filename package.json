@@ -2,7 +2,7 @@
   "name": "1",
   "version": "1.0.0",
   "description": "1",
-  "ErrorMessage":"errorPackage",
+  "ErrorMessage": "errorPackage",
   "main": "1",
   "scripts": {
     "test": "1",
@@ -14,7 +14,11 @@
   },
   "author": "1",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "better-xlsx": "^0.6.0",
+    "exceljs": "^1.1.1",
+    "react": "^16.3.1"
+  },
   "devDependencies": {
     "babel-loader": "^7.1.4",
     "webpack": "^4.3.0",
