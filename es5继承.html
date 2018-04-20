@@ -7,27 +7,23 @@
 
 </body>
 <script type="text/javascript">
-	function Parent3(name){
-	    this.name = name;
-	    this.play = [1,2,3];
-	}
-
-
-	function Child3(name){
-	    Parent3.call(this,name);
-	    this.type = "child3";
-	}
-	var c = new Child3('child3')
-	console.log(c.name)
-
-
-
-
-
-	var a = function(c){
-		console.log(c)
-	}(100)
-	a()
+    function Fn(name,age){
+        this.name=name;                           //构造函数的属性多样
+        this.age=age;
+        if((typeof Fn.prototype.eat)!="funciton"){    //判断语句中是否有该方法，没有则创建
+            Fn.prototype.eat=function(){            //原型的方法共享
+                console.log(this.name+"吃了饭");
+            }
+        }
+    }
+    function Son(name,age,sex){                 //创建子类构造函数
+        Fn.call(this,name,age)                //借调Fn()的属性
+        this.sex=sex;
+    };
+    Son.prototype=new Fn();         //Son.prototype指向父类对象，实现了继承，所以能够调用eat方法，
+    var s1=new Son("李四",20,"男");    //若没有继承，单单的使用call借调Fn继承，子类实例s1无法调用eat方法
+    callconsole.log(s1);            //因为call不是真正的继承
+    s1.eat();
 
 
 </script>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+    <title></title>
 </head>
 <body>
 
@@ -9,20 +9,49 @@
 
 </html>
 <script type="text/javascript">
-	var s  = Symbol()
-	class Private{
-		constructor(){
+    let _width = Symbol();
 
-		}
+    class Private {
+        constructor(s) {
+            this[_width] = s
+        }
 
-		foo(){
-			this[s]()
-		}
-		this.foo[s](){
-			console.log("s")
-		}
-	}
-	var p = new Private()
-	p[s]()
+        foo() {
+            console.log(this[_width])
+        }
 
+    }
+
+    var p = new Private("50");
+    p.foo();
+    console.log(p[_width]);
+
+
+    //赋值到闭包里
+    let sque = (function () {
+        let _width = Symbol();
+
+        class Squery {
+            constructor(s) {
+                this[_width] = s
+            }
+
+            foo() {
+                console.log(this[_width])
+            }
+        }
+
+        function Qa(s) {
+            this[_width]= s
+
+        }
+        Qa.prototype.foo = function () {
+            console.log(this[_width])
+        };
+        return Qa
+    })();
+
+    let ss = new sque(20);
+    ss.foo();
+    console.log(ss[_width])
 </script>
