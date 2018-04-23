@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a35ea5a-8cdb-485c-bedf-acd05e7e9d73" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Object.create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commonJs/a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commonJs/b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/echartstest/echartsCeshi6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import/a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/import/b.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/module.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/原型链.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echartstest/echartsCeshi.html" beforeDir="false" afterPath="$PROJECT_DIR$/echartstest/echartsCeshi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echartstest/echartsCeshi2.html" beforeDir="false" afterPath="$PROJECT_DIR$/echartstest/echartsCeshi2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echartstest/echartsCeshi3.html" beforeDir="false" afterPath="$PROJECT_DIR$/echartstest/echartsCeshi3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echartstest/echartsCeshi4.html" beforeDir="false" afterPath="$PROJECT_DIR$/echartstest/echartsCeshi4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/echartstest/echartsCeshi5.html" beforeDir="false" afterPath="$PROJECT_DIR$/echartstest/echartsCeshi5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es5继承.html" beforeDir="false" afterPath="$PROJECT_DIR$/es5继承.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/私有变量.html" beforeDir="false" afterPath="$PROJECT_DIR$/私有变量.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/set.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,6 +15,9 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ceshi" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
@@ -39,11 +30,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="私有变量.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="私有变量.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/私有变量.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="988">
               <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="set.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/set.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="原型链.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/原型链.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="606">
+              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -110,8 +119,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -211,6 +220,8 @@
         <option value="$PROJECT_DIR$/echartstest/echartsCeshi5.html" />
         <option value="$PROJECT_DIR$/echartstest/echartsCeshi6.html" />
         <option value="$PROJECT_DIR$/私有变量.html" />
+        <option value="$PROJECT_DIR$/set.html" />
+        <option value="$PROJECT_DIR$/原型链.html" />
       </list>
     </option>
   </component>
@@ -239,9 +250,9 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="122" />
-    <option name="y" value="40" />
-    <option name="width" value="1920" />
+    <option name="x" value="171" />
+    <option name="y" value="23" />
+    <option name="width" value="1631" />
     <option name="height" value="982" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -253,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -260,16 +272,10 @@
               <item name="ceshi" type="b2602c69:ProjectViewProjectNode" />
               <item name="ceshi" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ceshi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ceshi" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -282,7 +288,7 @@
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -307,7 +313,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.this2.html">
+  <component name="RunManager" selected="JavaScript Debug.原型链.html">
+    <configuration name="原型链.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ceshi/原型链.html" />
     <configuration name="canvas.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/ceshi/canvas.html" />
     <configuration name="module.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ceshi/module.html" />
     <configuration name="module.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/ceshi/module.html" />
@@ -317,9 +324,11 @@
       <item itemvalue="JavaScript Debug.module.html" />
       <item itemvalue="JavaScript Debug.module.html (1)" />
       <item itemvalue="JavaScript Debug.this2.html" />
+      <item itemvalue="JavaScript Debug.原型链.html" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.原型链.html" />
         <item itemvalue="JavaScript Debug.this2.html" />
         <item itemvalue="JavaScript Debug.module.html (1)" />
         <item itemvalue="JavaScript Debug.module.html" />
@@ -357,7 +366,9 @@
       <workItem from="1524146007253" duration="598000" />
       <workItem from="1524147112463" duration="24000" />
       <workItem from="1524193031532" duration="2318000" />
-      <workItem from="1524225326092" duration="1007000" />
+      <workItem from="1524225326092" duration="6405000" />
+      <workItem from="1524367914958" duration="1239000" />
+      <workItem from="1524445404650" duration="258000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1522218064623</created>
@@ -387,26 +398,43 @@
       <option name="project" value="LOCAL" />
       <updated>1523599972711</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="111">
+      <created>1524232851054</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524232851054</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104267000" />
+    <option name="totallyTimeSpent" value="111162000" />
+  </component>
+  <component name="TodoView" selected-index="3">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="122" y="40" width="1920" height="982" extended-state="0" />
+    <frame x="171" y="23" width="1631" height="982" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29778248" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85988027" visible="true" weight="0.20996885" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32934132" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.588755" side_tool="true" weight="0.4026764" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.46242037" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.40359282" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.411245" visible="true" weight="0.3497006" />
+      <window_info id="Structure" order="1" sideWeight="0.14011976" side_tool="true" visible="true" weight="0.20996885" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.411245" weight="0.16148326" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.50097847" side_tool="true" weight="0.24049844" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -460,13 +488,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/私有变量.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9101">
@@ -576,13 +597,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/echarts/echartsCeshi3.html" />
-    <entry file="file://$PROJECT_DIR$/set.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Object.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -794,8 +808,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/私有变量.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="988">
           <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/set.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/原型链.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
         </state>
       </provider>
     </entry>

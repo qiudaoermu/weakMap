@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    class Person{
+        getPerson(){
+            return this
+        }
+    }
+
+    let person = new Person()
+
+    console.log(person.getPerson())
+
+
+    let arrset = new Set("abc");
+    arrset.add("d");
+    arrset.add("d");
+    console.log(arrset);
+    console.log(arrset.size);
+
+
+
+    window.a = 30;
+
+
+
+
+    (()=>{
+        console.log("🍍")
+    })();
+
+
+    let arr = [1,2,3].map( (index,elem) =>{
+         return index*3
+    })
+    let brr = [1,2,3].map( (index,elem) =>
+         index*3
+    )
+    console.log(arr);
+    console.log(brr);
+
+
+        //几乎任何对象有一个__proto__属性，在标准中，这是一个隐藏属性。该属性指向的是这个对象的原型。
+        var a = {};
+        Object.prototype.eat = function(){
+            console.log("🍎")
+        };
+        a.__proto__ = {
+            drink(){
+                console.log("🍺")
+            }
+        };
+        console.log(a);
+
+
+        const drink = {
+            getDrink:function () {
+                    return "🍺"
+            }
+        }
+
+        let subday = {
+            __proto__:drink,
+            getDrink(){
+
+               return super.getDrink()+"☕️"
+            }
+        }
+        console.log(subday.getDrink())
+
+
+
+</script>
