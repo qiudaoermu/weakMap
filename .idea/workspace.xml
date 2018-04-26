@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a35ea5a-8cdb-485c-bedf-acd05e7e9d73" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/原型链.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/set.html" beforeDir="false" afterPath="$PROJECT_DIR$/set.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/原型链.html" beforeDir="false" afterPath="$PROJECT_DIR$/原型链.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,11 +47,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="原型链.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="原型链.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/原型链.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="427">
+              <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="module.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/module.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="1" lean-forward="true" selection-end-line="18" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -87,29 +104,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="echartsCeshi3.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi3.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="echartsCeshi4.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi4.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="9101">
               <caret line="479" selection-start-line="479" selection-end-line="479" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="echartsCeshi5.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi5.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -250,7 +249,7 @@
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="171" />
+    <option name="x" value="123" />
     <option name="y" value="23" />
     <option name="width" value="1631" />
     <option name="height" value="982" />
@@ -264,7 +263,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,6 +274,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +367,10 @@
       <workItem from="1524193031532" duration="2318000" />
       <workItem from="1524225326092" duration="6405000" />
       <workItem from="1524367914958" duration="1239000" />
-      <workItem from="1524445404650" duration="258000" />
+      <workItem from="1524445404650" duration="2776000" />
+      <workItem from="1524487817782" duration="570000" />
+      <workItem from="1524531934954" duration="8000" />
+      <workItem from="1524532008297" duration="1323000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1522218064623</created>
@@ -405,11 +407,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524232851054</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="原型链">
+      <created>1524445713104</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1524445713105</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111162000" />
+    <option name="totallyTimeSpent" value="115581000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -421,18 +430,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="171" y="23" width="1631" height="982" extended-state="0" />
+    <frame x="123" y="230" width="1631" height="982" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85988027" visible="true" weight="0.20996885" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.85561496" visible="true" weight="0.20996885" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32934132" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.588755" side_tool="true" weight="0.4026764" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.40359282" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Structure" order="1" sideWeight="0.14011976" side_tool="true" visible="true" weight="0.20996885" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.411245" weight="0.16148326" />
+      <window_info id="Structure" order="1" sideWeight="0.14438502" side_tool="true" visible="true" weight="0.20996885" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.411245" visible="true" weight="0.104191616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" sideWeight="0.50097847" side_tool="true" weight="0.24049844" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -480,7 +489,8 @@
     <MESSAGE value="promise reject 方法" />
     <MESSAGE value="promise reject 方法&#10;&#10;异步解决方案:对调和订阅" />
     <MESSAGE value="111" />
-    <option name="LAST_COMMIT_MESSAGE" value="111" />
+    <MESSAGE value="原型链" />
+    <option name="LAST_COMMIT_MESSAGE" value="原型链" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -488,13 +498,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9101">
-          <caret line="479" lean-forward="true" selection-start-line="479" selection-end-line="479" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/echartstest/echartsCeshi5.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -586,13 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -822,8 +818,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/原型链.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        <state relative-caret-position="427">
+          <caret line="80" column="39" selection-start-line="80" selection-start-column="39" selection-end-line="80" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="1" lean-forward="true" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="25" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
         </state>
       </provider>
     </entry>

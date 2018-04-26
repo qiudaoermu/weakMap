@@ -18,9 +18,9 @@
         }
     }
 
-    let person = new Person()
+    let person = new Person();
 
-    console.log(person.getPerson())
+    console.log(person.getPerson());
 
 
     let arrset = new Set("abc");
@@ -77,8 +77,16 @@
                return super.getDrink()+"☕️"
             }
         }
-        console.log(subday.getDrink())
 
-
-
+        console.log(subday.getDrink());
+      function  getThis() {
+          return {
+              register:function () {
+                  console.log(this)
+              }
+          }
+      }
+        //getThis().register()
+    var Re = getThis().register;
+    Re()
 </script>
