@@ -15,13 +15,46 @@
 var numbers = [65, 44, 12, 4];
 
 function getSum(total, num) {
-	console.log(total+":"+num)
+	console.log(total+":"+num);
     return total + num;
 }
 
 function myFunction(item) {
     document.getElementById("demo").innerHTML = numbers.reduce(getSum);
 }
+
+numbers.reduce(getMap);
+function  getMap(list,num){
+    console.log(num)
+}
+function map() {
+
+}
+numbers.reduce(function (l,f) {
+    console.log(f)
+})
+
+
+const numbers2 = [10, 20, 30, 40];
+
+const doubledOver50 = numbers2.reduce((finalList, num) => {
+    console.log(num)
+
+    num = num * 2;
+
+
+    if (num > 15) {
+
+        finalList.push(num);
+
+    }
+
+    return finalList;
+
+}, []);
+
+// [60, 80]
+console.log(doubledOver50)
 </script>
 
 </body>

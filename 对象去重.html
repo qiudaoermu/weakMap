@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	var nArr=[
+  {
+    id:10001,
+    name:'张三'
+  },{
+    id:10002,
+    name:'李四'
+  },{
+    id:10001,
+    name:'张三'
+  },{
+    id:10003,
+    name:'王五'
+  },{
+    id:10004,
+    name:'赵六'
+  },{
+    id:10003,
+    name:'王五'
+  },{
+    id:10006,
+    name:'zuoqi'
+  }
+];
+
+var t ={}
+
+
+for(var i=0;i<nArr.length;i++){
+  console.log(nArr[i].id)
+
+  if(!t[nArr[i].id]){
+    t[nArr[i].id] = nArr[i]
+  }
+}
+var crr = []
+for(var i in t){
+crr[i] = t[i]
+}
+console.log(crr)
+
+
+
+
+// 方案一，利用新的数组进行循环遍历
+/*
+var newArr=[];
+function _objIsInArray(obj,arr){
+  let tmpStatus=false;
+  for(let j=0;j<arr.length;j++){
+    if(obj.id==arr[j].id){
+      return j;
+      break;
+    }else{
+      tmpStatus=false;
+    }
+  }
+  if(!tmpStatus){
+    return -1;
+  }
+}
+for(let i=0;i<nArr.length;i++){
+  if(_objIsInArray(nArr[i],newArr) ==-1){
+     newArr.push(nArr[i]);
+  }else{
+    console.log('对象已存在');
+  }
+}
+console.log(newArr);
+*/
+</script>
+</html>

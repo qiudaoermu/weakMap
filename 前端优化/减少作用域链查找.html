@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	console.time('testForEach');
+	var globalVar = 1; 
+	function myCallback(){ 
+	   for( var i = 100000000; i--;){
+	   	 globalVar += i; 
+	   }
+	}
+	console.timeEnd('testForEach');
+	console.time('stestForEach');
+	var globalVar = 1; 
+	function myCallback(){ 
+		var t = globalVar
+		   for( var i = 100000000; i--;){
+		   	 t += i; 
+		   }
+	}
+	console.timeEnd('stestForEach');
+
+	console.time('a')
+	var a = 1000000000;
+
+	for(var i=0;i<a.length;i++){
+		console.log(a[i])
+	}
+	console.timeEnd('a')
+
+	console.time('b')
+	var b = 1000000000;
+
+	for(var i=0;i<b.length;i++){
+		console.log(a[i])
+	}
+	console.timeEnd('b')
+
+	function getdayMonth(data) {
+
+	    var arrT = []
+
+	    for(var i=0;i<3;i++){
+	    	console.log(i)
+	    	console.log(data)
+	        var d = new Date(data);
+	        console.log(d)
+	        d = +d + 1000*60*60*24*i;
+	        //console.log(d)
+	        d = new Date(d);
+	        var year = d.getFullYear();
+	        var mon = d.getMonth()+1;
+	        var day = d.getDate();
+	        var s = year+"-"+(mon<10?('0'+mon):mon)+"-"+(day<10?('0'+day):day);
+
+	        arrT.push(s)
+	    }
+	    return arrT
+  
+  }	
+  var t = getdayMonth('2018-4-27')
+  console.log(t)
+</script>
+</html>
