@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<style>
+div 
+{
+    background-color: coral;
+    border: 1px solid;
+    padding: 50px;
+}
+</style>
+</head>
+<body>
+
+<p>该实例演示了在添加事件监听时冒泡与捕获阶段的不同。</p>
+<div id="myDiv">
+	<p id="myP">点击该段落， 我是冒泡</p>
+</div><br>
+<div id="myDiv2">
+	<p id="myP2">点击该段落， 我是捕获</p>
+</div>
+<script>
+	//false 冒泡 从里到外
+document.getElementById("myP").addEventListener("click", function() 
+{
+    alert("你点击了 P 元素!");
+}, false);
+document.getElementById("myDiv").addEventListener("click", function()
+{
+    alert("你点击了 DIV 元素!");
+}, false);
+//true 捕获 从外到里
+
+document.getElementById("myP2").addEventListener("click", function() 
+{
+    alert("你点击了 P 元素!");
+}, true);
+document.getElementById("myDiv2").addEventListener("click", function() 
+{
+    alert("你点击了 DIV 元素!");
+}, true);
+</script>
+
+</body>
+</html>

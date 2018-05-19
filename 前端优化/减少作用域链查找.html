@@ -19,6 +19,7 @@
 	var globalVar = 1; 
 	function myCallback(){ 
 		var t = globalVar
+		//把全局变量放在内部 火狐加速明显
 		   for( var i = 100000000; i--;){
 		   	 t += i; 
 		   }
