@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 打开 localhost:2222/message
+	const es = new EventSource('/message');// /message是服务端支持EventSource的接口
+	 es.onmessage = function(e){
+     			 console.log(e.data); // 打印服务器推送的信息
+    }
+</script>
+</html>

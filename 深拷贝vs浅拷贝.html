@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	
+
+var china = {
+	  	nation : '中国',
+	  	birthplaces:['北京','上海','广州'],
+	  	skincolr :'yellow',
+	  	rest:{a:3,b:4},
+	  	friends:['sk','ls']
+	  }
+var usa = {
+	  	nation : '中国',
+	  	birthplaces:['北京','上海','广州'],
+	  	skincolr :'yellow',
+	  	rest:{a:3,b:4},
+	  	friends:['sk','ls']
+	  }
+
+	  function shallowclone(o,v){
+	  			var v = v||{}
+
+
+	  			for(var i in o){
+
+	  				v[i] = o[i]
+	  			}
+	  				return v
+	  }
+
+	  var rest = shallowclone(china,{})
+	  china.rest.a = 10 //改变
+	  console.log(rest)
+	  function deepClone(o,v){
+	  		var v = v||{}
+	  		for(var i in o){
+				if(typeof(o[i])=='object'){
+					if(o[i].constructor == "Array"){
+						v[i] = []
+					}else{
+						v[i]= {}
+					}
+					deepClone(o[i],v[i])
+
+				}else{
+					v[i] = o[i]
+				}
+	  		}
+	  		return v
+	  }
+	  let rest2 = deepClone(usa,{})
+		usa.rest.b =10 //不改变
+	  console.log(rest2)
+
+
+</script>
+</body>
+</html>

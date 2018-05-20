@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	let enginer = {name:'xiaoming',age:17}
+	let interface = {
+
+		set:function(receiver,property,value){
+			    console.log(property, 'is changed to', value);
+				receiver[property] = value
+		}
+	}
+	enginer = new Proxy(enginer,interface)
+
+	enginer.name = 'dabao'
+</script>
+</html>

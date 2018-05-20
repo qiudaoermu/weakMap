@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	Array.prototype.method=function(){
+　　console.log(this.length);
+}
+var myArray=[1,2,4,5,6,'a']
+myArray.name="数组"
+
+for(var i of myArray){
+	console.log(i)
+}
+
+for (var index in myArray) {
+  console.log(myArray[index]);
+}
+
+//for in遍历的是数组的索引（即键名）和原型上的方法，而for of遍历的是数组元素值。
+</script>
+</html>

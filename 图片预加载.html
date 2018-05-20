@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" content="text/html" http-equiv="content-type">
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	// 所有的图片（要是网络太好，自己加图片吧）
+const imgs = [
+    "http://op2clp53n.bkt.clouddn.com/20161104122758_cap-hpi.jpg",
+    "http://op2clp53n.bkt.clouddn.com/500414621%20%281%29.jpg",
+    "http://op2clp53n.bkt.clouddn.com/cover_bg.png",
+    "http://img.aotu.io/mamboer/post-aotu.jpg",
+    "http://misc.aotu.io/o2/img/books/books-cover.jpg",
+    "http://img.aotu.io/Yettyzyt/cover.png",
+    "http://img.aotu.io/wengeek/responsive-image.png",
+    "https://gw.alicdn.com/tfs/TB1_6wnRXXXXXbwXFXXXXXXXXXX-900-500.jpg",
+    "http://op2clp53n.bkt.clouddn.com/_138.jpg",
+    "http://op2clp53n.bkt.clouddn.com/0_ocs_fin_cov_1.jpg",
+    "http://op2clp53n.bkt.clouddn.com/2voyage.jpg",
+    "http://op2clp53n.bkt.clouddn.com/boa_illustrations_master_fb_1200x628-12.jpg",
+    "http://op2clp53n.bkt.clouddn.com/building_science_bulletin_cover_2__1x.jpg",
+    "http://op2clp53n.bkt.clouddn.com/building-science-bulletin-cover_1x.jpg",
+    "http://op2clp53n.bkt.clouddn.com/chemistry4_1x.png",
+    "http://op2clp53n.bkt.clouddn.com/first_colony_dribbble_copy.jpg"
+];
+let len = imgs.length;
+
+/**
+ * 遍历imgs数组，将所有图片加载出来
+ * 可以通过控制台查看网络请求，会发现所有图片均已加载
+ */
+for (let i = 0; i < len; i++) {
+    let imgObj = new Image(); // 创建图片对象
+    imgObj.src = imgs[i];
+
+    imgObj.addEventListener('load', function () { // 这里没有考虑error，实际上要考虑
+        console.log('imgs' + i + '加载完毕');
+    }, false);
+}
+</script>
+</html>
