@@ -965,29 +965,33 @@ sum = 0;
 sum = a.slice(0, 10).reduce(function(pre, current) {
 　　return pre + current;
 });
-```
-
-
 console.log(sum); //55
 ```
-2、不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标。
+
+
+
+
+
+2、不使用loop循环，创建一个长度为100的数组，并且每个元素的值等于它的下标
+
+```
 var a = Array(100).join(",").split(",").map(function(item, index) {
 
 　　return index;
 　　
 　　)}
 
-```
+
 
 js十大排序算法详解
 
 https://www.cnblogs.com/liyongshuai/p/7197962.html
 
-　　
-### 
-<h2 id="4.1"> 4.1 前端优化方案  </h2>
-
 ```
+
+<h2 id="4.1"> 4.1 前端优化方案  </h2>
+```　　
+
 1 . gzip
 2 .keep alive
 3 .域名分发
@@ -999,5 +1003,5 @@ https://www.cnblogs.com/liyongshuai/p/7197962.html
 9 . 少使用 evel with Function 原因 要从源码去解析 速度慢
 10 .预加载
 11 . 懒加载
-```
+
 
