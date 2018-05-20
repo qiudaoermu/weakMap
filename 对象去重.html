@@ -49,7 +49,40 @@ crr[i] = t[i]
 console.log(crr)
 
 
+Array.prototype.unique2 = function(){
+ this.sort(); //先排序
+ var res = [this[0]];
+ for(var i = 1; i < this.length; i++){
+  if(this[i] !== res[res.length - 1]){
+   res.push(this[i]);
+  }
+ }
+ return res;
+}
+   var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+   //var brr = [1, 'a',  'b', 'd', 'e', 1, 0]
+   var crr =[0, 1, 1, "a", "a", "b", "d", "e", "e"]
+   var crr =[0,  1, "a", "a", "b", "d", "e", "e"]
+console.log((arr.unique2()));
 
+Array.prototype.unique1 = function(){
+ var res = [this[0]];
+ for(var i = 1; i < this.length; i++){
+  var repeat = false;
+  for(var j = 0; j < res.length; j++){
+   if(this[i] == res[j]){
+    repeat = true;
+    break;
+   }
+  }
+  if(!repeat){
+   res.push(this[i]);
+  }
+ }
+ return res;
+}
+var arr2 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+console.log((arr2.unique1()));
 
 // 方案一，利用新的数组进行循环遍历
 /*
