@@ -36,7 +36,7 @@ numbers.reduce(function (l,f) {
 
 
 const numbers2 = [10, 20, 30, 40];
-
+//用作map 遍历
 const doubledOver50 = numbers2.reduce((finalList, num) => {
     console.log(num)
 
@@ -48,13 +48,48 @@ const doubledOver50 = numbers2.reduce((finalList, num) => {
         finalList.push(num);
 
     }
-
     return finalList;
 
 }, []);
 
 // [60, 80]
-console.log(doubledOver50)
+//console.log(doubledOver50)
+
+
+    //用reduce实现一个map
+    /*
+    {fn 回调函数}
+    {context 环境}
+    */
+Array.prototype.__map = function(fn,context){
+
+        for(let i=0;i<this.length;i++){
+            fn.call(context,this[i],i)
+        }
+
+}
+
+var value = []
+
+numbers2.__map(function (value,index) {
+    console.log(index)
+    this.value[index] = value
+},this)
+
+console.log(value)
+Array.prototype._map =function (fn) {
+    this.reduce((f,n)=>{
+        fn(n)
+    },[])
+}
+numbers2._map(function(value,index){
+    //console.log(value)
+})
+
+
+
+
+
 </script>
 
 </body>

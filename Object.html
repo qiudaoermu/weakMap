@@ -8,9 +8,54 @@
 </body>
 <script type="text/javascript">
 
-	//object.create应于函数 new
-	var a  = {a:3,c:4};
-	var t = Object.create(a);
-	console.log(t)
+//🍊object.create应于函数 new
+var a  = {a:3,c:4};
+var t = Object.create(a);
+console.log(t)
+
+
+//🍎Object.prototype.toString.call 使用 对象原型的toString 是因为 大多数对象的toString 都不准确 或者没有
+
+try{
+
+	//1.toString()  //Uncaught SyntaxError: Invalid or unexpected token
+	console.log((true).toString())//"true" 布尔对象此方法不准确
+	console.log(Object.prototype.toString.call(true))
+	//([]).toString()  //""
+	//{}.toString()  //Uncaught SyntaxError: Unexpected token .
+	//null.toString()  //Uncaught TypeError: Cannot read property 'toString' of null
+	//undefined.toString()  //Uncaught TypeError: Cannot read property 'toString' of undefined
+	NaN.toString()   //"NaN"
+    console.log(Object.prototype.toString.call(NaN)) //[object Number]
+	//这些需要刻意背一下，其中1和{}是语法错误。null和undefined是因为没有toString方法,可以使用call来借用
+	1..toString()   //"1"
+	//(1).toString()  //"1"
+	Number(1).toString()  //"1"
+	console.log(({}).toString())   //[object Object]
+	console.log(([]).toString()) // 空 数组对象没有这个方法
+	Object.prototype.toString.call(null)   //[object Null]
+	Object.prototype.toString.call(undefined)   //[object Undefined]
+	console.log(Object.prototype.toString.call([])) //[object Array]
+
+}catch(e){
+	console.log(e)
+}
+
+//🍌原型上的方法是可以直接调用的
+
+	function Rest(argument) {
+		// body...
+	}
+	Rest.prototype = {
+		afer:function(arg){
+			//console.log("afer")
+			return this.valueOf()
+
+		}
+	}
+
+	console.log(Rest.prototype.afer('10'))
+
+
 </script>
 </html>

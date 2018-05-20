@@ -79,14 +79,17 @@
         }
 
         console.log(subday.getDrink());
-      function  getThis() {
-          return {
-              register:function () {
-                  console.log(this)
+          function  getThis() {
+              return {
+                  register:function () {
+                      console.log(this)
+                  }
               }
           }
-      }
-        //getThis().register()
-    var Re = getThis().register;
-    Re()
+            //getThis().register()
+        var Re = getThis().register;
+        Re()
+
+        var obj = {}
+        obj.drink()
 </script>

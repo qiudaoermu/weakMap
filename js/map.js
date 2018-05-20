@@ -25,4 +25,43 @@ var trr = Array(100).join(',').split(',').Map(function(value,index){
 	return index
 
 })
+
 console.log(trr)
+
+
+//🍎 while for 效率比较
+function testWhile(){
+	console.time('whleiArr')
+	let whleiArr = []
+	var i = 1000000
+
+	while(i>0){
+		//console.log(i)
+		whleiArr.push(i)
+		i--
+	}
+	console.timeEnd('whleiArr')
+}
+
+
+
+function testFor(){
+	console.time('testFor')
+
+	let forArr = []
+	var t = 1000000
+	for(var i=0;i<t;i++){
+		forArr.push(i)
+	}
+	console.timeEnd('testFor')
+
+}
+
+//经测试 for 效率低
+testWhile()
+testFor()
+try {
+	
+}catch (e) {
+	
+}

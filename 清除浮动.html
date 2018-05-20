@@ -12,13 +12,34 @@
 	  margin: 20px; 
 	  background-color: green;
 	}
-	.clear{
+	.box-wrapper .clear{
 		clear:both;
+	}
+
+
+	.box-wrapper2 {
+	  border: 5px solid red;
+	  background: #ffe
+	}
+	.box-wrapper2 .box {
+	  float: left; 
+	  width: 100px; 
+	  height: 100px; 
+	  margin: 20px; 
+	  background-color: green;
+	}
+	
+	.box-wrapper2:after {
+	  content: ""; 
+	  display: block; 
+	  height: 0; 
+	  clear: both; 
+	  
 	}
 
 </style>
 <head>
-	<title></title>
+	<title>也可以在父级标签最后添加一个div，div中的属性同伪类。原理其实和伪类是一样的，都是利用clear：both</title>
 </head>
 <body>
 <div class="box-wrapper">
@@ -26,6 +47,12 @@
   <div class="box"></div>
   <div class="box"></div>
   <div class="clear"></div>
+</div>
+
+<div class="box-wrapper2">
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
 </div>
 </body>
 </html>

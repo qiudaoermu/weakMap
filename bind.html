@@ -23,6 +23,48 @@ class Animal {
  var animal = new Animal();
  animal.says('hi')  //undefined says hi
 
+//bind 实现原理
+Function.prototype.Bind = function(context){
+        var self = this
+        var arg = Array.prototype.slice.call(arguments)[1]
+        return function(){
+            self.call(context,arg)
+        }
+
+}
+
+Function.prototype._bind = function (context) {
+  let self = this
+  let args_1 = Array.prototype.slice.call(arguments, 1)
+  console.log(args_1)
+  return function (t) {
+    let args_2 = Array.prototype.slice.call(arguments)
+      console.log(args_2)
+    let args = args_1.concat(args_2)
+    console.log(args)
+    return self.apply(context, args)
+  }
+}
+
+var obj = {
+    a:3,
+    test:function(t){
+        console.log(this.a,t)
+    }    
+}
+//obj.test()
+
+var a = 4;
+
+
+obj.test.Bind(window,10)()
+
+
+obj.test._bind(window,10)('c')
+
+
+obj.test.bind(window,10)
+
  
 </script>
 </html>

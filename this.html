@@ -7,7 +7,7 @@
 
 </body>
 <script type="text/javascript">
-	'use strict'
+	//'use strict'
 	var a = {
 				c:{
 					fn:function(){
@@ -15,15 +15,19 @@
 			     	}
 				},
 				d:function(){
-				    console.log(this);
+				   // console.log(this);
 				    return function () {
                         console.log(this)
                     }
 
+				},
+				f:function(){
+					console.log(this)
 				}
 			};
 	a.c.fn();
 	a.d()();
+	a.f()
       
 </script>
 </html>
