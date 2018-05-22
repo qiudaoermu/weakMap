@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var pattern = {
+    get: function () {
+    	console.log('I alway return this string,whatever you have assigned')
+        return 'I alway return this string,whatever you have assigned';
+    },
+    set: function () {
+        this.myname = 'this is my name string';
+    }
+};
+
+
+function TestDefineSetAndGet() {
+    Object.defineProperty(this, 'myproperty', pattern);
+}
+
+
+var instance = new TestDefineSetAndGet();
+instance.myproperty = 'test';
+instance.myproperty = 'test2';
+// 'I alway return this string,whatever you have assigned'
+console.log(instance.myproperty);
+// 'this is my name string'
+console.log(instance.myname);
+//和new Proxy 类似 监控属性变化
+</script>
+</html>

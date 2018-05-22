@@ -1,27 +1,43 @@
 <html>
 
 　　<head>
+    <meta charset="UTF-8">
 
-　　<script type="text/javascript">
-
-　　function parent_click(){
-
-　　alert("来自父页面");
-
-　　}
-
-　　</script>
+　
 
 　　</head>
 
 　　<body>
 
-　　<input type="button" value="调用本页面函数" onclick="parent_click();" />
+　　<input type="button" value="调用本页面函数" onclick="parent_click()" />
 
-　　<input type="button" value="调用子页面函数" onclick='window.frames["childPage"].child_click();' />
+　　<input type="button" value="调用子页面函数"  />
 
 　　<iframe id="childPage" name="childPage" src="sonFrame.html" width="100%" frameborder="0"></iframe>
 
 　　</body>
+　<script type="text/javascript">
+    function cc() {
+        console.log('cc')
+    }
+window.onload = function () {
+    function parent_click(){
+        //alert("来自父页面");
+        document.getElementById('childPage').contentWindow.child_click()
+    }
+    parent_click()
+    
 
+}
+
+    window.onload = function () {
+        var ifr = document.querySelector('#childPage');
+        ifr.contentWindow.postMessage({a: 1}, '*');
+    }
+    window.addEventListener('message', function(e) {
+        console.log('bar say: '+e.data);
+    }, false);
+
+
+</script>
 　　</html>

@@ -7,13 +7,13 @@
 <body>
 
 </body>
-<script src="public/jquery/dist/jquery.js"></script>
+<script src="./public/jquery/jquery.js"></script>
 <script>
 
     function getData(){
         $.ajax({
             url: "http://localhost:3000/test/getData",
-            type:"GET",
+            type:"get",
             cache: false,
             headers:{'X-Custom-Header':'value'},
             success: function(html){

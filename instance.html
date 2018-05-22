@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+
+	var t= []
+	t.__proto__ = {} //改变构造函数
+	console.log(t instanceof Array)
+	console.log(t.constructor)
+	console.log(t.constructor == Array)
+	console.log(Object.prototype.toString.call(t)=="[object Array]") //[object Array]
+
+
+	function Child(argument) {
+		// body...
+	}
+	function Parent(){
+
+
+
+	}
+
+	Child.prototype = new Parent()
+	Child.prototype.constructor = Child
+
+
+	console.log(new Child().constructor)
+
+</script>
+</html>

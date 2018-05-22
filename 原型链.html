@@ -33,12 +33,23 @@
 
     window.a = 30;
 
+    //🐖
+    Function.prototype.a = function(){
+            console.log('a')
+    }
+    Object.prototype.b = function(){
+            console.log('b')
+    }
+
+    var aa = new Object()
+
+   // console.log(aa.a()) //拿不到a Object.prototype.__proto__ ==null
+
+    console.log(aa.b())//b
 
 
 
-    (()=>{
-        console.log("🍍")
-    })();
+
 
 
     let arr = [1,2,3].map( (index,elem) =>{
@@ -77,7 +88,10 @@
                return super.getDrink()+"☕️"
             }
         }
-
+        "use strict"
+        //"use strict"
+        console.log(aaaa)
+        var aaaa
         console.log(subday.getDrink());
           function  getThis() {
               return {

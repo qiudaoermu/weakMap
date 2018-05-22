@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+
+	var a = b= {}
+		a = 3
+		console.log(b)//{}
+
+
+		var c ={a:3}
+		var d = c
+		d = {}  //开辟新的引用空间
+		console.log(c) //{a:3}
+
+//按共享传递 call by sharing
+var obj2 = {x : 1};
+function foo2(o) {
+    o = 100;
+}
+foo2(obj2);
+console.log(obj2.x); // 仍然是1, obj并未被修改为100.
+
+
+
+
+var obj = {x : 1};
+function foo(o) {
+    o.x = 3;
+}
+foo(obj);
+console.log(obj.x); // 3, 被修改了!
+
+</script>
+</html>

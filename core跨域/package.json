@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "express": "^4.16.3",
+    "jquery": "^3.3.1",
     "swig": "^1.4.2"
   }
 }

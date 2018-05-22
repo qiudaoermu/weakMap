@@ -44,7 +44,7 @@ app.disable('view cache');
 //----------------------------------
 app.get("/", function (req, res, next) {
 
-    res.render('index');
+    res.render('index.html');
 });
 app.get("/detial", function (req, res, next) {
 

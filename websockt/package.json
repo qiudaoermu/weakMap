@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "nodejs-websocket": "^1.7.1",
+    "ws": "^5.2.0"
+  }
+}

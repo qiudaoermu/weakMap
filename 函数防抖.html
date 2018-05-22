@@ -21,10 +21,13 @@ function debounce(fn, wait) {
           fn.apply(context, args)
       }, wait)
   }
-}
+};
+
+
+
 var fn = function(){
 	console.log('fn')
-}
+};
 
  var fn = window.onresize = debounce(fn,500)
 

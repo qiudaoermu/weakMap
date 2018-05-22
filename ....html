@@ -4,7 +4,12 @@
 	<title></title>
 </head>
 <body>
+	<li></li>
 
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
 </body>
 <script type="text/javascript">
 	var people=['Wayou','John','Sherlock'];
@@ -20,5 +25,13 @@ function sayHello(people1,people2,people3){
 sayHello.apply(this,people);
 //和this 没有关系 只是巧妙的使用了apply 第二个参数的数组属性
 //输出：Hello Wayou,John,Sherlock 
+
+console.log(...document.getElementsByTagName('li'))
+var c = [1,3,435,35,345,46,45,1]
+var set= new Set(c)
+function unique(){
+	return [...set]
+}
+console.log(set)
 </script>
 </html>

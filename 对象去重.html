@@ -83,6 +83,22 @@ Array.prototype.unique1 = function(){
 }
 var arr2 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
 console.log((arr2.unique1()));
+var array = [1, 1, '1'];
+
+
+Array.prototype.unique3 = function(){
+
+
+    var t=  []
+    for(var i=0;i<this.length;i++){
+      if(t.indexOf(this[i])===-1){
+        t.push(this[i])
+      }
+    }
+    return t
+
+}
+console.log(array.unique3())
 
 // 方案一，利用新的数组进行循环遍历
 /*
