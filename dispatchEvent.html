@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id='test'>test</button>
+	<button id='obj'></button>
+</body>
+<script type="text/javascript">
+	
+
+var obj = document.getElementById("obj");
+
+var event1 = document.createEvent('HTMLEvents');
+
+event1.initEvent("build", true, true);
+
+//触发obj元素上绑定click事件
+
+document.addEventListener('build', function (e) {
+  // e.target matches document from above
+  console.log('build')
+}, false);
+
+document.getElementById("test").onclick = function () {
+
+		obj.dispatchEvent(event1);
+
+};
+
+</script>
+</html>

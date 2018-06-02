@@ -126,5 +126,20 @@ for(let i=0;i<nArr.length;i++){
 }
 console.log(newArr);
 */
+
+var arr = [1,23,41,1,23]
+let unique = arr.reduce(function(a,b){
+    
+    if(a.indexOf(b)==-1){
+      return b
+    }
+
+},[])
+console.log(unique)
+
+
+
+
+
 </script>
 </html>

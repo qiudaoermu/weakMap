@@ -90,6 +90,27 @@ numbers2._map(function(value,index){
 
 
 
+
+
+var flattened =[1,23,4,1,23,4,1].reduce(function(a, b) {
+    console.log(a)
+    //return a.concat(b);
+  },[]
+);
+console.log(flattened)
+var trr = [23,4,1,45,1,23,65,34]
+//a 等于上次return 的结果
+t= trr.reduce(function(a,b){
+   console.log(a)
+   if(a.indexOf(b) == -1){
+         a.push(b)
+   }
+   return a
+},[]
+);
+console.log(t)
+
+
 </script>
 
 </body>

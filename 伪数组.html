@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</body>
+<script type="text/javascript">
+	//伪数组 有length属性 没有Array方法
+	function ar(argument) {
+		// body...
+		console.log(arguments.length)
+
+		var arg = Array.prototype.slice.call(arguments)
+		
+		arg.forEach(function(v,i){
+				console.log(v)
+		})
+		
+	}
+	ar(1,2,33,43,44)
+	let len = document.getElementsByTagName('li').length
+	console.log(len)
+</script>
+</html>

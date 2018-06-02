@@ -8,6 +8,33 @@
 </body>
 <script src="jquery/dist/jquery.js" type="text/javascript" ></script>
 <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+console.log('baidu')
+new Promise(function (resolve) {  
+    console.log("promise1");  
+    resolve();  
+}).then(function () {  
+    console.log("promise2");  
+});  
+console.log('baidu2')
+
+
+
+
 //原生Promise管理异步流程
 function time(){
 	return new Promise(function(resolve,reject){

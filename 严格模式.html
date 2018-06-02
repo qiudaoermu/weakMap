@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	'use strict'
+	//禁止this关键字指向全局对象。
+	function f(){ 
+    "use strict";
+    return !this;
+} 
+f()
+
+
+var obj = {
+
+	a:function(){
+		return function(){
+			return !this
+		}
+	}
+}
+var cx  = obj.a()
+cx()
+
+
+</script>
+</html>

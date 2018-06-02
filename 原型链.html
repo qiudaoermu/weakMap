@@ -12,6 +12,74 @@
 
 <script>
 
+
+
+
+        function father(name) {  
+            this.faName = 'father';  
+            console.log('father')
+        }  
+        father.prototype.getfaName = function() {  
+            console.log(this.faName);  
+        };  
+        function child(args) {  
+            this.chName = 'child';  
+            father.apply(this,[]); //第二次调用父类构造函数  
+        }  
+
+        child.prototype = new father(); //第一次调用父类构造函数  
+        child.prototype.constructor = child;  
+        child.prototype.getchName = function() {  
+            console.log(this.chName);  
+        };  
+
+
+        var c = new child()
+        var obj = function(){}
+        obj.__proto__ = child.prototype;
+        child.call(obj);
+        console.log(obj());
+
+        c.getchName()
+
+
+
+
+
+
+
+
+        function Globa(name){
+                this.name = 'xiaoming';
+
+        }
+        Globa.prototype.foo = "地球";
+
+        function Thing(name){
+            Globa.call(this,name);
+        }
+
+        Thing.prototype = new Globa();
+
+        Thing.prototype.logfoo = function(){
+            console.log(this.name)
+        }
+
+        var thing1 = new Thing('xiaoming');
+        thing1.logfoo()//利用原型链的原理把属性存到上一个原型母体内
+
+
+
+
+
+
+
+
+
+
+
+
+
     class Person{
         getPerson(){
             return this

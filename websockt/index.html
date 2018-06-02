@@ -2,6 +2,9 @@
 <input type="text" id="text">
 <input type="button" onclick="sendMessage()" value="online">
 <script>
+
+
+
     var ws = new WebSocket("ws://localhost:8000");
 
     ws.onopen = function (e) {
@@ -16,6 +19,9 @@
     function sendMessage() {
         ws.send(document.getElementById('text').value);
     }
+
+
+    
 </script>
 </html>
 

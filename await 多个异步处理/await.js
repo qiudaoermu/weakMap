@@ -36,14 +36,20 @@ var savePoster = function (movieName, url) {
 
 (async () => {
     let files = await readFiles();
-
     // await只能使用在原生语法
     for (var file of files) {
+        
         let name = path.parse(file).name;
-
         console.log(`正在获取【${name}】的海报`);
         savePoster(name, await getPoster(name));
-    }
 
+    }
     console.log('=== 获取海报完成 ===');
 })();
+
+
+
+
+
+
+

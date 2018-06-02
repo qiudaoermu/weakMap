@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+
+const obj = {
+    a: function() {
+        console.log(this)
+        window.setTimeout(() => { 
+            console.log(this) 
+        }, 1000)
+    }
+}
+
+obj.a()
+var id=42
+function log(){
+  setTimeout(function(){
+  	console.log(this.id)
+  },100)
+}
+
+log.call({id:21})
+var idd=21
+function log2(){
+	console.log(this)
+
+ setTimeout(()=>{
+  	console.log(this.idd)
+  },100)
+
+
+}
+
+log2()
+var a = 10
+
+var obj2 ={
+
+	a:3,
+
+	d:function(){
+		return ()=>{
+			console.log(this.a)
+		}
+	}
+}
+obj2.d()()//10
+</script>

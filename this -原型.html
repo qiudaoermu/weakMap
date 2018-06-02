@@ -18,16 +18,23 @@ fn.prototype = {
     b: function() {
         this.a = 20;
 		console.log(this)
-        
     },
     c: function() {
         this.a = 30;
 		console.log(this)
-      
     }
 }
 var myfn = new fn();
 myfn.b();
 myfn.c();
+var name = 'as';
+var obj = {
+    name:'a',
+    c:()=> {
+        console.log(this.name)
+    }
+}
+var c = obj.c;
+c();
 </script>
 </html>

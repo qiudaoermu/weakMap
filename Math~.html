@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+var a= [1,2,23,30,35]
+var t = a.sort(function(x,y){
+	console.log(x,y)
+	return (Math.abs(x-3)-Math.abs(y-3))
+})
+
+console.log(t.toString()) //2,1,23,30,35
+</script>
+</html>

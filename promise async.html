@@ -8,6 +8,15 @@
 </body>
 <script type="text/javascript">
 
+
+async function test() {
+    
+}
+
+let result = test()
+console.log(result) 
+
+
 function Cromise(fn){
 
 		var arr = []
@@ -94,7 +103,7 @@ console.log(5);
 	function resolveAfter2Seconds() {
 	  return new Promise(resolve => {
 	    setTimeout(() => {
-	      resolve('resolved');
+	      resolve('resolved2');
 	    }, 2000);
 	  });
 	}
@@ -108,13 +117,16 @@ console.log(5);
 	async function asyncCall() {
 	  console.log('calling');
 	  var result =  await resolveAfter2Seconds();
-	  var result3 = await resolveAfter3Seconds();
 	  console.log(result);//等到十秒后执行
+	  var result3 = await resolveAfter3Seconds();
+	
 	  console.log(result3);
 	  console.log('------');
 	}
 
 	asyncCall();
+
+
 
 
 

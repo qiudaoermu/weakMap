@@ -7,12 +7,14 @@
 
 </body>
 <script type="text/javascript">
-	function callback(data){
-			console.log(data)
-	}
-
-</script>
-<script type="text/javascript" src="callbackJson.json">
-	
+//堆中
+var a = function(){
+	console.log("ex")
+}
+// 栈中
+function a(){
+	console.log('de')
+}
+a()
 </script>
 </html>

@@ -54,8 +54,45 @@ var usa = {
 	  		return v
 	  }
 	  let rest2 = deepClone(usa,{})
-		usa.rest.b = 10 //不改变
+	  usa.rest.b = 10 /不改变
 	  console.log(rest2)
+
+
+
+
+
+	  var crr = {
+	  		e:3,
+	  		f:[]
+	  		b:{
+	  			c:{a:1,c:2}
+	  	}
+	  }
+	  var tr= {}
+	  for(var i in crr){
+	  	if(type crr[i]=='object'){
+
+	  			tr[i] = {}
+	  			for(var j in crr[i]){
+	  				tr[i][j] = crr[i][j]
+	  			}
+
+
+	  	}else{
+	  		tr[i] = crr[i]
+	  	}
+	  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
