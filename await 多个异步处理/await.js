@@ -24,6 +24,7 @@ var getPoster = function (movieName) {
             console.log(body.subjects[0].images.large)
 
             resolve(body.subjects[0].images.large);
+            reject(error)
         })
     });
 };
@@ -35,7 +36,7 @@ var savePoster = function (movieName, url) {
 
 
 (async () => {
-    let files = await readFiles();
+    let files = ['中南海保镖','新少林五祖','精武英雄','黑侠','给爸爸的一封信'];
     // await只能使用在原生语法
     for (var file of files) {
         

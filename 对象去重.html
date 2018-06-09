@@ -59,10 +59,12 @@ Array.prototype.unique2 = function(){
  }
  return res;
 }
-   var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
-   //var brr = [1, 'a',  'b', 'd', 'e', 1, 0]
-   var crr =[0, 1, 1, "a", "a", "b", "d", "e", "e"]
-   var crr =[0,  1, "a", "a", "b", "d", "e", "e"]
+
+
+ var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
+ //var brr = [1, 'a',  'b', 'd', 'e', 1, 0]
+ var crr =[0, 1, 1, "a", "a", "b", "d", "e", "e"]
+ var crr =[0,  1, "a", "a", "b", "d", "e", "e"]
 console.log((arr.unique2()));
 
 Array.prototype.unique1 = function(){
@@ -87,7 +89,6 @@ var array = [1, 1, '1'];
 
 
 Array.prototype.unique3 = function(){
-
 
     var t=  []
     for(var i=0;i<this.length;i++){
@@ -129,10 +130,10 @@ console.log(newArr);
 
 var arr = [1,23,41,1,23]
 let unique = arr.reduce(function(a,b){
-    
     if(a.indexOf(b)==-1){
-      return b
+       a.push(b)
     }
+    return a
 
 },[])
 console.log(unique)

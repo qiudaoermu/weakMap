@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script  type="text/javascript">
+	//map 可以创建一个新数组 实现对原数组的克隆 等操作
+window.onload  = function(){
+			console.log('baidu')
+		}
+for(var i=0;i<10;i++){
+	
+		(function(i){
+			setTimeout(function(){
+				console.log(i)
+			},1000)
+		})(i)
+		
+		
+		
+}
+
+Array.prototype.Map = function myMap(callback,context){
+    context = context || window;
+    if( 'map' in Array.prototype) {
+        this.map(callback,context);
+    }
+    //IE6-8下自己编写回调函数执行的逻辑
+    var newAry = [];
+    for(var i = 0,len = this.length; i < len;i++) {
+        if(typeof  callback === 'function') {
+            var val = callback.call(context,this[i],i,this);
+            newAry[newAry.length] = val;
+        }
+    }
+    return newAry;
+}
+
+
+
+var arr = [1,23,43,4546,523]
+var trr = Array(100).join(',').split(',').Map(function(value,index){
+	return index
+
+})
+
+console.log(trr)
+
+
+//🍎 while for 效率比较
+function testWhile(){
+	console.time('whleiArr')
+	let whleiArr = []
+	var i = 1000000
+
+	while(i>0){
+		//console.log(i)
+		whleiArr.push(i)
+		i--
+	}
+	console.timeEnd('whleiArr')
+}
+
+
+
+function testFor(){
+	console.time('testFor')
+
+	let forArr = []
+	var t = 1000000
+	for(var i=0;i<t;i++){
+		forArr.push(i)
+	}
+	console.timeEnd('testFor')
+
+}
+
+//经测试 for 效率低
+testWhile()
+testFor()
+try {
+	
+}catch (e) {
+	
+}
+
+
+//封装一个forEach 数组和对象都可以使用
+
+
+
+Object.prototype._forEach  = function(fn){
+		if(this instanceof Array){
+			this.forEach(fn)
+		}else{
+			for(var i in this){
+				if(this.hasOwnProperty(i)){
+					fn(i,this[i])
+				}
+			}
+		}
+}
+
+
+
+var drr = [1,2,34,54,51,1]
+drr._forEach(function(value,index){
+		console.log(value,index)
+});
+
+
+
+var crr = {a:1,b:2,c:3}
+
+var obj = {
+	a:1,
+	fn:function(t){
+		console.log(t)
+	}
+};
+
+
+crr._forEach(function(value,index){
+		
+		obj.fn(value)
+})
+
+
+
+
+
+drr.forEach(function(value,index){
+
+	window.onload  = function(){
+			console.log(this)
+				console.log(value,index)
+			
+		}
+})
+
+
+
+
+</script>
+</html>

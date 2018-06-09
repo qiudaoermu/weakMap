@@ -26,9 +26,13 @@ class Animal {
 //bind 实现原理
 Function.prototype.Bind = function(context){
         var self = this
-        var arg = Array.prototype.slice.call(arguments)[1]
+
+ 
+
         return function(){
+            var arg = [...arguments][0]
             self.call(context,arg)
+
         }
 
 }
@@ -50,6 +54,10 @@ var obj = {
     a:3,
     test:function(t){
         console.log(this.a,t)
+        return function(q){
+            console.log(q)
+        }
+       
     }    
 }
 //obj.test()
@@ -57,13 +65,13 @@ var obj = {
 var a = 4;
 
 
-obj.test.Bind(window,10)()
+//obj.test.Bind(window,10)
 
 
-obj.test._bind(window,10)('c')
+//obj.test._bind(window,10)('c')
 
 
-obj.test.bind(window,10)
+obj.test.bind(window,10)()(4)
 
  
 </script>

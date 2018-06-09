@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var p1 =new Promise(function(resolve,reject){
+    setTimeout(function(){
+        resolve(1);
+    },0)
+});
+
+var  p2 = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            reject(2);
+        },200)
+    });
+
+var  p3 = new Promise(function(resolve,reject){
+        setTimeout(function(){
+            try{
+            console.log(XX.BBB);
+            }
+            catch(exp){
+                resolve("error");
+            }
+        },100)
+    });
+Promise.all([p1, p2, p3]).then(function (results) {
+    console.log("success")
+    console.log(results);
+}).catch(function(r){
+    console.log(r);
+});
+</script>
+</html>

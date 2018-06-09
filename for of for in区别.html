@@ -2,17 +2,31 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8"/>
 </head>
 <body>
 
 </body>
 <script type="text/javascript">
-	Array.prototype.method=function(){
-　　console.log(this.length);
-}
-var myArray=[1,2,4,5,6,'a']
-myArray.name="数组"
 
+
+
+
+Array.prototype.method=function () {
+	console.log(this.length)
+}
+var myArray=[1,2,4,5,6,'a'];
+myArray.name="数组";
+var obj  = {a:3,d:4};
+Object.prototype.fix = function () {
+		console.log('fiex')
+}
+for(var i in obj){
+    console.log(obj[i])
+	if(obj.hasOwnProperty(i)){
+	    console.log(obj[i])
+	}
+}
 for(var i of myArray){
 	console.log(i)
 }
@@ -21,6 +35,10 @@ for (var index in myArray) {
   console.log(myArray[index]);
 }
 
-//for in遍历的是数组的索引（即键名）和原型上的方法，而for of遍历的是数组元素值。
+console.log(Object.keys(obj))
+
+//object.keys不能获取对象原型上的属性
+// for in遍历的是数组的索引（即键名）和原型上的方法，而for of遍历的是数组元素值。
+// for in既可以遍历数组 又可以遍历对象
 </script>
 </html>

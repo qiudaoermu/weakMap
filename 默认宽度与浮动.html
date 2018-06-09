@@ -7,15 +7,21 @@
 	.float{
 		border: 5px solid #ddd;
 		float: left;
+		width: 300px
 	}
 	.nofloat{
 		border: 5px solid #ddd
+		height: 300px;
+		background: grey;
+		overflow: hidden;
 	}
 </style>
 <body>
 <div class="float">
 	元素浮动 宽度受影响
 </div>
-<div class="nofloat"></div>
+<div class="nofloat">
+	<p></p>
+</div>
 </body>
 </html>

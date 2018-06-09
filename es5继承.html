@@ -22,7 +22,7 @@
         this.sex=sex;
     };
     Son.prototype=new Fn();         //Son.prototype指向父类对象，实现了继承，所以能够调用eat方法，
-    var s1=new Son("李四",20,"男");    //若没有继承，单单的使用call借调Fn继承，子类实例s1无法调用eat方法
+    var s1 = new Son("李四",20,"男");    //若没有继承，单单的使用call借调Fn继承，子类实例s1无法调用eat方法
     console.log(s1);            //因为call不是真正的继承
     s1.eat();
     var a = {a:3,c:3}

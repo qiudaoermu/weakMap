@@ -9,12 +9,9 @@
 </html>
 <script type="text/javascript">
 	
-	$(document).onclick(function(e){
-		console.log(e)
-	})
-
+	
 	var event={
-		addevent:function(element){
+		addevent:function(element,type,fn){
 			if(element.addEventListener){
 
 				element.addEventListener(type,fn,false)
@@ -23,7 +20,7 @@
 				attachEvent('on'+type,fn)
 			}
 		},
-		deleteEvent:function(element){
+		deleteEvent:function(element,type,fn){
 			if(window.removeEventListener){
 				element.removeEventListener(type,fn,false)
 			}else{
@@ -38,10 +35,8 @@
 			}
 		},
 		event:function(e){
-			var e = e||window.event
+			var e = e|| window.event
 
 		}
-
-
 	}
 </script>

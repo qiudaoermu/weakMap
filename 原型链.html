@@ -14,17 +14,39 @@
 
 
 
+        function AA(){
+
+        }
+        var a = new AA()
+        console.log(a.__proto__ == AA.prototype)
+        console.log(AA.prototype.__proto__ == Object.prototype)
+        console.log(Object.prototype.__proto__ ==null)
+
+        
+        var h = {a:3}
+        var b = {}
+        b.d = h
+        b.d.a = 4
+        console.log(h)
+
+          function Change(){
+                this.name = 3
+        }
+        var a = new Change()
+        console.log(a.name = 4)
+        var b = new Change()
+        console.log(b.name)
+
 
         function father(name) {  
             this.faName = 'father';  
-            console.log('father')
         }  
         father.prototype.getfaName = function() {  
-            console.log(this.faName);  
         };  
+        father.prototype.arr = [1,2]
         function child(args) {  
             this.chName = 'child';  
-            father.apply(this,[]); //第二次调用父类构造函数  
+            //father.apply(this,[]); //第二次调用父类构造函数  
         }  
 
         child.prototype = new father(); //第一次调用父类构造函数  
@@ -35,12 +57,37 @@
 
 
         var c = new child()
+        c.faName = 'faName2'
+        c.arr.push(10)
+
+        var c2 = new child()
+        console.log(c2.faName)
+        console.log(c2.arr)
+
+
         var obj = function(){}
         obj.__proto__ = child.prototype;
         child.call(obj);
         console.log(obj());
-
         c.getchName()
+
+
+
+        function father2(name) {  
+            this.faName = 'father2';  
+        }  
+        father2.prototype.getfaName = function() {  
+        };  
+        father2.prototype.arr = [1,2]
+        function child2(args) {  
+            this.chName = 'child';  
+            //father.apply(this,[]); //第二次调用父类构造函数  
+        }  
+        console.log(Object.create(father2.prototype))
+        child2.prototype = Object.create(father2.prototype)
+        var c= new child2()
+        console.log(c instanceof father2)
+      
 
 
 
@@ -173,5 +220,5 @@
         Re()
 
         var obj = {}
-        obj.drink()
+        //obj.drink()
 </script>

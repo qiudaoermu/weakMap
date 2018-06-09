@@ -28,7 +28,6 @@ for (var i = 0; i < 5; i++) {   // 这里 i 的声明不能改成 let，如果�
             setTimeout(() => {
                 console.log(new Date, j);
                 resolve();  // 这里一定要 resolve，否则代码不会按预期 work
-
             }, 1000 * j);   // 定时器的超时时间逐步增加
 
         }));
@@ -49,13 +48,8 @@ Promise.all(tasks).then(() => {
 
 
 // const sleep = (timeountMS) => new Promise((resolve) => {
-
 //     setTimeout(resolve, timeountMS);
-
 // });
-
- 
-
 // (async () => {  // 声明即执行的 async 函数表达式
 
 //     for (var i = 0; i < 5; i++) {

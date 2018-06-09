@@ -37,5 +37,42 @@ function foo(o) {
 foo(obj);
 console.log(obj.x); // 3, 被修改了!
 
+
+
+var a = 100
+function add(t){
+		a = t+100
+}
+add(100)
+
+
+
+var c = 100
+function addC(c){
+		c = c+100
+}
+addC(100)
+console.log(c)
+console.log(a)
+
+function changeAgeAndReference(person) {
+    person.age = 25;
+    person = {
+        name: 'John',
+        age: 50
+    };
+    
+    return person;
+}
+var personObj1 = {
+    name: 'Alex',
+    age: 30
+};
+
+
+var personObj2 = changeAgeAndReference(personObj1);
+console.log(personObj1); // -> ?
+console.log(personObj2); // -> ?
+
 </script>
 </html>

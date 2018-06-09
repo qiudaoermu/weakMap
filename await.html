@@ -25,16 +25,23 @@ async function as(){
 }
 
 
+
 async function Name(){
 		var t= await init();
-			console.log(t)
-		var c = await as
-		console.log(c)
+		console.log(t)
+		var c = await as()
+		console.log('end')
+		
 	
 }
+
+
 Name()
-Promise.then(()=>console.log(10))
+
+Promise.resolve().then(()=>console.log(10));
 console.log('2')
 
+
+//1 2 10 as 3
 </script>
 </html>

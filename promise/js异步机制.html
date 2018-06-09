@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+
+
+		Promise.resolve().then(()=>{
+
+			console.log('Promise')//9
+
+		});
+
+
+		var promsieAll = new Promise(function(resolve){
+				resolve(console.log('1'))//1
+		});
+
+
+		new Promise(function(){
+			console.log('new')//2
+		});
+
+		async function  f() {
+		    console.log('f')
+		};
+
+		//异步都不会排队
+		setTimeout(function (argument) {
+				console.log('setTimeout1')//13
+		},1000)
+
+		async function a(){
+			console.log('asyncStart')//3
+			console.log(1)//4
+			console.log(2)//5
+			Promise.resolve().then(()=>{
+				console.log('Promise1')//10
+			});
+			await f() //13
+			await b();
+			console.log(b())//12
+		
+			
+			await c()
+			console.log('asyncEnd')//13
+
+		};
+
+		a();
+
+		var promise = new Promise((resolve)=> { 
+			console.log("promise start.."); //7
+	
+		});
+
+		//关键点2
+		function b(){
+			console.log('b')//6
+		}
+		function c(){
+			console.log('c')
+		}
+		Promise.resolve().then(()=>{
+
+			console.log('Promise2')//11
+
+		});
+		console.log('End')//8
+		//同步 aync await 微任务 
+</script>
+</html>

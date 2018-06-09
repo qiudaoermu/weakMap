@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>css阻塞</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h1 {
+            color: red !important
+        }
+    </style>
+    
+ 
+
+</head>
+<body>
+     <script type="text/javascript">
+        //console.log(a)
+        var t= 3
+        console.log(t)//script放在头部如果报错不会阻塞dom加载
+    </script>
+  
+
+<h1>这是红色的</h1>
+<div class="dropdown">
+    <!-- Link or button to toggle dropdown -->
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <li><a tabindex="-1" href="#">Action</a></li>
+        <li><a tabindex="-1" href="#">Another action</a></li>
+        <li><a tabindex="-1" href="#">Something else here</a></li>
+        <li class="divider">Something</li>
+        <li><a tabindex="-1" href="#">Separated link</a></li>
+    </ul>
+
+    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        ...
+        <li class="dropdown-submenu">
+            <a tabindex="-1" href="#">More options</a>
+            <ul class="dropdown-menu">
+                ...
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+
+<script src="jquery/jquery.js"></script>
+  <script>
+
+        function h () {
+            console.log(document.querySelectorAll('h1'))
+        }
+        setTimeout(h, 0)
+   
+      console.log('是否会阻塞js渲染');
+      //  阻塞js渲染
+      //  阻塞页面渲染
+      //  不阻塞页面解析
+      //  管理media标签 在link处设置 或者
+      //   $('#fontLink').load(function () {
+      //       $(this).attr('media', 'all');
+      //       //地址，数据解析
+      //       handleUrlData();
+      //   });
+      //也可以使用js 动态加载
+        var link = $('<link>');
+        link.attr('href','https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css');
+        link.attr('rel','stylesheet');
+        $('head').append(link);
+        // link.onload = function () {
+        //
+        // }
+        $.get('https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.css','1',function (value) {
+                  console.log('onload')
+        })
+
+  </script>
+</html>

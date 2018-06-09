@@ -11,7 +11,7 @@
 function fn() {
     this.a = 0;
     this.b = function() {
-        alert(this.a)
+        console.log(this.a)
     }
 }
 fn.prototype = {
@@ -32,9 +32,17 @@ var obj = {
     name:'a',
     c:()=> {
         console.log(this.name)
+    },
+    d:function(){
+        console.log(this.name)
     }
 }
+
+
 var c = obj.c;
 c();
+var d =obj.d
+d()
+d.call(obj)//call apply为了防止this被改变
 </script>
 </html>

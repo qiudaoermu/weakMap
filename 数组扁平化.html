@@ -19,10 +19,6 @@ function flaten(arr){
 		return arr.reduce(function(a,b){
 						var t  
 					   	  if(Array.isArray(b)){
-					   	  	 // a.concat(b.reduce(function(c,d){
-					   	  	 // 		var f = c.concat(d)
-					   	  	 // 		return f
-					   	  	 // },[]))
 					   	  	 t = a.concat(flaten(b))
 					   	  }
 						  t =  a.concat(b)
@@ -31,21 +27,20 @@ function flaten(arr){
 }
 console.log(flaten(drr))
 
-
-// var result = []
-// function forFlaoten(arr){
-// 		for(var i=0;i<arr.length;i++){
-// 			if(Array.isArray(arr[i])){
-// 				result.concat(forFlaoten(arr[i]))
-// 			}else{
-			
-// 				result.push(arr[i])
-// 			}
-// 		}
-// 		return result
-// }
-// var t= forFlaoten(drr)
-// console.log(t)
+var drr2 = [1,23,4,[323,1],[[1],2]]
+var result = []
+function forFlaoten(arr){
+		for(var i=0;i<arr.length;i++){
+			if(Array.isArray(arr[i])){
+				result.concat(forFlaoten(arr[i]))
+			}else{
+				result.push(arr[i])
+			}
+		}
+		return result
+}
+var t = forFlaoten(drr2)
+console.log(t)
 
 
 
