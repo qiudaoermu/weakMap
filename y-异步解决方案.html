@@ -9,36 +9,36 @@
 <script type="text/javascript" src="jquery/dist/jquery.js"></script>
 <script type="text/javascript">
 //订阅机制
-function f2(){
-	console.log("f2")
+function f2() {
+  console.log("f2")
 }
 jQuery.subscribe("done", f2);
 
-function f1(){
-　　setTimeout(function () {
-　　　　// f1的任务代码
-　　　　jQuery.publish("done");
-　　}, 1000);
+function f1() {　　
+  setTimeout(function() {　　　　 // f1的任务代码
+    　　　　
+    jQuery.publish("done");　　
+  }, 1000);
 }
 
 f1();
 //回调函数
-function fn1 () {
+function fn1() {
   console.log('Function 1')
 }
 
-function fn2 () {
+function fn2() {
   setTimeout(() => {
     console.log('Function 2')
   }, 500)
 }
 
-function fn3 () {
+function fn3() {
   console.log('Function 3')
 }
 
 
-function fn2 (f) {
+function fn2(f) {
   setTimeout(() => {
     console.log('Function 2');
     f()
@@ -52,34 +52,35 @@ fn2(fn3)
 
 
 class AsyncFunArr {
-  constructor (...arr) {
+  constructor(...arr) {
     this.funcArr = [...arr]
   }
 
-  next () {
+  next() {
     const fn = this.funcArr.shift();
     if (typeof fn === 'function') fn()
   }
 
-  run () {
+  run() {
     this.next()
   }
 }
 
 const asyncFunArr = new AsyncFunArr(fn1, fn2, fn3);
-function fn4 () {
+
+function fn4() {
   console.log('Function 1');
   asyncFunArr.next()
 }
 
-function fn5 () {
+function fn5() {
   setTimeout(() => {
     console.log('Function 2')
     asyncFunArr.next()
   }, 500)
 }
 
-function fn6 () {
+function fn6() {
   console.log('Function 3')
   asyncFunArr.next()
 }

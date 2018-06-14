@@ -53,21 +53,8 @@ const doubledOver50 = numbers2.reduce((finalList, num) => {
 }, []);
 
 // [60, 80]
-//console.log(doubledOver50)
 
 
-    //用reduce实现一个map
-    /*
-    {fn 回调函数}
-    {context 环境}
-    */
-Array.prototype.__map = function(fn,context){
-
-        for(let i=0;i<this.length;i++){
-            fn.call(context,this[i],i)
-        }
-
-}
 
 var value = []
 
@@ -106,6 +93,7 @@ t= trr.reduce(function(a,b){
    if(a.indexOf(b) == -1){
          a.push(b)
    }
+   console.log(a)
    return a
 },[]
 );

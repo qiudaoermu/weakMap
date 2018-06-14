@@ -20,22 +20,24 @@
     function cc() {
         console.log('cc')
     }
-window.onload = function () {
-    function parent_click(){
-        //alert("来自父页面");
-        document.getElementById('childPage').contentWindow.child_click()
+    window.onload = function() {
+        function parent_click() {
+            //alert("来自父页面");
+            document.getElementById('childPage').contentWindow.child_click()
+        }
+        parent_click()
+
+
     }
-    parent_click()
-    
 
-}
-
-    window.onload = function () {
+    window.onload = function() {
         var ifr = document.querySelector('#childPage');
-        ifr.contentWindow.postMessage({a: 1}, '*');
+        ifr.contentWindow.postMessage({
+            a: 1
+        }, '*');
     }
     window.addEventListener('message', function(e) {
-        console.log('bar say: '+e.data);
+        console.log('bar say: ' + e.data);
     }, false);
 
 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	var promiseStart = new Promise(function(resolve, reject) {
+		//reject('promise is rejected');
+		resolve('promise is resolve')
+	});
+
+	promiseStart
+		.then(function(response) {
+			console.log('resolved');
+			return new Promise(function(resolve, reject) {
+				//resolve('promise is resolved');
+				reject('reject2')
+			});
+		}, function(error) {
+			//console.log('rejected:', error);
+			// 如果这里不抛出error，这个error将被吞掉，catch无法捕获异常
+			// 但是如果抛出error，这个error会被下一个then的reject回调处理，这不是我们想要的
+			//throw (error);
+		})
+		.then(function(response) {
+			console.log('resolved:', response);
+
+		}, function(error) {
+			console.log('rejected:', error);
+			console.log('reject:',error)
+			throw (error);
+		})
+		.catch(function(error) {
+			console.log('catched:', error);
+		})
+
+
+
+
+
+
+
+		var promiseStart = new Promise(function(resolve, reject) {
+			//reject('promise is rejected');
+			resolve('promise is  resolve')
+		});
+
+		promiseStart
+			.then(function(response) {
+				return new Promise(function(resolve, reject) {
+					//resolve('promise2 is resolved');
+					reject('promise2 is reject')
+				});
+			})
+			.then(function(response) {
+				console.log('resolved:', response);
+			})
+			.catch(function(error) {
+				console.log('catched:', error);
+			})
+
+			/* 
+			 输出：
+			 catched: promise is rejected
+	 		*/
+</script>	
+</html>

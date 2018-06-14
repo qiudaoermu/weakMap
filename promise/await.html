@@ -1,186 +1,195 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
 
-</body>
-<script type="text/javascript" src="../jquery/jquery.js"></script>
-<script type="text/javascript">
+	</body>
+	<script type="text/javascript" src="../jquery/jquery.js"></script>
+	<script type="text/javascript">
 
+		const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+		async function f() {
+			await delay(1000);
+			await delay(2000);
+			await delay(3000);
+			return 'done';
+		}
 
-
-
-	// let p1 =  new Promise((resolve, reject) => {
- //        fetch('https://api.github.com/users/kujian')
- //        .then((data) => {
- //            resolve(data.json());
- //        }, (error) => {
- //            reject(error);
- //        })
- //    });
-
-	// let p2 =  new Promise((resolve, reject) => {
- //        fetch('https://api.github.com/users/zuobaiquan')
- //        .then((data) => {
- //            resolve(data.json());
- //        }, (error) => {
- //            reject(error);
- //        })
- //    });
+		f().then(v => console.log(v)); // 等待6s后才输出 'done'
 
 
-	// let p3 =  new Promise((resolve, reject) => {
- //        fetch('https://api.github.com/users/pissang')
- //        .then((data) => {
- //            resolve(data.json());
- //        }, (error) => {
- //            reject(error);
- //        })
- //    });
+
+		// let p1 =  new Promise((resolve, reject) => {
+	 //        fetch('https://api.github.com/users/kujian')
+	 //        .then((data) => {
+	 //            resolve(data.json());
+	 //        }, (error) => {
+	 //            reject(error);
+	 //        })
+	 //    });
+
+		// let p2 =  new Promise((resolve, reject) => {
+	 //        fetch('https://api.github.com/users/zuobaiquan')
+	 //        .then((data) => {
+	 //            resolve(data.json());
+	 //        }, (error) => {
+	 //            reject(error);
+	 //        })
+	 //    });
 
 
-let arr = ["kujian","zuobaiquan","pissang",'qiudaoermu1']
+		// let p3 =  new Promise((resolve, reject) => {
+	 //        fetch('https://api.github.com/users/pissang')
+	 //        .then((data) => {
+	 //            resolve(data.json());
+	 //        }, (error) => {
+	 //            reject(error);
+	 //        })
+	 //    });
 
-// let trr = arr.map((value,index)=>{
-// 	return new Promise((resolve,reject)=>{
-// 		fetch(`https://api.github.com/users/${value}`)
-// 		.then((data)=>{
-// 			resolve(data.json())
-// 		},(error)=>{
-// 			reject(error)
-// 		})
-// 	})
-// })
-let trr2 = arr.map((value,index)=>{
-	return new Promise((resolve,reject)=>{
-		$.ajax({url:`https://api.github.com/users/${value}`})
-		.done((data)=>{
-			resolve(data)
-		})
-		.fail((error)=>{
-			reject(error)
+
+	let arr = ["kujian","zuobaiquan","pissang",'qiudaoermu1']
+
+	// let trr = arr.map((value,index)=>{
+	// 	return new Promise((resolve,reject)=>{
+	// 		fetch(`https://api.github.com/users/${value}`)
+	// 		.then((data)=>{
+	// 			resolve(data.json())
+	// 		},(error)=>{
+	// 			reject(error)
+	// 		})
+	// 	})
+	// })
+	let trr2 = arr.map((value,index)=>{
+		return new Promise((resolve,reject)=>{
+			$.ajax({url:`https://api.github.com/users/${value}`})
+			.done((data)=>{
+				resolve(data)
+			})
+			.fail((error)=>{
+				reject(error)
+			})
 		})
 	})
-})
 
 
-Promise.all(trr2).then(function (results) {
-    console.log(results);
-}).catch(function(r){
-    console.log(r);
-});
+	Promise.all(trr2).then(function (results) {
+	    console.log(results);
+	}).catch(function(r){
+	    console.log(r);
+	});
 
 
 
 
-function AA(resolve,reject){
-		this.resolve =()=>{
+	function AA(resolve,reject){
+			this.resolve =()=>{
 
-		}
-		this.reject =()=>{
+			}
+			this.reject =()=>{
 
-		}
-}
-AA.prototype={
-	
-	catch(){
-
-	},
-	then(fn1,fn2){
-		fn1()
-		fn2()
-		return this
-	},
-	resolve(){
-
+			}
 	}
-}
+	AA.prototype={
+		
+		catch(){
 
-var a = new AA((resolve,reject)=>{
-	setTimeout(()=>{
-		resolve(3)
-	},1000)
-})
-a.then(function(data){
-	console.log('baidu')
-},function(data){
-	console.log('sda')
-})
+		},
+		then(fn1,fn2){
+			fn1()
+			fn2()
+			return this
+		},
+		resolve(){
 
+		}
+	}
 
-let p = new Promise((resolve, reject) => {
-    //做一些异步操作
-    setTimeout(() => {
-        console.log('执行完成');
-        resolve('我是成功！！');
-    }, 2000);
-});
-
-
-
-
-
-console.log(p.then()) //then方法不传值得时候返回一个Promise对象
-p.then().then().then((data)=>{
-	console.log(data)
-})
-
-
-
-// p.then((data) => {
-//     console.log(data);
-//     console.log(baidu)
-//     return p
-// })
-// .then((data) => {
-//     console.log(data);
-//     return p
-// })
-// .then((data) => {
-//     console.log(data);
-// }).catch((data)=>{
-// 	console.log(data)
-// });
-
-
-console.log('1')
-
-function init(){
-	return new Promise(function(resolve){
-		setTimeout(function(){
+	var a = new AA((resolve,reject)=>{
+		setTimeout(()=>{
 			resolve(3)
 		},1000)
 	})
-}
+	a.then(function(data){
+		console.log('baidu')
+	},function(data){
+		console.log('sda')
+	})
+
+
+	let p = new Promise((resolve, reject) => {
+	    //做一些异步操作
+	    setTimeout(() => {
+	        console.log('执行完成');
+	        resolve('我是成功！！');
+	    }, 2000);
+	});
 
 
 
 
 
-async function as(){
-	console.log('as')
-}
+	console.log(p.then()) //then方法不传值得时候返回一个Promise对象
+	p.then().then().then((data)=>{
+		console.log(data)
+	})
 
 
 
-async function Name(){
-		var t= await init();
-		console.log(t)
-		var c = await as()
-		console.log('end')
+	// p.then((data) => {
+	//     console.log(data);
+	//     console.log(baidu)
+	//     return p
+	// })
+	// .then((data) => {
+	//     console.log(data);
+	//     return p
+	// })
+	// .then((data) => {
+	//     console.log(data);
+	// }).catch((data)=>{
+	// 	console.log(data)
+	// });
+
+
+	console.log('1')
+
+	function init(){
+		return new Promise(function(resolve){
+			setTimeout(function(){
+				resolve(3)
+			},1000)
+		})
+	}
+
+
+
+
+
+	async function as(){
+		console.log('as')
+	}
+
+
+
+	async function Name(){
+			var t= await init();
+			console.log(t)
+			var c = await as()
+			console.log('end')
+			
 		
-	
-}
+	}
 
 
-Name()
+	Name()
 
-Promise.resolve().then(()=>console.log(10));
-console.log('2')
+	Promise.resolve().then(()=>console.log(10));
+	console.log('2')
 
 
-//1 2 10 as 3
-</script>
-</html>
+	//1 2 10 as 3
+	</script>
+	</html>

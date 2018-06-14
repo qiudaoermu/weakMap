@@ -15,39 +15,39 @@
 
 　　</html>
 	<script type="text/javascript">
-        function child_click(){
+        function child_click() {
 
-            alert("调用的子页面函数");
+        	alert("调用的子页面函数");
 
         }
         console.log(parent.window);
-		var  t = parent;
-		parent.cc()
+        var t = parent;
+        parent.cc()
 
 
-        window.addEventListener('message', function(e){
-            console.log('foo say: ' + e.data.a);
-            e.source.postMessage('get', '*');
+        window.addEventListener('message', function(e) {
+        	console.log('foo say: ' + e.data.a);
+        	e.source.postMessage('get', '*');
         }, false)
 
-	/*	let x= 3
-		function add(y=x) {
-			let x= 4
-			console.log(y)
-		}
-		add()
-	var t = {a:'c',b:'d'}
-	var t2 = {a:'c',b:'d'}
-	function turn(obj){
-		obj = {a:'baidu'}
-	}
-	turn(t)
-	function tunr1(obj){
-		obj.a = 'jj'
-	}
-	console.log(t)
-	tunr1(t2)
-	console.log(t2)*/
+        /*	let x= 3
+        	function add(y=x) {
+        		let x= 4
+        		console.log(y)
+        	}
+        	add()
+        var t = {a:'c',b:'d'}
+        var t2 = {a:'c',b:'d'}
+        function turn(obj){
+        	obj = {a:'baidu'}
+        }
+        turn(t)
+        function tunr1(obj){
+        	obj.a = 'jj'
+        }
+        console.log(t)
+        tunr1(t2)
+        console.log(t2)*/
 
 
 

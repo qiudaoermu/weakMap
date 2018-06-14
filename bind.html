@@ -8,57 +8,56 @@
 </body>
 <script type="text/javascript">
 	
-
-
 class Animal {
-    constructor(){
+    constructor() {
         this.type = 'animal'
     }
-    says(say){
-        setTimeout(function(){
+    says(say) {
+        setTimeout(function() {
             console.log(this.type + ' says ' + say)
         }.bind(this), 1000)
     }
 }
- var animal = new Animal();
- animal.says('hi')  //undefined says hi
+var animal = new Animal();
+animal.says('hi') //undefined says hi
 
 //bind 实现原理
-Function.prototype.Bind = function(context){
-        var self = this
+Function.prototype.Bind = function(context) {
+    var self = this
 
- 
 
-        return function(){
-            var arg = [...arguments][0]
-            self.call(context,arg)
 
-        }
+    return function() {
+        var arg = [...arguments][0]
+        self.call(context, arg)
+
+    }
 
 }
 
-Function.prototype._bind = function (context) {
-  let self = this
-  let args_1 = Array.prototype.slice.call(arguments, 1)
-  console.log(args_1)
-  return function (t) {
-    let args_2 = Array.prototype.slice.call(arguments)
-      console.log(args_2)
-    let args = args_1.concat(args_2)
-    console.log(args)
-    return self.apply(context, args)
-  }
+Function.prototype._bind = function(context) {
+    let self = this
+    let args_1 = Array.prototype.slice.call(arguments, 1)
+    console.log(args_1)
+    return function(t) {
+        let args_2 = Array.prototype.slice.call(arguments)
+        console.log(args_2)
+        let args = args_1.concat(args_2)
+        console.log(args)
+        return self.apply(context, args)
+    }
 }
 
 var obj = {
-    a:3,
-    test:function(t){
-        console.log(this.a,t)
-        return function(q){
-            console.log(q)
-        }
-       
-    }    
+    a: 3,
+    test: function(t,l) {
+        console.log(this.a, t)
+        // return function(q){
+        //         console.log(q)
+        // }
+        console.log(++l)
+
+    }
 }
 //obj.test()
 
@@ -68,10 +67,10 @@ var a = 4;
 //obj.test.Bind(window,10)
 
 
-//obj.test._bind(window,10)('c')
+var t = obj.test._bind(window)
 
-
-obj.test.bind(window,10)()(4)
+t(2,10)
+//obj.test.bind(window,10)()(4)
 
  
 </script>
