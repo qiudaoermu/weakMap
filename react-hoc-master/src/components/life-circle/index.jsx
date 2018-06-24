@@ -9,12 +9,19 @@ class Child extends Component{
 			this.state = {
 				name:''
 			}
+			console.log('child-constructor')
+		}
+		componentWillMount(){
+			console.log('child-componentWillMount')
 		}
 		componentWillReceiveProps(props){
 				console.log(this.props)
 				console.log(props)
 				console.log('子组件接受props改变')
 				this.setState({name:5})
+		}
+		componentDidMount(){
+			console.log('child-componentDidMount')
 		}
 		render(){
 			console.log('子组件render')

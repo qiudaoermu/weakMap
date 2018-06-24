@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="div1"></div>
+  </body>
+</html>
+<script type="text/javascript">
+  var a = 12;
+  function fn() {
+    var a = new Array(100000).join('x')
+    return function () {
+      console.log(a);
+    }
+  }
+  var f = fn();
+
+  var oDiv = document.getElementById("div1");
+
+  var fn = function () {};
+  fn.data = new Array(1000000).join('div1');
+  oDiv.onclick = fn;
+</script>

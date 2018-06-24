@@ -67,5 +67,52 @@
 			 输出：
 			 catched: promise is rejected
 	 		*/
+
+
+
+	@action login(accessToken) {
+    return new Promise((resolve, reject) => {
+ 		post('/user/login', {
+        accessToken,
+      }).then(resp => {
+        if (resp.status === 200 && resp.data.success) {
+          this.user.info = resp.data.data
+          this.user.isLogin = true
+          resolve()
+        } else {
+          reject(resp.data.msg)
+        }
+      }).catch(err => {
+        if (err.response) {
+          reject(err.response.data.msg)
+          this.notify({ message: err.response.data.msg })
+        } else {
+          reject(err.message)
+      }
+    })
+  }
+
+ 
+
+
+  @action getUserDetail() {
+    this.user.detail.syncing = true
+    return new Promise((resolve, reject) => {
+    get(`/user/${this.user.info.loginName}`)
+        .then(resp => {
+          if (resp.status === 200 && resp.data.success) {
+            this.user.detail.recentReplies = resp.data.data.recent_replies
+            this.user.detail.recentTopics = resp.data.data.recent_topics
+            resolve()
+          } else {
+            reject(resp.data.msg)
+          }
+          this.user.detail.syncing = false
+        }).catch(err => {
+          reject(err.message)
+          this.user.detail.syncing = false
+        })
+    })
+  }
 </script>	
 </html>

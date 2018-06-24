@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+.box{
+  position: relative; 
+  width: 220px;
+   height: 220px;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+.ring-inner{
+  height: 220px; width: 220px; position: absolute;
+  background: url(http://www.imaoda.com/s/img/tpl/ring-inner.png) no-repeat;
+  background-size: 90%; background-position: center;
+  animation: clockwise 3s linear infinite;
+}
+.ring-outer{
+  height: 220px; width: 220px; position: absolute;
+  background: url(http://www.imaoda.com/s/img/tpl/ring-outer.png) no-repeat;
+  background-size: 100%;
+  background-position: center;
+  animation: anti-clockwise 3s linear infinite;
+}
+.avatar{
+  height: 160px; width: 160px;
+  background: url(http://www.imaoda.com/s/img/lessons/92.jpg);
+  background-size: cover;
+  border-radius: 50%
+}
+@keyframes clockwise{
+  100%{
+    transform: rotate(360deg)
+  }
+}
+@keyframes anti-clockwise{
+  0%{
+    transform: rotate(360deg)
+  }
+}
+</style>
+
+<body>
+	<div class='box'>
+    <div class='ring-outer'></div>
+    <div class='ring-inner'></div>
+    <div class='avatar'></div>
+</div>
+</body>
+</html>

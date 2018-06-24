@@ -9,7 +9,7 @@
 <script type="text/javascript">
 //堆中
 
-console.log(a)
+console.log(a())
 var a = function(){
 	console.log("ex")
 }
@@ -19,5 +19,22 @@ function a(){
 	console.log('de')
 }
 a()
+
+function AA() {
+
+}
+
+AA.prototype ={
+	a:function () {
+		console.log('a')
+	}
+}
+console.log(new AA())
+console.log(new AA)
+var c = new AA()
+c.a()
+var d= new AA
+d.a()
+new AA().a()
 </script>
 </html>

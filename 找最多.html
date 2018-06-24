@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = 'aaaaaabbbbcccddlllllllllllllllll'
+    let arr =  str.split('')
+    var t = []
+   	var obj = {}
+   	for( var i=0; i<str.length; i++ ){
+   			if(!obj[str[i]]){
+   				obj[str[i]]=1
+   			}else{
+   				obj[str[i]]+=1
+   			}
+   	}
+   	console.log(obj)
+    var t = {
+	    		"max": obj[Object.keys(obj)[0]],
+	    		"index": ''
+    	    }
+    	
+   	for(var i in obj){
+   			if(obj[i]<obj[i+1]) {
+   				t.max =  obj[i+1] 
+   				t.index = i+1
+   			}else{
+   				t.max = obj[i]
+   				t.index = i
+   			}
+   	}
+   	console.log(t)
+</script>
+</html>

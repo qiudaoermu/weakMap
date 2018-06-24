@@ -15,8 +15,6 @@ var readFiles = function() {
     });
 };
 
-
-
 function Until(){
   // 保存海报
   this.savePoster = function (movieName, url) {

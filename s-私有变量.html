@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title></title>
-</head>
-<body>
-
-</body>
+  </head>
+  <body></body>
 
 </html>
 <script type="text/javascript">
+  var Person = function () {};
+  (function () {
+    var findById = function (id) {/* ... */
+      console.log(id)
+    };
+    Person.find = function (id) {
+      if (typeof id == "number") 
+        return findById(id);
+      };
+  })();
+  Person.find(3)
+
+  let _width = Symbol();
+
+  class Private {
+    constructor(s) {
+      this[_width] = s
+    }
+
+    foo() {
+      console.log(this[_width])
+    }
+
+  }
+
+  var p = new Private("50");
+  p.foo();
+  console.log(p[_width]);
+
+  //赋值到闭包里
+  let sque = (function () {
     let _width = Symbol();
 
-    class Private {
-        constructor(s) {
-            this[_width] = s
-        }
+    class Squery {
+      constructor(s) {
+        this[_width] = s
+      }
 
-        foo() {
-            console.log(this[_width])
-        }
+      foo() {
+        console.log(this[_width])
+      }
+    }
+
+    function Qa(s) {
+      this[_width] = s
 
     }
 
-    var p = new Private("50");
-    p.foo();
-    console.log(p[_width]);
+    return Squery
+  })();
 
-
-    //赋值到闭包里
-    let sque = (function () {
-        let _width = Symbol();
-
-        class Squery {
-            constructor(s) {
-                this[_width] = s
-            }
-
-            foo() {
-                console.log(this[_width])
-            }
-        }
-
-        function Qa(s) {
-            this[_width]= s
-
-        }
-       
-        return Squery
-    })();
-
-    let ss = new sque(20);
-    ss.foo();
-    console.log(ss[_width])
+  let ss = new sque(20);
+  ss.foo();
+  console.log(ss[_width])
 </script>
