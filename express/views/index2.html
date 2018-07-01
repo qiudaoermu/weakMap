@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    #logo {
+      background: #fff url("./logo_white.gif") no-repeat center;
+      width: 119px;
+      height: 80px;
+      margin: 120px auto 0;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: "Microsoft YaHei","微软雅黑 Light"，sans-serif，Arial;
+    }
+    .lanren-search-form {
+      width: 575px;
+      margin: 40px auto 100px;
+      overflow: hidden;
+    }
+    .lanren-search-form .search-bd {
+      height: 25px;
+    }
+    .lanren-search-form .search-bd li {
+      font-size: 12px;
+      width: 60px;
+      height: 25px;
+      line-height: 25px;
+      text-align: center;
+      float: left;
+      cursor: pointer;
+      background-color: #eee;
+      color: #666;
+    }
+    .lanren-search-form .search-bd li.selected {
+      color: #fff;
+      font-weight: 700;
+      background-color: #000;
+    }
+    .lanren-search-form .search-hd {
+      height: 34px;
+      background-color: #000;
+      padding: 3px;
+      position: relative;
+    }
+    .lanren-search-form .search-hd .search-input {
+      width: 490px;
+      height: 22px;
+      line-height: 22px;
+      padding: 6px 0;
+      background: yellow;
+      text-indent: 10px;
+      border: 0;
+      outline: none;
+      position: relative;
+      left: 3px;
+      top: 0;
+      z-index: 5;
+      #margin-left: -10px;
+    }
+    .lanren-search-form .search-hd .btn-search {
+      width: 70px;
+      height: 34px;
+      line-height: 34px;
+      position: absolute;
+      right: 3px;
+      top: 3px;
+      border: 0;
+      z-index: 6;
+      cursor: pointer;
+      font-size: 12px;
+      color: #fff;
+      font-weight: 700;
+      background: none;
+      outline: none;
+    }
+    .lanren-search-form .search-hd .pholder {
+      display: inline-block;
+      padding: 2px 0;
+      font-size: 12px;
+      color: #999;
+      position: absolute;
+      left: 13px;
+      top: 11px;
+      z-index: 4;
+      padding-left: 25px;
+      #top: 11px;
+    }
+    .lanren-search-form .search-hd #s2,
+    .lanren-search-form .search-hd .s2 {
+      display: none;
+    }
+    .lanren-search-form .search-bg {
+      width: 495px;
+      height: 34px;
+      background-color: #fff;
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      z-index: 1;
+    }
+    #super {
+      text-align: center;
+      margin: 12px auto 10px;
+      width: 470px;
+    }
+    #signture {
+      color: #666;
+      text-align: center;
+      font-size: 9px;
+      margin-top: 90px;
+    }
+  </style>
+  <body>
+    <h1>koa2 demo index page</h1>
+    <p>this is a index page</p>
+    <ul>
+      <li>
+        <a href="/">/</a>
+      </li>
+      <li>
+        <a href="/index">/index</a>
+      </li>
+      <li>
+        <a href="/todo">/todo</a>
+      </li>
+      <li>
+        <a href="/404">/404</a>
+      </li>
+      <li>
+        <a href="/nofund">/nofund</a>
+      </li>
+    </ul>
+    <div class="lanren-search-form">
+      <div id="search-hd" class="search-hd">
+        <form action="index" method="post">
+          <input id="s1" class="search-input" name='username'/>
+          <input id="submit" class="btn-search" type="submit" placeholder="提交"/>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

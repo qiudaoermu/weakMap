@@ -1,7 +1,8 @@
-//自定义路由
-const Koa = require( 'koa' )
+// 自定义路由
+const express = require( 'express' )
 const fs = require( 'fs' )
-const app = new Koa()
+
+const app = new express()
 
 /**
  * 用Promise封装异步读取文件方法
@@ -10,9 +11,9 @@ const app = new Koa()
  */
 function render( page ) {
 	return new Promise( ( resolve, reject ) => {
-		let viewUrl = `./view/${page}`
+		const viewUrl = `./view/${page}`
 		console.log( viewUrl )
-		fs.readFile( viewUrl, "binary", ( err, data ) => {
+		fs.readFile( viewUrl, 'binary', ( err, data ) => {
 			if ( err ) {
 				reject( err )
 			} else {
@@ -45,16 +46,16 @@ async function route( url ) {
 	default:
 		break
 	}
-	let html = await render( view )
+	const html = await render( view )
 	console.log( html )
 	return html
 }
 
-app.use( async ( ctx ) => {
-	let url = ctx.request.url
-	let html = await route( url )
-	ctx.body = html
-} )
-
-app.listen( 3000 )
+app.get( '*', async ( req, res ) => {
+	console.log(req.url)
+	const html = await route( req.url )
+	console.log(html)
+	res.sendFile( __dirname + html );
+} );
+app.listen( 3001 )
 console.log( '[demo] route-simple is starting at port 3001' )
