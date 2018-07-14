@@ -1,30 +1,29 @@
 <template>
-    <div :class="['todo-item',todo.completed ? 'completed':'']">
-        <input
-                class="toggle"
-                type="checkbox"
-                v-model="todo.completed"
-        />
-        <label>{{todo.content}}</label>
-        <button class="destroy  " @click="deleteTodo"/>
-    </div>
+<div :class="['todo-item',todo.completed ? 'completed':'']">
+  <input class="toggle"
+    type="checkbox"
+    v-model="todo.completed" />
+  <label>{{todo.content}}</label>
+  <button class="destroy  "
+    @click="deleteTodo" />
+</div>
 </template>
 
 <script>
-    export default {
-        name: "item",
-        props:{
-            todo:{
-                type:Object,
-                required:true
-            }
-        },
-        methods:{
-            deleteTodo(){
-                 this.$emit('del',this.todo.id)
-            }
-        }
+export default {
+  name: "item",
+  props: {
+    todo: {
+      type: Object,
+      required: true
     }
+  },
+  methods: {
+    deleteTodo() {
+      this.$emit( 'del', this.todo.id )
+    }
+  }
+}
 </script>
 
 <style lang="stylus" scoped>

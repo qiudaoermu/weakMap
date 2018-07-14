@@ -1,4 +1,3 @@
-
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require("webpack");
@@ -6,26 +5,29 @@ const isDev = process.env.NODE_ENV;
 const kid = process.env.vip;
 console.log(isDev);
 console.log(kid);
+require("babel-polyfill");
 //console.log(global)
 const HTMLplugin = require("html-webpack-plugin");
 
 
 let config = {
     mode:"development",
-    entry:path.join(__dirname,'src/index.js'),
+    entry:[path.join(__dirname,'src/index.js')],
     output: {
-        filename: "bundle.js",
+        filename: "bundle.[hash:8].js",
         path: path.join(__dirname,'dist')
     },
     module: {
         rules: [
             {
                 test:/\.vue$/,
-                loader:"vue-loader"
+                loader:"vue-loader",
+                exclude:'/node_modules'
             },
             {
                 test:/\.(jsx|js)$/,
-                loader: "babel-loader"
+                loader: "babel-loader",
+                "include": [path.resolve(__dirname, './src')]
             },
             {
                test:/\.css$/,
