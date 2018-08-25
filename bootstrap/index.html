@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <body>
+    <div class="container">
+      <div class="row">
+
+        <!-- /.col-lg-6 -->
+      </div>
+    </div>
+  </body>
+</html>
+<div class="col-md-1">
+  <div class="form-group">
+    <div type="text" class="form-control">门诊号字符串</div>
+  </div>
+</div>
+<div class="col-md-1">
+  <label class="control-label">姓名</label>
+  <div type="text" class="form-control" placeholder="姓名">{{ patient.name }}</div>
+</div>
+<div class="col-md-1">
+  <label class="control-label">性别</label>
+  <div class="form-control">{{ patient.gender }}</div>
+</div>
+<div class="col-md-1">
+  <label class="control-label">年龄</label>
+  <div class="form-control">{{ patient.name }}</div>
+  <label class="control-label">岁</label>
+  <div class="form-control">{{ patient.name }}</div>
+  <label class="control-label">月</label>
+</div>
+<div class="col-md-1">
+  <label class="control-label">身高</label>
+  <div class="form-control">{{ patient.height }}</div>
+  <label class="control-label">cm</label>
+</div>
+<div class="col-md-1">
+  <label class="control-label">体重</label>
+  <div class="form-control">{{ patient.weight }}</div>
+  <label class="control-label">kg</label>
+</div>
+<div class="col-md-1">
+  <label class="control-label">联系方式</label>
+  <div type='text' class="form-control">{{ patient.contact }}</div>
+</div>

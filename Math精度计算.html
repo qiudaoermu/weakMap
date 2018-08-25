@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+  Math.signFigures = function(num, rank = 6) {
+        if(!num) return(0);
+        const sign = num / Math.abs(num);
+        console.log(sign)
+        const number = num * sign;
+        const temp = rank - 1 - Math.floor(Math.log10(number));
+        let ans;
+        if (temp > 0) {
+            ans = parseFloat(number.toFixed(temp));
+        }
+        else if (temp < 0) {
+            ans = Math.round(number / Math.pow(10, temp)) * temp;
+            console.log(ans)
+        }
+        else {
+            ans = Math.round(number);
+        }
+        return (ans * sign);
+ };
+ Math.signFigures(.57*100)
+  </script>
+</html>
