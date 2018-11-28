@@ -1,10 +1,24 @@
 <template>
+  <section>
     <div class="number-grow-warp">
         <span ref="numberGrow" :data-time="time" class="number-grow" :data-value="value">3,343</span>
     </div>
+    <ul>
+      <li v-for="item in items">
+        {{item}}
+      </li>
+    </ul>
+     <button type="button" name="button" @click="add">add</button>
+  </section>
 </template>
 <script>
 	export default {
+    data () {
+      return {
+        items: 3
+
+      }
+    },
 		props: {
 			time: {
 				type: Number,
@@ -16,6 +30,9 @@
 			}
 		},
 		methods: {
+      add () {
+        this.items++
+      },
 			numberGrow (ele) {
 				let _this = this
 				let current = 0

@@ -1,0 +1,38 @@
+module.exports = {
+  path: {
+    srcPath: './fe',
+    buildPath: './build',
+    devPath: './build/dev',
+    releasePath: './build/dist',
+
+    htmlFile: ['**/*.jade', '**/*.html'],
+    cssFile: ['**/*.styl', '!**/_*.styl'],
+    cssWatchFile: ['**/*.styl'],
+    imgFile: '**/*.+(png|gif|jpg|eot|woff|ttf|svg|ico|csv)',
+    jsFile: '**/*.js',
+    baseJsFile: 'lib/**/*.js',
+    uglifyJsFile: ['**/*.js', '!**/*.min.js', '!**/_*.js'],
+    htmlDistPath: './views'
+  },
+  host: {},
+  props: {
+    regex: /\{\{\{(\S*?)\}\}\}/g,
+    regBuild: '/newfe/static/dev/$1',
+    regRelease: '/newfe/static/dist',
+    serveHtml: './views',
+    serveStatic: './build',
+    port: 10086
+  },
+  appId: 'wx034af43df8c12606',
+  tideAppId: 'wxde5fcc239049cc88',
+  proxy: {
+    mobile: 'http://a1-api.wowschool.com',
+    wechat: 'http://a1-weixin.wowschool.com',
+    tideApi: 'http://a1-tide-api.wowschool.com',
+    tideWechat: 'http://a1-tide-wechat.wowschool.com',
+    externalWechat: 'https://a1-weixin.wowschool.com',
+    tideExternalWechat: 'https://a1-weixin.wowschool.com',
+    locoBear: 'http://daxiong.test.locokids.com.cn' //路径后面一定不要有/，如com/
+  },
+  sensors: 'http://sc.vipkid.com.cn:8006/sa?project=test'
+}

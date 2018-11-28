@@ -29,27 +29,27 @@ var d  = c.sort()
 console.log(d)
 console.log(items)
 
-        var t2 = [1,23,43,45,60,100,1]
-        Array.prototype._sort = function(fn){
-                var t= fn
-                for(var i=0;i<this.length;i++){
-                    var t = fn.call(this[i],this[i+1])
-                    if(t>0){
-                        for(var j=0;j<this.length;j++){
-                                if(this[j]>this[j+1]){
-                                    var temp = this[j+1]
-                                    this[j+1]=this[j]
-                                    this[j] = temp
-                                }
+var t2 = [1,23,43,45,60,100,1]
+Array.prototype._sort = function(fn){
+        var t= fn
+        for(var i=0;i<this.length;i++){
+            var t = fn.call(this[i],this[i+1])
+            if(t>0){
+                for(var j=0;j<this.length;j++){
+                        if(this[j]>this[j+1]){
+                            var temp = this[j+1]
+                            this[j+1]=this[j]
+                            this[j] = temp
                         }
-                    }
                 }
-               return this;
-        };
-        
-        var arr2 = t2._sort(function(a,b){
-                return a-b
-        })
-        console.log(arr2)
+            }
+        }
+       return this;
+};
+
+var arr2 = t2._sort(function(a,b){
+        return a-b
+})
+console.log(arr2)
 </script>
 </html>
