@@ -13,7 +13,7 @@ export default class AA extends BB{
             super()
     }
     do(){
-        console.log("do it")
+        console.log("do it untip")
     }
-	
+
 }
