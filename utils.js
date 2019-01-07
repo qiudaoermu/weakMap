@@ -1,19 +1,19 @@
 
 class BB {
-    constructor(){}
-    run(){
+    constructor() { }
+    run() {
         console.log("run")
     }
 }
 
+console.log('dev')
 
-
-export default class AA extends BB{
-    constructor(){
-            super()
+export default class AA extends BB {
+    constructor() {
+        super()
     }
-    do(){
+    do() {
         console.log("do it")
     }
-	
+
 }
