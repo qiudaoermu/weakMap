@@ -24,10 +24,10 @@
 	    		"max": obj[Object.keys(obj)[0]],
 	    		"index": ''
     	    }
-    	
+
    	for(var i in obj){
    			if(obj[i]<obj[i+1]) {
-   				t.max =  obj[i+1] 
+   				t.max =  obj[i+1]
    				t.index = i+1
    			}else{
    				t.max = obj[i]
@@ -35,5 +35,13 @@
    			}
    	}
    	console.log(t)
+    function c(){
+      return false
+    }
+    function todo(){
+      console.log('todo')
+    }
+    c() && todo()
+
 </script>
 </html>

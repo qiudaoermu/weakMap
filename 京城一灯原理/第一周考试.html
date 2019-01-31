@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  /*------------------
+  1. new this 指向
+  ------------------*/
+  this.a = 20;
+  var test = {
+    a: 40,
+    init:()=> {
+      console.log(this.a);
+      function go() {
+        // this.a = 60;
+        console.log(this.a);
+      }
+      go.prototype.a = 50;
+      return go;
+    }
+
+  };
+  //var p = test.init();
+  //p();
+  new(test.init())();
+
+  /*------------------
+  2. 值传递 引用传递
+  ------------------*/
+  var test = function (m) {
+    m = {v:5}
+  }
+  var m = {k: 30};
+  test(m);
+  console.log(m.v); //undefiend
+
+  function changeAgeAndReference(person) {
+    person.age = 25;
+    person = {
+        name: 'John',
+        age: 50
+    };
+    return person;
+   }
+    var personObj1 = {
+        name: 'Alex',
+        age: 30
+    };
+    var personObj2 = changeAgeAndReference(personObj1);
+    console.log(personObj1);
+    console.log(personObj2);
+    /*------------------
+    3
+    . 伪数组转数组
+    ------------------*/
+    var a = 'abc'
+    console.log([...new Set(a)])
+    Array.from(a)
+    Array.prototype.slice.call(a)
+
+    var s = [];
+    var arr = s;
+    for (var i = 0; i < 3; i++) {
+      var pusher = {
+        value: "item"+i
+      },tmp;
+      if (i !== 2) {
+        tmp = []
+        pusher.children = tmp
+      }
+      arr.push(pusher);
+      arr = tmp;
+    }
+    console.log(s[0]);
+    //练习题
+    yideng()
+    alert(a)
+    var flag = true
+    if (!flag) {
+      var a = 1;
+    }
+    if (flag) {
+      function yideng() {
+        console.log("yideng1")
+      }
+    } else {
+      function yideng() {
+        console.log("yideng2")
+      }
+    }
+
+    function yidenginit () {
+      console.log("2")
+    }
+</script>
