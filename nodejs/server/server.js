@@ -11,4 +11,4 @@ function start () {
   http.createServer(onRequest).listen(8888)
   console.log("Server has start")
 }
-export.start = start
+exports.start = start

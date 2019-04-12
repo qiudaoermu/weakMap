@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+<body>
+  <input type="button" value="a" />
+  <input type="button" value="b" />
+  <input type="button" value="c" />
+</body>
+<script type="text/javascript">
+  var arr=document.getElementsByTagName("input"),
+   i=0, len=arr.length;
+  for( ; i<len; i++ ){
+    arr[i].onclick = function(){
+      //alert( i );
+    }
+  }
+  Array.from(arr).map((value, index)=>{
+    value.onclick = function(){
+      alert( index );
+    }
+  })
+</script>
+</html>

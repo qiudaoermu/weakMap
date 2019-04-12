@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="canvas" width="300" height="300"></canvas>
+  </body>
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    var canvasSize = 200;
+
+    //overriding default window.devicePixelRatio, changing it to 2 on retina display will make canvas clear
+    window.devicePixelRatio = 1;
+
+    canvas.width = canvas.height = canvasSize;
+
+    ctx.fillStyle = "#bada55";
+    ctx.fillRect(10, 10, 300, 300);
+    ctx.fillStyle = "#ffffff";
+    ctx.font = '18px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    var x = canvasSize / 2;
+    var y = canvasSize / 2;
+
+    var textString = "I love MDN";
+    ctx.fillText(textString, x, y);
+  </script>
+</html>

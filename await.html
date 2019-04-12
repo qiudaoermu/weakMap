@@ -21,7 +21,10 @@ function init(){
 
 
 async function as(){
-	console.log('as')
+	return 1
+}
+async function as2(c){
+	return c++
 }
 
 
@@ -30,16 +33,18 @@ async function Name(){
 		var t= await init();
 		console.log(t)
 		var c = await as()
+		var c2 = await as2(c)
+		console.log(c2)
 		console.log('end')
-		
-	
+
+
 }
 
 
 Name()
 
-Promise.resolve().then(()=>console.log(10));
-console.log('2')
+// Promise.resolve().then(()=>console.log(10));
+// console.log('2')
 
 
 //1 2 10 as 3

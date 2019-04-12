@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
+    <script type="text/javascript">
+      var songs = [
+        {name:"羽根",artist:"air"},
+        {name:"羽根",artist:"air"},
+        {name:"晴天",artist:"周杰伦"},
+        {name:"晴天",artist:"周杰伦"},
+        {artist:"周杰伦",name:"晴天"}
+        ];
+
+      let u = _.uniqBy(songs,'name')
+      console.log(u)
+      var original = [
+        { label: 'private', value: 'private@johndoe.com' },
+        { label: 'school', value: 'work@johndoe.com' }
+      ];
+
+      var update = [
+        { label: 'private', value: 'me@johndoe.com' },
+        { label: 'school', value: 'schol@johndoe.com' }
+      ];
+
+      var result = _.unionBy(update, original, "label");
+
+      console.log(result);
+      var s = [
+         {name:"羽根",artist:"air"},
+         {name:"羽根",artist:"air"},
+         {name:"晴天",artist:"周杰伦"},
+         {name:"晴天",artist:"周杰伦"},
+         {artist:"周杰伦",sex:"晴天"},
+         {artist:"周杰伦",name:"晴天"}
+     ];
+     let rv = s.filter(item => item.name).length
+     console.log(rv)
+    </script>
+  </body>
+</html>

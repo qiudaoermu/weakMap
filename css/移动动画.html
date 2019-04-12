@@ -8,16 +8,22 @@ div
 {
 	width:100px;
 	height:100px;
-	background:red;
 	position:relative;
+	background:red;
 	animation:myfirst 2s infinite alternate;
 }
 
 @keyframes myfirst
 {
-	0%   {background:red; left:0px; top:0px;}
+	0%   {
+		left:0px; top:0px;
+		transform:rotate (20deg)
+	}
 
-	100% {background:red; left:100px; top:-100px;}
+	100% {
+		left:100px; top:-100px;
+		transform:rotate (260deg)
+	}
 }
 
 

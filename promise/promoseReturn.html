@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+  let p = new Promise(function(resolve,reject){
+      resolve('sss')
+  }).then(data => {
+    return data
+  })
+  console.log(p.then(data => {
+    console.log(data)
+  }))
+
+  new Promise((resolve) => {
+     setTimeout(() => {
+       // 3s后自动触发隐藏动画
+       resolve('data')
+       console.log(1)
+     },3000)
+  }).then(d =>{
+     return new Promise((resolve) =>{
+       setTimeout(() => {
+         // 抛物线完后 显示+1
+         console.log(2)
+         resolve('data')
+       },1500)
+     })
+  }).then(d =>{
+    console.log(d)
+    setTimeout(() => {
+      console.log(3)
+    },1500)
+  }).catch(err => console.log(err))
+  function f1 () {
+    return new Promise(function(resolve){
+  		setTimeout(function(){
+  			resolve('f1')
+        console.log('f1')
+        return 'f1'
+  		},1000)
+  	})
+  }
+  function f2 () {
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        resolve('f2')
+        console.log('f2')
+        return 'f2'
+      },2000)
+    })
+  }
+  function f3 () {
+    setTimeout(function(){
+        console.log('f3')
+        return 'f3'
+    },3000)
+  }
+  async function cc (){
+    await f1()
+    await f2()
+    await f3()
+  }
+  cc()
+  </script>
+</html>
