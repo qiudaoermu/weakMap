@@ -1,22 +1,28 @@
 header.header
-  tabs(:tabs='tabs', @tabchange='_tabschange', :style='styles',:tabsImgShow="tabsImgShow")
+  tabs(:tabs='tabs', @tabchange='tabschange', :style='styles',:tabsImgShow="tabsImgShow")
     template(scope='slotScope')
-      div(v-for='item in slotScope.data', v-show='item.header.selected==url')
-        h2 {{item.body.one}}
-  img(src="../../img/bearFixed.png", class="bearFixed",:click="clicktoGetMoney")
+      div(v-for='item in slotScope.data', v-show='item.header.selected==url', class="goodsshow")
+        h2.titleline |{{item}}
+          img(src=)
+
+
+  img(src="../../img/2x-pix/bearFixed.png", class="bearFixed",@click="clicktoGetMoney")
   div.trade
     div.inner
       p.left
         span.price
           | ¥ 19.8
         span.peopleNumber
-          |已经有3433人购买
+          |已经有{{hasBuyPeople}}人购买
       p.right(@click="buyRightNow")
-        |立即购买
+        |{{hasBuyed}}
 
-    Alerts(
-    v-if="show==true",
-    :defaultOptions="defaultOptions",
-    :content="content",
-    @onClose="del",
-    @onEnter="enter")
+  Alerts(
+  v-if="show==true",
+  :defaultOptions="defaultOptions",
+  :content="content",
+  @onClose = "close",
+  :headerImg="headerImgs",
+  @onEnter="enter")
+  button(@click="clearCookie",class="clearCookie")
+    |清除cookie

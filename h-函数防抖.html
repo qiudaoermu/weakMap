@@ -1,128 +1,85 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<style type="text/css">
-  body{
-    height: 3000px;
-    width: 100%;
-    background: red
-  }
-</style>
-<body>
+	<head>
+		<title></title>
+	</head>
+	<style type="text/css">
+		body {
+			height: 3000px;
+			width: 100%;
+			background: red;
+		}
+	</style>
+	<body></body>
+	<script type="text/javascript" src="jquery/jquery.js"></script>
+	<script type="text/javascript">
+		//窗口拖动 只在触发一次 闭包典型应用 减少全局变量使用
+		var timer = null;
+		function debounce(fn, wait) {
 
-</body>
-<script type="text/javascript" src="jquery/jquery.js"></script>
-<script type="text/javascript">
-	//窗口拖动 只在触发一次 闭包典型应用 减少全局变量使用
-var timer = null;
-function debounce(fn, wait) {
+			return function () {
+				var context = this
+				var args = arguments
+				if (timer) {
+					clearTimeout(timer);
+					timer = null;
+				}
+				timer = setTimeout(function () {
+					fn.apply(context, args)
+				}, wait)
+			}
+		};
 
-  return function () {
-      var context = this
-      var args = arguments
-      if (timer) {
-          clearTimeout(timer);
-          timer = null;
-      }
-      timer = setTimeout(function () {
-          fn.apply(context, args)
-      }, wait)
-  }
-};
+		var time = "";
+		function debounce2(fn, await) {
 
+			if (time) {
+				clearTimeout(time)
+				time = ''
+			}
 
+			time = setTimeout(function () {
+				fn()
+			}, await)
+		}
 
-var time = "";
-function debounce2(fn,await){
-      
-        if(time){
-           clearTimeout(time)
-           time = ''
-        }
+		// function close(){   var i=0   return function(){     i++     console.log(i)   } } var c  = close() c() c() var fn = function(){ 	console.log('fn') };
 
-        time = setTimeout(function(){
-              fn()
-        },await)     
-}
+		$(window).on("resize", debounce(fn, 500))
+		//需要执行的函数
+		function fn() {
+			console.log('fn')
+		}
 
-// function close(){
-//   var i=0
-//   return function(){
-//     i++
-//     console.log(i)
-//   }
-// }
-// var c  = close()
-// c()
-// c()
+		// window.onresize = function(){       debounce2(fn,500) } window.onresize = function(){   debounce(fn,1000) } var time = '' function debounce(fn,timeLong){         if(time){             clearTimeout(time)             time = ''         }         time
+		// =setTimeout(function(){          fn()         },timeLong) } setInterval(,1000)  第一次在1500ms后触发，之后每1000ms触发一次 setInterval(debounce(fn,2000),1000)  不会触发一次（我把函数防抖看出技能读条，如果读条没完成就用技能，便会失败而且重新读条）
+		var loading = false;
+		function append() {
+			console.log('append element to document');
+		}
 
-// var fn = function(){
-// 	console.log('fn')
-// };
+		function load() {
+			loading = true;
+			setTimeout(function () {
+				console.log('setTimeout')
+				loading = false;
+			}, 2000)
+		}
 
-window.onresize = debounce(fn,500)
-//需要执行的函数
-function fn(){
-    console.log('fn')
-}
+		$(window).scroll(function () {
+			var scrollTop = $(window).scrollTop;
+			var windowHeight = $(window).height();
+			var scrollHeight = $(document).height();
+			var distance = scrollHeight - scrollTop - windowHeight;
+			if (!loading) {
+				load();
+			}
+		});
 
-// window.onresize = function(){
-//       //debounce2(fn,500)
-// }
+		var setTimeoutTime = setTimeout(function () {
 
-// window.onresize = function(){
-//  // debounce(fn,1000)
-// }
-
-     
-// var time = ''
-// function debounce(fn,timeLong){
-//         if(time){
-//             clearTimeout(time)
-//             time = ''
-//         }
-
-//         time =setTimeout(function(){
-//          fn()
-//         },timeLong)
-// }
-//setInterval(,1000) // 第一次在1500ms后触发，之后每1000ms触发一次
-
-//setInterval(debounce(fn,2000),1000) // 不会触发一次（我把函数防抖看出技能读条，如果读条没完成就用技能，便会失败而且重新读条）
-var loading = false;
-function append() {
-    console.log('append element to document');
-}
-
-function load() {
-    loading = true;
-    setTimeout(function(){
-       console.log('setTimeout')
-       loading = false;
-    },2000)
-}
-
-
-
-$(window).scroll(function(){
-    var scrollTop = $(window).scrollTop;
-    var windowHeight = $(window).height();
-    var scrollHeight = $(document).height();
-    var distance = scrollHeight - scrollTop - windowHeight;
-    if(!loading ){
-        load();
-    }
-});
-
-var setTimeoutTime = setTimeout(function(){
-
-      console.log('time')
-      clearTimeout(setTimeoutTime)
-},2000)
-
-
-
-</script>
+			console.log('time')
+			clearTimeout(setTimeoutTime)
+		}, 2000)
+	</script>
 </html>

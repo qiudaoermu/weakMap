@@ -717,6 +717,24 @@ https://juejin.im/post/5ac61da66fb9a028c71eae1b?utm_source=gold_browser_extensio
 
 第一种——调用localStorage
 在一个标签页里面使用 localStorage.setItem(key,value)添加（修改、删除）内容； 
+
+var obj = { 
+    name:'Jim',
+    password: "123"
+}; 
+var array = [];
+array.push(obj);
+array.push(obj);
+var str = JSON.stringify(array); 
+
+//存入 
+localStorage.obj = str; 
+//读取 
+str1 = localStorage.obj; 
+//重新转换为对象 
+obj1 = JSON.parse(str1);
+console.log(obj1)
+
 在另一个标签页里面监听 storage 事件。 
 即可得到 localstorge 存储的值，实现不同标签页之间的通信。
 
