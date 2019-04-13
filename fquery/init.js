@@ -1,9 +1,8 @@
 
 
-
-class Fquery{
+class Fquery {
 
 }
 
 
-
+console.log('1')

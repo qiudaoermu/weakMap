@@ -6,8 +6,11 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
   </head>
   <body>
-    {% block title %}{{title}}
-    {% endblock %}
+    <h1>
+      {{title}}
+    </h1>
+    <span>{{content}}</span>
+    <h2 class="wsBack"></h2>
   </body>
   <script src="javascripts/jquery.js"></script>
   <script src="javascripts/socket.io.js"></script>
