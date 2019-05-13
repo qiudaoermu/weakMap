@@ -6,7 +6,9 @@ class BB {
     }
 }
 
+
 console.log('dev')
+
 
 export default class AA extends BB {
     constructor() {

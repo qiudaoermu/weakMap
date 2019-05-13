@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import App from './RouterView.vue';
 import './assets/styles/global.styl'
-const root = document.createElement('div');
 import VueRouter from 'vue-router'
 import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
@@ -30,5 +29,5 @@ document.body.appendChild(root);
 
 new Vue({
     router,
-    render:(h) => h(App)
+    render: h => h(App),
 }).$mount(root);

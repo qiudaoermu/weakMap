@@ -25,6 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+let count = 1
+
+setInterval(() => {
+    count += 1
+    console.log(count)
+}, 1000)
 
 
 io.on('connection', (socket) => {
@@ -32,10 +38,18 @@ io.on('connection', (socket) => {
     socket.on('message', (msg) => {
       console.log(`服务器接收到客户端消息 ${msg}`)
     })
-    socket.emit('test', 'server ready')
+
+    socket.emit('test', {
+          count,
+    })
 })
+
+
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index', {
+    title: 'express',
+    content: 'welcome to express',
+  })
 })
 
 server.listen('3003', () => {

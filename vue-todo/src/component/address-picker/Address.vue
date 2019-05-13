@@ -18,161 +18,184 @@
 </template>
 
 <script>
-import Address from './address.js'
-let apid = 0
+
+import  Picker from "mint-ui/lib/picker";
+import "mint-ui/lib/picker/style.css"
+
+import  Popup  from "mint-ui/lib/popup"
+import "mint-ui/lib/popup/style.css"
+import Address from "./address.js";
+let apid = 0;
 //根据apid查找对象
-function findcity( item ) {
+function findcity(item) {
   return item.apid == apid;
 }
 //根据aname获取名字
-function getAddressName( item ) {
-  return item.aname
+function getAddressName(item) {
+  return item.aname;
 }
 //筛选出各省级对象
-let pObj = Address.filter( findcity )
+let pObj = Address.filter(findcity);
 //获取各省级对象名字
-let provinces = pObj.map( getAddressName )
+let provinces = pObj.map(getAddressName);
 export default {
-  name: 'address',
+  name: "address",
   props: {
     showAddressPicker: Boolean,
     init: String
   },
   created() {
-    if ( this.init ) {
-      this.initVal = this.init
+    if (this.init) {
+      this.initVal = this.init;
     }
-    this.initAddress()
+    this.initAddress();
   },
   mounted() {
-    let vm = this
-    vm.show = vm.showAddressPicker
+    let vm = this;
+    vm.show = vm.showAddressPicker;
+  },
+  components: {
+    "mt-picker": Picker,
+    "mt-popup": Popup
   },
   data() {
     return {
-      slots: [ {
-        flex: 1,
-        values: [],
-        className: 'slot1',
-        textAlign: 'center',
-        defaultIndex: 3
-      }, {
-        divider: true,
-        content: '-',
-        className: 'slot2'
-      }, {
-        flex: 1,
-        values: [],
-        className: 'slot3',
-        textAlign: 'center'
-      }, {
-        divider: true,
-        content: '-',
-        className: 'slot4',
-        defaultIndex: 0
-      }, {
-        flex: 1,
-        values: [],
-        className: 'slot5',
-        textAlign: 'center',
-        defaultIndex: 0
-      } ],
-      addressValue: '',
+      slots: [
+        {
+          flex: 1,
+          values: [],
+          className: "slot1",
+          textAlign: "center",
+          defaultIndex: 3
+        },
+        {
+          divider: true,
+          content: "-",
+          className: "slot2"
+        },
+        {
+          flex: 1,
+          values: [],
+          className: "slot3",
+          textAlign: "center"
+        },
+        {
+          divider: true,
+          content: "-",
+          className: "slot4",
+          defaultIndex: 0
+        },
+        {
+          flex: 1,
+          values: [],
+          className: "slot5",
+          textAlign: "center",
+          defaultIndex: 0
+        }
+      ],
+      addressValue: "",
       disableClear: true,
       show: true,
-      initVal: '北京-北京市-东城区',
+      initVal: "北京-北京市-东城区",
       closeOnClickModal: false
-    }
+    };
   },
   watch: {
-    showAddressPicker( old, val ) {
-      this.show = !val
+    showAddressPicker(old, val) {
+      this.show = !val;
     },
-    init( val ) {
-      this.initVal = val
-      this.initAddress()
+    init(val) {
+      this.initVal = val;
+      this.initAddress();
     }
   },
   methods: {
-    saveAddress() { //保存所选地区
-      let vm = this
-      vm.show = false
-      vm.$emit( 'save-address', vm.addressValue );
+    saveAddress() {
+      //保存所选地区
+      let vm = this;
+      vm.show = false;
+      vm.$emit("save-address", vm.addressValue);
     },
-    hidePicker() { // 取消选择
-      this.$emit( 'hide-picker', false );
+    hidePicker() {
+      // 取消选择
+      this.$emit("hide-picker", false);
     },
-    initAddress() { //初始化地址组件
-      let vm = this
-      let initAddress = vm.initVal.split( "-" )
-      vm.slots[ 0 ].values = provinces
-      vm.slots[ 0 ].values.map( ( val, index ) => {
-        if ( initAddress[ 0 ] === val ) {
-          vm.slots[ 0 ].defaultIndex = index
+    initAddress() {
+      //初始化地址组件
+      let vm = this;
+      let initAddress = vm.initVal.split("-");
+      vm.slots[0].values = provinces;
+      vm.slots[0].values.map((val, index) => {
+        if (initAddress[0] === val) {
+          vm.slots[0].defaultIndex = index;
         }
-      } )
-      pObj.map( ( val ) => {
-        if ( val.aname === initAddress[ 0 ] ) {
-          apid = val.aid
+      });
+      pObj.map(val => {
+        if (val.aname === initAddress[0]) {
+          apid = val.aid;
         }
-      } )
-      vm.slots[ 2 ].values = Address.filter( findcity )
-        .map( getAddressName )
-      Address.filter( findcity )
-        .map( ( val, index ) => {
-          if ( val.aname === initAddress[ 1 ] ) {
-            apid = val.aid
-            vm.slots[ 2 ].defaultIndex = index
-          }
-        } )
-      vm.slots[ 4 ].values = Address.filter( findcity )
-        .map( getAddressName )
-      vm.slots[ 4 ].values.map( ( val, index ) => {
-        if ( initAddress[ 2 ] === val ) {
-          vm.slots[ 4 ].defaultIndex = index
+      });
+      vm.slots[2].values = Address.filter(findcity).map(getAddressName);
+      Address.filter(findcity).map((val, index) => {
+        if (val.aname === initAddress[1]) {
+          apid = val.aid;
+          vm.slots[2].defaultIndex = index;
         }
-      } )
-      vm.addressValue = vm.slots[ 0 ].values[ vm.slots[ 0 ].defaultIndex ] +
-        "-" + vm.slots[ 2 ].values[ vm.slots[ 2 ].defaultIndex ] +
-        "-" + vm.slots[ 4 ].values[ vm.slots[ 4 ].defaultIndex ];
+      });
+      vm.slots[4].values = Address.filter(findcity).map(getAddressName);
+      vm.slots[4].values.map((val, index) => {
+        if (initAddress[2] === val) {
+          vm.slots[4].defaultIndex = index;
+        }
+      });
+      vm.addressValue =
+        vm.slots[0].values[vm.slots[0].defaultIndex] +
+        "-" +
+        vm.slots[2].values[vm.slots[2].defaultIndex] +
+        "-" +
+        vm.slots[4].values[vm.slots[4].defaultIndex];
     },
-    onValuesChange( picker, values ) {
-      console.log( values )
-      let vm = this
-      if ( !values[ 0 ] ) {
+    onValuesChange(picker, values) {
+      console.log(values);
+      let vm = this;
+      if (!values[0]) {
         // 解决第一次选择不选省份出现的bug
-        values[ 0 ] = vm.slots[ 0 ].values[ vm.slots[ 0 ].defaultIndex ]
+        values[0] = vm.slots[0].values[vm.slots[0].defaultIndex];
       }
-      console.log( values[ 0 ] )
-      if ( values[ 2 ] ) { // 确保地址组件已经完成初始化
+      console.log(values[0]);
+      if (values[2]) {
+        // 确保地址组件已经完成初始化
         //城市数组, 市区数组
         let citys = [],
           areas = [];
-        for ( let i in pObj ) {
-          if ( pObj[ i ].aname === values[ 0 ] ) { //根据省份名找到对应的城市数组
-            apid = pObj[ i ].aid
+        for (let i in pObj) {
+          if (pObj[i].aname === values[0]) {
+            //根据省份名找到对应的城市数组
+            apid = pObj[i].aid;
             //console.log( apid )
-            if ( apid ) { // 防止直辖市选择时的报错
-              citys = Address.filter( findcity )
-              vm.slots[ 2 ].values = citys.map( getAddressName )
+            if (apid) {
+              // 防止直辖市选择时的报错
+              citys = Address.filter(findcity);
+              vm.slots[2].values = citys.map(getAddressName);
             }
           }
         }
-        for ( let j in citys ) {
-          if ( citys[ j ].aname === values[ 1 ] ) { //根据城市名找到对应的市区数组
-            apid = citys[ j ].aid
-            if ( !apid ) return false;
-            areas = Address.filter( findcity )
-            vm.slots[ 4 ].values = areas.map( getAddressName )
+        for (let j in citys) {
+          if (citys[j].aname === values[1]) {
+            //根据城市名找到对应的市区数组
+            apid = citys[j].aid;
+            if (!apid) return false;
+            areas = Address.filter(findcity);
+            vm.slots[4].values = areas.map(getAddressName);
           }
         }
         //以`-`连接地址: 广东-深圳-福田
-        vm.addressValue = values.join( "-" )
+        vm.addressValue = values.join("-");
         //console.log( vm.addressValue )
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>

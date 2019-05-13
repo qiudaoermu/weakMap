@@ -6,5 +6,7 @@ $(() => {
     })
     socket.on('test', (json) => {
           console.log('test', json)
+
+          $('.wsBack').html(json.count)
     })
 })
