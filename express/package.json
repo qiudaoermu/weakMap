@@ -3,6 +3,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "jquery": "^3.3.1",
-    "swig": "^1.4.2"
+    "swig": "^1.4.2",
+    "wow-advertiser": "git+ssh://git@code.vipkid.com.cn:3590/wowsch/tools/wow-advertiser.git"
   }
 }

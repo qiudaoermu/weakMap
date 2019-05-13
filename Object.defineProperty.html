@@ -15,21 +15,117 @@ var pattern = {
     set: function () {
         this.myname = 'this is my name string';
     }
-};
-
+}
 
 function TestDefineSetAndGet() {
     Object.defineProperty(this, 'myproperty', pattern);
 }
-
-
 var instance = new TestDefineSetAndGet();
 instance.myproperty = 'test';
 instance.myproperty = 'test2';
 // 'I alway return this string,whatever you have assigned'
-console.log(instance.myproperty);
+// console.log(instance.myproperty);
 // 'this is my name string'
-console.log(instance.myname);
+// console.log(instance.myname);
 //和new Proxy 类似 监控属性变化
+
+var bValue;
+var o = {}
+o.b = 3
+Object.defineProperty(o, "b", {
+  get : function(){
+		console.log(37)
+		console.log(bValue)
+    return bValue;
+  },
+  set : function(newValue){
+		console.log('set')
+		console.log('obj43')
+		console.log(newValue)
+    bValue = newValue;
+  },
+  enumerable : true,
+  configurable : true
+});
+
+o.b = 38;
+
+var bValuea;
+var oa = [0]
+Object.defineProperty(oa, 0, {
+  get : function(){
+		console.log('arr define')
+    return bValue;
+  },
+  set : function(newValue){
+		console.log('set define')
+		console.log(newValue)
+    bValue = newValue;
+  },
+  enumerable : true,
+  configurable : true
+});
+
+oa[0] = 38;
+
+
+// / 还是老套路，定义一个observe方法
+function defineReactive(data, key, val) {
+  Object.defineProperty(data, key, {
+    enumerable: true,
+    configurable: true,
+    get: function defineGet() {
+      console.log(`get key: ${key} val: ${val}`)
+      return val
+    },
+    set: function defineSet(newVal) {
+      console.log(`set key: ${key} val: ${newVal}`)
+      // 还记得我们上面讨论的闭包么
+      // 此处将新的值赋给val，保存在内存中，从而达到赋值的效果
+      val = newVal
+    }
+  })
+}
+function observe(data) {
+	let c = []
+  Object.keys(data).forEach(function(key) {
+		c.push(key)
+    defineReactive(c, key, c[key])
+  })
+}
+let test = [1, 2, 3]
+// 初始化
+observe(test)
+
+
+var a={};
+bValue=1;
+Object.defineProperty(a,"b",{
+  set:function(value){
+    bValue = value;
+    console.log("setted");
+  },
+  get:function(){
+    return bValue;
+  }
+});
+console.log(a.b);  //1
+a.b=[];  //setted
+a.b=[1,2,3];  //setted
+a.b[1]=10;  //无输出
+a.b.push(4);  //无输出
+a.b.length=5;  //无输出
+console.log(a.b);  //[1,10,3,4,undefined];
+
+
+
+/*--------------------
+对象
+	可以检测到
+数组同一个下标 def 可以检测到
+	push
+	length
+	不同下标不能检测
+----------------------*/
 </script>
 </html>

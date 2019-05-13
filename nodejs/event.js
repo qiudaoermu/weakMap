@@ -5,11 +5,11 @@ const eventEmitter = new events.EventEmitter()
 const connectHandler = function connected(){
   console.log("connected被调用！")
 }
-eventEmitter.on('connection',connectHandler) //完成事件绑定
+//完成事件绑定
+eventEmitter.on('connection',connectHandler)
 //触发事件
 eventEmitter.emit('connection')
 console.log('程序执行完毕')
-debugger
 
 setImmediate(function(param){
     console.log("执行"+param);
