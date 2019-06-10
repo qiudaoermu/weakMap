@@ -5,3 +5,7 @@ console.log(process.platform)
 process.on('exit', (code) => {
   console.log('退出代码',code)
 })
+console.log(process.env)
+// console
+// setTmeout
+// setInterval

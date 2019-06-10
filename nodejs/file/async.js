@@ -1,5 +1,5 @@
 var fs = require("fs");
-
+// 异步执行
 fs.readFile('input.txt', function (err, data) {
     // 第一个参数是err
     if (err) return console.error(err);

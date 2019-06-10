@@ -1,0 +1,12 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "event.js",
+  "bin": "bin/index.js",
+  "scripts": {
+    "start":"NODE_ENV=development node app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

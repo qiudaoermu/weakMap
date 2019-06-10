@@ -1,0 +1,10 @@
+#/bin/sh
+
+filename=3000
+pss=$(lsof -t $(which $filename))
+
+for ps in $pss
+do
+echo killing $ps
+kill -9 $ps
+done

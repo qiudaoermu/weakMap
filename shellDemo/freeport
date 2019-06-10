@@ -1,0 +1,7 @@
+#!/bin/bash
+set -x    #开启调试
+fp() {
+  kill "$(lsof -ti tcp:3000;)"
+};
+fp
+set +x    #结束调试，只针对set -x 和set +x 之间的脚本进行调试

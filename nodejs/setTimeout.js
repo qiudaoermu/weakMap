@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-
-</body>
-<script type="text/javascript">
-
 console.log(1);
 //A
 setTimeout(function(){
@@ -42,8 +32,3 @@ setTimeout(function(){
 setTimeout(function(){
     console.log(3)
 })
-
-
-
-</script>
-</html>
