@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+  var s = [];
+  var arr = s;
+  for (var i = 0; i < 3; i++) {
+    var pusher = { value: "item"+i },tmp;
+    if (i !== 2) {
+      tmp = []
+      pusher.children = tmp
+    }
+    debugger
+    arr.push(pusher);
+    arr = tmp;
+  }
+  console.log(s);
+  // i = 0
+  // pusher = {value: "item0"}, arr = [ { value: "item0" }], tem = [],pusher.children = []
+  // pusher = {value: "item0",children: []}
+  // arr = [{value: "item0",children: []}]
+  // arr = []
+  // i = 1
+  // pusher = {value: "item0"}, arr = [ { value: "item1" }], tem = [],pusher.children = []
+  // arr = []
+  //
+</script>

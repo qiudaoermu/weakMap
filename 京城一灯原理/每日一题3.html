@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    yideng()
+    var flag = true;
+    if (flag) { // 块阻止了默认编译
+      function yideng () {
+        console.log('yideng1')
+      }
+    } else {
+      function yideng2() {
+        console.log('yideng2')
+      }
+    }
+  </script>
+</html>

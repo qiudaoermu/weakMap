@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+<script type="text/javascript">
+  var length = 10
+
+  function fn () {
+    debugger
+    console.log(this.length)
+  }
+
+  var yideng = {
+    length : 5,
+    method : function (fn) {
+      fn();
+      arguments[0]()
+    }
+  }
+  yideng.method(fn ,1)
+</script>
