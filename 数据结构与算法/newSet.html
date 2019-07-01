@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    let lastPoint = new Set(['a', 'b', 'c'])
+      const points = [
+          'a', 'b', 'd', 'f', 'g'
+        ],
+        remainsPoints = [],
+        newPoints = []
+      for (const item of points) {
+        if (lastPoint.has(item)) {
+          remainsPoints.push(item)
+        } else {
+          newPoints.push(item);
+        }
+      }
+      lastPoint = new Set(remainsPoints.concat(newPoints));
+      console.log(remainsPoints)
+      console.log(newPoints)
+      console.log([...lastPoint])
+  </script>
+</html>

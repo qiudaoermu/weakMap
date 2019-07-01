@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    // 二叉树 从左到右 从小到大
+    // 插入 删除 最大 最小
+    // 唯一性
+    function Node(data,left,right) {
+      this.data = data
+      this.left = left
+      this.right = right
+    }
+    function BST() {
+      this.root = null
+      this.insert = insert
+      this.remove = remove
+      this.getMin = getMin
+      this.getMax = getMax
+      this.removeNode = removeNode
+      this.remove = remove
+      this.parent = 0
+    }
+    function remove(data) {
+      removeNode(this.root,data)
+    }
+    function removeNode(node,data){
+      if(node==null) {
+        return null;
+      }
+      if(data==node.data) {
+        if(node.left==null&&node.right==null) {
+          return null;
+        }
+        if(node.left==null) {
+          return node.right
+        }
+        if(node.right==null) {
+          return node.left
+        }
+        var tempNode = getMin(node.right);
+        node.data = tempNode.data
+        node.right = removeNode(node.right,tempNode.data)
+      }else if(data<node.data) {
+        node.left = removeNode(node.left,data)
+        return node
+      }else {
+        node.right = removeNode(node.right,data)
+        return node;
+      }
+    }
+    // 没有子节点的, 找到父节点，父节点
+    // 有子节点的, 右子节点是父节点的左节点
+    function remove2(data) {
+      // 如果删除的是根节点
+      let current = this.root.right
+      if(this.root.data == data) {
+        while (true) {
+          if (current.left) {
+              current = current.left
+          } else {
+            current.left = this.root.left
+            break
+          }
+        }
+        this.root = this.root.right
+      } else {
+        let current = this.root
+        while (true) {
+          if(data < current.left.data){
+            let parent = current
+            current = current.left
+            if(data == current.data) {
+              if (!current.left) {
+                parent.left = ''
+                break
+              } else {
+
+              }
+            }
+          } else if (data > current.rigth.data){
+            current = current.right
+            if(!current.right) {
+
+              break
+            }
+          }
+        }
+      }
+    }
+    function getMin(root){
+      var current = this.root||root
+      while (!current) {
+          current = p.left
+      }
+      return current
+    }
+    function getMax(root){
+      var current = this.root || root
+      while (!current) {
+          current = p.right
+        }
+      return current
+    }
+    function insert(data) {
+      var n = new Node(data, null, null)
+      if(this.root == null) {
+        this.root = n
+      } else {
+        var current = this.root
+        while (true) {
+          parent = current
+          if(data > current.data) {
+            current = current.right
+            if ( current == null ) {
+              parent.right = n
+              break;
+            }
+          } else {
+            current = current.left
+            if(current == null) {
+              parent.left = n
+              break;
+            }
+          }
+        }
+      }
+    }
+    function insert2(data) {
+      var n = new Node(data, null, null)
+      if(this.root == null) {
+        this.root = n;
+      }else {
+        var current = this.root;
+        var parent;
+        while (true) {
+          parent = current
+          if(data < current.data) {
+            current = current.left
+            if(current == null) {
+              parent.left = n;
+              break;
+            }
+          }else {
+            current = current.right
+            if(current == null){
+              parent.right = n
+              break;
+            }
+          }
+        }
+      }
+    }
+    let bst = new BST()
+    bst.insert(23)
+    bst.insert(88)
+    bst.insert(99)
+    bst.insert(13)
+    bst.insert(1)
+    bst.insert(100)
+    bst.insert(19)
+    bst.insert(77)
+    let current = bst.remove(100)
+    // let min = bst.getMin()
+    // let max = bst.getMax()
+
+  </script>
+</html>

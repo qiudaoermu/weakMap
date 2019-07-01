@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    function qSort(list) {
+      if (list.length == 0) {
+        return [];
+      }
+      var pivot = list[0];
+      var lesser = [];
+      var greater = [];
+      for (var i = 1; i < list.length; i++) {
+        if (list[i] < pivot) {
+          lesser.push(list[i])
+        } else {
+          greater.push(list[i])
+        }
+      }
+      return qSort(lesser).concat(pivot, qSort(greater));
+    }
+    var data = [
+      44,
+      75,
+      23,
+      43,
+      55,
+      12,
+      64,
+      77,
+      33
+    ]
+    console.log(qSort(data))
+  </script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    // 二分查找
+    let arr = [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13,
+      17,
+      19,
+      23,
+      29,
+      31,
+      37,
+      41,
+      43,
+      47
+    ];
+    function find(arr, item) {
+      var low = 0; //设定下标
+      var high = arr.length - 1; //设定上标
+      while (high > low) {
+        var mid = Math.floor((low + high) / 2); //二分查找的关键
+        if (arr[mid] > item) {
+          high = mid;
+        } else if (arr[mid] < item) {
+          low = mid;
+        } else {
+          return mid
+        }
+      }
+      return -1;
+    }
+    console.log(find(arr, 47))
+    // 链表
+    let o = {
+      data: {},
+      next: {
+        data: {},
+        next: {
+          data: {},
+          next: {
+            data: {},
+            next: {
+              data: {},
+              next: {}
+            }
+          }
+        }
+      }
+    }
+  </script>
+</html>

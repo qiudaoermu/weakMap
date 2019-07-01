@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="append-c">
+      <div class="append-child"></div>
+    </div>
+    <ul id="ul">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+  </body>
+  <script type="text/javascript">
+    var element = document.getElementById('ul'); // assuming ul exists
+    var fragment = document.createDocumentFragment();
+    var browsers = ['Firefox', 'Chrome', 'Opera', 'Safari', 'Internet Explorer'];
+    // browsers.forEach(function (browser) {   var li = document.createElement('li');   li.textContent = browser;   fragment.appendChild(li); }); element.appendChild(fragment);
+    var child
+    var appendC = element.firstChild
+    debugger
+    while (child = element.firstChild) {
+      debugger
+      console.log(element.children)
+      fragment.append(child)
+      console.log(fragment)
+    }
+  </script>
+</html>

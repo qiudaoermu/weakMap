@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    function test() {
+      console.log(333)
+    }
+    function qq() {
+      if (false) {
+        function test() {
+          console.log(2)
+          arguments[0]()
+        }
+      }
+      test()
+    }
+    qq()
+  </script>
+</html>

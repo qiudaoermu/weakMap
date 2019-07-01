@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    const timeout = ms =>
+      new Promise((resolve,reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms)
+      })
+    const ajax1  = () =>
+        timeout(2000).then(() => {
+          console.log(1)
+          return 1
+        })
+    const ajax2 = () =>
+        timeout(1000).then(() => {
+          console.log(2)
+          return 1
+        })
+    const ajax3 = () =>
+        timeout(2000).then(() => {
+          console.log(3)
+          return 3
+        })
+    const mergePromise = (ajaxArray) => {
+      (async function test (){
+        let resultArr = []
+        for(let i in ajaxArray){
+          await result = i()
+          resultArr.push(result)
+        }
+        return resultArr
+      })()
+    }
+    mergePromise([ajax1,ajax2,ajax3]).then(data => {
+      console.log('done')
+      console.log(data)
+    })
+  </script>
+</html>

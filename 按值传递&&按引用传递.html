@@ -1,0 +1,11 @@
+<script type="text/javascript">
+  function test(obj) {
+    obj.age = '20';
+    console.log('inner', obj)
+  }
+  var obj = {
+    name: "xiaoming"
+  }
+  test(obj)
+  console.log('outer', obj)
+</script>

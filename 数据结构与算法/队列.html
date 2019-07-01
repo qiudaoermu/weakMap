@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+    .queqe {
+      width: 200px;
+      height: 200px;
+      background: red;
+    }
+  </style>
+  <body>
+    <div class="queqe"></div>
+  </body>
+  <script type="text/javascript">
+    //  事件队列 queqe 先压入的事件先执行
+    document.querySelector('.queqe').addEventListener('click', fn1)
+    document.querySelector('.queqe').addEventListener('click', fn2)
+    document.querySelector('.queqe').addEventListener('click', fn3)
+    function fn1() {
+      console.log('fn1')
+    }
+    function fn2() {
+      console.log('fn2')
+    }
+    function fn3() {
+      console.log('fn3')
+    }
+  </script>
+</html>

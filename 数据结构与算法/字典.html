@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>字典</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    function Dictionary() {
+      this.dataStore = new Array();
+      this.add = add;
+      this.find = find;
+      this.remove = remove
+      this.showAll = showAll
+      this.count = count
+      this.clear = clear
+    }
+    function add(key, value) {
+      this.dataStore[key] = value
+    }
+    function find(key) {
+      return this.dataStore[key];
+    }
+    function remove(key) {
+      delete this.dataStore[key]
+    }
+    function showAll() {
+      var datakeys = Object.keys(this.dataStore)
+      for (var keys in datakeys) {
+        console.log(datakeys[keys] + "-->" + this.dataStore[datakeys[keys]]);
+      }
+    }
+    function count() {
+      return Object.keys(this.dataStore).length
+    }
+    function clear() {
+      var dataKeys = Object.keys(this.dataStore);
+      for (var keys in dataKeys) {
+        delete this.dataStore[dataKeys[keys]]
+      }
+    }
+    var pbook = new Dictionary();
+    pbook.add("Addadis", 498);
+    pbook.add("Nike", 999);
+    pbook.add("NB", 654);
+    pbook.showAll()
+    pbook.remove("NB")
+    console.info("======")
+    pbook.showAll()
+    console.warn("展现 字典元素个数", pbook.count())
+    pbook.clear()
+    console.warn("展现字典元素个数", pbook.count())
+  </script>
+</html>

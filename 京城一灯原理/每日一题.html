@@ -13,15 +13,16 @@
   var length = 10
 
   function fn () {
-    debugger
     console.log(this.length)
   }
 
   var yideng = {
     length : 5,
-    method : function (fn) {
+    method : (fn) => {
       fn();
       arguments[0]()
+      console.log(arguments.callee)
+      console.dir(arguments)
     }
   }
   yideng.method(fn ,1)

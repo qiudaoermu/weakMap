@@ -1,100 +1,91 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-<script type="text/javascript">
-	
-
-var china = {
-	  	nation : '中国',
-	  	birthplaces:['北京','上海','广州'],
-	  	skincolr :'yellow',
-	  	rest:{a:3,b:4},
-	  	friends:['sk','ls']
-	  }
-var usa = {
-	  	nation : '中国',
-	  	birthplaces:['北京','上海','广州'],
-	  	skincolr :'yellow',
-	  	rest:{a:3,b:4},
-	  	friends:['sk','ls']
-	  }
-
-	  function shallowclone(o,v){
-	  			var v = v||{}
-
-
-	  			for(var i in o){
-
-	  				v[i] = o[i]
-	  			}
-	  				return v
-	  }
-
-	  var rest = shallowclone(china,{})
-	  china.rest.a = 10 //改变
-	  console.log(rest)
-	  function deepClone(o,v){
-	  		var v = v||{}
-	  		for(var i in o){
-				if(typeof(o[i])=='object'){
-					if(o[i].constructor == "Array"){
-						v[i] = []
-					}else{
-						v[i]= {}
-					}
-					deepClone(o[i],v[i])
-
-				}else{
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var china = {
+				skincolr: 'yellow',
+				nation: '中国',
+				birthplaces: [
+					'北京', '上海', '广州'
+				],
+				1: {
+					a: 3,
+					b: 4
+				},
+				friends: ['sk', 'ls']
+			}
+			var usa = {
+				nation: '中国',
+				birthplaces: [
+					'北京', '上海', '广州'
+				],
+				skincolr: 'yellow',
+				rest: {
+					a: {
+						a: 1,
+						l: 3
+					},
+					b: 4
+				},
+				friends: ['sk', 'ls']
+			}
+			function shallowclone(o, v) {
+				var v = v || {}
+				for (var i in o) {
 					v[i] = o[i]
 				}
-	  		}
-	  		return v
-	  }
-	  let rest2 = deepClone(usa,{})
-	  usa.rest.b = 10 /不改变
-	  console.log(rest2)
-
-
-
-
-
-	  var crr = {
-	  		e:3,
-	  		f:[]
-	  		b:{
-	  			c:{a:1,c:2}
-	  	}
-	  }
-	  var tr= {}
-	  for(var i in crr){
-	  	if(type crr[i]=='object'){
-
-	  			tr[i] = {}
-	  			for(var j in crr[i]){
-	  				tr[i][j] = crr[i][j]
-	  			}
-
-
-	  	}else{
-	  		tr[i] = crr[i]
-	  	}
-	  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-</body>
+				return v
+			}
+			var rest = shallowclone(china, {})
+			// china.rest.a = 10 改变
+			console.log(rest)
+			//Chrome Opera 中使用 for-in 语句遍历对象属性时会遵循一个规律： 它们会先提取所有 key 的 parseFloat 值为非负整数的属性，然后根据数字顺序对属性排序首先遍历出来，然后按照对象定义的顺序遍历余下的所有属性。
+			for (var i in rest) {
+				console.log(rest[i])
+			}
+			function deepClone(o, v) {
+				var v = v || {}
+				for (var i in o) {
+					if (typeof(o[i]) == 'object') {
+						if (o[i].constructor == "Array") {
+							v[i] = []
+						} else {
+							v[i] = {}
+						}
+						deepClone(o[i], v[i])
+					} else {
+						v[i] = o[i]
+					}
+				}
+				return v
+			}
+			let rest2 = deepClone(usa, {})
+			usa.rest.b = 10 //不改变
+			console.log(rest2)
+			var crr = {
+				e: 3,
+				f: [],
+				b: {
+					c: {
+						a: 1,
+						c: 2
+					}
+				}
+			}
+			var tr = {}
+			for (var i in crr) {
+				if (typeof(crr[i] == 'object')) {
+					tr[i] = {}
+					for (var j in crr[i]) {
+						tr[i][j] = crr[i][j]
+					}
+				} else {
+					tr[i] = crr[i]
+				}
+			}
+		</script>
+	</body>
 </html>

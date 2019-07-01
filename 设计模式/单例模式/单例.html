@@ -1,0 +1,15 @@
+<script type="module" src="./index.js"></script>
+<script >
+    let _instance = null;
+    class Car {
+        constructor () {
+            if(!_instance) {
+                _instance = this;
+            }
+            return _instance;
+        }
+    }
+    let u1 = new Car();
+    let u2 = new Car();
+    console.log(u1==u2)
+</script>
