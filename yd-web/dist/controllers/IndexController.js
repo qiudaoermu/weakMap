@@ -6,6 +6,10 @@ Object.defineProperty(exports, "__esModule", {
 });
 class IndexController {
     constructor() {}
-
+    indexAction() {
+        return async (ctx, next) => {
+            ctx.body = "hello 一灯";
+        };
+    }
 }
 exports.default = IndexController;

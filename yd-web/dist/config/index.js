@@ -26,6 +26,7 @@ const init = () => {
         };
         config = _lodash2.default.extend(localConfig);
     }
+    return config;
 };
 const result = init();
 exports.default = result;

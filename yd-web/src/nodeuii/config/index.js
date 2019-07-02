@@ -15,6 +15,7 @@ const init = () =>{
         }
         config = _.extend(localConfig);
     }
+    return config
 }
 const result = init()
 export default result;

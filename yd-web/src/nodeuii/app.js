@@ -1,6 +1,6 @@
 import Koa from "koa";
 import config from './config';
-import controllerInit from './config'
+import controllerInit from './controllers'
 import router from 'koa-simple-router';
 const app = new Koa();
 controllerInit(app,router);
