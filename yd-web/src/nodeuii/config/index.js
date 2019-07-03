@@ -1,6 +1,7 @@
 import _ from 'lodash';
+import path from 'path';
 let config = {
-   "viewDir":""
+   "viewDir":path.join(__dirname,'../views')
 }
 const init = () =>{
     if(process.env.NODE_ENV=="development") {

@@ -24,8 +24,10 @@
     "gulp-watch": "^5.0.1"
   },
   "dependencies": {
+    "co": "^4.6.0",
     "koa": "^2.7.0",
     "koa-simple-router": "^0.2.0",
+    "koa-swig": "^2.2.1",
     "lodash": "^4.17.11"
   }
 }

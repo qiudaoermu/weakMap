@@ -16,9 +16,27 @@ var _koaSimpleRouter = require('koa-simple-router');
 
 var _koaSimpleRouter2 = _interopRequireDefault(_koaSimpleRouter);
 
+var _koaSwig = require('koa-swig');
+
+var _koaSwig2 = _interopRequireDefault(_koaSwig);
+
+var _co = require('co');
+
+var _co2 = _interopRequireDefault(_co);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = new _koa2.default();
+
+app.context.render = _co2.default.wrap((0, _koaSwig2.default)({
+    root: _config2.default.viewDir,
+    autoescape: true,
+    cache: 'memory', // disable, set to false
+    ext: 'html',
+    varControls: ["[[", "]]"],
+    writeBody: false
+}));
+
 (0, _controllers2.default)(app, _koaSimpleRouter2.default);
 app.listen(_config2.default.port, () => {
     console.log(`yd-web listen on ${_config2.default.port}`);
