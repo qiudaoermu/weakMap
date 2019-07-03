@@ -10,6 +10,7 @@
   "scripts": {
     "start": "pm2 start",
     "server:build": "gulp",
+    "docs": "jsdoc ./src/nodeuii/**/*.js -d ./docs/jsdocs",
     "start:dev": "cross-env NODE_ENV=development supervisor ./dist/app.js"
   },
   "author": "",
@@ -21,10 +22,12 @@
     "cross-env": "^5.2.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "koa-static": "^5.0.0"
   },
   "dependencies": {
     "co": "^4.6.0",
+    "jsdoc": "^3.6.2",
     "koa": "^2.7.0",
     "koa-simple-router": "^0.2.0",
     "koa-swig": "^2.2.1",
