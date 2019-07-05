@@ -1,0 +1,9 @@
+
+{
+  "name": "node-app",
+  "script": "index.js",
+  "out_file": "log/mobilemap-node-service-stderr-access.log",
+  "watch": true,
+  "instances": "max",
+  "exec_mode": "cluster"
+}
