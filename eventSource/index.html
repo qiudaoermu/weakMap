@@ -1,0 +1,7 @@
+<script>
+  var source = new EventSource('/connect');
+  source.onmessage = function (e) {
+    var jsonData = JSON.parse(e.data);
+    console.log("My message: " + jsonData.msg);
+  };
+</script>
