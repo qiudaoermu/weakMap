@@ -16,7 +16,7 @@ class IndexController {
         return async (ctx, next) => {
             //ctx.body = "<h1>1111</h1>";
             const IndexModelIns = new _IndexModel2.default();
-            // const result = await IndexModelIns.getData();
+            const result = await IndexModelIns.getData();
             ctx.body = await ctx.render('index', {
                 data: result
             });
