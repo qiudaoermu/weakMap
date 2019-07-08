@@ -1,45 +1,44 @@
-"use strict";
+'use strict';
 
-var _koa = require("koa");
+var _koa = require('koa');
 
 var _koa2 = _interopRequireDefault(_koa);
 
-var _koaSimpleRouter = require("koa-simple-router");
+var _koaSimpleRouter = require('koa-simple-router');
 
 var _koaSimpleRouter2 = _interopRequireDefault(_koaSimpleRouter);
 
-var _config = require("./config");
-
-var _config2 = _interopRequireDefault(_config);
-
-var _controllers = require("./controllers");
-
-var _controllers2 = _interopRequireDefault(_controllers);
-
-var _koaSwig = require("koa-swig");
+var _koaSwig = require('koa-swig');
 
 var _koaSwig2 = _interopRequireDefault(_koaSwig);
 
-var _co = require("co");
+var _log4js = require('log4js');
 
-var _co2 = _interopRequireDefault(_co);
+var _log4js2 = _interopRequireDefault(_log4js);
 
-var _errorHandler = require("./middlewares/errorHandler.js");
-
-var _errorHandler2 = _interopRequireDefault(_errorHandler);
-
-var _koaStatic = require("koa-static");
+var _koaStatic = require('koa-static');
 
 var _koaStatic2 = _interopRequireDefault(_koaStatic);
 
-var _log4js = require("log4js");
+var _co = require('co');
 
-var _log4js2 = _interopRequireDefault(_log4js);
+var _co2 = _interopRequireDefault(_co);
+
+var _config = require('./config');
+
+var _config2 = _interopRequireDefault(_config);
+
+var _controllers = require('./controllers');
+
+var _controllers2 = _interopRequireDefault(_controllers);
+
+var _errorHandler = require('./middlewares/errorHandler.js');
+
+var _errorHandler2 = _interopRequireDefault(_errorHandler);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const app = new _koa2.default();
-
 _log4js2.default.configure({
     appenders: {
         cheese: {

@@ -1,18 +1,18 @@
-import Koa from "koa";
+import Koa from 'koa';
 import router from 'koa-simple-router';
-import config from "./config";
-import controllerInit from "./controllers";
-import render from "koa-swig";
-import co from "co";
-import errorHandler from './middlewares/errorHandler.js';
-import serve from 'koa-static';
-const app = new Koa();
+import render from 'koa-swig';
 import log4js from 'log4js';
+import serve from 'koa-static';
+import co from 'co';
+import config from './config';
+import controllerInit from './controllers';
+import errorHandler from './middlewares/errorHandler.js';
+const app = new Koa();
 log4js.configure({
     appenders: {
         cheese: {
             type: 'file',
-            filename: __dirname+'/logs/yd.log'
+            filename: __dirname + '/logs/yd.log'
         }
     },
     categories: {
@@ -28,7 +28,7 @@ app.context.render = co.wrap(render({
     autoescape: true,
     cache: 'memory', // disable, set to false
     ext: 'html',
-    varControls:["[[","]]"],
+    varControls: ["[[","]]"],
     writeBody: false
 }));
 errorHandler.error(app, logger);
