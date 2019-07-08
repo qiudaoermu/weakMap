@@ -34,16 +34,16 @@ gulp.task('configclean', function () {
   gulp.src('./src/nodeuii/**/*.js')
     // transform the files here.
     .pipe(rollup({
-      output:{
-        format:'cjs'
+      output: {
+        format: 'cjs'
       },
       // any option supported by Rollup can be set here.
       input: "./src/nodeuii/config/index.js",
-       plugins: [
-         replace({
-           'process.env.NODE_ENV': JSON.stringify('production')
-         })
-       ]
+      plugins: [
+        replace({
+          'process.env.NODE_ENV': JSON.stringify('production')
+        })
+      ]
     }))
     .pipe(gulp.dest('./dist'));
 });
