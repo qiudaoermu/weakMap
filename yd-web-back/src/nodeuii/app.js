@@ -13,7 +13,6 @@ const app = new Koa();
 const container = createContainer();
 // 每一次请求都是new 一次类
 app.use(scopePerRequest(container));
-
 // 装载service
 container.loadModules([__dirname + '/service/*.js'], {
   formatName: 'camelCase',

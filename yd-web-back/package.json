@@ -13,6 +13,8 @@
     "server:dev": "gulp",
     "server:prod": "cross-env NODE_ENV=production gulp",
     "server:lint": "cross-env NODE_ENV=lint gulp",
+    "client:dev": "webpack --mode development",
+    "client:prod": "webpack --mode production",
     "docs": "jsdoc ./src/nodeuii/**/*.js -d ./docs/jsdocs",
     "start:dev": "cross-env NODE_ENV=development node-dev ./dist/app.js"
   },
@@ -24,13 +26,22 @@
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "babel-preset-env": "^1.7.0",
     "cross-env": "^5.2.0",
+    "glob": "^7.1.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-eslint": "^6.0.0",
     "gulp-rollup": "^2.16.2",
     "gulp-sequence": "^1.0.0",
     "gulp-watch": "^5.0.1",
-    "rollup-plugin-replace": "^2.2.0"
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-merge": "^4.2.1",
+    "yargs-parser": "^13.1.1"
   },
   "dependencies": {
     "awilix": "^4.2.2",
