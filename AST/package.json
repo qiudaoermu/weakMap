@@ -1,0 +1,14 @@
+{
+  "name": "ast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "uglify-js.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "uglify-js": "^3.6.0"
+  }
+}
