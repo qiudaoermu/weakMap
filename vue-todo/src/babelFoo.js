@@ -1,4 +1,5 @@
+
 let t = {
-  [name]: "javascript"
+  [name]:"javascript"
 }
 console.log('baidu')

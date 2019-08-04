@@ -1,0 +1,26 @@
+<script>
+    /*下面是一个使用DOM Cookie API的示例(https：//developer.mozilla.org/en-US/docs/web/api/document/cookie)，这样我们就可以自己看行为了。
+
+      如果我们执行以下JavaScript：
+
+      document.cookie =“key = value”
+
+      它似乎与执行：
+
+      document.cookie =“key = value；Domain = mydomain.com”
+
+      Cookie密钥仅在域mydomain.com上可用。
+
+      现在，如果在mydomain.com上执行以下JavaScript：
+
+      document.cookie =“key = value；Domain =.mydomain.com”
+
+      Cookie密钥可用于mydomain.com以及subdomain.mydomain.com。
+
+      最后，如果要在subdomain.mydomain.com上执行以下操作：
+
+      document.cookie =“key = value；Domain =.mydomain.com”
+
+      Cookie密钥是否可用于subdomain.mydomain.com？ 我有点惊讶，这是允许的; 我曾假设，如果某个子域能够在父域上设置cookie，那将是一种安全违规行为。
+    */
+</script>

@@ -30,9 +30,8 @@ for (let item of files) {
     }))
   }
 }
-
+console.log(_entry)
 let webpackConfig = {
-  // index-index.entry.ts
   entry: _entry,
   module: {
     rules: [{

@@ -1,0 +1,33 @@
+<script>
+  function LocalSTime() {
+    this.time = ''
+    this.exitTime = ''
+  }
+  LocalSTime.prototype.setItem = (key, value, exitTime) => {
+    this.exitTime = exitTime;
+    this.time = new Date().getTime();
+    var dateCurrent = new Date().getTime()
+    let obj = {
+      date: dateCurrent,
+      key: value
+    }
+    let exitdata = JSON.stringify(obj)
+    if(!window.localStorage.getItem(key)) {
+      window.localStorage.setItem(key, exitdata);
+    }
+  }
+  LocalSTime.prototype.getItem = (key) => {
+    let lsData = JSON.parse(localStorage.getItem(key))
+    let getTime = lsData.date;
+    let lsValue = lsData.key;
+    let isExit = new Date().getTime() - getTime <= this.exitTime * 60 * 1000;
+    if (isExit) {
+      return window.localStorage.getItem(key)
+    } else {
+      window.localStorage.removeItem(key)
+    }
+  }
+  var localS = new LocalSTime()
+  localS.setItem('clock', 'true', .1)
+  localS.getItem("clock")
+</script>

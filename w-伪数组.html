@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</body>
-<script type="text/javascript">
-	//伪数组 有length属性 没有Array方法
-	function ar(argument) {
-		// body...
-		console.log(arguments.length)
-		console.log(arguments[0])
-		var arg = Array.prototype.slice.call(arguments)
-		
-		arg.forEach(function(v,i){
-				//console.log(v)
-		})
-		
-	}
-	ar(1,2,33,43,44)
-	let len = document.getElementsByTagName('li').length
-	console.log(len)
-</script>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</body>
+	<script type="text/javascript">
+		//伪数组 有length属性 没有Array方法
+		function ar(argument) {
+			// body...
+			console.log(arguments.length)
+			console.log(arguments[0])
+			//转换数组三种方法
+			/*
+			 let arg = Array.prototype.slice.call(arguments)
+			 let arg = Array.from(arguments)
+			 let arg = [...arguments] arg = arguments
+			*/
+			arg.forEach(function (v, i) {
+				console.log(v)
+			})
+		}
+		ar(1, 2, 33, 43, 44)
+		let len = document.getElementsByTagName('li').length
+		console.log(len)
+	</script>
 </html>

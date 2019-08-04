@@ -1,29 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-	<button id='test'>test</button>
-	<button id='obj'></button>
-</body>
-<script type="text/javascript">
-	
-
-var eve = new Event('build')
-
-//触发obj元素上绑定click事件
-
-document.addEventListener('build', function (e) {
-  console.log('build')
-}, false);
-
-
-
-
-document.getElementById("test").onclick = function () {
-		document.dispatchEvent(eve);
-};
-
-</script>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<button id='test'>test</button>
+		<button id='obj'></button>
+	</body>
+	<script type="text/javascript">
+		//创建自定义事件
+		var eve = new Event('build')
+		//触发obj元素上绑定click事件
+		document.addEventListener('build', function (e) {
+			console.log('build')
+		}, false);
+		document.getElementById("test").onclick = function () {
+			document.dispatchEvent(eve);
+		};
+	</script>
 </html>

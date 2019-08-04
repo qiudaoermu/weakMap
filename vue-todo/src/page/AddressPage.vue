@@ -30,6 +30,9 @@ export default {
   components: {
     MyAddress
   },
+  mounted() {
+    this.timeInterval()
+  },
   methods: {
     hidePicker() {
       // 接受子组件关闭popup事件
@@ -42,7 +45,13 @@ export default {
       // 从子组件接受返回所选值 val
       this.address = val
       this.showAddressPicker = !this.showAddressPicker
+    },
+    timeInterval() {
+      const interval = setInterval(()=>{
+        console.log('todo')
+      },1000)
     }
+
   }
 }
 </script>

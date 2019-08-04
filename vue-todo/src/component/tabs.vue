@@ -2,14 +2,14 @@
     <div class="helper">
         <span class="left">{{unFinishedTodoLength}} items left</span>
         <span class="tabs">
-                <span
-                    v-for="state in states"
-                    :key = 'state'
-                    :class="[state,filter === state? 'actived':'']"
-                    @click="toggleFilter(state)"
-                >
-                    {{state}}
-                </span>
+            <span
+                v-for="state in states"
+                :key = 'state'
+                :class="[state,filter === state? 'actived':'']"
+                @click="toggleFilter(state)"
+            >
+                {{state}}
+            </span>
         </span>
         <span class="clear" @click="clearAllCompleted">clearAllCompleted</span>
     </div>
@@ -18,37 +18,37 @@
 <script>
     export default {
         name: "tabs",
-        props: {
-            filter: {
-                type: String,
-                required: true
+        props:{
+            filter:{
+                type:String,
+                required:true
             },
-            todos: {
-                type: Array,
-                required: true
+            todos:{
+                type:Array,
+                required:true
             }
         },
         computed: {
-            unFinishedTodoLength() {
-                return this.todos.filter(todo => !todo.completed).length
+            unFinishedTodoLength(){
+                 return this.todos.filter(todo =>!todo.completed).length
             }
         },
-        data() {
+        data(){
             return {
-                states: ['all', 'active', 'completed']
+                states:['all','active','completed']
             }
         },
-    
-        methods: {
-            toggleFilter(state) {
+
+        methods:{
+            toggleFilter(state){
                 console.log(state)
-                this.$emit('toggle', state)
+                this.$emit('toggle',state)
             },
-            clearAllCompleted() {
-                console.log("dasdajjj")
+            clearAllCompleted(){
+                    console.log("dasdajjj")
             }
         }
-    
+
     }
 </script>
 

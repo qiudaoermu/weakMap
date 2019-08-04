@@ -19,8 +19,10 @@ const assetsHelp = (data) => {
 class HtmlAfterWebpackPlugin {
   apply(compiler) {
     compiler.hooks.compilation.tap(pluginName, compilation => {
+      //  console.log(compilation.hooks)
        compilation.hooks.htmlWebpackPluginAfterHtmlProcessing.tap(pluginName, htmlPluginData => {
         let _html = htmlPluginData.html;
+        console.log(htmlPluginData)
         const result = assetsHelp(htmlPluginData.assets)
         _html = _html.replace("<!--injectcss-->" ,result.css.join(""))
         _html = _html.replace("<!--injectjs-->", result.js.join(""))

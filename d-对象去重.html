@@ -1,108 +1,131 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
-
-</body>
-<script type="text/javascript">
-	var nArr=[
-  {
-    id:10001,
-    name:'张三'
-  },{
-    id:10002,
-    name:'李四'
-  },{
-    id:10001,
-    name:'张三'
-  },{
-    id:10003,
-    name:'王五'
-  },{
-    id:10004,
-    name:'赵六'
-  },{
-    id:10003,
-    name:'王五'
-  },{
-    id:10006,
-    name:'zuoqi'
-  }
-];
-
-var t ={}
-
-
-for(var i=0;i<nArr.length;i++){
-  console.log(nArr[i].id)
-
-  if(!t[nArr[i].id]){
-    t[nArr[i].id] = nArr[i]
-  }
-}
-var crr = []
-for(var i in t){
-crr[i] = t[i]
-}
-console.log(crr)
-
-
-Array.prototype.unique2 = function(){
- this.sort(); //先排序
- var res = [this[0]];
- for(var i = 1; i < this.length; i++){
-  if(this[i] !== res[res.length - 1]){
-   res.push(this[i]);
-  }
- }
- return res;
-}
-
-
- var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
- //var brr = [1, 'a',  'b', 'd', 'e', 1, 0]
- var crr =[0, 1, 1, "a", "a", "b", "d", "e", "e"]
- var crr =[0,  1, "a", "a", "b", "d", "e", "e"]
-console.log((arr.unique2()));
-
-Array.prototype.unique1 = function(){
- var res = [this[0]];
- for(var i = 1; i < this.length; i++){
-  var repeat = false;
-  for(var j = 0; j < res.length; j++){
-   if(this[i] == res[j]){
-    repeat = true;
-    break;
-   }
-  }
-  if(!repeat){
-   res.push(this[i]);
-  }
- }
- return res;
-}
-var arr2 = [1, 'a', 'a', 'b', 'd', 'e', 'e', 1, 0]
-console.log((arr2.unique1()));
-var array = [1, 1, '1'];
-
-
-Array.prototype.unique3 = function(){
-
-    var t=  []
-    for(var i=0;i<this.length;i++){
-      if(t.indexOf(this[i])===-1){
-        t.push(this[i])
-      }
-    }
-    return t
-
-}
-console.log(array.unique3())
-
-// 方案一，利用新的数组进行循环遍历
-/*
+	<head>
+		<title></title>
+	</head>
+	<body></body>
+	<script type="text/javascript">
+		var nArr = [
+			{
+				id: 10001,
+				name: '张三'
+			}, {
+				id: 10002,
+				name: '李四'
+			}, {
+				id: 10001,
+				name: '张三'
+			}, {
+				id: 10003,
+				name: '王五'
+			}, {
+				id: 10004,
+				name: '赵六'
+			}, {
+				id: 10003,
+				name: '王五'
+			}, {
+				id: 10006,
+				name: 'zuoqi'
+			}
+		];
+		var t = {}
+		for (var i = 0; i < nArr.length; i++) {
+			console.log(nArr[i].id)
+			if (!t[nArr[i].id]) {
+				t[nArr[i].id] = nArr[i]
+			}
+		}
+		var crr = []
+		for (var i in t) {
+			crr[i] = t[i]
+		}
+		console.log(crr)
+		Array.prototype.unique2 = function () {
+			this.sort(); //先排序
+			var res = [this[0]];
+			for (var i = 1; i < this.length; i++) {
+				if (this[i] !== res[res.length - 1]) {
+					res.push(this[i]);
+				}
+			}
+			return res;
+		}
+		var arr = [
+			1,
+			'a',
+			'a',
+			'b',
+			'd',
+			'e',
+			'e',
+			1,
+			0
+		]
+		//var brr = [1, 'a',  'b', 'd', 'e', 1, 0]
+		var crr = [
+			0,
+			1,
+			1,
+			"a",
+			"a",
+			"b",
+			"d",
+			"e",
+			"e"
+		]
+		var crr = [
+			0,
+			1,
+			"a",
+			"a",
+			"b",
+			"d",
+			"e",
+			"e"
+		]
+		console.log((arr.unique2()));
+		Array.prototype.unique1 = function () {
+			var res = [this[0]];
+			for (var i = 1; i < this.length; i++) {
+				var repeat = false;
+				for (var j = 0; j < res.length; j++) {
+					if (this[i] == res[j]) {
+						repeat = true;
+						break;
+					}
+				}
+				if (!repeat) {
+					res.push(this[i]);
+				}
+			}
+			return res;
+		}
+		var arr2 = [
+			1,
+			'a',
+			'a',
+			'b',
+			'd',
+			'e',
+			'e',
+			1,
+			0
+		]
+		console.log((arr2.unique1()));
+		var array = [1, 1, '1'];
+		Array.prototype.unique3 = function () {
+			var t = []
+			for (var i = 0; i < this.length; i++) {
+				if (t.indexOf(this[i]) === -1) {
+					t.push(this[i])
+				}
+			}
+			return t
+		}
+		console.log(array.unique3())
+		// 方案一，利用新的数组进行循环遍历
+		/*
 var newArr=[];
 function _objIsInArray(obj,arr){
   let tmpStatus=false;
@@ -127,20 +150,13 @@ for(let i=0;i<nArr.length;i++){
 }
 console.log(newArr);
 */
-
-var arr = [1,23,41,1,23]
-let unique = arr.reduce(function(a,b){
-    if(a.indexOf(b)==-1){
-       a.push(b)
-    }
-    return a
-
-},[])
-console.log(unique)
-
-
-
-
-
-</script>
+		var arr = [1, 23, 41, 1, 23]
+		let unique = arr.reduce(function (a, b) {
+			if (a.indexOf(b) == -1) {
+				a.push(b)
+			}
+			return a
+		}, [])
+		console.log(unique)
+	</script>
 </html>
