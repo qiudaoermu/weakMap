@@ -1,0 +1,12 @@
+services:
+  web:
+    image: node:8-alpine
+    user: node
+    working_dir: /home/node/app
+    environment:
+      - PORT=3000
+    volumes:
+      - ./:/home/node/app # 将本地目录映射到容器内
+    command: ["node", "index.js"] # 运行命令
+    ports:
+      - 3000:3000 # 本地端口:容器端口

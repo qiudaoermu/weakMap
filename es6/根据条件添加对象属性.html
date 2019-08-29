@@ -1,0 +1,16 @@
+<script>
+const getUser = (emailIncluded) => {
+  return {
+    name: 'John',
+    surname: 'Doe',
+    ...(emailIncluded ? { email : 'john@doe.com' } : null)
+  }
+}
+
+const user = getUser(true);
+console.log(user); // 输出 { name: "John", surname: "Doe", email: "john@doe.com" }
+
+const userWithoutEmail = getUser(false);
+console.log(userWithoutEmail); // 输出 { name: "John", surname: "Doe" }
+
+</script>
