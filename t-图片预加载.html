@@ -28,7 +28,6 @@ const imgs = [
     "http://op2clp53n.bkt.clouddn.com/first_colony_dribbble_copy.jpg"
 ];
 let len = imgs.length;
-
 /**
  * 遍历imgs数组，将所有图片加载出来
  * 可以通过控制台查看网络请求，会发现所有图片均已加载
@@ -36,8 +35,8 @@ let len = imgs.length;
 for (let i = 0; i < len; i++) {
     let imgObj = new Image(); // 创建图片对象
     imgObj.src = imgs[i];
-
-    imgObj.addEventListener('load', function () { // 这里没有考虑error，实际上要考虑
+    imgObj.addEventListener('load',  (v) => { // 这里没有考虑error，实际上要考虑
+			console.log(v)
         console.log('imgs' + i + '加载完毕');
     }, false);
 }

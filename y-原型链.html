@@ -11,9 +11,6 @@
 </html>
 
 <script>
-
-
-
         function AA(){
 
         }
@@ -22,7 +19,7 @@
         console.log(AA.prototype.__proto__ == Object.prototype)
         console.log(Object.prototype.__proto__ ==null)
 
-        
+
         var h = {a:3}
         var b = {}
         b.d = h
@@ -38,22 +35,22 @@
         console.log(b.name)
 
 
-        function father(name) {  
-            this.faName = 'father';  
-        }  
-        father.prototype.getfaName = function() {  
-        };  
+        function father(name) {
+            this.faName = 'father';
+        }
+        father.prototype.getfaName = function() {
+        };
         father.prototype.arr = [1,2]
-        function child(args) {  
-            this.chName = 'child';  
-            //father.apply(this,[]); //第二次调用父类构造函数  
-        }  
+        function child(args) {
+            this.chName = 'child';
+            //father.apply(this,[]); //第二次调用父类构造函数
+        }
 
-        child.prototype = new father(); //第一次调用父类构造函数  
-        child.prototype.constructor = child;  
-        child.prototype.getchName = function() {  
-            console.log(this.chName);  
-        };  
+        child.prototype = new father(); //第一次调用父类构造函数
+        child.prototype.constructor = child;
+        child.prototype.getchName = function() {
+            console.log(this.chName);
+        };
 
 
         var c = new child()
@@ -73,21 +70,21 @@
 
 
 
-        function father2(name) {  
-            this.faName = 'father2';  
-        }  
-        father2.prototype.getfaName = function() {  
-        };  
+        function father2(name) {
+            this.faName = 'father2';
+        }
+        father2.prototype.getfaName = function() {
+        };
         father2.prototype.arr = [1,2]
-        function child2(args) {  
-            this.chName = 'child';  
-            //father.apply(this,[]); //第二次调用父类构造函数  
-        }  
+        function child2(args) {
+            this.chName = 'child';
+            //father.apply(this,[]); //第二次调用父类构造函数
+        }
         console.log(Object.create(father2.prototype))
         child2.prototype = Object.create(father2.prototype)
         var c= new child2()
         console.log(c instanceof father2)
-      
+
 
 
 

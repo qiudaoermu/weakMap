@@ -16,6 +16,7 @@
 			await delay(3000);
 			return 'done';
 		}
+		console.log(f())
 
 		f().then(v => console.log(v)); // 等待6s后才输出 'done'
 
@@ -93,7 +94,7 @@
 			}
 	}
 	AA.prototype={
-		
+
 		catch(){
 
 		},
@@ -179,8 +180,8 @@
 			console.log(t)
 			var c = await as()
 			console.log('end')
-			
-		
+
+
 	}
 
 

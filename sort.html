@@ -34,7 +34,7 @@ console.log(items)
                 var t= fn
                 for(var i=0;i<this.length;i++){
                     var t = fn.call(this[i],this[i+1])
-                    if(t>0){
+                    if(t > 0){
                         for(var j=0;j<this.length;j++){
                                 if(this[j]>this[j+1]){
                                     var temp = this[j+1]
@@ -46,7 +46,7 @@ console.log(items)
                 }
                return this;
         };
-        
+
         var arr2 = t2._sort(function(a,b){
                 return a-b
         })
