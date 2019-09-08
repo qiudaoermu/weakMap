@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+            width: 100px;
+            background:url('http://a.hiphotos.baidu.com/image/h%3D300/sign=cb60c5d972f0f736c7fe4a013a54b382/f603918fa0ec08fa3139e00153ee3d6d55fbda5f.jpg')
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+var currentpos='1' ,timer;
+var readMode={
+    init:function(){
+        document.onmousedown=this.sc;
+        document.ondblclick=this.initialize;
+    },
+    initialize:function(event){
+        timer=setInterval (readMode.scrollwindow,30);
+    },
+    sc:function(d){
+        clearInterval(timer);
+    },
+    scrollwindow:function(){
+            currentpos=document.body.scrollTop;
+            window.scroll(0,++currentpos);
+            console.log(currentpos);
+            if (currentpos !=document.body.scrollTop){this.sc;}
+            
+    }
+}
+
+readMode.init();
+    
+</script>
+</html>
