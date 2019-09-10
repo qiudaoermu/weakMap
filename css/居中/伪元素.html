@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+    <link rel="mask-icon" type=""
+        href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+        color="#111" />
+    <title>CodePen - css-vertical-centering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <style>
+        .vh-modal {
+            height: 640px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .vh-modal .vh-modal-content {
+            min-width: 50%;
+            max-width: 80%;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            white-space: wrap;
+        }
+
+        .vh-modal .vh-modal-title {
+            padding: 20px;
+            font-size: 20px;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+            margin: 0;
+        }
+
+        .vh-modal .vh-modal-body {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .vh-modal .vh-modal-foot {
+            text-align: right;
+            padding: 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .vh-modal-1 {
+            text-align: center;
+            font-size: 0;
+        }
+
+        .vh-modal-1::before,
+        .vh-modal-1>.vh-modal-content {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        .vh-modal-1::before {
+            content: '';
+            height: 100%;
+        }
+
+        .vh-modal-2>.vh-modal-content {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        .vh-modal-3 {
+            display: table;
+            width: 100%;
+        }
+
+        .vh-modal-3 .vh-modal-cell {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .vh-modal-3 .vh-modal-content {
+            display: inline-block;
+        }
+
+        .vh-modal-4 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vh-modal-5 {
+            display: flex;
+            margin: 0;
+        }
+
+        .vh-modal-5>.vh-modal-content {
+            margin: auto;
+        }
+    </style>
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+    <script>
+        if (document.location.search.match(/type=embed/gi)) {
+            window.parent.postMessage("resize", "*");
+        }
+    </script>
+</head>
+
+<body translate="no">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="vh-modal vh-modal-1">
+                    <div class="vh-modal-content">
+                        <h3 class="vh-modal-title">模态框</h3>
+                        <div class="vh-modal-body">
+                            <h4>（伪）元素占位</h4>
+                            <p>使用（伪）元素占位法可以实现子元素在父元素上的垂直居中，然后利用父元素设置<code>text-align:center</code>实现水平居中，这是一种有效的实现水平垂直居中的方案
+                            </p>
+                        </div>
+                        <div class="vh-modal-foot"><button class="btn btn-primary">确定</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="vh-modal vh-modal-2">
+                    <div class="vh-modal-content">
+                        <h3 class="vh-modal-title">模态框</h3>
+                        <div class="vh-modal-body">
+                            <h4>absolute+transform</h4>
+                            <p><span>利用<code>absolute</code>绝对定位和css3的<code>transform</code>位移属性配合，也可以实现子元素在父元素上的水平垂直居中。但是，如果子元素已经在高度上超过视窗高度，那它的顶部会被浏览器窗口裁掉。</span>
+                            </p>
+                        </div>
+                        <div class="vh-modal-foot"><button class="btn btn-primary">确定</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="vh-modal vh-modal-3">
+                    <div class="vh-modal-cell">
+                        <div class="vh-modal-content">
+                            <h3 class="vh-modal-title">模态框</h3>
+                            <div class="vh-modal-body">
+                                <h4>table-cell</h4>
+                                <p>利用div模拟table的属性，也是一种很实用的实现子元素垂直居中的方法，确定是table的不可控性以及要给子元素在包裹一层父元素</p>
+                            </div>
+                            <div class="vh-modal-foot"><button class="btn btn-primary">确定</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="vh-modal vh-modal-4">
+                    <div class="vh-modal-content">
+                        <h3 class="vh-modal-title">模态框</h3>
+                        <div class="vh-modal-body">
+                            <h4>flex</h4>
+                            <p>在移动端中优先推荐<code>flex</code>方案，目前，除了部分机型的UC浏览器，<code>flex</code>在手机浏览器中已经得到了很好的支持。 </p>
+                        </div>
+                        <div class="vh-modal-foot"><button class="btn btn-primary">确定</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="vh-modal vh-modal-5">
+                    <div class="vh-modal-content">
+                        <h3 class="vh-modal-title">模态框</h3>
+                        <div class="vh-modal-body">
+                            <h4>flex+margin: auto</h4>
+                            <p>当子元素处于<code>flex</code>盒模型中使，仅仅给子元素设置一个<code>margin:auto</code>的属性也完全可以实现水平和垂直方向的居中，很神奇对吧？
+                            </p>
+                        </div>
+                        <div class="vh-modal-foot"><button class="btn btn-primary">确定</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
