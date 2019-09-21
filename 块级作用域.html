@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    /*
+    简单来讲，如果一种语言支持块级作用域，那么其代码块内部定义的变量在代码块外部是访问不到的
+    */
+    var myname = " 极客时间 "
+    function showName() {
+      console.log(myname);
+      if (0) {
+        var myname = " 极客邦 "
+      }
+      console.log(myname);
+    }
+    showName()
+    function letTest() {
+      let x = 1;
+      if (true) {
+        let x = 2; // 不同的变量
+        console.log(x); // 2
+      }
+      console.log(x); // 1 无法访问块级作用域内的变量
+    }
+    letTest()
+  </script>
+</html>

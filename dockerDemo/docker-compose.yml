@@ -1,12 +1,11 @@
-services:
-  web:
-    image: node:8-alpine
-    user: node
-    working_dir: /home/node/app
+version: '3.6'
+services:ç
+  docker-nodejs-tutorial:
+    image: docker-nodejs-tutorial
+    build: .
     environment:
-      - PORT=3000
-    volumes:
-      - ./:/home/node/app # 将本地目录映射到容器内
-    command: ["node", "index.js"] # 运行命令
+      NODE_ENV: production
     ports:
-      - 3000:3000 # 本地端口:容器端口
+      - 3000:8080
+    volumes:
+      - .:/usr/src/app

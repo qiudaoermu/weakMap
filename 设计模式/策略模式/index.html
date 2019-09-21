@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript">
+    // 策略模式代替 switch else-if
+    var prop = ['register','favHouse',"saveSearch"]
+    let pop = {
+      register:{
+        title:"Create Your Free Accout",
+        subTitle:"serach Homes And Exclusive Property Listings"
+      },
+      favHouse:{title:"add Home to Favorites", subTitle:"Get a profrssional Real Eastate Service"},
+      saveSearch:{title:"Save This Search",subTitle:"sava Search :Save Listings free and complete access in 20 seconds"}
+    }
+    let render =(showProp) => {
+      let div = `<p>${showProp.title}</p><section>${showProp.subTitle}</section>`
+      document.body.innerHTML = div
+    }
+    render(pop['favHouse'])
+  </script>
+</html>

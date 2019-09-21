@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@polymer/paper-button": "^3.0.1"
+  }
+}

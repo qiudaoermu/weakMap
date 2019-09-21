@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript">
+    $.ajax({
+            url: "http://localhost/api/a",
+            type : "get",
+            data: {
+                CITY: '深圳'
+            },
+            success : function(data) {
+                alert( "Data: " + JSON.stringify(data) );
+            }
+        });
+  </script>
+</html>

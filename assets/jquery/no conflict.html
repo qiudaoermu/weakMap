@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul>
+	
+	</ul>
+</body>
+<script type="text/javascript" src="jquery.js">
+	
+</script>
+<script type="text/javascript">
+	var h = ''
+	for(var i=0;i<3;i++){
+		h+='<li>'+i+'</li>'
+	}
+
+
+	$('ul').html(h).bind('click','li',function(e){
+		console.log($(this).html())
+	})
+
+
+$('ul').html(h).on('click','li',function(e){
+		console.log($(this).html())
+	})
+//on 可以动态绑定 事件委托
+
+
+
+   var dtd = $.Deferred(); // 新建一个Deferred对象
+　　var wait = function(dtd){
+
+　　　　var tasks = function(){
+　　　　   alert('第一步')
+　　　　　　//dtd.reject(); // 改变Deferred对象的执行状态
+			dtd.resolve(3);
+
+　　　　};
+
+　　　　setTimeout(tasks,5000);
+
+　　　　return dtd;
+
+　　};
+
+	 var wait2 = function(dtd){
+	 	var tasks = function(){
+	 		alert('第二步')
+	 	}
+	 	dtd.resolve(4);
+
+　　　　setTimeout(tasks,5000);
+
+　　　　return dtd;
+	 }
+
+　　$.when(wait(dtd),wait2(dtd))
+
+　　.done(function(data){
+		console.log(data)
+ 		alert("哈哈，成功了！");
+	})
+   .done(function(data){
+	  		console.log(data)
+	})
+　　.fail(function(){ alert("出错啦！"); });
+</script>
+  
+
+
+</html>

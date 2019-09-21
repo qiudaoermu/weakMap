@@ -1,10 +1,14 @@
-var express = require('express');
-var app = express();
+const server = require('express')()
+var bodyParser = require('body-parser')
+server.use(bodyParser())
 
-app.get('/', function (req, res) {
-  res.send('Hello World222dasdslllllllll!');
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+server.post('/a', (req, res) => {
+  console.log(req.body)
+  let a = {
+    'json': 1
+  }
+  res.json(a)
+})
+server.listen(8080, function () {
+  console.log('server start')
+})
