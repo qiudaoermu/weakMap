@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="home">
-    <vModelChild  v-model="modeValue" @input="vmodelCEvent(arguments)"></vModelChild>
+    <vModelChild  v-model="modeValue"></vModelChild>
     <button class="" @click="confirm">
       confirm
     </button>
@@ -30,10 +30,6 @@ export default {
     this.$on('slotValueChange', this.slotValueChange);
   },
   methods: {
-    vmodelCEvent(val) {
-      debugger
-      console.log(val)
-    },
     confirm () {
       console.log(this.modeValue)
     },

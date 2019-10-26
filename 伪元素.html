@@ -5,15 +5,26 @@
     <title></title>
   </head>
   <style media="screen">
-    a{
-      color:red
+    a {
+      color: red;
     }
-    a:hover{
-      text-decoration:none
-      color:green
+    a:hover {
+      text-decoration:none color: green;
+    }
+    span {
+      position: relative;
+    }
+    span::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: red;
+      position: absolute;
+      color: blue;
     }
   </style>
   <body>
     <a href="#">30000</a>
+    <span>are better than none.</span>
   </body>
 </html>

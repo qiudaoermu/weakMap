@@ -4,7 +4,6 @@
     <title></title>
   </head>
   <body></body>
-
 </html>
 <script type="text/javascript">
   var Person = function () {};
@@ -17,49 +16,44 @@
         return findById(id);
       };
   })();
-
   Person.find(3)
-
   let _width = Symbol();
-
   class Private {
     constructor(s) {
       this[_width] = s
     }
-
     foo() {
       console.log(this[_width])
     }
-
   }
-
   var p = new Private("50");
   p.foo();
   console.log(p[_width]);
-
   //赋值到闭包里
   let sque = (function () {
     let _width = Symbol();
-
     class Squery {
       constructor(s) {
         this[_width] = s
       }
-
       foo() {
         console.log(this[_width])
       }
     }
-
     function Qa(s) {
       this[_width] = s
-
     }
-
     return Squery
   })();
-
   let ss = new sque(20);
   ss.foo();
   console.log(ss[_width])
+  // -----  -----  -----  -----
+  let obj = () => {
+    let _getValue;
+    this.get = (newValue) => {
+      _getValue = newValue
+    }
+  }
+  obj.get('name')
 </script>

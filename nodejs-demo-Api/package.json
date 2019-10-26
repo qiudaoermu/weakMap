@@ -5,8 +5,14 @@
   "main": "event.js",
   "bin": "bin/index.js",
   "scripts": {
-    "start":"NODE_ENV=development node app.js"
+    "start": "NODE_ENV=development node app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "log4js": "^5.2.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.9"
+  }
 }

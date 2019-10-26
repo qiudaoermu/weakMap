@@ -78,7 +78,7 @@ let config = {
 if(isDev=="development"){
     config.devtool = "#cheap-module-eval-source-map";
     config.devServer = {
-        port:8080,
+        port:8082,
         host:'0.0.0.0',
         overlay:{
             errors:true,

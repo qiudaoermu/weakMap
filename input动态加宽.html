@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text">
+  </body>
+  <script type="text/javascript">
+    document.querySelector("input").addEventListener("input", function () {
+      this.style.width = "0px"; //让 scrollWidth 获取最小值，达到回缩的效果
+      this.style.width = this.scrollWidth + "px";
+    });
+  </script>
+</html>

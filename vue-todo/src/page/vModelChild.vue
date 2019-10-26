@@ -17,10 +17,8 @@ export default {
   },
   watch: {
     currentValue(val) {
-      let a = 1;
-      let b = 2;
-      this.$emit('input',val,a,b)
-      // this.dispatch('picker', 'slotValueChange', this);
+      this.$emit('input',val)
+      this.dispatch('picker', 'slotValueChange', this);
     }
   },
   props:{

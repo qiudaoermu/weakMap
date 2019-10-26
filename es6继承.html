@@ -1,0 +1,11 @@
+<script type="text/javascript">
+  class Super {
+    do 
+      () {console.log('do')}
+    }
+  class Sub {}
+  Sub.prototype.__proto__ = Super.prototype
+  let sb = new Sub()
+  sb.do 
+    ()
+</script>

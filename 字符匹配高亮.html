@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="content">
+      <p>又一个清晨</p>
+      <p>如昨天一般下着小雨</p>
+      <p>我撑着伞</p>
+      <p>走在每天必经的路上</p>
+      <p>汽车发动机的声音</p>
+      <p>车轮辗过水洼的声音</p>
+      <p>周围人走路的声音</p>
+      <p>一切都如往常一样</p>
+      <p>却都没有此时</p>
+      <p>显得那么悦耳动听</p>
+      <p>就连潮湿的空气</p>
+      <p>也是那么的好闻</p>
+      <p>深吸一口</p>
+      <p>感觉自己的内心</p>
+      <p>得到一丝从未有过的安宁</p>
+      <p>汽车的一声鸣笛</p>
+      <p>就像向湖面扔了一粒石子</p>
+      <p>将我从梦中惊醒</p>
+      <p>发现自己依然身处在</p>
+      <p>这霾雾重重嘈杂烦乱的城市中</p>
+    </div>
+  </body>
+  <script>
+    var content = document.getElementById("content").innerHTML;
+    var s = "感觉";
+    var reg = new RegExp("(" + s + ")", "g");
+    var str = content;
+    var newstr = str.replace(reg, "<font color=#FF6633>$1</font>");
+    document.getElementById("content").innerHTML = newstr;
+  </script>

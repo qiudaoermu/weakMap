@@ -4,14 +4,43 @@ import Vmodel from './page/vModelParent.vue'
 import swiperVue from './page/swiper-vue.vue'
 import set from './page/$set.vue'
 import queue from './page/queueAsync.vue'
+import functional from './page/functional.vue'
+import provide from './page/provideInject/A.vue'
 export default {
-    routes: [
-      // 动态路径参数 以冒号开头
-      { path: '/', component: Index },
-      { path: '/address',component: Address},
-      { path: '/vModelPC',component: Vmodel},
-      { path: '/swiperVue',component: swiperVue},
-      { path: '/$set',component: set},
-      { path: '/queue', component: queue }
-    ]
+  routes: [
+    // 动态路径参数 以冒号开头
+    {
+      path: '/',
+      component: Index
+    },
+    {
+      path: '/address',
+      component: Address
+    },
+    // 自定义v-model组件
+    {
+      path: '/vModelPC',
+      component: Vmodel
+    },
+    {
+      path: '/swiperVue',
+      component: swiperVue
+    },
+    {
+      path: '/$set',
+      component: set
+    },
+    {
+      path: '/queue',
+      component: queue
+    },
+    {
+      path: '/functional',
+      component: functional
+    },
+    {
+      path:'/provide',
+      component:provide
+    }
+  ]
 }
