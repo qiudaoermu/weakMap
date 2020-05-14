@@ -1,0 +1,23 @@
+<script type="text/javascript">
+  var reverse = function (x) {
+    while (x % 10 == 0) {
+      x = x / 10
+    }
+    let str
+    x > 0
+      ? str = String(x).split('')
+      : str = String(Math.abs(x)).split('')
+    let res = ''
+    for (var i = str.length - 1; i >= 0; i--) {
+      if (str[i] != 0) {
+        res += str[i]
+      }
+    }
+    if (x < 0) {
+      res = '-' + res
+    }
+    console.log(Number(res))
+    return Number(res)
+  };
+  reverse(12300)
+</script>

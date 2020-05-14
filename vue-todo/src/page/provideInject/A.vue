@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     AAA
-    <B/>
+    <B :code="1"/>
     <ul>
       <li v-for="item in list" v-if="item.is">
         {{item.data}}

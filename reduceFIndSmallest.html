@@ -1,0 +1,27 @@
+<script type="text/javascript">
+  const findSmallset = (t) => {
+    let sm = t.reduce((acc, next) => {
+      if (next > acc) {
+        return acc
+      } else {
+        return next
+      }
+    })
+    console.log(sm)
+  }
+  findSmallset([
+    1,
+    3,
+    5,
+    2,
+    0,
+    10
+  ])
+  var a = [2, 5, 3, 4, 1];
+  var sum = a.reduce(function (x, y) {
+    return x < y
+      ? x
+      : y
+  });
+  console.log(sum);
+</script>

@@ -6,6 +6,7 @@ import set from './page/$set.vue'
 import queue from './page/queueAsync.vue'
 import functional from './page/functional.vue'
 import provide from './page/provideInject/A.vue'
+import vueScroll from './page/vue-scroll.vue'
 export default {
   routes: [
     // 动态路径参数 以冒号开头
@@ -41,6 +42,11 @@ export default {
     {
       path:'/provide',
       component:provide
+    },
+    {
+      path:'/vue-scroll',
+      component:vueScroll
     }
+
   ]
 }

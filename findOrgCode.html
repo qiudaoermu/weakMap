@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    let json = {
+      "code": 0,
+      "data": {
+        "organize": [
+          {
+            "organizeCode": "100000",
+            "organizeName": "收入信息"
+          }, {
+            "organizeCode": "200000",
+            "organizeName": "线路收入"
+          }, {
+            "organizeCode": "300000",
+            "organizeName": "运单收入"
+          }, {
+            "organizeCode": "400000",
+            "organizeName": "成本信息"
+          }, {
+            "id": 5,
+            "organizeCode": "500000",
+            "organizeName": "线路成本",
+            "createTime": 1575535708000,
+            "updateTime": 1575535707000
+          }, {
+            "organizeCode": "600000",
+            "organizeName": "运单成本"
+          }
+        ],
+        "orgtree": {
+          "orgcode": "200K40",
+          "name": "东升物流有限公司",
+          "department": {
+            "parentCode": "200K40",
+            "departmentCode": "200K40",
+            "departmentName": "东升物流有限公司",
+            "child": [
+              {
+                "parentCode": "200K40",
+                "departmentCode": "200K405I",
+                "departmentName": "小雪事业部",
+                "child": [
+                  {
+                    "parentCode": "200K405I",
+                    "departmentCode": "200K405IQH",
+                    "departmentName": "研发部",
+                    "checked": 0
+                  }, {
+                    "id": 21,
+                    "orgroot": "200K40",
+                    "orgcode": "200K40",
+                    "parentCode": "200K405I",
+                    "departmentCode": "200K405IOJ",
+                    "departmentName": "测试部",
+                    "createTime": 1575531652000,
+                    "updateTime": 1575531652000,
+                    "checked": 0
+                  }
+                ]
+              }, {
+                "id": 19,
+                "orgroot": "200K40",
+                "orgcode": "200K40",
+                "parentCode": "200K40",
+                "departmentCode": "200K40YQ",
+                "departmentName": "油品事业部",
+                "createTime": 1575531623000,
+                "updateTime": 1575531623000,
+                "checked": 0,
+                "child": [
+                  {
+                    "id": 22,
+                    "orgroot": "200K40",
+                    "orgcode": "200K40",
+                    "parentCode": "200K40YQ",
+                    "departmentCode": "200K40YQFJ",
+                    "departmentName": "运营组",
+                    "createTime": 1575531664000,
+                    "updateTime": 1575531664000,
+                    "checked": 0
+                  }, {
+                    "id": 23,
+                    "orgroot": "200K40",
+                    "orgcode": "200K40",
+                    "parentCode": "200K40YQ",
+                    "departmentCode": "200K40YQNC",
+                    "departmentName": "销售组",
+                    "createTime": 1575531671000,
+                    "updateTime": 1575531671000,
+                    "checked": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "child": [
+            {
+              "parentCode": "200K40",
+              "orgcode": "200K4005",
+              "name": "东升物流深圳分部",
+              "department": {
+                "orgroot": "200K40",
+                "orgcode": "200K4005",
+                "parentCode": "200K4005",
+                "departmentCode": "200K4005",
+                "departmentName": "东升物流深圳分部"
+              },
+              "child": [
+                {
+                  "parentCode": "200K4005",
+                  "orgcode": "200K400502",
+                  "name": "深圳二部",
+                  "department": {
+                    "orgroot": "200K40",
+                    "orgcode": "200K400502",
+                    "parentCode": "200K400502",
+                    "departmentCode": "200K400502",
+                    "departmentName": "深圳二部"
+                  }
+                }, {
+                  "parentCode": "200K4005",
+                  "orgcode": "200K400501",
+                  "name": "深圳一部",
+                  "department": {
+                    "orgroot": "200K40",
+                    "orgcode": "200K400501",
+                    "parentCode": "200K400501",
+                    "departmentCode": "200K400501",
+                    "departmentName": "深圳一部"
+                  },
+                  "child": [
+                    {
+                      "parentCode": "200K400501",
+                      "orgcode": "200K40050102",
+                      "name": "财务公司",
+                      "department": {
+                        "orgroot": "200K40",
+                        "orgcode": "200K40050102",
+                        "parentCode": "200K40050102",
+                        "departmentCode": "200K40050102",
+                        "departmentName": "财务公司"
+                      }
+                    }, {
+                      "parentCode": "200K400501",
+                      "orgcode": "200K40050101",
+                      "name": "管车公司",
+                      "department": {
+                        "orgroot": "200K40",
+                        "orgcode": "200K40050101",
+                        "parentCode": "200K40050101",
+                        "departmentCode": "200K40050101",
+                        "departmentName": "管车公司"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }, {
+              "parentCode": "200K40",
+              "orgcode": "200K4004",
+              "name": "东升物流广州分部",
+              "department": {
+                "orgroot": "200K40",
+                "orgcode": "200K4004",
+                "parentCode": "200K4004",
+                "departmentCode": "200K4004",
+                "departmentName": "东升物流广州分部"
+              },
+              "child": [
+                {
+                  "parentCode": "200K4004",
+                  "orgcode": "200K400402",
+                  "name": "广州二部",
+                  "department": {
+                    "orgroot": "200K40",
+                    "orgcode": "200K400402",
+                    "parentCode": "200K400402",
+                    "departmentCode": "200K400402",
+                    "departmentName": "广州二部"
+                  }
+                }, {
+                  "parentCode": "200K4004",
+                  "orgcode": "200K400401",
+                  "name": "广州一部",
+                  "department": {
+                    "orgroot": "200K40",
+                    "orgcode": "200K400401",
+                    "parentCode": "200K400401",
+                    "departmentCode": "200K400401",
+                    "departmentName": "广州一部"
+                  }
+                }
+              ]
+            }, {
+              "parentCode": "200K40",
+              "orgcode": "200K4003",
+              "name": "东升物流天津分部",
+              "department": {
+                "orgroot": "200K40",
+                "orgcode": "200K4003",
+                "parentCode": "200K4003",
+                "departmentCode": "200K4003",
+                "departmentName": "东升物流天津分部"
+              }
+            }, {
+              "parentCode": "200K40",
+              "orgcode": "200K4002",
+              "name": "东升物流上海分部",
+              "department": {
+                "orgroot": "200K40",
+                "orgcode": "200K4002",
+                "parentCode": "200K4002",
+                "departmentCode": "200K4002",
+                "departmentName": "东升物流上海分部"
+              }
+            }, {
+              "parentCode": "200K40",
+              "orgcode": "200K4001",
+              "name": "东升物流北京分部",
+              "department": {
+                "orgroot": "200K40",
+                "checked": 1,
+                "orgcode": "200K4001",
+                "parentCode": "200K4001",
+                "departmentCode": "200K4001",
+                "departmentName": "东升物流北京分部"
+              }
+            }
+          ]
+        }
+      }
+    }
+    // function deepQuery(tree, orgcode) {   var isGet = false;   var retNode = null;   function deepSearch(tree, orgcode) {     for (var i = 0; i < tree.length; i++) {       if (tree[i].child && tree[i].children.length > 0) { deepSearch(tree[i].child,
+    // orgcode);       }       if (orgcode === tree[i].orgcode || isGet) {         isGet || (retNode = tree[i]);         isGet = true;         break;       }     }   }   deepSearch(tree, id);   return retNode; }
+    function findDepartment(tree, code) {
+      let obj = tree.orgtree
+      if (obj.orgcode == code) {
+        return obj.department
+      } else {
+        var isGet = false;
+        var retNode = null;
+        let tree = obj.child
+        function deepSearch(tree, orgcode) {
+          for (var i = 0; i < tree.length; i++) {
+            if (tree[i].child && tree[i].child.length > 0) {
+              deepSearch(tree[i].child, orgcode);
+            }
+            if (orgcode === tree[i].orgcode || isGet) {
+              isGet || (retNode = tree[i]);
+              isGet = true;
+              break;
+            }
+          }
+        }
+        deepSearch(tree, code);
+        return retNode;
+      }
+    }
+    let de = findDepartment(json.data, '200K4001')
+    console.log(de)
+    console.log(json.data)
+    var tree = [
+      {
+        id: '01000000',
+        text: '北京',
+        checked: 0,
+        children: [
+          {
+            id: '01001000',
+            text: '北京市',
+            checked: 1,
+            children: [
+              {
+                id: '02001001',
+                text: '西城区',
+                checked: 1,
+                children: null
+              }, {
+                id: 12,
+                text: '东城区',
+                checked: 0,
+                children: null
+              }
+            ]
+          }
+        ]
+      }, {
+        id: '02000000',
+        text: '上海',
+        checked: 0,
+        children: [
+          {
+            id: '02001000',
+            text: '上海市',
+            checked: 0,
+            children: [
+              {
+                id: '02001001',
+                text: '黄浦区',
+                checked: 0,
+                children: null
+              }
+            ]
+          }
+        ]
+      }
+    ];
+    function deepQuery(tree, id) {
+      var isGet = false;
+      var retNode = null;
+      function deepSearch(tree, id) {
+        for (var i = 0; i < tree.length; i++) {
+          if (tree[i].children && tree[i].children.length > 0) {
+            deepSearch(tree[i].children, id);
+          }
+          if (id === tree[i].id || isGet) {
+            isGet || (retNode = tree[i]);
+            isGet = true;
+            break;
+          }
+        }
+      }
+      deepSearch(tree, id);
+      retNode.checked = true
+      return retNode;
+    }
+    let node = deepQuery(tree, '02001001')
+    // console.log(node) console.log(tree)
+    function deepQuery2(tree, id) {
+      let arr = []
+      var stark = [];
+      stark = stark.concat(tree);
+      while (stark.length) {
+        var temp = stark.shift();
+        if (temp.children) {
+          stark = temp.children.concat(stark);
+        }
+      }
+    }
+    // let node2 = deepQuery2(tree, '02001001') console.log(tree)
+  </script>
+</html>

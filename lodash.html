@@ -5,42 +5,143 @@
     <title></title>
   </head>
   <body>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script type="text/javascript">
       var songs = [
-        {name:"羽根",artist:"air"},
-        {name:"羽根",artist:"air"},
-        {name:"晴天",artist:"周杰伦"},
-        {name:"晴天",artist:"周杰伦"},
-        {artist:"周杰伦",name:"晴天"}
-        ];
-
-      let u = _.uniqBy(songs,'name')
+        {
+          name: "羽根",
+          artist: "air"
+        }, {
+          name: "羽根",
+          artist: "air"
+        }, {
+          name: "晴天",
+          artist: "周杰伦"
+        }, {
+          name: "晴天",
+          artist: "周杰伦"
+        }, {
+          artist: "周杰伦",
+          name: "晴天"
+        }
+      ];
+      let u = _.uniqBy(songs, 'name')
       console.log(u)
       var original = [
-        { label: 'private', value: 'private@johndoe.com' },
-        { label: 'school', value: 'work@johndoe.com' }
+        {
+          label: 'private',
+          value: 'private@johndoe.com'
+        }, {
+          label: 'school',
+          value: 'work@johndoe.com'
+        }
       ];
-
       var update = [
-        { label: 'private', value: 'me@johndoe.com' },
-        { label: 'school', value: 'schol@johndoe.com' }
+        {
+          label: 'private',
+          value: 'me@johndoe.com'
+        }, {
+          label: 'school',
+          value: 'schol@johndoe.com'
+        }
       ];
-
       var result = _.unionBy(update, original, "label");
-
       console.log(result);
       var s = [
-         {name:"羽根",artist:"air"},
-         {name:"羽根",artist:"air"},
-         {name:"晴天",artist:"周杰伦"},
-         {name:"晴天",artist:"周杰伦"},
-         {artist:"周杰伦",sex:"晴天"},
-         {artist:"周杰伦",name:"晴天"}
-     ];
-     let rv = s.filter(item => item.name).length
-     console.log(rv)
+        {
+          name: "羽根",
+          artist: "air"
+        }, {
+          name: "羽根",
+          artist: "air"
+        }, {
+          name: "晴天",
+          artist: "周杰伦"
+        }, {
+          name: "晴天",
+          artist: "周杰伦"
+        }, {
+          artist: "周杰伦",
+          sex: "晴天"
+        }, {
+          artist: "周杰伦",
+          name: "晴天"
+        }
+      ];
+      let rv = s.filter(item => item.name).length
+      console.log(rv)
+      var fruits = ['Apple', 'Banana', 'Orange', 'Celery'];
+      var left = _.remove(fruits, function (n) {
+        return n == 'Apple'
+      })
+      console.log(left)
+      console.log(fruits)
+      var array = [1, 2, 3, 4];
+      var evens = _.remove(array, function (n) {
+        return n % 2 == 0;
+      })
+      console.log(array);
+      // => [1, 3]
+      console.log(evens);
+      //------//
+      var arr = [];
+      mod.departmentList.forEach(item => {
+        if (item.departmentCode == departmentCode) {
+          arr.push(item);
+          item.checked = 0;
+        }
+      });
+      if (mod.child.length >= 1) {
+        mod.child.forEach(item => {
+          if (item.departmentList && item.departmentList.length >= 1) {
+            item.departmentList.forEach(i => {
+              if (i.departmentCode == departmentCode) {
+                arr.push(i);
+                i.checked = 0;
+              }
+              if (i.child && i.child.length >= 1) {
+                i.child.forEach(t => {
+                  if (t.departmentCode == departmentCode) {
+                    arr.push(t);
+                    t.checked = 0;
+                  }
+                })
+              }
+            });
+          }
+          if (item.child && item.child.length >= 1) {
+            item.child.forEach(o => {
+              if (o.child && o.child.length >= 1) {
+                o.child.forEach(i => {
+                  i.departmentList.forEach(n => {
+                    if (n.departmentCode == departmentCode) {
+                      arr.push(n);
+                      n.checked = 0;
+                    }
+                  });
+                });
+              }
+              if (o.departmentList && o.departmentList.length >= 1) {
+                o.departmentList.forEach(m => {
+                  if (m.departmentCode == departmentCode) {
+                    arr.push(m);
+                    m.checked = 0;
+                  }
+                  if (m.child && m.child.length >= 1) {
+                    m.child.forEach(n => {
+                      if (n.departmentCode == departmentCode) {
+                        arr.push(n);
+                        n.checked = 0;
+                      }
+                    });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+      return arr;
     </script>
   </body>
 </html>

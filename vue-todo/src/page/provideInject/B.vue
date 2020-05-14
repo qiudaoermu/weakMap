@@ -8,10 +8,12 @@
 <script>
 import c from "./c.vue";
 export default {
+  props: ["code"],
   components: {
     c
   },
   mounted() {
+    console.log(this.code);
     debugger;
   }
 };

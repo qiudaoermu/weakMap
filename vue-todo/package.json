@@ -44,8 +44,10 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
     "syt-easy-storage": "0.0.3",
-    "vue-awesome-swiper": "3.0.0"
+    "vue-awesome-swiper": "3.0.0",
+    "vue-infinite-loading": "^2.4.4"
   }
 }
