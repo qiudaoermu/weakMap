@@ -7,6 +7,7 @@ import queue from './page/queueAsync.vue'
 import functional from './page/functional.vue'
 import provide from './page/provideInject/A.vue'
 import vueScroll from './page/vue-scroll.vue'
+import elTree from './page/tree.vue'
 export default {
   routes: [
     // 动态路径参数 以冒号开头
@@ -46,6 +47,10 @@ export default {
     {
       path:'/vue-scroll',
       component:vueScroll
+    },
+    {
+      path:'/el-tree',
+      component:elTree
     }
 
   ]

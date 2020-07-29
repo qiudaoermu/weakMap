@@ -34,7 +34,7 @@ var o = {}
 o.b = 3
 Object.defineProperty(o, "b", {
   get : function(){
-		console.log(37)
+    console.log('this',this)
 		console.log(bValue)
     return bValue;
   },
@@ -49,7 +49,7 @@ Object.defineProperty(o, "b", {
 });
 
 o.b = 38;
-
+console.log(o.b)
 var bValuea;
 var oa = [0]
 Object.defineProperty(oa, 0, {
@@ -67,7 +67,8 @@ Object.defineProperty(oa, 0, {
 });
 
 oa[0] = 38;
-
+oa.push(3)
+// console.log(oa)
 
 // / 还是老套路，定义一个observe方法
 function defineReactive(data, key, val) {

@@ -6,8 +6,15 @@ import VueRouter from 'vue-router'
 import 'mint-ui/lib/style.css'
 import MintUI from 'mint-ui'
 import routers from './router.js'
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(MintUI)
 Vue.use(VueRouter)
+
+
+Vue.use(ElementUI);
+
 import { person } from './new.js'
 console.log(person)
 setTimeout(() => {

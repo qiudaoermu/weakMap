@@ -1,0 +1,20 @@
+<script type="text/javascript">
+  class Super {
+  	constructor(){
+  		this.height = 300
+  	}
+    do 
+      () {console.log('do')}
+    }
+  class Sub extends Super {
+  	constructor(){
+  		super()
+  	}
+  }
+  // Sub.__proto__ = Super
+  // Sub.prototype.__proto__ = Super.prototype
+
+  let sb = new Sub()
+  sb.do()
+  console.log(sb.height)
+</script>

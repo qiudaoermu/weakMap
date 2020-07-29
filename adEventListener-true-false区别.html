@@ -23,8 +23,10 @@ div
 </div>
 <script>
 	//false 冒泡 从里到外
-document.getElementById("myP").addEventListener("click", function() 
+document.getElementById("myP").addEventListener("click", function(e) 
+
 {
+    e.stopPropagation()
     alert("你点击了 P 元素!");
 }, false);
 document.getElementById("myDiv").addEventListener("click", function()
@@ -36,9 +38,12 @@ document.getElementById("myDiv").addEventListener("click", function()
 document.getElementById("myP2").addEventListener("click", function() 
 {
     alert("你点击了 P 元素!");
+
 }, true);
-document.getElementById("myDiv2").addEventListener("click", function() 
+document.getElementById("myDiv2").addEventListener("click", function(e) 
+
 {
+      e.stopPropagation()
     alert("你点击了 DIV 元素!");
 }, true);
 </script>

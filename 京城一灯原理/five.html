@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // es5混合继承
+    /*function Car(color,price) {
+        this.color= color 
+        this.price = price
+    }
+
+    Car.prototype.sell = function(){
+
+    }
+    Cruze.prototype = new Car()
+
+    function Cruze(color,price){
+        Car.call(this,color,price)
+    }
+
+    Cruze.prototype.sell = function(){
+        console.log('将'+this.color+'的Cruze卖给了小王价格是'+this.price)
+    }
+    let cruze = new Cruze('red',14000)
+    cruze.sell()
+    */
+    // 
+    
+    class Car{
+        constructor (color,price){
+            this.color = color
+            this.price = price
+        }
+        sell(){
+            console.log('将'+this.color+'的Cruze卖给了小王价格是'+this.price)
+        }
+    }
+    class Cruze extends Car{
+        constructor(color,price){
+            super(color,price)
+        }
+       
+    }
+    var cru = new Cruze('red',14000)
+    cru.sell()
+
+
+</script>
+</html>

@@ -9,17 +9,12 @@
 
 </body>
 <script type="text/javascript">
-
-
 	function DD(){
-
 			this.name = 'name'
 	}
 	DD.prototype.ask = function(){
 		console.log('ask')
 	}
-
-
 	function newS(func){
 			var ob = Object.create(func.prototype)
 			var k = func.call(ob)
@@ -28,7 +23,6 @@
 			}else{
 				return ob
 			}
-
 	}
 	var c= newS(DD);
 	console.log(c)

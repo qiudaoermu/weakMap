@@ -46,6 +46,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "babel-polyfill": "^6.26.0",
+    "element-ui": "^2.13.1",
     "syt-easy-storage": "0.0.3",
     "vue-awesome-swiper": "3.0.0",
     "vue-infinite-loading": "^2.4.4"

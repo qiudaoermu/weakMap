@@ -20,7 +20,7 @@
           "departmentName": "东升物流有限公司",
           "createTime": 1576482195000,
           "updateTime": 1576482195000,
-          "checked": 1,
+          "checked": 0,
           "parent": false
         },
         "child": [
@@ -37,7 +37,7 @@
               "departmentName": "1我32123",
               "createTime": 1576579699000,
               "updateTime": 1576579699000,
-              "checked": 1,
+              "checked": 0,
               "child": [
                 {
                   "id": 524,
@@ -1153,6 +1153,65 @@
         }
       ]
     }
+    let testD = [{
+              "id": 506,
+              "orgroot": "200K40",
+              "orgcode": "200K400L",
+              "parentCode": "200K400L",
+              "departmentCode": "200K400L",
+              "departmentName": "子公司6",
+              "createTime": 1576500327000,
+              "updateTime": 1576500327000,
+              "checked": 1,
+              "child": [
+                {
+                  "id": 507,
+                  "orgroot": "200K40",
+                  "orgcode": "200K400L",
+                  "parentCode": "200K400L",
+                  "departmentCode": "200K400LOE",
+                  "departmentName": "3123",
+                  "createTime": 1576506098000,
+                  "updateTime": 1576506098000,
+                  "checked": 0,
+                  "parent": true
+                }, {
+                  "id": 508,
+                  "orgroot": "200K40",
+                  "orgcode": "200K400L",
+                  "parentCode": "200K400L",
+                  "departmentCode": "200K400LDM",
+                  "departmentName": "3123",
+                  "createTime": 1576506098000,
+                  "updateTime": 1576506098000,
+                  "checked": 1,
+                  "parent": true
+                }, {
+                  "id": 509,
+                  "orgroot": "200K40",
+                  "orgcode": "200K400L",
+                  "parentCode": "200K400L",
+                  "departmentCode": "200K400LAH",
+                  "departmentName": "3123",
+                  "createTime": 1576506098000,
+                  "updateTime": 1576506098000,
+                  "checked": 1,
+                  "parent": true
+                }, {
+                  "id": 517,
+                  "orgroot": "200K40",
+                  "orgcode": "200K400L",
+                  "parentCode": "200K400L",
+                  "departmentCode": "200K400LYL",
+                  "departmentName": "23123",
+                  "createTime": 1576580249000,
+                  "updateTime": 1576580249000,
+                  "checked": 1,
+                  "parent": true
+                }
+              ],
+              "parent": false
+            }]
     function getDepartmentCode(c) {
       let res = [];
       if (c) {
@@ -1190,6 +1249,23 @@
       }
       return star
     }
+ 
+    function findCheckedOne(tree){
+      let arr = []
+      for(var i=0;i<tree.length;i++) {
+        if(tree[i].checked == 0) {
+          arr.push(tree[i])
+       
+        }
+        if(tree[i].child && tree[i].child.length>=1) {
+           arr = [...findCheckedOne(tree[i].child)]
+        }
+      }
+      return arr
+
+    }
+    let total = findCheckedOne(testD)
+    console.log(total)
     // let r = getChild(s.orgtree) let crr = [] r.forEach((i, n) => {   let result = getDepartmentCode(i.department)   crr = crr.concat(result) }) console.log(crr)
     let c = getChild(de)
     let res = []

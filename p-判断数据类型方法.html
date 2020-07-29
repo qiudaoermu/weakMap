@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+/* 
+    数据类型
+    String,null,undefined,booler,Object,symbol,Number
+*/
+/*Object.prototype.toString.call()
+使用Object.prototype上的原生toString()方法判断数据类型，使用方法如下：
+
+
+Object.prototype.toString.call(value)
+*/
+// 1.判断基本类型：
+
+Object.prototype.toString.call(null);//'[object Null]'
+Object.prototype.toString.call(undefined);//'[object Undefined]'
+Object.prototype.toString.call('abc');//'[object String]'
+Object.prototype.toString.call(123);//'[object Number]'
+Object.prototype.toString.call(true);//'[object Boolean]'
+// 2.判断原生引用类型：
+
+// 函数类型
+function fn(){console.log('test');}
+Object.prototype.toString.call(fn);//'[object Function]'
+// 日期类型
+var date = new Date();
+Object.prototype.toString.call(date);//'[object Date]'
+// 数组类型
+var arr = [1,2,3];
+Object.prototype.toString.call(arr);//'[object Array]'
+// 正则表达式
+var reg = /[hbc]at/gi;
+Object.prototype.toString.call(arr);//'[object RegExp]'
+</script>
+</html>

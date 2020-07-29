@@ -1,0 +1,6 @@
+<script>
+// 柯里化返回一个函数
+    var checkage = min => (age => age > min);
+    var checkage18 = checkage(18);
+    console.log(checkage18(20))
+</script>

@@ -12,19 +12,17 @@
 		console.log(arguments.caller)
 	}
 	function c(){
-		
 		a()
 	}
 	a();
 	c()
 
 	function factoril(num){
-		if(num<=1){
+		if(num <= 1){
 			return 1;
 		}else{
 			return num*arguments.callee(num-1)
 		}
-
 	}
 	factoril(10)
 

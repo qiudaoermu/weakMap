@@ -52,7 +52,7 @@ let config = {
             },
 
             {
-                test:/\.(gif|jpg|jpeg|png|svg)$/,
+                test:/\.(gif|jpg|jpeg|png|svg|ttf|woff)$/,
                 use:[
                     {
                         loader: "url-loader",
@@ -71,7 +71,11 @@ let config = {
         new webpack.DefinePlugin({
             NODE_ENV:isDev?'"development"':'"production"'
         }),//定义可以在前端使用的全局变量
-        new HTMLplugin()
+        new HTMLplugin(),
+        new webpack.ProvidePlugin({
+              $: 'jquery',
+              jQuery: 'jquery'
+            })
     ]
 };
 

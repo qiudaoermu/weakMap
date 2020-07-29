@@ -5,18 +5,30 @@
     <title></title>
     <style media="screen">
       .item {
-        float: left;
+        height: 100px;
+        width: 100px;
+        background: #ddd;
+        margin-bottom:20px;
       }
+      .two {
+        margin-top: 10px;
+      }
+      .two .child {
+        margin-top: 200px;
+        width: 40px;
+        height: 40px;
+      }
+      /*子元素 margin-top:200px影响了margin
+        父元素添加bfc（Box Formatting context） 属性后子元素不再起作用，
+      */
     </style>
   </head>
   <body>
     <div class="container">
       <div class="one item">iframe</div>
       <div class="two item">
-        <span>canvas</span>
-        <span>audio</span>
+        <div class="child"></div>
       </div>
-      <div class="three item">datalis</div>
     </div>
   </body>
 </html>
