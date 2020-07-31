@@ -36,7 +36,7 @@ for (let i = 0; i < len; i++) {
     let imgObj = new Image(); // 创建图片对象
     imgObj.src = imgs[i];
     imgObj.addEventListener('load',  (v) => { // 这里没有考虑error，实际上要考虑
-			console.log(v)
+		console.log(v)
         console.log('imgs' + i + '加载完毕');
     }, false);
 }

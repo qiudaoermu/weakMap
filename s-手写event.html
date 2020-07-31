@@ -10,12 +10,10 @@
 <script type="text/javascript">
 	
 	
-	var event={
+	var event = {
 		addevent:function(element,type,fn){
 			if(element.addEventListener){
-
 				element.addEventListener(type,fn,false)
-
 			}else{
 				attachEvent('on'+type,fn)
 			}
@@ -36,7 +34,6 @@
 		},
 		event:function(e){
 			var e = e|| window.event
-
 		}
 	}
 </script>

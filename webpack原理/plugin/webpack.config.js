@@ -10,9 +10,10 @@ module.exports = {　　
 		main: './src/index.js'　　
 	},
 	devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: false,
     compress: true,
     port: 9000,
+    publicPath: '/assets/'
   },
 	output: {　　　　
 		path: path.resolve(__dirname, 'dist'),

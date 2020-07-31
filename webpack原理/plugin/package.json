@@ -6,7 +6,7 @@
   "scripts": {
     "debug": "node --inspect --inspect-brk node_modules/webpack/bin/webpack.js",
     "build": "webpack",
-    "dev": "webpack-dev-server --hotOnly"
+    "dev": "webpack-dev-server"
   },
   "keywords": [],
   "author": "",

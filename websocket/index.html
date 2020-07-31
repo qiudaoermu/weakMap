@@ -5,24 +5,24 @@
 
 
 
-    var ws = new WebSocket("ws://10.190.181.158:8080/api/websocket/10705/2020800176");
+    var ws = new WebSocket("ws://localhost:8001");
     console.log(ws.readyState)
-    setTimeout(()=>{
+    setTimeout(() => {
         console.log(ws.readyState)
     },3000)
     //非必须，new 的时候已经开始建立，onopne是建立连接后的回调函数
     // ws.onopen = function (e) { 
     //     console.log('Connection to server opened');
     // }
-    // ws.onmessage = function(event) { 
-    //     console.log('Client received a message', event); 
-    // }; 
+    ws.onmessage = function(event) { 
+        console.log('Client received a message', event.data); 
+    }; 
     ws.onclose = function (e) {
         console.log('connection closed.');
     }
-    // function sendMessage() {
-    //     ws.send(document.getElementById('text').value);
-    // }
+    function sendMessage() {
+        ws.send(document.getElementById('text').value);
+    }
 
 
     

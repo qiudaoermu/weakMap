@@ -29,19 +29,19 @@ setTimeout(function(){
         console.log(6);
     },0)
 },0)
-// console.log('ok');
+console.log('ok');
 // 1 2 3 6 4 5
 
-// // console.log(1);
-// setTimeout(function(){
-//     console.log(2);
-//     // Promise.resolve(1).then(function(){
-//     //     console.log('okBind')
-//     // })
-// })
-// setTimeout(function(){
-//     console.log(3)
-// })
+// console.log(1);
+setTimeout(function(){
+    console.log(2);
+    Promise.resolve(1).then(function(){
+        console.log('okBind')
+    })
+})
+setTimeout(function(){
+    console.log(3)
+})
 
 
 

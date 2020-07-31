@@ -16,7 +16,6 @@
 		//窗口拖动 只在触发一次 闭包典型应用 减少全局变量使用
 		var timer = null;
 		function debounce(fn, wait) {
-
 			return function () {
 				var context = this
 				var args = arguments
@@ -77,7 +76,6 @@
 		});
 
 		var setTimeoutTime = setTimeout(function () {
-
 			console.log('time')
 			clearTimeout(setTimeoutTime)
 		}, 2000)

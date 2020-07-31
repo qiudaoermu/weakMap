@@ -11,40 +11,25 @@
 // 获取海报
 var getPoster = function (movieName) {
     let url = `https://api.douban.com/v2/movie/search?q=${encodeURI(movieName)}`;
-
     return new Promise(function (resolve, reject) {
         $.ajax({url:url}).done(function (error, response, body) {
             if (error) return reject(error);
             console.log(body.subjects[0].images.large)
-
             resolve(body.subjects[0].images.large);
         })
     });
 };
-
 // 保存海报
 var savePoster = function (movieName, url) {
     request.get(url).pipe(fs.createWriteStream(path.join(movieDir, movieName + '.jpg')));
 };
-
-
 (async () => {
     let files = ['中南海保镖','新少林五祖','精武英雄','黑侠','给爸爸的一封信'];
     // await只能使用在原生语法
     for (var file of files) {
-        
   		 await getPoster(file)
-
     }
     console.log('=== 获取海报完成 ===');
 })();
-
-
-
-
-
-
-
-
 </script>
 </html>

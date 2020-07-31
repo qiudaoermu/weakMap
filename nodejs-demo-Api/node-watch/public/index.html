@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>2231242131231212313231231123123432422123</div>
+</body>
+<script type="text/javascript">
+	console.log(132323)
+	console.log(22333233333223211312122)
+</script>
+<script type="text/javascript">
+	 var ws = new WebSocket("ws://localhost:8003");
+    console.log(ws.readyState)
+    setTimeout(() => {
+        console.log(ws.readyState)
+    }, 1000)
+    //非必须，new 的时候已经开始建立，onopne是建立连接后的回调函数
+    // ws.onopen = function (e) { 
+    //     console.log('Connection to server opened');
+    // }
+    ws.onmessage = function(event) { 
+        console.log('Client received a message', event.data);
+        let message = JSON.parse(event.data)
+        if(message.type == 'reload') {
+        	window.location.reload()
+        } 
+    }; 
+    ws.onclose = function (e) {
+        console.log('connection closed.');
+    }
+    function sendMessage() {
+        ws.send(document.getElementById('text').value);
+    }
+
+</script>
+</html>
