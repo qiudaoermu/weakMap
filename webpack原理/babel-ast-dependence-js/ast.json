@@ -1,18 +1,4 @@
-(function(gragh) {
-	function require(module) {
-		// 相对路径转换成绝对路径的方法
-		function localRequire(relativePath) {
-			return require(gragh[module].dependencies[relativePath])
-		}
-		const exports = {};
-		(function(require, exports, code) {
-			eval(code)
-		})(localRequire, exports, gragh[module].code)
-
-		return exports;
-	}
-	require('./src/index.js')
-})({
+{
 	"./src/index.js": {
 		"dependencies": {
 			"./message.js": "./src/message.js"
@@ -29,4 +15,3 @@
 		"dependencies": {},
 		"code": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.word = void 0;\n// word.js\nvar word = 'hello world !';\nexports.word = word;"
 	}
-})

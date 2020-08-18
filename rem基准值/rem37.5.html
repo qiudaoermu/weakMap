@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no,viewport-fit=cover"/>
+  <title>Document</title>
+</head>
+<style>
+html {
+}
+.demo {
+  width:2rem;
+  height: 1rem;
+  background:red;
+}
+</style>
+<body>
+  <div class="demo"></div>
+</body>
+<script>
+// 根据视窗调整基准值，适配移动端
+function initResize () {
+  var htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+  var htmlDom = document.getElementsByTagName('html')[0];
+  // 确定基准值，设计稿的尺寸是css像素的2倍，需要缩小2倍，基准值不宜过大，再缩小10倍
+  htmlDom.style.fontSize = ((htmlWidth) / 10) + 'px';
+}
+initResize();
+window.addEventListener('resize', function () { initResize(); })
+</script>
+</html>

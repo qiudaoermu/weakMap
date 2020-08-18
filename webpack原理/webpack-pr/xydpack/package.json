@@ -1,0 +1,20 @@
+{
+  "name": "xydpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "bin": {
+    "xydpack": "./bin/xydpack.js"
+  },
+  "dependencies": {
+    "@babel/generator": "^7.11.0",
+    "@babel/parser": "^7.11.3",
+    "@babel/traverse": "^7.11.0",
+    "@babel/types": "^7.11.0",
+    "ejs": "^3.1.3",
+    "tapable": "^1.1.3"
+  },
+  "scripts": {
+    "xydpack": "xydpack"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "webpack-afteremit-zipfolder-plugin",
+  "version": "1.1.1",
+  "description": "",
+  "main": "distZip-webpack-plugin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "adm-zip": "^0.4.16",
+    "colors": "^1.4.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  }
+}

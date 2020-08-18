@@ -10,7 +10,7 @@
     let regs = /(is)/
     let str = 'is your cat1'
     // console.log(reg.test(str))
-    let re = str.replace(regs, '$2', '$1')
+    let re = str.replace(regs, '$1'+'i')
     console.log(re)
     let regd = /(\d)/
     console.log(regd.test(str))

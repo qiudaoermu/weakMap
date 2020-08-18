@@ -30,8 +30,9 @@
   </body>
   <script>
     var content = document.getElementById("content").innerHTML;
-    var s = "感觉";
+    var s = "自己";
     var reg = new RegExp("(" + s + ")", "g");
+    console.log(reg)
     var str = content;
     var newstr = str.replace(reg, "<font color=#FF6633>$1</font>");
     document.getElementById("content").innerHTML = newstr;

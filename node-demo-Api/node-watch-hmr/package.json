@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "log-timestamp": "^0.3.0",
-    "nodejs-websocket": "^1.7.2"
+    "mem": "^6.1.0",
+    "memfs": "^3.2.0",
+    "nodejs-websocket": "^1.7.2",
+    "url": "^0.11.0"
   },
   "devDependencies": {
     "express": "^4.17.1",
