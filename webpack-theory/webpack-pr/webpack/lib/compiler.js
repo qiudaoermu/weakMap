@@ -7,6 +7,8 @@ const ejs = require('ejs') //替换AST的内容
 const babel = require('@babel/core')
 const generator = require('@babel/generator').default // 根据AST生成新的源码
 const root = path.join(__dirname)
+const OutSystem  = require('./outfileSystem');
+const CreateHash = require('./createHash')
 const {
 	SyncHook,
 	SyncBailHook,
@@ -16,11 +18,15 @@ const {
 
 class Compiler {
   constructor(config) {
-    this.config = config
-    this.modules = {}
-    this.entryPath = ''
-    this.root = process.cwd()
-   	this.hooks = Object.freeze({
+		this.fileSystem  = new OutSystem();
+    this.config = config;
+    this.modules = {};
+    this.entryPath = '';
+    this.root = process.cwd();
+		this.hashModel = new CreateHash()
+		this.hash = ''
+		// 定义钩子
+   	this.hooks = {
 			/** @type {SyncHook<[]>} */
 			initialize: new SyncHook([]),
 
@@ -87,17 +93,28 @@ class Compiler {
 			afterResolvers: new SyncHook(["compiler"]),
 			/** @type {SyncBailHook<[string, Entry], boolean>} */
 			entryOption: new SyncBailHook(["context", "entry"])
+		};
+		// 注册钩子
+		this.registerPlugin();
+		this.hooks.initialize.call(err => {
+			if (err) return this.finalCallback(err);
+			return this.callback();
 		});
   }
+	registerPlugin() {
+		// 注册plugins
+		let plugins = this.config.plugins;
+		plugins.forEach((item, i) => {
+		  item.apply(this)
+		});
+	}
   getSource(modulePath) {
 
-    console.log(modulePath)
     let rules = this.config.module.rules;
     let resovePath = this.config.resolveLoader.modules
 
     let content = fs.readFileSync(modulePath, 'utf-8')
-    console.log('--------------beforeLoader--------------')
-    console.log(content)
+    // console.log('--------------beforeLoader--------------')
     for (let i = 0; i < rules.length; i++) {
       let {
         test, use
@@ -132,20 +149,17 @@ class Compiler {
       }
     }
 
-    console.log('--------------afterLoader----------')
-    console.log(content)
+    // console.log('--------------afterLoader----------')
     return content
 
   }
   es6BabelSouce(source) {
-    console.log(source, 'es6BabelSouce')
     const {
       code
     } = babel.transform(source, {
       sourceMap: true,
       presets: ['@babel/preset-env'],
     })
-    console.log(code, 'es6BabelSouce-afterTansform')
   }
   es6Tanslate(source) {
     // 生成AST
@@ -191,7 +205,6 @@ class Compiler {
           node.arguments = [t.stringLiteral(modulePath)]
             // 保存模块依赖项
           dependencies.push(modulePath)
-          console.log(dependencies)
         }
       }
     })
@@ -206,10 +219,10 @@ class Compiler {
   buildModule(modulePath, isEntry) {
     let source = this.getSource(modulePath)
       // if (!source) return
-    console.log(modulePath,'before----------------------')
+    // console.log(modulePath,'before----------------------')
 
     let moduleName = './' + path.relative(this.root, modulePath).replace(/\\/g, '/')
-     console.log(modulePath,'after----------------------')
+     // console.log(modulePath,'after----------------------')
     if (isEntry) this.entryPath = moduleName
 
     let {
@@ -222,44 +235,77 @@ class Compiler {
       false)
   }
   emit() {
-    const callback =()=>{
-      console.log('**********callback***************')
-    }
     const {
       modules,
       entryPath
     } = this
     const outputPath = path.resolve(this.root, this.config.output.path)
-
-    fs.exists(this.config.output.path, (exists) => {
-      exists ? console.log(exists, 'exists') : fs.mkdirSync(
-        outputPath)
-    })
-
     const filePath = path.resolve(outputPath, this.config.output.filename)
     ejs.renderFile(path.join(__dirname, 'template.ejs'), {
         modules,
         entryPath
       })
       .then(code => {
-        let self = this
-        fs.writeFile(filePath, code, (err) => {
-          if(err) throw err;
-          this.hooks.afterEmit.callAsync(code, err => {
-						if (err) return callback(err);
-            console.log('hooks------*************************************-------------')
-						return callback();
-					});
-        })
-      })
+				this.emitAssets(code);
+			})
   }
+	emitAssets(code) {
+		this.fileSystem.mkdirpSync(this.config.output.path);
+		let outpath = this.config.output.path + '/' + this.config.output.filename;
+
+		this.writeOut(outpath, code, () => {
+			this.fileSystem.writeFileSync(outpath, code);
+				this.hash = this.hashModel.createHash(code)
+			  console.log('Emit ❤️  ❤️‍   success')
+	      this.hooks.afterEmit.callAsync(code, err => {
+					if (err) return this.finalCallback(err);
+					return this.afterEmitted(code);
+				});
+
+		})
+	}
+	writeOut(path,code,callback) {
+		path && code && callback()
+	}
+	callback() {
+	}
+	// 输出
+	afterEmitted(code) {
+		let info = 'info'
+		let stats = {
+			code,
+			hash: this.hash
+		}
+		this.hooks.done.callAsync(stats, err => {
+			if (err) return this.finalCallback(err);
+		})
+	}
+	finalCallback(err, stats) {
+		if (err) {
+			this.hooks.failed.call(err);
+		}
+	}
   run() {
     const {
       entry
     } = this.config
-    console.log(entry,'entry-----------')
+	 this.hooks.run.callAsync(entry, err => {
+		 if (err) return this.finalCallback(err);
+		 return this.callback();
+	 });
     this.buildModule(path.resolve(this.root, entry), true)
     this.emit()
   }
+	watch() {
+		//watch model
+		this.run();
+		let file = Object.keys(this.modules)
+		file.forEach((item, i) => {
+		  fs.watchFile(item, (curr, prev) => {
+				console.log(curr)
+		    this.run()
+		  });
+		});
+	}
 }
 module.exports = Compiler

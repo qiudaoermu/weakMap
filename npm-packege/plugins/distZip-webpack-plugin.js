@@ -23,6 +23,7 @@ class DistZipWebpackPlugin {
 				console.error('outpath is not defined'.custom)
 				return
 			}
+			console.log('register hook')
 			let pathout = process.cwd() + this.options.targetPath
 			let outPath = process.cwd() + '/' + this.options.outPut
 			zip.addLocalFolder(pathout);

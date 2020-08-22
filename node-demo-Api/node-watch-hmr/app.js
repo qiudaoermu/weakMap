@@ -3,8 +3,8 @@ const app = express()
 var path = require('path');
 const fsdisk = require('fs');
 app.use(express.static(path.join(__dirname, '/public')));
-
-const port = 3000
+let root = __dirname
+const port = 3001
 
 var MemoryFileSystem = require("memory-fs");
 // var MemoryFileSystem = require("memory-fs");
@@ -21,21 +21,27 @@ var fsMemoryFileSystem = new MemoryFileSystem();
 var url = require('url')
 let parse = url.parse
 	// var querystring = require('querystring').default;
-var mem = require('mem');
 const memfs = require('memfs')
-const memoizedParse = mem(parse);
 let {
 	fs,
 	vol,
 	writeFileSync,
 	readFileSync
-} = memfs
+} = memfs;
 const config = {
-	path: '/main.js',
+	path: root,
+	file: 'main.js',
 	content: "console.log('hello world1')"
 };
-vol.writeFileSync(config.path, config.content);
-let content = vol.readFileSync('/main.js')
+
+// '/Users/chen/github/weakMap/node-demo-Api/node-watch-hmr'
+console.log(fsMemoryFileSystem)
+fsMemoryFileSystem.mkdirpSync(config.path)
+console.log(fsMemoryFileSystem.statSync(config.path).isDirectory())
+fsMemoryFileSystem.writeFileSync(config.path+'/'+config.file, config.content);
+fsMemoryFileSystem.readFileSync('/Users/chen/github/weakMap/webpack-theory/webpack-pr/dist/bundle.js')
+let content = fsMemoryFileSystem.readFileSync(config.path+'/'+ config.file)
+// console.log(content)
 	// let publicPathObject = memoizedParse('/text.txt', false, true);
 	// console.log(publicPathObject)
 	// let memFilePath =process.cwd() + publicPathObject.path
@@ -80,7 +86,7 @@ function handleRangeHeaders(content, req, res) {
 // });
 
 app.get('/', (req, res) => {
-	content = handleRangeHeaders(content, req, res);
+	// content = handleRangeHeaders(content, req, res);
 	res.render('index')
 })
 app.get('/main.js', (req, res) => {

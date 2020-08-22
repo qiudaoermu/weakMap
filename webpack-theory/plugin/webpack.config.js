@@ -1,6 +1,7 @@
 const path = require('path');
 const CopyRightWebpackPlugin = require('./plugins/copyright-webpack-plugin');
 const webpack = require('webpack');
+console.log(webpack)
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
