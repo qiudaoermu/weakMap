@@ -1,16 +1,16 @@
 const Compiler = require('../lib/compiler.js')
-const NodeEnvironmentPlugin = require('../lib/compiler.js')
+const NodeEnvironmentPlugin = require('../lib/NodeEnvironmentPlugin.js')
 function registerPlugin(compiler) {
   // 注册plugins
+  new NodeEnvironmentPlugin().apply(compiler)
   let plugins = compiler.config.plugins;
-  console.log(plugins)
   plugins.forEach((item, i) => {
     item.apply(compiler)
   });
 }
-// new NodeEnvironmentPlugin(Compiler)
 const webpack = (options, callback) => {
-  registerPlugin(new Compiler(options))
-  return new Compiler(options)
+  let compiler = new Compiler(options)
+  registerPlugin(compiler)
+  return compiler
 }
 module.exports = webpack

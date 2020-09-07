@@ -11,7 +11,8 @@
     let str = 'is your cat1'
     // console.log(reg.test(str))
     let re = str.replace(regs, '$1'+'i')
-    console.log(re)
+    let node_env = str.replace('is','NODE_ENV')
+    console.log(node_env)
     let regd = /(\d)/
     console.log(regd.test(str))
     let rn = str.replace(regd, '$1')

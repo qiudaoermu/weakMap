@@ -4,14 +4,12 @@ class outputFileSystem {
 
   }
   mkdirpSync(path){
-   fs.exists(path, (exists) => {
-     console.log(exists, 8)
-     exists ? console.log(exists, 'exists') : fs.mkdir(path, err => {
-    })
-   })
+    if(!fs.existsSync(path)) {
+      console.log('path')
+      fs.mkdirSync(path);
+    }
   }
   writeFileSync(filename,code){
-    console.log(filename,'filename')
     return fs.writeFileSync(filename, code)
   }
 }

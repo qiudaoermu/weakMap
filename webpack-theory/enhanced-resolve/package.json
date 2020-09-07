@@ -1,0 +1,19 @@
+{
+  "name": "enhanced-resolve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "enhanced-resolve": "^4.3.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "element-ui": "^2.13.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

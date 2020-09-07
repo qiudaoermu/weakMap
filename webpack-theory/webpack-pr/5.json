@@ -1,3 +1,0 @@
-let style = document.createElement('style');
-style.innerHTML = "html,\nbody {\n  margin: 0;\n  padding: 0;\n  width: 100%;\n  height: 100%;\n}\nbody {\n  background-size: cover;\n  background-position: center;\n  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  color: #4d4d4d;\n  font-smoothing: antialiased;\n  font-weight: 300;\n}\n";
-document.body.appendChild(style);

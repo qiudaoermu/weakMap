@@ -26,7 +26,7 @@
     "vue-router": "^3.4.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node app.js",
     "build": "node webpack/bin/buildpack.js"
   },
   "keywords": [],

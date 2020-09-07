@@ -15,7 +15,6 @@ const myResolve = resolve.create({
 	extensions: [".ts", ".js"]
 	// see more options below
 });
-process.env.NODE_ENV = 'development'
 let a = 1;
 const {
 	SyncHook,
@@ -26,15 +25,14 @@ const {
 
 class Compiler {
 	constructor(config) {
-		console.log(config)
 		this.fileSystem = new OutSystem();
 		this.config = config;
 		this.modules = {};
 		this.entryPath = '';
 		this.root = process.cwd();
-		console.log(this.root,'root---')
 		this.hashModel = new CreateHash()
 		this.hash = ''
+		this.NODE_ENV = 'devlopment'
 			// 定义钩子
 		this.hooks = {
 			/** @type {SyncHook<[]>} */
@@ -110,8 +108,8 @@ class Compiler {
 			if (err) return this.finalCallback(err);
 			return this.callback();
 		});
+		this.source = ''
 	}
-
 	getSource(modulePath) {
 		let rules = this.config.module.rules;
 		let resovePath = this.config.resolveLoader.modules
@@ -206,9 +204,9 @@ class Compiler {
 		// console.log(ast)
 		console.log(dependencies, 'dependencies')
 			// 生成新的代码
-		fs.writeFile(c+'.json',sourceCode,err=>{
-			console.log(err)
-		})	
+		// fs.writeFile(c+'.json',sourceCode,err=>{
+		// 	console.log(err)
+		// })	
 		return {
 			sourceCode,
 			dependencies
@@ -218,9 +216,7 @@ class Compiler {
 		let source = this.getSource(modulePath)
 			// if (!source) return
 		console.log(modulePath, 'before----------------------')
-
 		let moduleName = './' + path.relative(this.root, modulePath).replace(/\\/g, '/')
-
 		console.log(moduleName, 'after----------------------')
 		if (isEntry) this.entryPath = moduleName
 
@@ -239,32 +235,37 @@ class Compiler {
 			modules,
 			entryPath
 		} = this
-		for(var i in modules ){
-			// console.log(modules[i],'-----------------------')
-		}
-		const outputPath = path.resolve(this.root, this.config.output.path)
-		const filePath = path.resolve(outputPath, this.config.output.filename)
+		this.source = {modules, NODE_ENV: this.NODE_ENV}
+		// console.log('**************modules')
+		// console.log(modules)
+		this.hooks.emit.callAsync(this.source, err => {
+			console.log('emit-call')
+			if (err) return this.finalCallback(err);
+			return this.callback();
+		});
+
+		const outputPath = path.resolve(this.root, this.config.output.path);
+		const filePath = path.resolve(outputPath, this.config.output.filename);
 		ejs.renderFile(path.join(__dirname, 'template.ejs'), {
 				modules,
 				entryPath
 			})
 			.then(code => {
-				this.emitAssets(code);
-			})
+				let source = {builtAssets: code, modules}
+				this.emitAssets(source);
+			});
 	}
-	emitAssets(code) {
+	emitAssets(source) {
 		this.fileSystem.mkdirpSync(this.config.output.path);
 		let outpath = this.config.output.path + '/' + this.config.output.filename;
-
-		this.writeOut(outpath, code, () => {
-			this.fileSystem.writeFileSync(outpath, code);
-			this.hash = this.hashModel.createHash(code)
-			console.log('Emit ❤️  ❤️‍   success')
-			this.hooks.afterEmit.callAsync(code, err => {
+		this.writeOut(outpath, source, () => {
+			this.fileSystem.writeFileSync(outpath, source.builtAssets);
+			this.hash = this.hashModel.createHash(source.builtAssets);
+			console.log('Emit ❤️ ❤️‍ success');
+			this.hooks.afterEmit.callAsync(source, err => {
 				if (err) return this.finalCallback(err);
-				return this.afterEmitted(code);
+				return this.afterEmitted(source);
 			});
-
 		})
 	}
 	writeOut(path, code, callback) {
@@ -273,8 +274,10 @@ class Compiler {
 	callback() {}
 		// 输出
 	afterEmitted(code) {
-		let info = 'info'
+		let info = 'info';
+		let modules = this.modules;
 		let stats = {
+			modules,
 			code,
 			hash: this.hash
 		}

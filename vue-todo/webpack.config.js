@@ -5,11 +5,13 @@ const isDev = process.env.NODE_ENV;
 const kid = process.env.vip;
 console.log(isDev);
 console.log(kid);
-require("babel-polyfill");
+// require("@babel/polyfill");
 //console.log(global)
 const HTMLplugin = require("html-webpack-plugin");
+const resolve = dir => path.resolve(__dirname, dir);
 
-
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+console.log(path.resolve(__dirname, '../node_modules/element-ui'),'------------------------')
 let config = {
     mode:"development",
     entry:[path.join(__dirname,'src/index.js')],
@@ -17,17 +19,23 @@ let config = {
         filename: "bundle.[hash:8].js",
         path: path.join(__dirname,'dist')
     },
+    resolve:{
+        // alias: {
+        //     'element-ui': resolve('src/element-ui')// 这样配置后 @ 可以指向 src 目录
+        // },
+        extensions:['.js','.jsx','.json','.vue']//表示这几个的后缀名可以参略
+    },
     module: {
         rules: [
             {
-                test:/\.vue$/,
-                loader:"vue-loader",
-                exclude:'/node_modules'
+                test: /\.vue$/,
+                loader: "vue-loader",
+                include: [path.resolve(__dirname, '../node_modules/element-ui'), path.resolve(__dirname, './src')]
             },
             {
-                test:/\.(jsx|js)$/,
+                test: /\.(jsx|js)$/,
                 loader: "babel-loader",
-                "include": [path.resolve(__dirname, './src')]
+                include: [path.resolve(__dirname, './src'), path.resolve(__dirname, '../node_modules/element-ui')]
             },
             {
                test:/\.css$/,
@@ -72,6 +80,7 @@ let config = {
             NODE_ENV:isDev?'"development"':'"production"'
         }),//定义可以在前端使用的全局变量
         new HTMLplugin(),
+        // new ProgressBarPlugin(),
         new webpack.ProvidePlugin({
               $: 'jquery',
               jQuery: 'jquery'
