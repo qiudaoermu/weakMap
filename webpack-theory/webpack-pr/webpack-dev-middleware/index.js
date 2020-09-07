@@ -9,7 +9,6 @@ const fsMemoryFileSystem = new MemoryFileSystem();
 const middleware = function (compiler,options) {
   compiler.fileSystem = fsMemoryFileSystem;
 	compiler.watch();
-  console.log(compiler.hooks)
   compiler.hooks.done.tapAsync('webpack-dev-middle', (stats) => {
     console.log(stats.hash,'hash')
   })

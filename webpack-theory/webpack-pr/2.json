@@ -1,0 +1,7 @@
+"use strict";
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__("./node_modules/_vue@2.6.12@vue/dist/vue.runtime.common.prod.js");
+} else {
+  module.exports = __webpack_require__("./node_modules/_vue@2.6.12@vue/dist/vue.runtime.common.dev.js");
+}

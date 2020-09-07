@@ -7,8 +7,14 @@ const config = require('../../webpack.config.js')
 
 const compiler = new Compiler(config)
 
+function registerPlugin(compiler) {
+  // 注册plugins
+  let plugins = compiler.config.plugins;
+  console.log(plugins)
+  plugins.forEach((item, i) => {
+    item.apply(compiler)
+  });
+}
+registerPlugin(compiler)
 
-compiler.hooks.failed.tap('failed',(err)=>{
-  console.log(err,'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
-})
 compiler.run()

@@ -7,8 +7,16 @@ const ejs = require('ejs') //替换AST的内容
 const babel = require('@babel/core')
 const generator = require('@babel/generator').default // 根据AST生成新的源码
 const root = path.join(__dirname)
-const OutSystem  = require('./outfileSystem');
+const OutSystem = require('./outfileSystem');
 const CreateHash = require('./createHash')
+const resolve = require("enhanced-resolve");
+const myResolve = resolve.create({
+	// or resolve.create.sync
+	extensions: [".ts", ".js"]
+	// see more options below
+});
+process.env.NODE_ENV = 'development'
+let a = 1;
 const {
 	SyncHook,
 	SyncBailHook,
@@ -17,16 +25,18 @@ const {
 } = require("tapable");
 
 class Compiler {
-  constructor(config) {
-		this.fileSystem  = new OutSystem();
-    this.config = config;
-    this.modules = {};
-    this.entryPath = '';
-    this.root = process.cwd();
+	constructor(config) {
+		console.log(config)
+		this.fileSystem = new OutSystem();
+		this.config = config;
+		this.modules = {};
+		this.entryPath = '';
+		this.root = process.cwd();
+		console.log(this.root,'root---')
 		this.hashModel = new CreateHash()
 		this.hash = ''
-		// 定义钩子
-   	this.hooks = {
+			// 定义钩子
+		this.hooks = {
 			/** @type {SyncHook<[]>} */
 			initialize: new SyncHook([]),
 
@@ -95,181 +105,173 @@ class Compiler {
 			entryOption: new SyncBailHook(["context", "entry"])
 		};
 		// 注册钩子
-		this.registerPlugin();
+		// this.registerPlugin();
 		this.hooks.initialize.call(err => {
 			if (err) return this.finalCallback(err);
 			return this.callback();
 		});
-  }
-	registerPlugin() {
-		// 注册plugins
-		let plugins = this.config.plugins;
-		plugins.forEach((item, i) => {
-		  item.apply(this)
-		});
 	}
-  getSource(modulePath) {
 
-    let rules = this.config.module.rules;
-    let resovePath = this.config.resolveLoader.modules
+	getSource(modulePath) {
+		let rules = this.config.module.rules;
+		let resovePath = this.config.resolveLoader.modules
+		let resoveP = 'src'
+		let content
+		console.log(modulePath,125)
+		content = fs.readFileSync(modulePath, 'utf-8')
+		for (let i = 0; i < rules.length; i++) {
+			let {
+				test, use
+			} = rules[i]
+			let len = use.length - 1
 
-    let content = fs.readFileSync(modulePath, 'utf-8')
-    // console.log('--------------beforeLoader--------------')
-    for (let i = 0; i < rules.length; i++) {
-      let {
-        test, use
-      } = rules[i]
-      let len = use.length - 1
+			if (test.test(modulePath)) {
+				console.log('--------------beforeLoader--------------', test)
+					// 递归处理所有loader
+				let loader
 
-      if (test.test(modulePath)) {
-        // 递归处理所有loader
-        let loader
+				function loopLoader() {
+					let lenNum = len--;
+					// resovePath.forEach((item, i) => {
+					//   let loaderPath = path.join(item, use[lenNum].loader);
+					//   console.log(loaderPath)
+					//   fs.exists(loaderPath, (exist) => {
+					//     console.log(exist, 'exist');
+					//     if (exist) {
+					//       loader = require(loaderPath)
+					//     }
+					//   })
+					// });
+					let laoderPath = resovePath[0] + '/' + use[lenNum].loader;
+					loader = require(laoderPath)
+					let options = use[lenNum]['options'] ? use[lenNum]['options'] : ''
+					content = loader(content, options)
+					if (len >= 0) {
+						loopLoader()
+					}
+				}
+				loopLoader()
+				console.log('--------------afterLoader----------', test)
+			}
+		}
 
-        function loopLoader() {
-          let lenNum = len--;
-          // resovePath.forEach((item, i) => {
-          //   let loaderPath = path.join(item, use[lenNum].loader);
-          //   console.log(loaderPath)
-          //   fs.exists(loaderPath, (exist) => {
-          //     console.log(exist, 'exist');
-          //     if (exist) {
-          //       loader = require(loaderPath)
-          //     }
-          //   })
-          // });
-          let laoderPath = resovePath[0] + '/' + use[lenNum].loader;
-          loader = require(laoderPath)
-          let options = use[lenNum]['options'] ? use[lenNum]['options'] : ''
-          content = loader(content, options)
-          if (len >= 0) {
-            loopLoader()
-          }
-        }
-        loopLoader()
-      }
-    }
+		return  {resoveP, content}
 
-    // console.log('--------------afterLoader----------')
-    return content
+	}
+	parse(source, dirname) {
+		let c = a++
+		console.log('--------------beforeParse--------------')
 
-  }
-  es6BabelSouce(source) {
-    const {
-      code
-    } = babel.transform(source, {
-      sourceMap: true,
-      presets: ['@babel/preset-env'],
-    })
-  }
-  es6Tanslate(source) {
-    // 生成AST
-    // ----------------es6------------------------
-    let ast = parser.parse(source, {
-      sourceType: "module"
-    })
+		let dependencies = []
+		let ast = parser.parse(source.content)
+		let self = this;
+			// 模块依赖项列表
+			// 遍历AST结点
+		traverse(ast, {
+			CallExpression(p) {
+				const node = p.node
+				if (node.callee.name === 'require') {
+					let originPath =  ''
+					// 函数名替换
+					node.callee.name = '__webpack_require__'
+						// 路径替换
+					console.log(node)
+					let modulePath =  node.arguments[0].value
+					if (!path.extname(modulePath)) {
+						modulePath = resolve.sync(self.root, modulePath);
+						console.log(dirname,'dirname--------')
+						console.log(modulePath, 176)
+					} else 
+					{
+						console.log(source.resoveP,'source.resoveP')
+						// console.log(dirname,'dirname')
+						console.log(modulePath,'modulePath')
+						console.log(modulePath,194)
+						modulePath = './' + path.join(dirname, modulePath).replace(/\\/g, '/')
+						// modulePath = path.join(self.root, modulePath)
+						console.log(modulePath,196)
+						console.log(modulePath,'replaceAfter')
+					}
+					console.log(modulePath,'modulePath200')
+					originPath = './' + path.relative(self.root, modulePath).replace(/\\/g, '/')
+					console.log(originPath,'originPath')
+					node.arguments = [t.stringLiteral(originPath)]
+					dependencies.push(modulePath)
+				}
+			}
+		})
+		// 保存模块依赖项
+		let sourceCode = generator(ast).code
+		console.log('--------------afterParse--------------')
+		// console.log(ast)
+		console.log(dependencies, 'dependencies')
+			// 生成新的代码
+		fs.writeFile(c+'.json',sourceCode,err=>{
+			console.log(err)
+		})	
+		return {
+			sourceCode,
+			dependencies
+		}
+	}
+	buildModule(modulePath, isEntry) {
+		let source = this.getSource(modulePath)
+			// if (!source) return
+		console.log(modulePath, 'before----------------------')
 
-    const {
-      code
-    } = babel.transformFromAst(ast, null, {
-      presets: ['@babel/preset-env']
-    })
-    return code
+		let moduleName = './' + path.relative(this.root, modulePath).replace(/\\/g, '/')
 
-  }
-  parse(source, dirname) {
-    // console.log(source)
-    // source = this.es6Tanslate(source)
-    // source = this.es6BabelSouce(source)
-    // if (!source) return
-    // console.log('--------------beforeParse--------------')
+		console.log(moduleName, 'after----------------------')
+		if (isEntry) this.entryPath = moduleName
 
-    let dependencies = []
-    let ast = parser.parse(source)
-      // 模块依赖项列表
-      // 遍历AST结点
-    traverse(ast, {
-      CallExpression(p) {
-        const node = p.node
-        if (node.callee.name === 'require') {
-          // 函数名替换
-          node.callee.name = '__webpack_require__'
-            // 路径替换
-          let modulePath = node.arguments[0].value
-          if (!path.extname(modulePath)) {
-            // require('./js/moduleA')
-            throw new Error(
-              `没有找到文件 : ${modulePath} , 检查是否加上正确的文件后缀`)
-          }
-          modulePath = './' + path.join(dirname, modulePath).replace(
-            /\\/g, '/')
-          node.arguments = [t.stringLiteral(modulePath)]
-            // 保存模块依赖项
-          dependencies.push(modulePath)
-        }
-      }
-    })
-    let sourceCode = generator(ast).code
-      // console.log('--------------afterParse--------------')
-      // 生成新的代码
-    return {
-      sourceCode,
-      dependencies
-    }
-  }
-  buildModule(modulePath, isEntry) {
-    let source = this.getSource(modulePath)
-      // if (!source) return
-    // console.log(modulePath,'before----------------------')
+		let {
+			sourceCode,
+			dependencies
+		} = this.parse(source, path.dirname(moduleName))
 
-    let moduleName = './' + path.relative(this.root, modulePath).replace(/\\/g, '/')
-     // console.log(modulePath,'after----------------------')
-    if (isEntry) this.entryPath = moduleName
-
-    let {
-      sourceCode,
-      dependencies
-    } = this.parse(source, path.dirname(moduleName))
-
-    this.modules[moduleName] = JSON.stringify(sourceCode)
-    dependencies.forEach(d => this.buildModule(path.join(this.root, d)),
-      false)
-  }
-  emit() {
-    const {
-      modules,
-      entryPath
-    } = this
-    const outputPath = path.resolve(this.root, this.config.output.path)
-    const filePath = path.resolve(outputPath, this.config.output.filename)
-    ejs.renderFile(path.join(__dirname, 'template.ejs'), {
-        modules,
-        entryPath
-      })
-      .then(code => {
+		this.modules[moduleName] = JSON.stringify(sourceCode)
+		dependencies.forEach(d => {
+			this.buildModule(d, false)
+		})
+	}
+	emit() {
+		const {
+			modules,
+			entryPath
+		} = this
+		for(var i in modules ){
+			// console.log(modules[i],'-----------------------')
+		}
+		const outputPath = path.resolve(this.root, this.config.output.path)
+		const filePath = path.resolve(outputPath, this.config.output.filename)
+		ejs.renderFile(path.join(__dirname, 'template.ejs'), {
+				modules,
+				entryPath
+			})
+			.then(code => {
 				this.emitAssets(code);
 			})
-  }
+	}
 	emitAssets(code) {
 		this.fileSystem.mkdirpSync(this.config.output.path);
 		let outpath = this.config.output.path + '/' + this.config.output.filename;
 
 		this.writeOut(outpath, code, () => {
 			this.fileSystem.writeFileSync(outpath, code);
-				this.hash = this.hashModel.createHash(code)
-			  console.log('Emit ❤️  ❤️‍   success')
-	      this.hooks.afterEmit.callAsync(code, err => {
-					if (err) return this.finalCallback(err);
-					return this.afterEmitted(code);
-				});
+			this.hash = this.hashModel.createHash(code)
+			console.log('Emit ❤️  ❤️‍   success')
+			this.hooks.afterEmit.callAsync(code, err => {
+				if (err) return this.finalCallback(err);
+				return this.afterEmitted(code);
+			});
 
 		})
 	}
-	writeOut(path,code,callback) {
+	writeOut(path, code, callback) {
 		path && code && callback()
 	}
-	callback() {
-	}
-	// 输出
+	callback() {}
+		// 输出
 	afterEmitted(code) {
 		let info = 'info'
 		let stats = {
@@ -285,26 +287,26 @@ class Compiler {
 			this.hooks.failed.call(err);
 		}
 	}
-  run() {
-    const {
-      entry
-    } = this.config
-	 this.hooks.run.callAsync(entry, err => {
-		 if (err) return this.finalCallback(err);
-		 return this.callback();
-	 });
-    this.buildModule(path.resolve(this.root, entry), true)
-    this.emit()
-  }
+	run() {
+		const {
+			entry
+		} = this.config
+		this.hooks.run.callAsync(entry, err => {
+			if (err) return this.finalCallback(err);
+			return this.callback();
+		});
+		this.buildModule(path.resolve(this.root, entry), true)
+		this.emit()
+	}
 	watch() {
 		//watch model
 		this.run();
 		let file = Object.keys(this.modules)
 		file.forEach((item, i) => {
-		  fs.watchFile(item, (curr, prev) => {
+			fs.watchFile(item, (curr, prev) => {
 				console.log(curr)
-		    this.run()
-		  });
+				this.run()
+			});
 		});
 	}
 }

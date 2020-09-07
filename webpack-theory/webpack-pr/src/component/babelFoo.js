@@ -1,0 +1,4 @@
+
+let t = {
+  [name]:"javascript"
+}
