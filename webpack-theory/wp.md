@@ -8,3 +8,20 @@ webpack-dev-middleware
 
 导入vue => vue ast 代码解析
 
+计划
+
+​	webpack loader
+
+​	webpack plugin
+
+​	webpack environment env production
+
+​	vue-loader 打包vue文件
+
+​	导入element-ui 
+
+​	chunks
+
+​	热更新
+
+​	开发 vue

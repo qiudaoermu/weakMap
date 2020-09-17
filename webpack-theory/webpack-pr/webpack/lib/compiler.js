@@ -27,12 +27,16 @@ class Compiler {
 	constructor(config) {
 		this.fileSystem = new OutSystem();
 		this.config = config;
+		this.resourcePath;
 		this.modules = {};
 		this.entryPath = '';
 		this.root = process.cwd();
+		this.rootContext = this.root
+		this.sourceMap = false
 		this.hashModel = new CreateHash()
 		this.hash = ''
-		this.NODE_ENV = 'devlopment'
+		this.NODE_ENV = "devlopment"
+		this.loader = ''
 			// 定义钩子
 		this.hooks = {
 			/** @type {SyncHook<[]>} */
@@ -110,13 +114,26 @@ class Compiler {
 		});
 		this.source = ''
 	}
+	emitError (err) {
+		console.log(err)
+	}
 	getSource(modulePath) {
 		let rules = this.config.module.rules;
 		let resovePath = this.config.resolveLoader.modules
 		let resoveP = 'src'
 		let content
-		console.log(modulePath,125)
+		let self = this
 		content = fs.readFileSync(modulePath, 'utf-8')
+		console.log(path.extname(modulePath),'modulePath')
+		if (path.extname(modulePath) == '.js') {
+			let tem = "process.env.NODE_ENV === 'production'"
+			if (this.NODE_ENV === 'production') {
+				this.NODE_ENV = true
+			} else {
+				this.NODE_ENV = false
+			}
+			content = content.replace(tem, this.NODE_ENV)
+		};
 		for (let i = 0; i < rules.length; i++) {
 			let {
 				test, use
@@ -140,10 +157,11 @@ class Compiler {
 					//     }
 					//   })
 					// });
+					console.log(self)
 					let laoderPath = resovePath[0] + '/' + use[lenNum].loader;
-					loader = require(laoderPath)
+					self.loader = require(laoderPath)
 					let options = use[lenNum]['options'] ? use[lenNum]['options'] : ''
-					content = loader(content, options)
+					content = self.loader(content, options)
 					if (len >= 0) {
 						loopLoader()
 					}
@@ -213,6 +231,7 @@ class Compiler {
 		}
 	}
 	buildModule(modulePath, isEntry) {
+		this.resourcePath = modulePath;
 		let source = this.getSource(modulePath)
 			// if (!source) return
 		console.log(modulePath, 'before----------------------')
@@ -236,8 +255,6 @@ class Compiler {
 			entryPath
 		} = this
 		this.source = {modules, NODE_ENV: this.NODE_ENV}
-		// console.log('**************modules')
-		// console.log(modules)
 		this.hooks.emit.callAsync(this.source, err => {
 			console.log('emit-call')
 			if (err) return this.finalCallback(err);

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 // import App from './RouterView.vue';
+import Index from './app.vue'
 import './assets/styles/global.styl'
 const root = document.createElement('div');
 import VueRouter from 'vue-router'
@@ -10,9 +11,9 @@ import {
   from './js/moduleA.js'
 // import ElementUI from 'element-ui';
 console.log(name)
-// Vue.use(VueRouter)
+Vue.use(VueRouter)
 // Vue.use(ElementUI);
-console.log(1)
+console.log(122)
 window.process = {
     env: {
         NODE_ENV:'production'
@@ -25,6 +26,6 @@ document.body.appendChild(root);
 
 
 new Vue({
-    // router,
-    render:(h) => h(App)
+    router,
+    render:(h) => h(Index)
 }).$mount(root);

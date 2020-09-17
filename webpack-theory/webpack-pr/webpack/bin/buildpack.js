@@ -13,6 +13,6 @@ function registerPlugin(compiler) {
     item.apply(compiler)
   });
 };
-new NodeEnvironmentPlugin().apply(compiler);
+// new NodeEnvironmentPlugin().apply(compiler);
 registerPlugin(compiler);
 compiler.run()

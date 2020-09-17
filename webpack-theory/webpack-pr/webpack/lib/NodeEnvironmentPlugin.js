@@ -11,13 +11,19 @@ class NodeEnvironmentPlugin {
 	}
 	apply(compiler) {
       console.log('emitTap');
-      compiler.hooks.afterEmit.tapAsync("NodeEnvironmentPlugin", (compilation, cb) => {
+      compiler.hooks.emit.tapAsync("NodeEnvironmentPlugin", (compilation, cb) => {
+        console.log('NODE_ENV')
+        console.log(compilation.NODE_ENV)
         console.log('emit-done')
         for(var i in compilation.modules) {
+          console.log(i)
           let afterNodeE = compilation.modules[i].replace('process.env.NODE_ENV', compilation.NODE_ENV)
-          console.log(afterNodeE)
+          if(i === './node_modules/_vue@2.6.12@vue/dist/vue.runtime.common.js') {
+            console.log(afterNodeE)
+         }
+         compilation.modules[i] = afterNodeE
         }
-        cb(afterNodeE);
+        cb();
     });
 	}
 }
