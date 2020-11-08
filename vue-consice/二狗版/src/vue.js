@@ -17,57 +17,49 @@ var LIFECYCLE_HOOKS = [
 function Vue(option) {
   let {data, el} = option;
   this.vueDom = document.querySelector(el);
+
+  this.copyDom = this.vueDom.cloneNode(true);
+  console.log(this.copyDom);
   this.vueDomInnerHTML = this.vueDom.innerHTML;
   this.option = option;
+  let {keysVal, observerData} = setDateToVm(data, this);
+  this._data = keysVal;
+
+  let compile = new Compile(this);
+  // let renderHtml = compile.renderTIFragment();
+  // this.vueDom.appendChild(renderHtml);
+  compile.traverse(this.vueDom, true);
+  console.log(this.vueDom);
+  // let compileElement = compile.nodeToFragment();
+  // this.vueDom.remove()
+  // this.vueDom.appendChild(compileElement);
+  new Observer(this, observerData);
+};
+let setDateToVm = (data, vm) => {
   let dataType = Object.prototype.toString.call(data);
   let keysVal = '';
   let observerData = [];
   if (dataType === '[object Function]') {
     let d = data();
     for (var i in d) {
-      this[i] = d[i];
-      console.log(d[i]);
+      vm[i] = d[i];
       observerData.push(i);
     }
     keysVal = d;
   } else if (dataType === '[object object]') {
     for (var j in data) {
-      this[j] = data[j];
+      vm[j] = data[j];
       observerData.push(i);
     }
     keysVal = data;
   } else {
     console.error('data should be function or Object');
   }
-  this._data = keysVal;
-  // renderHTML(keysVal, this);
-  let compile = new Compile(this);
-  let renderHtml = compile.renderTIFragment();
-  this.vueDom.appendChild(renderHtml);
-  let compileElement = compile.nodeToFragment();
-  this.vueDom.appendChild(compileElement);
-  new Observer(this, observerData);
+  // *****LIFECYCLE_HOOKS*****
+  vm.option.created && vm.option.created();
+  return {keysVal, observerData};
 };
 // 渲染html
-function renderHTML(keysVal, vm) {
-  let obj = {};
-  for (var f in keysVal) {
-    let k = f;
-    f = '{{' + f + '}}';
-    obj[f] = keysVal[k];
-  };
-  let html = '';
-  for (var c in obj) {
-    if (html) {
-      html = html.replace(c, obj[c]);
-    } else {
-      html = vm.vueDomInnerHTML.replace(c, obj[c]);
-    }
-  }
-  vm.vueDom.innerHTML = html;
-  let compileElement = new Compile(vm).$flag;
-  vm.vueDom.appendChild(compileElement);
-}
 function Observer(obj, data, compile) {
   let _this = this;
   _this.flag = false;
@@ -94,11 +86,19 @@ function Observer(obj, data, compile) {
     });
   };
 }
-function queueWatcher(_this, obj) {
+function queueWatcher(_this, obj, i, newVal) {
   setTimeout(() => {
     let compile = new Compile(obj);
-    let compileElement = compile.renderTIFragment();
-    obj.vueDom.appendChild(compileElement);
+    obj.vueDom.remove();
+    obj.vueDom = obj.copyDom.cloneNode(true);
+    compile.traverse(obj.vueDom, true);
+    document.body.appendChild(obj.vueDom);
+    // LIFECYCLE_HOOKS updated
+    if (obj.option.watch) {
+      obj.option.watch[i] && obj.option.watch[i](newVal);
+    }
+    obj.option.updated && obj.option.updated();
+    _this.flag = false;
   });
   _this.flag = true;
 }
@@ -113,9 +113,8 @@ Observer.prototype = {
         },
         set(newVal) {
           value = newVal;
-          // renderHTML(data, obj);
           if (_this.flag === false) {
-            queueWatcher(_this, obj);
+            queueWatcher(_this, obj, i, value);
           };
         }
       });
@@ -129,30 +128,68 @@ function Compile(_this) {
   // this.$flag = this.nodeToFragment();
 }
 Compile.prototype = {
-  renderTIFragment() {
-    const frag = document.createDocumentFragment();
-    let child;
-    let node = this.vueDom;
-    while (child = node.firstChild) {
-      this.renderDataHtml(child);
-      frag.append(child);
+  traverse(dom, flag) {
+    if (dom.children.length >= 1) {
+      let children = Array.prototype.slice.call(dom.children);
+      children.forEach(item => {
+        this.traverse(item, flag);
+      });
+    } else {
+      this.renderDataHtml(dom);
+      if (flag === true) {
+        this.compileElement(dom);
+      }
     }
-    return frag;
   },
   renderDataHtml(node) {
     const reg = /\{\{(.*)\}\}/;
-    if (reg.test(node.innerHTML)) {
-      node.innerHTML = node.innerHTML.replace(node.innerHTML, this._this[RegExp.$1]);
-      node.$InnerHTML = '{{' + RegExp.$1 + '}}';
+    if (node.nodeType === 1) {
+      const attr = node.attributes;
+      for (let i = 0; i < attr.length; i++) {
+        let nodeName = attr[i].nodeName;
+        this.nodeValue = attr[i].nodeValue;
+        if (nodeName === 'v-show') {
+          let show = this._this[attr[i].nodeValue] ? 'block' : 'none';
+          node.style.display = show;
+          node.removeAttribute(nodeName);
+        }
+        if (nodeName === 'v-if') {
+          let r = Boolean(this._this[this.nodeValue]);
+          if (!r) {
+            node.remove();
+          }
+          node.removeAttribute(nodeName);
+        }
+        if (nodeName === 'v-for') {
+          // item in items"
+          let h = this.nodeValue.split('in');
+          let value = h[1].trim();
+          let vForArray = this._this[value];
+          let frag = document.createDocumentFragment();
+          vForArray.forEach(item => {
+            let cElement = document.createElement(node.nodeName);
+            if (reg.test(node.innerHTML)) {
+              let temJx = '{{' + RegExp.$1 + '}}';
+              cElement.innerHTML = node.innerHTML.replace(temJx, item);
+              frag.append(cElement);
+            };
+          });
+          node.parentNode.appendChild(frag);
+          node.remove();
+          // node.removeAttribute(nodeName);
+        };
+      }
+      if (node.children.length === 0 && reg.test(node.innerHTML)) {
+        node.innerHTML = node.innerHTML.replace(node.innerHTML, this._this[RegExp.$1]);
+      }
+      // *****LIFECYCLE_HOOKS*****
+      this._this.option.mounted && this._this.option.mounted();
     }
-    if (reg.test(node.$InnerHTML)) {
-      node.innerHTML = node.innerHTML.replace(node.innerHTML, this._this[RegExp.$1]);
-    };
   },
   nodeToFragment() {
     const frag = document.createDocumentFragment();
-    let child;
     let node = this.vueDom;
+    let child;
     while (child = node.firstChild) {
       this.compileElement(child);
       frag.append(child);
@@ -164,20 +201,23 @@ Compile.prototype = {
   },
   compileElement(node) {
     let fn = (e, nodeValue) => {
-      this.vm.methods[this.nodeValue].call(this._this);
+      this.vm.methods[this.nodeValueEvent].call(this._this);
     };
     if (node.nodeType === 1) {
       const attr = node.attributes;
       for (let i = 0; i < attr.length; i++) {
+        let nodeName = attr[i].nodeName;
         // 处理click事件
-        if (attr[i].nodeName === '@click' || attr[i].nodeName === 'v-click') {
-          this.nodeValue = attr[i].nodeValue;
-          if (this.vm.methods.hasOwnProperty(this.nodeValue)) {
-            node.addEventListener('click', fn);
+        if (nodeName === '@click') {
+          this.nodeValueEvent = attr[i].nodeValue;
+          if (this.vm.methods.hasOwnProperty(this.nodeValueEvent)) {
+            let event = nodeName.slice(1);
+            node.addEventListener(event, fn);
           };
+          node.removeAttribute(nodeName);
         }
         // v-model
-        if (attr[i].nodeName === 'v-model') {
+        if (nodeName === 'v-model') {
           node.addEventListener('input', (e) => {
             console.log(e);
           });
@@ -185,4 +225,4 @@ Compile.prototype = {
       }
     }
   }
-}
+};
