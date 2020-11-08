@@ -17,23 +17,26 @@ var LIFECYCLE_HOOKS = [
 function Vue(option) {
   let {data, el} = option;
   this.vueDom = document.querySelector(el);
-
   this.copyDom = this.vueDom.cloneNode(true);
-  console.log(this.copyDom);
   this.vueDomInnerHTML = this.vueDom.innerHTML;
   this.option = option;
   let {keysVal, observerData} = setDateToVm(data, this);
+  // computed 监听属性
   this._data = keysVal;
-
+  computed(this, observerData);
   let compile = new Compile(this);
-  // let renderHtml = compile.renderTIFragment();
-  // this.vueDom.appendChild(renderHtml);
-  compile.traverse(this.vueDom, true);
-  console.log(this.vueDom);
-  // let compileElement = compile.nodeToFragment();
-  // this.vueDom.remove()
-  // this.vueDom.appendChild(compileElement);
+  compile.traverse(this.vueDom, false);
+  this.option.mounted && this.option.mounted();
   new Observer(this, observerData);
+};
+let computed = (_this, data) => {
+  for (var key in _this.option.computed) {
+    if (key in _this._data) {
+      console.error(`The computed property + ${key} + is already defined in data.`);
+      return;
+    }
+    _this[key] = _this.option.computed[key].call(_this);
+  }
 };
 let setDateToVm = (data, vm) => {
   let dataType = Object.prototype.toString.call(data);
@@ -60,72 +63,78 @@ let setDateToVm = (data, vm) => {
   return {keysVal, observerData};
 };
 // 渲染html
-function Observer(obj, data, compile) {
+function Observer(vm, data, compile) {
   let _this = this;
   _this.flag = false;
-  let newObj = {};
-  for (var i in obj) {
-    let value = obj[i];
+  let _data = {};
+  for (var i in vm) {
+    let value = vm[i];
     if (data.includes(i)) {
-      newObj[i] = obj[i];
+      _data[i] = vm[i];
+      _this.ob(vm, _data, i);
     }
-    _this.ob(obj, newObj);
-    Object.defineProperty(obj, i, {
+    // 设置闭包可以找到更新的key
+    ((j) => {
+      Object.defineProperty(vm, i, {
+        enumerable: true,
+        get(v) {
+          return value;
+        },
+        set(newVal) {
+          if (value === newVal) return;
+          value = newVal;
+          if (data.includes(j)) {
+            _data[j] = vm[j];
+          }
+        }
+      });
+    })(i);
+  };
+}
+// 保持纯洁的data属性内的元素更新
+Observer.prototype = {
+  ob(vm, data, i) {
+    let _this = this;
+    let value = data[i];
+    Object.defineProperty(data, i, {
       get(v) {
         return value;
       },
       set(newVal) {
         value = newVal;
-        for (var i in obj) {
-          if (data.includes(i)) {
-            newObj[i] = obj[i];
-          }
+        // 为了多个属性一次更新
+        if (_this.flag === false) {
+          queueWatcher(_this, vm, i, value);
         };
-        _this.ob(obj, newObj, compile);
       }
     });
-  };
-}
-function queueWatcher(_this, obj, i, newVal) {
+  }
+};
+function queueWatcher(_this, vm, i, newVal) {
   setTimeout(() => {
-    let compile = new Compile(obj);
-    obj.vueDom.remove();
-    obj.vueDom = obj.copyDom.cloneNode(true);
-    compile.traverse(obj.vueDom, true);
-    document.body.appendChild(obj.vueDom);
-    // LIFECYCLE_HOOKS updated
-    if (obj.option.watch) {
-      obj.option.watch[i] && obj.option.watch[i](newVal);
+    computed(vm);
+    let compile = new Compile(vm);
+    // 删除第一次渲染的dom
+    vm.vueDom.remove();
+
+    // 把最初的template(包含{{i}})复制给 dom
+    vm.vueDom = vm.copyDom.cloneNode(true);
+    compile.traverse(vm.vueDom, true);
+    document.body.appendChild(vm.vueDom);
+    if (vm.option.watch) {
+      vm.option.watch[i] && vm.option.watch[i](newVal);
     }
-    obj.option.updated && obj.option.updated();
+    // LIFECYCLE_HOOKS updated
+    vm.option.updated && vm.option.updated();
     _this.flag = false;
   });
   _this.flag = true;
 }
-Observer.prototype = {
-  ob(obj, data, compile) {
-    let _this = this;
-    for (var i in data) {
-      let value = data[i];
-      Object.defineProperty(data, i, {
-        get(v) {
-          return value;
-        },
-        set(newVal) {
-          value = newVal;
-          if (_this.flag === false) {
-            queueWatcher(_this, obj, i, value);
-          };
-        }
-      });
-    };
-  }
-};
+
 function Compile(_this) {
   this.vueDom = _this.vueDom;
   this._this = _this;
   this.vm = _this.option;
-  // this.$flag = this.nodeToFragment();
 }
 Compile.prototype = {
   traverse(dom, flag) {
@@ -175,29 +184,15 @@ Compile.prototype = {
             };
           });
           node.parentNode.appendChild(frag);
+          // 删除带有 v-for 属性的元素
           node.remove();
-          // node.removeAttribute(nodeName);
         };
       }
+      // 只替换最后一层dom的innerHTML
       if (node.children.length === 0 && reg.test(node.innerHTML)) {
         node.innerHTML = node.innerHTML.replace(node.innerHTML, this._this[RegExp.$1]);
       }
-      // *****LIFECYCLE_HOOKS*****
-      this._this.option.mounted && this._this.option.mounted();
     }
-  },
-  nodeToFragment() {
-    const frag = document.createDocumentFragment();
-    let node = this.vueDom;
-    let child;
-    while (child = node.firstChild) {
-      this.compileElement(child);
-      frag.append(child);
-    }
-    return frag;
-  },
-  clickEvent(nodeValue) {
-    this.vm.methods[nodeValue].call(this._this);
   },
   compileElement(node) {
     let fn = (e, nodeValue) => {

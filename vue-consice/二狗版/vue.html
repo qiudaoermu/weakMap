@@ -15,6 +15,7 @@
 		<h1>{{t}}</h1>
     <p v-show='show'>show</p>
     <p v-if='if'>if</p>
+    <p>{{m}}</p>
     <ul>
      <li v-for='i in item'>{{i}}</li>
     </ul>
@@ -26,7 +27,12 @@ var vm = new Vue({
   el: '#app',
   watch: {
     t(value) {
-      console.log(value, 'value');
+      console.log(value, 'watch value');
+    }
+  },
+  computed: {
+    m() {
+      return this.t;
     }
   },
   data: function() {
