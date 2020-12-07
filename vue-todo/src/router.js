@@ -4,11 +4,15 @@ import Vmodel from './page/vModelParent.vue'
 import swiperVue from './page/swiper-vue.vue'
 import set from './page/$set.vue'
 import queue from './page/queueAsync.vue'
-import functional from './page/functional.vue'
+import functional from './page/functional/functional.vue'
 import provide from './page/provideInject/A.vue'
 import vueScroll from './page/vue-scroll.vue'
 import elTree from './page/tree.vue'
 import jsx from './jsx/jsx.vue'
+import classv from './page/class.vue'
+import stylev from './page/stylev.vue'
+import lifePeriod from './page/life-period/parent.vue'
+import computed from './page/computed.vue'
 export default {
   routes: [
     // 动态路径参数 以冒号开头
@@ -56,6 +60,22 @@ export default {
     {
       path:'/jsx',
       component:jsx
+    },
+    {
+       path: '/classv',
+      component: classv
+    },
+    {
+       path: '/stylev',
+      component: stylev
+    },
+    {
+      path: '/lifePeriod',
+      component: lifePeriod
+    },
+    {
+      path: '/computed',
+      component: computed
     }
 
   ]

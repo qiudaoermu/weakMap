@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <div id='app'>
+    <ul> 
+        <li>
+          <div>
+             <span> 1</span>
+          </div>
+        </li>
+        <li>
+          2
+        </li>
+        <li>
+          3
+        </li>
+    </ul> 
+  </div>
+</body>
+<script type="text/javascript">
+  let dom = document.querySelector('#app');
+  function traverse(dom) {
+    // body...
+    if (dom.children.length >= 1) {
+      let children = Array.prototype.slice.call(dom.children);
+      children.forEach(item => {
+        console.log(item);
+        traverse(item);
+      });
+    } else {
+      console.log(dom);
+    }
+  }
+  traverse(dom);
+</script>
+</html>

@@ -34,64 +34,7 @@
 		}).catch(function (ErrMsg) {
 			console.log(ErrMsg)
 		});
-		/* 自己实现
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                                                                              │
-│ promise源码解析                                                				   │
-│         
- * │
-│  Keep Metro running while developing on any JS projects. Feel free to        │
-│  close this tab and run your own Metro instance if you prefer.               │
-│                                                                              │
-│
- * https://github.com/facebook/react-native                                    │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
- */
-		function Cromise(fn) {
-			let arr = [];
-			let err = [];
-			let t = null;
-			let errvalue = null;
-			let self = this;
-			self.then = function (callback) {
-				arr.push(callback);
-				return self
-			};
-			self.catch = function (callback) {
-				err.push(callback)
-			};
-			function resolve(value) {
-				if (errvalue != null) 
-					return;
-				t = value;
-				arr.forEach(function (callback, value) {
-					callback(t)
-				});
-			};
-			function reject(value) {
-				if (t != null) 
-					return;
-				errvalue = value;
-				err.forEach(function (callback, value) {
-					callback(errvalue)
-				})
-			};
-			fn && fn(resolve, reject)
-		}
-		function ctime() {
-			return new Cromise(function (resolve, reject) {
-				setTimeout(function () {
-					reject("baiduError");
-					resolve("baidu");
-				}, 1000)
-			})
-		}
-		ctime().then(function (value) {
-			console.log(value)
-		}).catch(function (err) {
-			console.log(err)
-		});
+
 		function cc(fn) {
 			function resolve(value) {
 				console.log(value)

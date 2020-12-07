@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  function a() {
+    setTimeout(() => {
+      return 'a'
+    },1000)
+  }
+  async function set  () {
+    let c = await a()
+    console.log(c)
+  }
+  set()
+</script>
+</html>

@@ -1,0 +1,20 @@
+<script type="text/javascript">
+let a = [1, 2, 3, 4];
+a.forEach(v => {
+  v++;
+});
+console.log(a); // 不会
+let b = [{n: 1}, {n: 2}, {n: 3}, {n: 4}];
+b.forEach(v => {
+  v.n++;
+});
+console.log(b); // 会
+a.map(v => {
+  v++;
+});
+b.map(v => {
+  v.n++;
+});
+console.log(a); // 不会
+console.log(b); // 会
+</script>

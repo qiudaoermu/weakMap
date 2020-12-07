@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  function a() {
+   return new Promise((resolve, reject) =>{
+      setTimeout(() => {
+        resolve(2)
+      },1000)
+   }).then(d => {
+     console.log(d)
+     return d
+   })
+  }
+  a().then(d =>{
+    console.log(d)
+  })
+  console.log('c')
+</script>
+</html>

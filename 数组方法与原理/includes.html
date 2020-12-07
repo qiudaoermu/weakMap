@@ -1,0 +1,17 @@
+<script type="text/javascript">
+  
+  let ina = ['t', 'name', 'c'];
+  let data = {
+    t: 1,
+    name: 'name',
+    c: 'c',
+    vn: 'vn'
+  }
+  let so = {}
+  for( i  in data) {
+    if (ina.includes(i)) {
+      so[i] = data[i]
+    }
+  }
+  console.log(so)
+</script>

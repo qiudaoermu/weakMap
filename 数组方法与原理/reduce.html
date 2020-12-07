@@ -15,87 +15,74 @@
 var numbers = [65, 44, 12, 4];
 
 function getSum(total, num) {
-	console.log(total+":"+num);
-    return total + num;
+  console.log(total + ':' + num);
+  return total + num;
 }
 
 function myFunction(item) {
-    document.getElementById("demo").innerHTML = numbers.reduce(getSum);
+  document.getElementById('demo').innerHTML = numbers.reduce(getSum);
 }
 
 numbers.reduce(getMap);
-function  getMap(list,num){
-    console.log(num)
+function getMap(list, num) {
+  console.log(num);
 }
 function map() {
 
 }
-numbers.reduce(function (l,f) {
-    console.log(l)
-},[])
-
+numbers.reduce(function(l, f) {
+  console.log(l);
+}, []);
 
 const numbers2 = [10, 20, 30, 40];
-//用作map 遍历
+// 用作map 遍历
 const doubledOver50 = numbers2.reduce((finalList, num) => {
-    console.log(num)
+  console.log(num);
 
-    num = num * 2;
-    if (num > 15) {
-        finalList.push(num);
-    }
-    return finalList;
-
+  num = num * 2;
+  if (num > 15) {
+    finalList.push(num);
+  }
+  return finalList;
 }, []);
 
 // [60, 80]
 
+var value = [];
 
+numbers2.__map(function(value, index) {
+  console.log(index);
+  this.value[index] = value;
+}, this);
 
-var value = []
+console.log(value);
+Array.prototype._map = function(fn) {
+  this.reduce((f, n) => {
+    fn(n);
+  }, []);
+};
+numbers2._map(function(value, index) {
+  // console.log(value)
+});
 
-numbers2.__map(function (value,index) {
-    console.log(index)
-    this.value[index] = value
-},this)
-
-console.log(value)
-Array.prototype._map =function (fn) {
-    this.reduce((f,n)=>{
-        fn(n)
-    },[])
-}
-numbers2._map(function(value,index){
-    //console.log(value)
-})
-
-
-
-
-
-
-
-var flattened =[1,23,4,1,23,4,1].reduce(function(a, b) {
-    console.log(a)
-    //return a.concat(b);
-  },[]
+var flattened = [1, 23, 4, 1, 23, 4, 1].reduce(function(a, b) {
+  console.log(a);
+  // return a.concat(b);
+}, []
 );
-console.log(flattened)
-var trr = [23,4,1,45,1,23,65,34]
+console.log(flattened);
+var trr = [23, 4, 1, 45, 1, 23, 65, 34];
 
-//a 等于上次return 的结果
-t= trr.reduce(function(a,b){
-
-   if(a.indexOf(b) == -1){
-         a.push(b)
-   }
-   console.log(a)
-   return a
-},[]
+// a 等于上次return 的结果
+t = trr.reduce(function(a, b) {
+  if (a.indexOf(b) == -1) {
+    a.push(b);
+  }
+  console.log(a);
+  return a;
+}, []
 );
-console.log(t)
-
-
+console.log(t);
 </script>
 
 </body>

@@ -1,0 +1,31 @@
+{
+  "name": "weakmap",
+  "version": "1.0.0",
+  "description": "面试知识点",
+  "main": "demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiudaoermu/weakMap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qiudaoermu/weakMap/issues"
+  },
+  "homepage": "https://github.com/qiudaoermu/weakMap#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-vue": "^7.1.0"
+  },
+  "dependencies": {
+    "eslint-plugin-html": "^6.1.0"
+  }
+}

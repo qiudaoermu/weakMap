@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  /**
+ * @param {number} num
+ * @return {number}
+ */
+var maximum69Number = function(num) {
+    let s = String(num).split();
+    console.log(s);
+    for (var i = 0; i < s.length; i++) {
+      if (s[i] === '6') {
+        s[i] = '9';
+        break;
+      }
+    }
+    s = s.join();
+    return Number(s);
+};
+maximum69Number(9669);
+</script>
+</html>

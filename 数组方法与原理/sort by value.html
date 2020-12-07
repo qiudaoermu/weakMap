@@ -8,48 +8,46 @@
 </body>
 <script type="text/javascript">
 
-
-
 var items = [
-  { name: 'Edward', value: 21 },
-  { name: 'Sharpe', value: 37 },
-  { name: 'And', value: 45 },
-  { name: 'The', value: -12 },
-  { name: 'Magnetic' },
-  { name: 'Zeros', value: 37 }
+  {name: 'Edward', value: 21},
+  {name: 'Sharpe', value: 37},
+  {name: 'And', value: 45},
+  {name: 'The', value: -12},
+  {name: 'Magnetic'},
+  {name: 'Zeros', value: 37}
 ];
 
 // sort by value
-items.sort(function (a, b) {
-  return (a.value - b.value)
+items.sort(function(a, b) {
+  return (a.value - b.value);
 });
 
-var c = [1,2,3,1,4]
-var d  = c.sort()
-console.log(d)
-console.log(items)
+var c = [1, 2, 3, 1, 4];
+var d = c.sort();
+console.log(d);
+console.log(items);
 
-        var t2 = [1,23,43,45,60,100,1]
-        Array.prototype._sort = function(fn){
-                var t= fn
-                for(var i=0;i<this.length;i++){
-                    var t = fn.call(this[i],this[i+1])
-                    if(t > 0){
-                        for(var j=0;j<this.length;j++){
-                                if(this[j]>this[j+1]){
-                                    var temp = this[j+1]
-                                    this[j+1]=this[j]
-                                    this[j] = temp
-                                }
-                        }
-                    }
-                }
-               return this;
-        };
+var t2 = [1, 23, 43, 45, 60, 100, 1];
+Array.prototype._sort = function(fn) {
+  var t = fn;
+  for (var i = 0; i < this.length; i++) {
+    var t = fn.call(this[i], this[i + 1]);
+    if (t > 0) {
+      for (var j = 0; j < this.length; j++) {
+        if (this[j] > this[j + 1]) {
+          var temp = this[j + 1];
+          this[j + 1] = this[j];
+          this[j] = temp;
+        }
+      }
+    }
+  }
+  return this;
+};
 
-        var arr2 = t2._sort(function(a,b){
-                return a-b
-        })
-        console.log(arr2)
+var arr2 = t2._sort(function(a, b) {
+  return a - b;
+});
+console.log(arr2);
 </script>
 </html>

@@ -8,20 +8,18 @@
 </body>
 
 </html>
-<script type="text/javascript">
-
-
+<script>
 const obj = {
-    a: function() {
-        console.log(this)
-        window.setTimeout(() => { 
-            console.log(this) 
-        }, 1000)
-    }
-}
+  a: () => {
+    console.log(this);
+    window.setTimeout(() => {
+      console.log(this);
+    }, 1000);
+  }
+};
 
-obj.a()
-var id=42
+obj.a();
+var id = 42;
 function log(){
   setTimeout(function(){
   	console.log(this.id)

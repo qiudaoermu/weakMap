@@ -1,39 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
 
-</body>
-</html>
 <script type="text/javascript">
-	
-	
 	var event = {
-		addevent:function(element,type,fn){
-			if(element.addEventListener){
-				element.addEventListener(type,fn,false)
-			}else{
-				attachEvent('on'+type,fn)
-			}
-		},
-		deleteEvent:function(element,type,fn){
-			if(window.removeEventListener){
-				element.removeEventListener(type,fn,false)
-			}else{
-				element.detachEvent(type,fn)
-			}
-		},
-		stop:function(event){
-			if(event.stopParagraph){
-				event.stopProgation()
-			}else{
-				event.cancelBubble = false
-			}
-		},
-		event:function(e){
-			var e = e|| window.event
-		}
-	}
+	  addevent: function(element, type, fn) {
+	    if (element.addEventListener) {
+	      element.addEventListener(type, fn, false);
+	    } else {
+	      window.attachEvent('on' + type, fn);
+	    }
+	  },
+	  deleteEvent: function(element, type, fn) {
+	    if (window.removeEventListener) {
+	      element.removeEventListener(type, fn, false);
+	    } else {
+	      element.detachEvent(type, fn);
+	    }
+	  },
+	  stop: function(event) {
+	    if (event.stopParagraph) {
+	      event.stopProgation();
+	    } else {
+	      event.cancelBubble = false;
+	    }
+	  },
+	  event: function(e) {
+	    e = e || window.event;
+	  }
+	};
+	event.addevent();
 </script>

@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="../jquery/jquery.js"></script>
 	<script type="text/javascript">
 
-		const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+		const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout),);
 		async function f() {
 			await delay(1000);
 			await delay(2000);
@@ -180,7 +180,6 @@
 			console.log(t)
 			var c = await as()
 			console.log('end')
-
 
 	}
 

@@ -1,0 +1,20 @@
+<script type="text/javascript">
+Promise.reject('fail').then(res => {
+	console.log(res);
+}, err => {
+	console.log(err); // reject可以在 err中捕获，也可以在catch中捕获
+}).catch(res => {
+	console.log(res);
+});
+// Promise.reject()  实现
+Promise.r = function (o){
+    return new Promise((resolve,reject)=>{
+        reject(o)
+    })
+}
+/*
+Promise.reject() == new Promise((resolve,reject)=>{
+  reject(o)
+})
+*/
+</script>

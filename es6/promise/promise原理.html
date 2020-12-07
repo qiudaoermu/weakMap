@@ -1,0 +1,94 @@
+<script>
+	// 胡说八道版
+	function Promise(fn) {
+		this.data = '';
+		this.err = '';
+		let _this = this;
+		function resolve(data,fn) {
+			_this.data = data;
+		};
+		function reject(err) {
+			_this.err = err;
+		};
+		fn(resolve,reject);
+	};
+	Promise.prototype.then = function(fn){
+		fn(this.data);
+		return this;
+	};
+	Promise.prototype.catch = function(fn){
+		fn(this.err);
+	};
+	// ex
+	let pro = new Promise(function(resolve, reject){
+		setTimeout(()=>{
+			resolve('data');
+		}, 5000)
+	});
+	pro.then(function(data){
+		console.log(data);
+	})
+
+
+			/* 自己实现
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│ promise源码解析                                                				   │
+│         
+ * │
+│  Keep Metro running while developing on any JS projects. Feel free to        │
+│  close this tab and run your own Metro instance if you prefer.               │
+│                                                                              │
+│
+ * https://github.com/facebook/react-native                                    │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+ */
+		function Promise(fn) {
+			let arr = [];
+			let err = [];
+			let t = null;
+			let errvalue = null;
+			let self = this;
+			self.then = function (callback) {
+				arr.push(callback);
+				return self
+			};
+			self.catch = function (callback) {
+				err.push(callback)
+			};
+			function resolve(value) {
+				if (errvalue != null) return;
+				t = value;
+				setTimeout(()=>{
+					arr.forEach(function (callback, value) {
+						callback(t)
+					});
+				})
+			};
+			function reject(value) {
+				if (t != null) return;
+				errvalue = value;
+				setTimeout(() => {
+					err.forEach(function (callback, value) {
+						callback(errvalue)
+					})
+				})
+			};
+			fn && fn(resolve, reject)
+		};
+		function done() {
+			return new Promise(function (resolve, reject) {
+				// resolve('no setTimeout');
+				setTimeout(function () {
+					resolve("baidu");
+					reject("baiduError");
+				}, 1000)
+			})
+		}
+		done().then(function (value) {
+			console.log(value);
+		}).catch(function (err) {
+			console.log(err)
+		});
+</script>

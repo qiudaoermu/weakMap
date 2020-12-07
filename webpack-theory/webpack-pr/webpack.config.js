@@ -47,14 +47,14 @@ const config = {
           }
         }]
       },
-     {
+      {
        test: /\.vue$/,
        use: [{
-         loader: "vue-loader.js",
+         loader: "vue-loader/vue-loader.js",
        }]
      }
     ]
-    },
+  },
   plugins: [
     new webpackDistPlugin({targetPath:'/dist',outPut:'dist.zip'})
   ]

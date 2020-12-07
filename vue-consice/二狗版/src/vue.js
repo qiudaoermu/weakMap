@@ -110,7 +110,7 @@ Observer.prototype = {
     });
   }
 };
-function queueWatcher(_this, vm, i, newVal) {
+function queueWatcher(_this, vm, key, newVal) {
   setTimeout(() => {
     computed(vm);
     let compile = new Compile(vm);
@@ -122,7 +122,7 @@ function queueWatcher(_this, vm, i, newVal) {
     compile.traverse(vm.vueDom, true);
     document.body.appendChild(vm.vueDom);
     if (vm.option.watch) {
-      vm.option.watch[i] && vm.option.watch[i](newVal);
+      vm.option.watch[key] && vm.option.watch[key].call(vm, newVal);
     }
     // LIFECYCLE_HOOKS updated
     vm.option.updated && vm.option.updated();

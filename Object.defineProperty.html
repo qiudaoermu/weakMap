@@ -99,8 +99,8 @@ let test = [1, 2, 3]
 observe(test)
 
 
-var a={};
-bValue=1;
+var a = {};
+bValue =1;
 Object.defineProperty(a,"b",{
   set:function(value){
     bValue = value;
@@ -128,5 +128,41 @@ console.log(a.b);  //[1,10,3,4,undefined];
 	length
 	不同下标不能检测
 ----------------------*/
+
+let acd = {c: 1};
+Object.defineProperty(acd, "c",{
+  set:function(value){
+    console.log("setted");
+  },
+  get:function(v){
+    console.log(v)
+  }
+});
+acd.c = 3;
+console.log(acd)
+
+const obj = {name: 'yyyy'};
+
+let initValue = 'kongzhi';
+
+Object.defineProperty(obj, 'name', {
+  // 当我们使用 obj.name 获取该值的时候，会自动调用 get 函数
+  get: function() {
+    return initValue;
+  },
+  set: function(value) {
+    console.log('setName');
+    initValue = value;
+  }
+});
+
+// 我们来获取值，会自动调用 Object.defineProperty 中的 get函数方法。
+
+console.log(obj.name); // 打印出kongzhi
+
+// 设置值的话，会自动调用 Object.defineProperty 中的 set方法。
+obj.name = 'xxxxx';
+
+console.log(obj); // 打印出 xxx
 </script>
 </html>

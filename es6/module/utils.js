@@ -1,21 +1,15 @@
-
 class BB {
-    constructor() { }
-    run() {
-        console.log("run")
-    }
+  constructor() { };
+  run() {
+      console.log("run");
+  };
 }
-
-
-console.log('dev')
-
-
+console.log('dev');
 export default class AA extends BB {
-    constructor() {
-        super()
-    }
-    do() {
-        console.log("do it")
-    }
-
+  constructor() {
+      super();
+  }
+  do() {
+      console.log("do it");
+  };
 }

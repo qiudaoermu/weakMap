@@ -10,9 +10,7 @@
     console.log(sm)
   }
   findSmallset([
-    1,
-    3,
-    5,
+    1,3,5,
     2,
     0,
     10
@@ -24,4 +22,9 @@
       : y
   });
   console.log(sum);
+  var c = [{num:1,color: 'red'}, {num:2, color: 'green'}, {num: 3, color: 'blue'}]
+  let csum = c.reduce(function(x, y) {
+    return x + y.num
+  }, 0)
+  console.log(csum)
 </script>

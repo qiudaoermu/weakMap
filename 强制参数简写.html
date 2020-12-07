@@ -9,14 +9,13 @@
   </body>
   <script type="text/javascript">
 
-mandatory = () => {
+var mandatory = () => {
   throw new Error('Missing parameter!');
-}
+};
 
-
-foo = (bar = mandatory()) => {
+var foo = (bar = mandatory()) => {
   return bar;
-}
-foo(2)
+};
+foo(2);
   </script>
 </html>

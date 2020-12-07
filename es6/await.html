@@ -4,30 +4,44 @@
 		<title></title>
 	</head>
 	<body></body>
-	<script type="text/javascript">
-		console.log('1')
-		function init() {
-			return new Promise(function (resolve) {
-				setTimeout(function () {
-					resolve(3)
-				}, 1000)
-			})
-		}
-		async function as() {
-			return 1
-		}
-		async function as2(c) {
-			return c++
-		}
-		async function Name() {
-			var t = await init();
-			console.log(t)
-			var c = await as()
-			var c2 = await as2(c)
-			console.log(c2)
-			console.log('end')
-		}
-		Name()
-		// Promise.resolve().then(()=>console.log(10)); console.log('2') 1 2 10 as 3
-	</script>
+<script type="text/javascript">
+console.log('1');
+var a = {
+  a: 1
+};
+console.log(a);
+function init() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      // resolve(3);
+      reject('error');
+    }, 1000);
+  });
+}
+init().then(s => {
+  console.log(s);
+}).catch(e => console.log(e));
+console.log('afterError');
+async function as() {
+  return 1;
+}
+async function as2(c) {
+  return c++;
+}
+async function Name() {
+  var t;
+  // try {
+  //   t = await init();
+  // } catch (e) {
+  //   console.log(e);
+  // }
+  t = await init();
+  var c = await as();
+  var c2 = await as2(c);
+  console.log(c2);
+  console.log('end');
+}
+// Name();
+// Promise.resolve().then(()=>console.log(10)); console.log('2') 1 2 10 as 3
+</script>
 </html>
