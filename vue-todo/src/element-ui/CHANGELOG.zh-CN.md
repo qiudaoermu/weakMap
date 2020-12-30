@@ -76,7 +76,7 @@
   - 修复 row-style 失效的 bug (#17002 by @a631807682)
   - 修复头部消失的 bug (#17341 by @ziyoung)
 - Calendar
-  - 导入 el-button 和 el-button-group (#17376 by @masongzhi)
+  - 导入 Button 和 Button-group (#17376 by @masongzhi)
 - MessageBox
   - 修复图表位置 (#17410 by @nullptru)
 - TimePicker
@@ -785,7 +785,7 @@ Docs
   - 移除无用代码 (by @KAionro in #14413)
 - Docs
   - 添加更多文档说明如何贡献代码 (by @island205 in #14355)
-  - 添加 `el-input` 是受控组件的警示 (by @wacky6 in #14463)
+  - 添加 `Input` 是受控组件的警示 (by @wacky6 in #14463)
   - 优化 Table 的文档 (by @luguokong in #14329)
   - 更新 Input 文档 (by @iamkun in #14437)
   - 优化自定义主题文档 (by @wangguohao in #14297)

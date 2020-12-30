@@ -1,0 +1,24 @@
+<script type="text/javascript">
+/**
+ * @param {number} n
+ * @param {number} start
+ * @return {number}
+ */
+var xorOperation = function(n, start) {
+    let nums = [];
+    for (var i=0; i<n; i++) {
+        nums[i] = start + 2 * i;
+    }
+    if (nums.length === 1) {
+        return nums[0]
+    }
+    let xor = '';
+    // reduce方法至少保证数组length >=2
+    nums.reduce((sum,c) => {
+        xor = sum ^ c;
+        return xor;
+    })
+    return xor;
+};
+xorOperation(1,7);
+</script>

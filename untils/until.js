@@ -20,21 +20,9 @@ export function smallToBig(n) {
 export function mutiply(n) {
   return n.reduce((a, b) => a * b);
 }
-
-// 设置localStorage
-export let ls =  {
-  set(val, key){ 
-    window.localStorage.setItem(val, key)
-  },
-  get(key) {
-    return window.localStorage.getItem(key)
-  },
-  remove(key) {
-    return window.localStorage.removeItem(key)
-  },
-  clearAll() {
-    window.localStorage.clear()
-  }
+// 迭代相加
+export function recursiveAdd(n) {
+  return n.reduce((a, b) => a + b);
 }
 
 // 删除对象属性
@@ -44,18 +32,39 @@ export let deleteProp = (obj, propArr) => {
   });
 }
 
-// 获取当前日期 2020-10-08
-export const getDay = () => {
-  const year = new Date().getFullYear();
-  let month = new Date().getMonth() + 1;
-  month = month < 10 ? `0${month}` : month;
-  let day = new Date().getDate();
-  day = day < 10 ? `0${day}` : day;
-  const data = `${year}-${month}-${day}`;
-  return data;
-};
+/*
+*  从数组删除某个元素，
+* @param { data } array 当前数组
+* @param { index} Number 要删除元素的索引
+*/
+export const romove = (data,index) => {
+  data.splice(index ,1)
+}
+/*
+*  截取数组中的n位数
+* @params { data } array 当前数组
+* @param { index} Number 要删除元素的索引
+*/
+export const cut = (arr, start, n) => {
+  let result = arr.slice(start, start + n);
+  return result;
+}
 
-// 视图滚动到顶部
-export let scrollTop = () => {
-  window.scrollTo(0, 0);
-} 
+/*
+  @params {number[[],[]]} nums
+  @return []
+ */
+export flatNums = (nums) => {
+  let flatResult = nums.flat(Infinity)
+  return flatResult;
+}
+
+/*
+  匹配任何非换行字符
+ */
+export regIsExit = (str) => {
+  let reg = /.+/;
+  return reg.test(str)
+}
+
+ 

@@ -30,23 +30,32 @@
       var original = [
         {
           label: 'private',
+          id:1,
           value: 'private@johndoe.com'
         }, {
           label: 'school',
+          id:2,
           value: 'work@johndoe.com'
         }
       ];
       var update = [
         {
           label: 'private',
-          value: 'me@johndoe.com'
+          value: 'me@johndoe.com',
+          cName: 'cName'
         }, {
           label: 'school',
-          value: 'schol@johndoe.com'
-        }
+          value: 'schol@johndoe.com',
+          cName: 'cName'
+        },
+{
+  label: 'school',
+  value: 'schol@johndoe.com',
+  cName: 'cName'
+}
       ];
-      var result = _.unionBy(update, original, "label");
-      console.log(result);
+      var result = _.merge(original, update);
+      console.log(original);
       var s = [
         {
           name: "羽根",
@@ -84,64 +93,6 @@
       // => [1, 3]
       console.log(evens);
       //------//
-      var arr = [];
-      mod.departmentList.forEach(item => {
-        if (item.departmentCode == departmentCode) {
-          arr.push(item);
-          item.checked = 0;
-        }
-      });
-      if (mod.child.length >= 1) {
-        mod.child.forEach(item => {
-          if (item.departmentList && item.departmentList.length >= 1) {
-            item.departmentList.forEach(i => {
-              if (i.departmentCode == departmentCode) {
-                arr.push(i);
-                i.checked = 0;
-              }
-              if (i.child && i.child.length >= 1) {
-                i.child.forEach(t => {
-                  if (t.departmentCode == departmentCode) {
-                    arr.push(t);
-                    t.checked = 0;
-                  }
-                })
-              }
-            });
-          }
-          if (item.child && item.child.length >= 1) {
-            item.child.forEach(o => {
-              if (o.child && o.child.length >= 1) {
-                o.child.forEach(i => {
-                  i.departmentList.forEach(n => {
-                    if (n.departmentCode == departmentCode) {
-                      arr.push(n);
-                      n.checked = 0;
-                    }
-                  });
-                });
-              }
-              if (o.departmentList && o.departmentList.length >= 1) {
-                o.departmentList.forEach(m => {
-                  if (m.departmentCode == departmentCode) {
-                    arr.push(m);
-                    m.checked = 0;
-                  }
-                  if (m.child && m.child.length >= 1) {
-                    m.child.forEach(n => {
-                      if (n.departmentCode == departmentCode) {
-                        arr.push(n);
-                        n.checked = 0;
-                      }
-                    });
-                  }
-                });
-              }
-            });
-          }
-        });
-      }
-      return arr;
     </script>
   </body>
 </html>

@@ -203,10 +203,10 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "el-button",
+      staticClass: "Button",
       class: [
-        _vm.type ? "el-button--" + _vm.type : "",
-        _vm.buttonSize ? "el-button--" + _vm.buttonSize : "",
+        _vm.type ? "Button--" + _vm.type : "",
+        _vm.buttonSize ? "Button--" + _vm.buttonSize : "",
         {
           "is-disabled": _vm.buttonDisabled,
           "is-loading": _vm.loading,

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<a class="js-navigation-open link-gray-dark" title="changelog.md"
+ href="https://github.com/riverskies/vue-pjax-adapter/blob/master/index.js?_pjax=%23js-repo-pjax-container"  
+>changelog.md</a>
+</body>
+<script type="text/javascript">
+   document.addEventListener('click', clickListener);
+  function clickListener(e) {
+    let element = e.target;
+
+    if (element.nodeName == 'A') {
+      debugger;
+        e.preventDefault();
+    }
+  }
+</script>
+</html>

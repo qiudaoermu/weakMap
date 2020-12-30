@@ -1,0 +1,60 @@
+<script type="text/javascript">
+ 
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var deepestLeavesSum = function (root) {
+    console.log(root,'ROOT')
+    var map = []
+    dfs(root, 0 , map)
+    return map.pop()
+};
+var dfs = function (root, deep, map) {
+    if (!root) return
+    if(map[deep]){
+        map[deep] += root.val
+    }else{
+        console.log(root,'root')
+        console.log(root.val, 'val')
+        console.log(root.left, 'left')
+        console.log(root.right, 'right')
+        map[deep] = root.val
+    }
+    dfs(root.left, deep + 1,map)
+    dfs(root.right, deep + 1,map)
+}
+// let result = deepestLeavesSum([1,2,3,4,5,null,6,7,null,null,null,null,8])
+// console.log(result,'result')
+// 
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+ }
+
+const convertArrayToTreeNode = arr => {
+  if (!arr.length) return null;
+  const root = new TreeNode(arr[0]);
+  const tns = [root];
+  for (let i = 1; i < arr.length; i += 2) {
+    console.log(tns)
+     const tn = tns.shift();
+     debugger;
+     console.log(tns)
+     tn.left = new TreeNode(arr[i]);
+     tn.right = new TreeNode(arr[i+1]);
+     tns.push(tn.left);
+     tns.push(tn.right);
+   }
+    return root;
+}
+let root = convertArrayToTreeNode([1,2,3,4,5,null,6,7,null,null,null,null,8])
+console.log(root, 'root')
+</script>

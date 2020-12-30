@@ -2,8 +2,22 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		ul {
+			height: 400px;
+			width: 100%;
+			background: #ddd
+		}
+		.fiex {
+			width: 100px;background-color: red;height: 200px;
+			position: fixed;
+			right: 0px;
+			top: 0px;
+		}
+	</style>
 </head>
 <body>
+	<div class="fiex"></div>
 <ul id="parent-list">
 	<li id="post-1">Item 1</li>
 	<li id="post-2">Item 2</li>
@@ -14,14 +28,24 @@
 </ul>
 </body>
 <script type="text/javascript">
-	document.getElementById("parent-list").addEventListener("click",function(e) {
-	// e.target是被点击的元素!
-	// 如果被点击的是li元素	
-	//tagName
-	    if(e.target && e.target.nodeName == "LI") {
-		// 找到目标，输出ID!
-				console.log("List item ",e.target.id.replace("post-"," ")," was clicked!");
-	     }
+	document.addEventListener('click', function(){
+		console.log('document')
 	});
+document.getElementById('post-1').addEventListener('click',function(e) {
+  e.stopPropagation();
+  console.log('post-1');
+});
+document.getElementById('parent-list').addEventListener('click', function(e) {
+  e.stopPropagation();
+	console.log('parent-list')
+// e.target是被点击的元素!
+// 如果被点击的是li元素
+// tagName
+  // e.stopImmediatePropagation();
+  // if (e.target && e.target.nodeName === 'LI') {
+  // // 找到目标，输出ID!
+  //   console.log('List item', e.target.id.replace('post-', ' '), ' was clicked!');
+  // }
+});
 </script>
 </html>

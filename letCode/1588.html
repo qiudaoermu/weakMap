@@ -1,0 +1,52 @@
+<script type="text/javascript">
+/**
+ * @param {number[]} arr
+ * @param {number} start
+ * @param {number} n
+ * @return {number[]}
+ */
+const cut = (arr, start, n) => {
+  let result = arr.slice(start, n);
+  if (result.length < (n - start)) return 0;
+  return result;
+};
+const flatNums = (nums) => {
+  let flatResult = nums.flat(Infinity)
+  return flatResult;
+};
+  /**
+ * @param {number[]} arr
+ * @return {number}
+ */
+var sumOddLengthSubarrays = function(arr) {
+  /**
+   * 1.求出数组长度
+   * 2.求奇数 【1,3,5,7,9,11...]
+   * 3.截取奇数数组
+   * 4.求和
+   */
+  let result = [];
+  let length = arr.length;
+  if (length === 1) return arr[0];
+  let odd = [];
+  for (var i = 0; i < length; i += 2) {
+    odd.push(i+1);
+  };
+  // arr [21,33,2,5,10,11,19,0,29]
+  // odd [1, 3, 5, 7....]
+  for (var j = 0; j < odd.length; j++) {
+    for (var k = 0; k < arr.length; k++) {
+      let oddArr = cut(arr, k, k + odd[j]);
+      result.push(oddArr);
+    }
+  }
+  result = flatNums(result);
+  result = result.reduce((sum, current) => {
+    sum += current;
+    return sum;
+  });
+  console.log(result, 'result')
+  return result;
+};
+sumOddLengthSubarrays([1, 4, 2, 5, 3]);
+</script>

@@ -7,10 +7,10 @@
   <body></body>
   <script type="text/javascript">
     let reg = new RegExp('(is)');
-    let regs = /(is)/;
+    let regs = /is/;
     let str = 'is your cat1';
     console.log(reg.test(str));
-    let re = str.replace(regs, '$1' + 'i');
+    let re = str.replace(regs, '['+ '$1' + ']');
     console.log(re);
 
     
@@ -21,5 +21,9 @@
     console.log(regd.test(str));
     let rn = str.replace(regd, '$1');
     console.log(rn);
+
+    var regex = /(ab)+/g;
+    var string = "ababa abbb ababab";
+    console.log( string.match(regex) ); // ["abab", "ab", "ababab"]
   </script>
 </html>

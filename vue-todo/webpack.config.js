@@ -16,7 +16,7 @@ let config = {
     mode:"development",
     entry:[path.join(__dirname,'src/index.js')],
     output: {
-        filename: "bundle.[hash:8].js",
+        filename: "bundle.js",
         path: path.join(__dirname,'dist')
     },
     resolve:{
