@@ -147,18 +147,18 @@ console.log(a === b); // true
 	// 		console.log(result)
 	// })
 
-function sleep(l) {
-	return new Promise((reslove, reject) => {
-	    setTimeout(() => {
-	      reslove();
-	      console.error(l);
-	    }, 500);
-	});
-}
+// function sleep(l) {
+// 	return new Promise((reslove, reject) => {
+// 	    setTimeout(() => {
+// 	      reslove();
+// 	      console.error(l);
+// 	    }, 500);
+// 	});
+// }
 
-(async() => {
-	  for (let l = 0; l < 10; l++) {
-	    await sleep(l);
-	  }
-})();
+// (async() => {
+// 	  for (let l = 0; l < 10; l++) {
+// 	    await sleep(l);
+// 	  }
+// })();
 </script>

@@ -1,0 +1,27 @@
+<script type="text/javascript">
+function welcome(username) {
+  console.log('welcome ' + username);
+  this.role = "happy";
+}
+
+function goodbey(username) {
+  console.log('goodbey ' + username);
+  this.role = 'sad';
+}
+
+function wrapWithUsername(wrappedFunc) {
+  let newFunc = () => {
+    let username = "iron man";
+    wrappedFunc(username);
+    console.log(this.role);
+  };
+  return newFunc;
+}
+
+welcome = wrapWithUsername(welcome);
+goodbey = wrapWithUsername(goodbey);
+
+welcome();
+goodbey();
+
+</script>

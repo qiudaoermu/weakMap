@@ -12,7 +12,7 @@
     console.log(reg.test(str));
     let re = str.replace(regs, '['+ '$1' + ']');
     console.log(re);
-
+      
     
     let nodeEnv = str.replace('is', 'NODE_ENV');
     console.log(nodeEnv);
@@ -25,5 +25,6 @@
     var regex = /(ab)+/g;
     var string = "ababa abbb ababab";
     console.log( string.match(regex) ); // ["abab", "ab", "ababab"]
+
   </script>
 </html>

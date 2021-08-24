@@ -66,5 +66,8 @@ export regIsExit = (str) => {
   let reg = /.+/;
   return reg.test(str)
 }
-
- 
+// 字符串删除最后一位
+export removeLast = (str) => {
+  str = str.slice(0,str.length-1);
+  return str;
+}

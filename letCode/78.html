@@ -1,0 +1,23 @@
+<script type="text/javascript">
+let getUniqArr = (cur, arr) => {
+  let index = arr.indexOf(cur); // idnex:0, arr.length - 1: 4
+  if (index === -1) return [];
+  if (arr.length === 1) return [[cur]];
+  let uniqArr = [];
+  uniqArr.push(cur);
+  let length = arr.length;
+  for (let i = index; i < arr.length; i++) {
+    arr[i + 1] && uniqArr.push(arr[i + 1]);
+    if ((length - 1) === i) {
+      arr.pop();
+      if (arr.length !== 0) {
+        let res = getUniqArr(cur, arr);
+        uniqArr = [uniqArr, ...res];
+      }
+    }
+  }
+  return uniqArr;
+};
+let flatResult = getUniqArr(1, [1, 2, 3]);
+console.log(flatResult);
+</script>

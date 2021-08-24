@@ -1,6 +1,0 @@
-1.new Vue {data:123}
-2. vue 实例上挂载了 daat -> {data:123}
-3. observe Compile ???
-4. key -> text "hello world"
-5.defineProperty -> {}
-setter->Dep->Watcher->update->patch

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+var myImage = (function() {
+  var imgNode = document.createElement('img');
+  document.body.appendChild(imgNode);
+
+  return {
+    setSrc: function(src) {
+      imgNode.src = src;
+    }
+  };
+})();
+
+var proxyImage = (function() {
+  var img = new Image();
+  img.onload = function() {
+    myImage.setSrc(this.src);
+  };
+  return {
+    setSrc: function(src) {
+      myImage.setSrc('./loading.gif');
+      img.src = src;
+    }
+  };
+})();
+
+proxyImage.setSrc('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdn.duitang.com%2Fuploads%2Fblog%2F201306%2F25%2F20130625150506_fiJ2r.jpeg&refer=http%3A%2F%2Fcdn.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1628817640&t=a2a5672a0cca6c33ceae8ac19644f919');
+</script>
+</html>

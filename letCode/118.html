@@ -1,0 +1,33 @@
+<script type="text/javascript">
+  /**
+ * @param {number} numRows
+ * @return {number[][]}
+ */
+var generate = function(numRows) {
+  let res = [];
+  for (let i = 0; i < numRows; i++) {
+      let sum = [];
+      if (i === 0) {
+        sum.push(1);
+        res.push(sum);
+        continue;
+      }
+      console.log(i,'-----')
+      for (let j = 0; j < i + 1; j++) {
+        console.log(JSON.stringify(res), 'res');
+        let sumOther = (res[res.length - 1]);
+        console.log(sumOther);
+        let pre = (sumOther[j] || 0);
+        console.log(typeof pre);
+        console.log(pre, 'pre');
+        let next = (sumOther[j - 1] || 0);
+        let current = Number(pre) + next;
+        sum.push(current);
+      }
+      res.push(sum);
+  }
+  return res;
+};
+// generate(2)
+
+</script>

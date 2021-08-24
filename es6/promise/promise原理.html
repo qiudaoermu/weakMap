@@ -80,15 +80,20 @@
 		function done() {
 			return new Promise(function (resolve, reject) {
 				// resolve('no setTimeout');
+				// resolve("baidu");
+					reject("baiduError");
 				setTimeout(function () {
+					debugger
 					resolve("baidu");
 					reject("baiduError");
-				}, 1000)
-			})
+				}, 1000);
+			});
 		}
 		done().then(function (value) {
 			console.log(value);
 		}).catch(function (err) {
 			console.log(err)
 		});
+
+		
 </script>

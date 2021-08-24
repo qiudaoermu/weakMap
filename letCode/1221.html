@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
+<script type="text/javascript">
+function balancedStringSplit(s) {
+  let sArr = s.split("");
+  let arrAmount = 0;
+  for (let i = 2; i <= sArr.length; i++) {
+    let copy = JSON.parse(JSON.stringify(sArr));
+    let str = sArr.splice(0, i);
+    if (isBalance(str)) {
+      arrAmount += 1;
+      i = 1;
+    } else {
+      sArr = copy;
+    }
+  };
+  return arrAmount;
+};
+const isBalance = s => {
+  let LArr = s.filter(element => element === "L");
+  let RArr = s.filter(element => element === "R");
+  return LArr.length === RArr.length;
+};
+balancedStringSplit("RLRRLLRLRL");
+</script>

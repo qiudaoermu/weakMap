@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+function combination(m, n) {
+  if (n === 0) return 1;// 第一个数为1
+  else if (m === n) return 1; // 最后一个数为1
+  else return combination(m - 1, n - 1) + combination(m - 1, n);// 中间的数为前一行的两个数相加
+}
+function getRow(rowIndex) {
+  let arrTotl = [];
+  for (var i = 0; i < rowIndex + 1; i++) {
+    arrTotl.push(combination(rowIndex, i));
+  };
+  return arrTotl;
+}
+let result = getRow(2);
+// console.log(result);
+
+// 先声明一维
+function getRow2(row) {
+  var array = new Array(row + 1);
+  for (var i = 0; i < row + 1; i++) {
+    // 再声明二维
+    array[i] = new Array(i);
+    for (var j = 0; j < i + 1; j++) {
+      if (i === 0 || j === 0 || j === i) {
+        array[i][j] = 1;
+      } else {
+        array[i][j] = array[i - 1][j - 1] + array[i - 1][j];
+      }
+    }
+  }
+  return array[array.length - 1];
+}
+console.log(getRow2(3));
+</script>
+</html>

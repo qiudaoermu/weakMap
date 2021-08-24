@@ -7,6 +7,11 @@
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script type="text/javascript">
+      // let index =   _.indexOf([1, 2, 1, 2], undefined);
+      // console.log(index)
+      // 
+      const last = _.last('');
+      console.log(last)
       var songs = [
         {
           name: "羽根",
@@ -26,7 +31,7 @@
         }
       ];
       let u = _.uniqBy(songs, 'name')
-      console.log(u)
+      // console.log(u)
       var original = [
         {
           label: 'private',
@@ -55,7 +60,7 @@
 }
       ];
       var result = _.merge(original, update);
-      console.log(original);
+      // console.log(original);
       var s = [
         {
           name: "羽根",
@@ -78,20 +83,20 @@
         }
       ];
       let rv = s.filter(item => item.name).length
-      console.log(rv)
+      // console.log(rv)
       var fruits = ['Apple', 'Banana', 'Orange', 'Celery'];
       var left = _.remove(fruits, function (n) {
         return n == 'Apple'
       })
-      console.log(left)
-      console.log(fruits)
+      // console.log(left)
+      // console.log(fruits)
       var array = [1, 2, 3, 4];
       var evens = _.remove(array, function (n) {
         return n % 2 == 0;
       })
-      console.log(array);
+      // console.log(array);
       // => [1, 3]
-      console.log(evens);
+      // console.log(evens);
       //------//
     </script>
   </body>

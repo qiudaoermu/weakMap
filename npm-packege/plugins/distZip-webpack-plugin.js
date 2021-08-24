@@ -1,15 +1,14 @@
-let adm_zip = require("adm-zip");
-let zip = new adm_zip();
 var colors = require('colors');
+var compressing = require("compressing");
+let fs  = require('fs');
 colors.setTheme({
 	custom: ['black', 'bgYellow'],
 	error: ['red', 'bgWhite']
 });
 class DistZipWebpackPlugin {
 	constructor(options) {
-
 		this.options = options;
-		console.log('begin use distPlugin'.error)
+		console.log('Begin Use DistPlugin'.custom)
 	}
 	apply(compiler) {
 		compiler.hooks.afterEmit.tapAsync('distZipWebpackPlugin', (compilation, cb) => {
@@ -23,12 +22,26 @@ class DistZipWebpackPlugin {
 				console.error('outpath is not defined'.custom)
 				return
 			}
-			console.log('register hook'.error)
+			// copy:'/dist/index.html', copyTo:'/dist；
+			let copy = process.cwd() + this.options.copy;
+			let copyTo = process.cwd() + this.options.copyTo;
+			if (copy && copyTo) {
+				fs.copyFile(copy, copyTo, function(err){
+					if(err) console.log(err)
+					else console.log('copy file succeed');
+				});
+			}
 			let pathout = process.cwd() + this.options.targetPath
 			let outPath = process.cwd() + '/' + this.options.outPut
-			zip.addLocalFolder(pathout);
-			zip.writeZip(outPath);
-
+		
+			compressing.zip.compressDir(pathout, outPath)
+			.then(() => {
+					console.log('zip','success');
+			})
+			.catch(err => {
+					console.error('unzip',err);
+			});
+			console.log('rename ok');
 			cb();
 		})
 	}

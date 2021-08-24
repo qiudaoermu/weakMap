@@ -1,0 +1,9 @@
+[{
+  "script": "app.js",
+  "name": "star-node",
+  "exec_mode": "cluster",
+  "instances": "max",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}]

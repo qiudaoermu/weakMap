@@ -1,0 +1,36 @@
+<script type="text/javascript">
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+  // return if str === ""
+  if (s.length === 0) return 0;
+
+  let longestSubstring = "";
+  let lsArr = [];
+  for (let i=0;i< s.length;i++) {
+    if (!longestSubstring.includes(s[i])) {
+      longestSubstring+=s[i]
+      if (i === s.length - 1 ) {
+        lsArr.push(longestSubstring)
+      }
+    } else {
+      console.log(longestSubstring, 'longestSubstring')
+      lsArr.push(longestSubstring)
+      longestSubstring = "";
+    }
+  }
+
+  console.log(lsArr, 'lsArr')
+  if (lsArr.length === 1) return lsArr[0].length;
+  let leng = lsArr[0];
+  for(let i=1;i < lsArr.length; i++) {
+    if (lsArr[i].length > leng.length) {
+      leng = lsArr[i];
+    }
+    return leng.length;
+  }
+};
+lengthOfLongestSubstring("pwwkew")
+</script>
