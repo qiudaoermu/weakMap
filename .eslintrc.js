@@ -23,6 +23,7 @@ module.exports = {
     semi: ['error', 'always'],
     // 禁止使用console
     'no-console': 'off',
+    "quotes": [0, "double"], // 使用双引号，关闭
     // 在函数定义中，括号之前，要执行一致的间距
     // 'space-before-function-parentheses': ['error', 'never'],
     'space-before-function-paren': [
