@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>可拖拽侧边栏</title>
+  <style type="text/css">
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(5, 9, 38, .8);
+    }
+    .drag-area {
+      width: 300px;
+      /*设置拖拽盒子的最小值，当拖拽的值小于这个值，将不再因拖拽而继续变小*/
+      min-width: 100px;
+      height: 100%;
+       left: 0px;
+     position: fixed;
+      background-color: rgba(22, 22, 22, .3);
+    }
+    .drag-tip {
+      height: 100%;
+      width: 6px;
+      
+      position: absolute;
+      top: 0;
+      left: 294px;
+      background-color: #fff;
+    }
+    /*鼠标移入显示可拖动样式*/
+    .drag-tip:hover {
+      cursor: e-resize;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="container">
+  <!--拖动区域-->
+  <section class="drag-area" id="drag-area"></section>
+  <!--拖动按钮-->
+  <div class="drag-tip" id="drag-tip"></div>
+</div>
+<script type="text/javascript">
+  let dragBtn = document.getElementById('drag-tip');
+  let dragDom = document.getElementById('drag-area');
+  let container = document.getElementById('container');
+
+  // 鼠标摁下
+  dragBtn.onmousedown = function(e) {
+    // 鼠标的X轴坐标
+    let clientX = e.clientX;
+    // 拖动块距离屏幕左侧的偏移量
+    let offsetLeft = dragBtn.offsetLeft;
+
+    // 鼠标移动
+    document.onmousemove = function(e) {
+      let curDist = offsetLeft + (e.clientX - clientX); // 拖动块的移动距离
+      let maxDist = container.clientWidth - dragBtn.offsetWidth; // 拖动块的最大移动距离
+
+      // 边界值处理
+      curDist < 0 && (curDist = 0);
+      curDist > maxDist && (curDist = maxDist);
+
+      // 设置值（保证拖动块一直在拖动盒子的相对位置）
+      dragBtn.style.left = dragDom.style.width = curDist + "px";
+      return false;
+    };
+    // 鼠标松开
+    document.onmouseup = function(e) {
+      document.onmousemove = null;
+      document.onmouseup = null;
+      // 释放鼠标
+      dragBtn.releaseCapture && dragBtn.releaseCapture();
+    };
+    // 捕获鼠标
+    dragBtn.setCapture && dragBtn.setCapture();
+    return false;
+  };
+</script>
+</body>
+</html>
+

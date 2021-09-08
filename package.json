@@ -26,6 +26,7 @@
     "eslint-plugin-vue": "^7.1.0"
   },
   "dependencies": {
-    "eslint-plugin-html": "^6.1.0"
+    "eslint-plugin-html": "^6.1.0",
+    "rc-print": "^1.0.4"
   }
 }
