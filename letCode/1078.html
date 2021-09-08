@@ -1,9 +1,0 @@
-<script type="text/javascript">
-  const findOcurrences = function(text, first, second) {
-    const reg = new RegExp(`(?<=${first}\\s${second}\\s)\\w+`, 'g');
-    return text.match(reg) ?? [];
-  };
-  let res = findOcurrences("alice is a good girl she is a good student", "a", "good");
-  console.log(res, "res")
-
-</script>
