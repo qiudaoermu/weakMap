@@ -9,7 +9,7 @@
   .main {
     margin: 100px auto;
     width: 50%;
-    font-family:'microsoft YaHei'
+    font-family:'system-ui'
    
   }
   .main h1 {
@@ -28,7 +28,7 @@
     height: 50px;
     border:1px solid #ddd;
   }
-	#tiao{
+	#bar{
     width:0px; 
     height: 50px; 
     background-color: #79b8ff; 
@@ -42,7 +42,7 @@
   <body>
     
   <div class='main'>
-    <h1>团扇体验云前端环境部署
+    <h1>File Upload ervice
       <span id='status'></span>
     </h1>
     <form id="uploadForm" enctype="multipart/form-data" style="display: none;" > 
@@ -52,23 +52,24 @@
       </div>
     </form> 
     <button class="btn btn-warning" id="upload">上传文件</button> 
+    <a class="btn btn-success" href='./xfj.apk' id="upload" download="xfj">下载文件</a> 
     <div id="tbox">
-      <div id="tiao"></div>
+      <div id="bar"></div>
     </div>
   </div>
   </body>
   <script src='assets/lib/jquery.js'></script>
   <script>
-$(function () { 
+$(function () {
   var xhr = new XMLHttpRequest(); 
   xhr.upload.onprogress=function(e){}
   var xhrOnProgress = function(fun) {
     xhrOnProgress.onprogress = fun; //绑定监听
-    //使用闭包实现监听绑
+    // 使用闭包实现监听绑
     return function() {
-      //通过$.ajaxSettings.xhr();获得XMLHttpRequest对象
+      // 通过$.ajaxSettings.xhr();获得XMLHttpRequest对象
       var xhr = $.ajaxSettings.xhr();
-      //判断监听函数是否为函数
+      // 判断监听函数是否为函数
       if (typeof xhrOnProgress.onprogress !== 'function')
         return xhr;
       //如果有监听函数并且xhr对象支持绑定时就把监听函数绑定上去
@@ -92,12 +93,12 @@ $(function () {
       contentType: false,
       xhr: xhrOnProgress(function(e){
         var per = Math.floor(100 * e.loaded / e.total);//计算百分比
-        $('#tiao').css({'width': per + "%",});
-        $('#tiao').html(per+ '%');
+        $('#bar').css({'width': per + "%",});
+        $('#bar').html(per+ '%');
       }), 
       success: function (data) { 
         if (data == '200') {
-           $('#tiao').html('部署完成')
+           $('#bar').html('部署完成')
         }
       },
       fail: function (params) {
