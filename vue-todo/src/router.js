@@ -13,6 +13,8 @@ import classv from './page/class.vue'
 import stylev from './page/stylev.vue'
 import lifePeriod from './page/life-period/parent.vue'
 import computed from './page/computed.vue'
+import preRouter from './page/routerParams/pre.vue'
+import proRouter from './page/routerParams/pro.vue'
 export default {
   routes: [
     // 动态路径参数 以冒号开头
@@ -46,27 +48,27 @@ export default {
       component: functional
     },
     {
-      path:'/provide',
-      component:provide
+      path: '/provide',
+      component: provide
     },
     {
-      path:'/vue-scroll',
-      component:vueScroll
+      path: '/vue-scroll',
+      component: vueScroll
     },
     {
-      path:'/el-tree',
-      component:elTree
+      path: '/el-tree',
+      component: elTree
     },
     {
-      path:'/jsx',
-      component:jsx
+      path: '/jsx',
+      component: jsx
     },
     {
-       path: '/classv',
+      path: '/classv',
       component: classv
     },
     {
-       path: '/stylev',
+      path: '/stylev',
       component: stylev
     },
     {
@@ -76,7 +78,16 @@ export default {
     {
       path: '/computed',
       component: computed
+    },
+    {
+      path: '/routerPre',
+      name: "routerPre",
+      component: preRouter
+    },
+    {
+      path: '/routerPro',
+      name: "routerPro",
+      component: proRouter
     }
-
   ]
-}
+};
