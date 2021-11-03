@@ -1,0 +1,9 @@
+<script>
+  let word = "Hello,World";
+  word = word.replace(/\w/g, (match) => {
+    let charCode = match.charCodeAt();
+    return charCode > 90
+      ? String.fromCharCode(charCode - 32)
+      : String.fromCharCode(charCode + 32);
+  });
+</script>
