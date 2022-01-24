@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>route demo</title>
+    <style>
+        * {padding: 0;margin: 0;}
+        ul li {list-style: none;text-align: center;}
+        .main {display: flex;height: 600px;}
+        .main .sidebar {width: 200px;border: 2px solid red;}
+        .main .sidebar ul {padding-top: 100px;}
+        .main .sidebar ul li {margin-bottom: 20px;cursor: pointer; }
+        .main .content {flex: 1;border: 2px solid green;padding: 20px;}
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <ul class="sidebar-ul">
+                <li class="stuManage">学生管理</li>
+                <li class="lesManage">课程管理</li>
+                <li class="claManage">班级管理</li>
+                <li class="baiManage">前往百度</li>
+            </ul>
+        </div>
+        <div class="content"></div>
+    </div>
+    <script>
+        // 定义Route，路由对象构造函数
+        function Route(option) {
+            this.routes = option.routes;
+            this.init();
+        }
+
+        // 为Route添加原型方法
+        Route.prototype = {
+            constructor: Route,
+            // 初始化
+            init() {
+                // 监听window对象的hashchange事件来获取路由的变化
+                window.addEventListener("hashchange", (function (e) {
+                    // e.oldURL  e.newURL
+                    // 获取改变后的hash值
+                    var hash = location.hash.substring(1);
+
+                    // 将hash跟本地保存的的路由中的path进行匹配，匹配到指定路由，就执行指定模块的代码
+                    // 如果找不到符合条件的元素，那么route值为空
+                    var route = this.routes.find(item => {
+                        return item.path === hash;
+                    }); 
+                    if (route) {
+                        route.component(hash);
+                    }
+                }).bind(this));
+
+                // 注册好事件后，立即触发事件，在浏览器刷新后不会触发window的hashchange事件，所以需要手动触发
+                var changeEvent = new Event('hashchange');
+                window.dispatchEvent(changeEvent);
+            },
+            // 路由跳转
+            push({path}) {
+                if (path) {
+                    location.hash = "#" + path;
+                }
+            }
+        }
+
+        // 根据路由的改变切换页面显示内容
+        function changePage(page) {
+            var contentDom = document.querySelector('.main .content');
+            if (page === '/' || page === '/student') {
+                contentDom.innerHTML = 'student module';
+            } else if (page === '/lesson') {
+                contentDom.innerHTML = 'lesson module';
+            } else if (page === '/class') {
+                contentDom.innerHTML = 'class module';
+            }
+        }
+
+        window.onload = function () {
+            // 调用构造函数，实例化路由对象，初始化路由配置
+            var router = new Route({
+                routes: [
+                    { path: "/", component: changePage },
+                    { path: "/student", component: changePage },
+                    { path: "/lesson", component: changePage },
+                    { path: "/class", component: changePage }
+                ]
+            });
+
+            // 为导航注册点击事件切换路由
+            document.querySelector('.sidebar-ul').addEventListener("click", function (e) {
+                if (e.target.nodeName == "LI") {
+                    var domClassName = e.target.className;
+                    if (domClassName.indexOf('stuManage') > -1) {
+                        router.push({ path: "/student" })
+                    } else if (domClassName.indexOf('lesManage') > -1) {
+                        router.push({ path: "/lesson" })
+                    } else if (domClassName.indexOf('claManage') > -1) {
+                        router.push({ path: "/class" })
+                    } else {
+                        window.location.href="http://www.baidu.com"
+                    }
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
