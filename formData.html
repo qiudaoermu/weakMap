@@ -1,0 +1,37 @@
+<html>
+  <div>
+    <input id="file" type="file" />
+    <input type="button" value="文件上传" onclick="uploadFile()" />
+  </div>
+</html>
+<script>
+  function uploadFile() {
+    const file = document.getElementById('file').files[0];
+    console.log(file, '********************************');
+    // const xhr = new XMLHttpRequest();
+    // const fd = new FormData();
+    // fd.append('file', file);
+    // xhr.open('POST', 'http://127.0.0.1:8000/upload', true);
+    // xhr.onreadystatechange = function() {
+    //   if (xhr.readyState == 4 && xhr.status == 200) {
+    //     alert(xhr.responseText);
+    //   }
+    // };
+    // xhr.send(fd);
+    const chunkSize = 1024;
+    chunkedUpload(file);
+    async function chunkedUpload(file) {
+      for (let start = 0; start < file.size; start += chunkSize) {
+        const chunk = file.slice(start, start + chunkSize); // 分片 blob对象
+        console.log(chunk, "----chunk------");
+        const fd = new FormData();
+        fd.append("data", chunk);
+
+        // 上传 利用async实现，同步请求
+        // await fetch(url, { method: "post", body: fd }).then((res) =>
+        //   res.text()
+        // );
+      }
+    };
+  }
+</script>

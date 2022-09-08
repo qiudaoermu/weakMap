@@ -1,0 +1,109 @@
+<!DOCTYPE html>     
+<html>     
+    <head>  
+        <meta charset="UTF-8">  
+        <title></title>  
+        <style type="text/css">  
+            .main{   
+                width: 800px;   
+                /*border: 1px solid #ccc;*/   
+                height: 400px;   
+                margin:0 auto;   
+            }   
+            .left{   
+                float: left;   
+                width: 25%;   
+                background-color: #666;   
+                height: 370px;   
+                text-align: center;   
+                color: black;   
+                padding-top:30px ;   
+                font-size: 110px;   
+            }   
+            .right{   
+                float: right;   
+                width: 69%;   
+            }   
+            .right ul,.right li{   
+               margin: 0;   
+               padding: 0;   
+            }   
+            .right li{   
+                list-style: none;   
+                border: 2px dashed  #666;   
+                background-color: #ddd;   
+                height: 60px;   
+                margin-top: 3px;   
+                text-indent: 30px;   
+                line-height: 60px;   
+            }   
+            .right li:hover{   
+                background-color: #ccc;   
+            }   
+            #message{   
+  
+                width: 800px;   
+                text-align: center;   
+                border: 1px solid black;   
+                margin: 20px auto;   
+                font-size:28px;   
+            }   
+        </style>  
+        <script type="text/javascript">  
+            window.onload = function(){   
+                var aLi = document.getElementsByTagName('li');   
+                var oLeft = document.getElementsByClassName('left')[0];   
+                var oMessage = document.getElementById('message');   
+  
+                for(var i=0;i<aLi.length;i++){   
+                    aLi[i].index = i+1;   
+                    aLi[i].ondragstart = function(ev){   
+                                                //事件对象ev   
+                        var evev = ev || event;   
+  
+                        ev.dataTransfer.setData("Text",this.id);   
+                    }   
+  
+                }   
+                oLeft.ondrop = function(ev){   
+  
+                    var evev = ev || event;   
+                    var data = ev.dataTransfer.getData("Text");   
+                    var num = document.getElementById(data).index;   
+                     document.getElementById(data).remove();   
+  
+                    oMessage.innerHTML = "列表"+num+"被放进了垃圾箱";   
+  
+                    this.style.color = "black";   
+  
+                    }   
+                oLeft.ondragover = function(ev){   
+                    var evev = ev || event;   
+                    ev.preventDefault();   
+                }   
+                oLeft.ondragenter = function(){   
+                    this.style.color = "#fff";   
+                }   
+            }   
+        </script>  
+    </head>  
+    <body>  
+        <div class="main">  
+            <div class="left">垃圾箱</div>  
+            <div class="right">  
+                <ul>  
+                    <li id="item1" draggable="true">列表1</li>  
+                    <li id="item2" draggable="true">列表2</li>  
+                    <li id="item3" draggable="true">列表3</li>  
+                    <li id="item4" draggable="true">列表4</li>  
+                    <li id="item5" draggable="true">列表5</li>  
+                    <li id="item6" draggable="true">列表6</li>  
+                </ul>  
+            </div>  
+            <div style="clear: both;"></div>  
+  
+  
+        </div>  
+        <div id="message">拖到垃圾箱删除列表</div>  
+    </body>  
+</html>    
