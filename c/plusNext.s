@@ -10,17 +10,28 @@ _main:                                  ## @main
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	xorl	%eax, %eax
+	subq	$16, %rsp
 	movl	$0, -4(%rbp)
 	movl	$0, -8(%rbp)
-	movl	-8(%rbp), %ecx
-	movl	%ecx, %edx
-	addl	$1, %edx
-	movl	%edx, -8(%rbp)
-	movl	%ecx, -4(%rbp)
+	movl	-8(%rbp), %eax
+	movl	%eax, %ecx
+	addl	$1, %ecx
+	movl	%ecx, -8(%rbp)
+	movl	%eax, -4(%rbp)
+	leaq	L_.str(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	xorl	%ecx, %ecx
+	movl	%eax, -12(%rbp)         ## 4-byte Spill
+	movl	%ecx, %eax
+	addq	$16, %rsp
 	popq	%rbp
 	retq
 	.cfi_endproc
                                         ## -- End function
+	.section	__TEXT,__cstring,cstring_literals
+L_.str:                                 ## @.str
+	.asciz	"Hello, World! \n"
+
 
 .subsections_via_symbols

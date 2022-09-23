@@ -4,4 +4,5 @@ int main()
 {
   int a = 0,i = 0;
   a = ++i;
+  printf("Hello, World! \n");
 }

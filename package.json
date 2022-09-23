@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/qiudaoermu/weakMap#readme",
   "devDependencies": {
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.5",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "@vue/eslint-config-standard": "^4.0.0",
