@@ -1,8 +1,8 @@
-## 面试知识点
+## 面试知识点总结
 
 ---
 
-[1 基础知识](#1)
+[1. js 基础知识](#1)
 
 - [1.1 继承](#1.1)
 - [1.2 原型](#1.2)
@@ -14,18 +14,17 @@
 - [1.8 变量提升](#1.8)
 - [1.9 异步](#1.9)
 - [1.10 event 对象常见应用](#1.10)
-- [1.11event 对象常见应用](#1.11)
-- [1.12 模块](#1.12)
-- [1.13 bind apply call](#1.13)
+- [1.11 模块](#1.11)
+- [1.12 bind apply call](#1.12)
 
-[2.1.网络请求 ](#2.1)
+[2. 网络请求 ](#2)
 
-[3 算法](#3)
+[3. 算法](#3)
 
 - [3.1 排序](#3.1)
 - [3.2 去重 ](#3.2)
 
-[4.1 前端优化 ](#4.1)
+[4. 前端优化 ](#4)
 
 # 数据结构
 
@@ -33,9 +32,7 @@
 
 JS 实现继承的几种方式
 
-``
-
-##### es5
+- es5
 
 ```
 借用构造函数实现继承
@@ -77,7 +74,7 @@ Child3.prototype.constructor = Child3;
 
 ```
 
-##### es6 继承
+- es6 继承
 
 ```
         class Person{
@@ -137,11 +134,11 @@ for (var key in myObject) {
 
 https://www.jianshu.com/p/dee9f8b14771
 
-###### == 做了什么
+###### 做了什么
 
 ![](https://user-gold-cdn.xitu.io/2017/4/11/04faefd69027fd19f8f220565a3ca004?imageslim)
 
-###### 数组判断？
+##### 数组判断？
 
 ```
 var a = [];
@@ -156,7 +153,7 @@ https://www.cnblogs.com/leaf930814/p/6659996.html
 
 ```
 
-###### 为什么用 Object.prototype.toString.call(obj)检测对象类型?
+#### 为什么用 Object.prototype.toString.call(obj)检测对象类型?
 
 ```
 toString方法返回反映这个对象的字符串。
@@ -360,9 +357,9 @@ console.log(obj.x); // 3, 被修改了!
 
 ### <h2 id="1.7"> 1.7 垃圾回收 </h2>
 
-###### 标记清除
+- 标记清除
 
-###### 引用计数 -iE
+- 引用计数 -iE
 
 ```
 var a = new A();
@@ -583,6 +580,8 @@ var object = {
 alert(object.getNameFunc()());
 //”The Window” (in non-strict mode)
 ```
+
+### <h2 id="2"> 2 网络请求</h2>
 
 # 网络请求
 
@@ -1028,7 +1027,9 @@ https://www.cnblogs.com/liyongshuai/p/7197962.html
 第19讲：哈希表、二分查找、Trie树、Ternery树、搜索引擎与倒排索引、集中式索引与分布式索引、Map-Reduce初步
 ```
 
-# 前端优化方案
+### <h2 id="3.1"> 3.1 排序 </h2>
+
+### <h2 id="4"> 前端优化方案 </h2>
 
 ```
 1 . gzip
