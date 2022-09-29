@@ -1083,14 +1083,8 @@ ShouldComponentUpdate
 
 高阶组件
 
-> js 基础
-
 > 前端面试宝典:
-
-> http://www.cnblogs.com/huansky/p/7956908.html
-
-> https://segmentfault.com/a/1190000013857582
-
-> https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
-
-> [webpack 原理](https://www.jianshu.com/p/e24ed38d89fd)
+http://www.cnblogs.com/huansky/p/7956908.html
+https://segmentfault.com/a/1190000013857582
+https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
+[webpack 原理](https://www.jianshu.com/p/e24ed38d89fd)
