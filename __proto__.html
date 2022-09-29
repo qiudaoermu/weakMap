@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-</head>
-<body>
+  <head>
+    <title></title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    function Person(argument) {
+      // body.......
+    }
+    console.log(Person.__proto__);
+    var p = new Person();
+    console.log(p.__proto__);
+    var b = new Array();
+    b.constructor === Array;
+    console.log(b.__proto__ === Array.prototype);
 
-</body>
-<script type="text/javascript">
-	
-	function Person(argument) {
-		// body.......
-	}
-	console.log(Person.__proto__)
-	var p =  new Person()
-	console.log(p.__proto__)
-	var b = new Array();
-	b.constructor === Array;
-	console.log(b.__proto__ === Array.prototype)
+    function Super() {}
 
-	function Super() {}
- 
-	function Sub() {}
-	Sub.prototype = new Super();
-	Sub.prototype.constructor = Sub;
-	 
-	var sub = new Sub();
-	 
-	Sub.prototype.constructor === Sub; // ② true
-	sub.constructor === Sub; // ④ true
-	sub.__proto__ === Sub.prototype; // ⑤ true
-	console.log(Sub.prototype.__proto__== Super.prototype); // ⑦ true
-	console.log(Sub.prototype)
-	
-</script>
+    function Sub() {}
+    Sub.prototype = new Super();
+    Sub.prototype.constructor = Sub;
+
+    var sub = new Sub();
+
+    Sub.prototype.constructor === Sub; // ② true
+    sub.constructor === Sub; // ④ true
+    sub.__proto__ === Sub.prototype; // ⑤ true
+    console.log(Sub.prototype.__proto__ == Super.prototype); // ⑦ true
+    console.log(Sub.prototype);
+  </script>
 </html>
