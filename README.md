@@ -398,7 +398,7 @@ async并行加载js文件，下载完成立即执行，不会按照页面上scri
 
 ```
 
-![image](http://segmentfault.com/img/bVcQV0)
+![image](https://image-static.segmentfault.com/28/4a/284aec5bb7f16b3ef4e7482110c5ddbb_fix732)
 
 call 是 obj.method()到 method(obj)的变换，返回函数调用结果，所需参数依次用逗号分割添加至 obj 尾部
 
@@ -1004,9 +1004,11 @@ https://www.cnblogs.com/liyongshuai/p/7197962.html
 10.内部排序（直接插入、选择、希尔、堆排序、快排、归并等）算法与实践中的优化
 11.外部排序与优化（文件编码、数据编码、I/O方式与JVM特点、多线程、多路归并等）
 12.哈希表、Trie树、倒排索引、分布式索引初步（Map-Reduce）
+
 一、简介
 第1讲：什么是数据结构？
 第2讲：什么是算法？
+
 二、线性表
 第3讲：线性表（数组、链表、队列、栈）
 第4讲：Linux work queue及JDK线程池   三、树
@@ -1026,8 +1028,6 @@ https://www.cnblogs.com/liyongshuai/p/7197962.html
 第18讲：外部排序的优化及延伸   六：查找
 第19讲：哈希表、二分查找、Trie树、Ternery树、搜索引擎与倒排索引、集中式索引与分布式索引、Map-Reduce初步
 ```
-
-### <h2 id="3.1"> 3.1 排序 </h2>
 
 ### <h2 id="4"> 前端优化方案 </h2>
 
@@ -1083,16 +1083,14 @@ ShouldComponentUpdate
 
 高阶组件
 
-### js 基础
+> js 基础
 
-前端面试宝典
+> 前端面试宝典:
 
-http://www.cnblogs.com/huansky/p/7956908.html
+> http://www.cnblogs.com/huansky/p/7956908.html
 
-https://segmentfault.com/a/1190000013857582
+> https://segmentfault.com/a/1190000013857582
 
-https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
+> https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
 
-webpack 原理
-
-https://www.jianshu.com/p/e24ed38d89fd
+> [webpack 原理](https://www.jianshu.com/p/e24ed38d89fd)
