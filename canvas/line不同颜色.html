@@ -1,0 +1,24 @@
+<html>
+  <canvas id="canvas"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+
+    // Second sub-path
+    ctx.lineWidth = 100;
+    ctx.strokeStyle = "green";
+    ctx.moveTo(20, 10);
+    ctx.lineTo(220, 10);
+    ctx.stroke();
+
+    // Third sub-path
+    ctx.beginPath();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "pink";
+    ctx.moveTo(20, 140);
+    ctx.lineTo(280, 140);
+    ctx.stroke();
+  </script>
+</html>

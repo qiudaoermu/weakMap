@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Canvas绘制任意两点间的动态直线</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .drawing-container {
+      width: 100%;
+      height: 1000px;
+    }
+
+    #canvas {
+      display: block;
+      background-color: #fff;
+    }
+  </style>
+  <body>
+    <canvas id="canvas"></canvas>
+  </body>
+  <script src="../jqury-api/jquery/jquery.js"></script>
+  <script>
+    // const canvas = document.getElementById("canvas");
+
+    // Point of transform origin
+    // ctx.arc(0, 0, 5, 0, 2 * Math.PI);
+    // ctx.fillStyle = "blue";
+    // ctx.fill();
+
+    // Non-rotated rectangle
+    // ctx.fillStyle = "gray";
+    // ctx.fillRect(100, 0, 80, 20);
+
+    // Rotated rectangle
+    // var ctx = canvas.getContext("2d");
+
+    // ctx.beginPath();
+    // ctx.rotate((30 * Math.PI) / 180);
+
+    // ctx.moveTo(20, 20);
+    // ctx.lineTo(200, 20);
+    // ctx.closePath();
+    // ctx.fill();
+    // ctx.stroke();
+
+    var cd;
+    var ctx2;
+    var startPoint;
+    var endPoint;
+    var midPoint;
+
+    function init() {
+      cd = document.getElementById("canvas");
+      cd.width = 500;
+      cd.height = 500;
+
+      ctx2 = cd.getContext("2d");
+    }
+
+    function draw() {
+      startPoint = {
+        x: 477,
+        y: 423,
+      };
+      endPoint = {
+        x: 150,
+        y: 40,
+      };
+
+      ctx2.beginPath();
+      ctx2.strokeStyle = "orange";
+      ctx2.moveTo(startPoint.x, startPoint.y);
+      ctx2.lineTo(endPoint.x, endPoint.y);
+      // rotate around center - find mid-point using lerp
+      midPoint = {
+        x: startPoint.x + (endPoint.x - startPoint.x) * 0.5,
+        y: startPoint.y + (endPoint.y - startPoint.y) * 0.5,
+      };
+
+      // translate to midpoint
+      ctx2.translate(midPoint.x, midPoint.y);
+
+      // rotate some angle (radians)
+      ctx2.rotate((90 * Math.PI) / 180); // = 45°
+
+      // translate back
+      ctx2.translate(-midPoint.x, -midPoint.y);
+
+      // draw line
+      ctx2.moveTo(startPoint.x, startPoint.y);
+      ctx2.lineTo(endPoint.x, endPoint.y);
+      ctx2.stroke();
+      ctx2.closePath();
+
+      // reset transforms
+      ctx2.setTransform(1, 0, 0, 1, 0, 0);
+    }
+
+    init();
+    draw();
+  </script>
+</html>

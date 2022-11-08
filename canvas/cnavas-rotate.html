@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+  </body>
+</html>
+<script>
+  var c = document.getElementById("canvas");
+  var context = c.getContext("2d");
+  // 渐变三角形
+  context.translate(300, 150); // 原点移动到该坐标
+  context.rotate((-Math.PI / 180) * 30); // 先旋转-30°，把三角形转正
+  for (let i = 0; i < 9; i++) {
+    context.beginPath(); // 每次循环重置路径
+    context.rotate((Math.PI / 180) * 30); // 旋转30°
+    context.fillStyle =
+      "rgba(" + i * 20 + "," + i * 50 + "," + i * 20 + "," + (1 - i / 20) + ")"; // 渐变颜色
+    context.moveTo(0, 0); // 开始点
+    context.lineTo(60, 0); // 一条边
+    context.lineTo(30, 70); // 另一条边
+    context.closePath(); // 封闭图形
+    context.fill(); // 填充颜色
+  }
+</script>
