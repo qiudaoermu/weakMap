@@ -2,7 +2,7 @@
 
 ---
 
-[1. js 基础知识](#1)
+### [1. js](#1)
 
 - [1.1 继承](#1.1)
 - [1.2 原型](#1.2)
@@ -17,14 +17,17 @@
 - [1.11 模块](#1.11)
 - [1.12 bind apply call](#1.12)
 
-[2. 网络请求 ](#2)
+### [2. 网络浏览器 ](#2)
 
-[3. 算法](#3)
+### [3. 算法](#3)
 
 - [3.1 排序](#3.1)
 - [3.2 去重 ](#3.2)
 
-[4. 前端优化 ](#4)
+### [4. 前端优化 ](#4)
+
+### [5. react](#5)
+### [6. vue](#6)
 
 # 数据结构
 
@@ -1057,7 +1060,8 @@ https://www.cnblogs.com/liyongshuai/p/7197962.html
 23 .选择 Canvas 或 requestAnimationFrame 等更高效的动画实现方式，尽量避免使用 setTimeout、setInterval 等方式来直接处理连续动画。
 ```
 
-### 5.react
+###  <h2 id="5"> react </h2>
+
 
 ###### 组件之间怎么传值
 
@@ -1088,3 +1092,16 @@ http://www.cnblogs.com/huansky/p/7956908.html
 https://segmentfault.com/a/1190000013857582
 https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers
 [webpack 原理](https://www.jianshu.com/p/e24ed38d89fd)
+
+###  <h2 id="6"> vue </h2>
+
+#### vue 基本原理
+#### vue diff 算法
+#### vue 方法
+#####    vue.use
+#####    vue.directive
+#####    vue.mixin
+#####    vue.$set
+#####    vue.$nextTick()  
+#### vue 生命周期
+
