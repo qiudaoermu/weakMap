@@ -1,15 +1,15 @@
-import '../assets/styles/footer.styl'
+import '../assets/styles/footer.styl';
 export default {
-    data(){
-        return{
-            author:"Jocky"
-        }
-    },
-    render(){
-        return(
-            <div id='footer'>
-                <span>Wriiten by {this.author}</span>
-            </div>
-        )
-    }
-}
+  data() {
+    return {
+      author: "Jocky"
+    };
+  },
+  render() {
+    return (
+      <div id='footer'>
+        <span>Wriiten by {this.author}</span>
+      </div>
+    );
+  }
+};

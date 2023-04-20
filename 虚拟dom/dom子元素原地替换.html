@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <ul id="parent">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+</body>
+<script>
+  const parent = document.querySelector("#parent"); // 获取父元素
+  const secondChild = parent.children[1]; // 获取第二个元素
+  const fourthChild = parent.children[3]; // 获取第四个元素
+  const nextSiling = fourthChild.nextSibling; // 获取第四个元素的下一个位置元素
+  console.log(nextSiling, "nextSiling"); // 文本元素
+  parent.insertBefore(fourthChild, secondChild); // 把第四个元素插入到第二个元素前
+  parent.insertBefore(secondChild, nextSiling); // 把第二个元素插入到 nextSiling
+
+  let arr = [1, 2, 3, 4];
+  // newArr = [1,4,3,2]
+  arr.splice(1, 0, arr[3]);
+  arr.splice(4, 1);
+  arr.splice(4, 0, arr[2]);
+  arr.splice(2, 1);
+  
+  console.log(arr);
+  </script>
+</html>

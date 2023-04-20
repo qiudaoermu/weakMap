@@ -1,0 +1,32 @@
+<style>
+li {
+  list-style: none;
+}
+.mycards{ 
+  /* // 大盒子 */
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap; 
+  /*  // 换行 */
+  justify-content: space-between;
+}
+.card_item{ 
+  /* // 每个item */
+    flex: 1;
+    width: 33%;
+    min-width: 33%; 
+    /* // 加入这两个后每个item的宽度就生效了 */
+    max-width: 33%; 
+    /* // 加入这两个后每个item的宽度就生效了 */
+    height: 350px;
+    background-color: #ddd;
+    margin-top: 10px;
+  }
+</style>
+<div class="mycards">
+  <li class='card_item'></li>
+  <li class='card_item'></li>
+  <li class='card_item'></li>
+  <li class='card_item'></li>
+  <li class='card_item'></li>
+</div>

@@ -1,8 +1,8 @@
 var colors = require("colors");
-const { exec } = require("child_process");
+const {exec} = require("child_process");
 colors.setTheme({
   custom: ["black", "bgYellow"],
-  error: ["red", "bgWhite"],
+  error: ["red", "bgWhite"]
 });
 class YalcPushWatchPlugin {
   constructor(options) {
