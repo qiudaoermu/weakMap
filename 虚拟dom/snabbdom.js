@@ -42,15 +42,12 @@ const updateChildren = (vnodes, newVode, parentElm) => {
   while (newStartIndex <= newEndIndex && oldStartIndex <= oldEndIndex) {
     if (vnode.isSameNode(newStartNode, oldStartNode)) {
       // 头头
-      // newStartIndex++;
-      // oldStartIndex++;
       patchVnode(oldStartNode, newStartNode, parentElm);
       newStartNode = newVode.children[++newStartIndex];
       oldStartNode = vnodes.children[++oldStartIndex];
     } else if (vnode.isSameNode(newStartNode, oldEndNode)) {
       // 新头旧尾
       apiDom.insertAfter(parentElm, newStartNode, oldStartNode);
-      // apiDom.insertChild(parentElm, newStartNode, oldStartNode);
       newStartNode = newVode.children[++newStartIndex];
       oldEndNode = vnodes.children[--oldEndIndex];
     } else if (vnode.isSameNode(newEndNode, oldEndNode)) {
@@ -108,6 +105,7 @@ const patch = (element, newVode) => {
   if (vnode.isSameNode(vnodes, newVode)) {
     let oldElement = vnode.getParentElm(vnodes);
     updateChildren(vnodes, newVode, oldElement);
+    return vnode.createVirtualElementFromDom(oldElement);
   } else {
     // 新增元素
     let newElement = vnode.createDomFromVnode(newVode);
@@ -132,4 +130,5 @@ const patch = (element, newVode) => {
 
 const container = document.getElementById("container");
 const vn = patch(container, element);
-patch(vn, newVnode);
+const vnnew = patch(vn, newVnode);
+console.log(vnnew);
