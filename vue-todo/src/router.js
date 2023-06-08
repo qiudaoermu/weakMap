@@ -9,7 +9,7 @@ import Address from "./page/AddressPage.vue";
 // import functional from "./page/functional/functional.vue";
 // import provide from "./page/provideInject/A.vue";
 // import vueScroll from "./page/vue-scroll.vue";
-// import elTree from "./page/tree.vue";
+import elTree from "./page/tree.vue";
 // import jsx from "./jsx/jsx.vue";
 // import classv from "./page/class.vue";
 // import stylev from "./page/stylev.vue";
@@ -29,7 +29,7 @@ export default {
     {
       path: "/snabbdom",
       component: snabbdom
-    }
+    },
     // {
     //   path: "/address",
     //   component: Address
@@ -63,10 +63,10 @@ export default {
     //   path: "/vue-scroll",
     //   component: vueScroll
     // },
-    // {
-    //   path: "/el-tree",
-    //   component: elTree
-    // },
+    {
+      path: "/el-tree",
+      component: elTree
+    }
     // {
     //   path: "/jsx",
     //   component: jsx

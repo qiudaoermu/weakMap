@@ -1,25 +1,15 @@
 
 import obj from "./apiDom.js";
-// let obj = require("./apiDom");
 let apiDom = new obj.ApiDom();
 let vnode = obj.vnode;
 
 const element = vnode.h("div", {id: "container", key: 1}, "", [
-  vnode.h("ul", {key: 1}, "I am ul old", [
-    vnode.h("li", {key: 1}, "old li", []),
-    vnode.h("div", {key: 2}, "old div", [])
-  ]),
-  vnode.h("h5", {key: 2}, "I am H5", []),
+  vnode.h("h3", {key: 4}, "I AM H3 NEW"),
   vnode.h("div", {key: 3}, "I am div", []),
-  vnode.h("h3", {key: 4}, "I am H3 old")
+  vnode.h("h4", {key: 2}, "I AM h4 NEW", [])
 ]);
 
 const newVnode = vnode.h("div", {id: "container", key: 1}, "", [
-  vnode.h("ul", {key: 1}, "I am ul new", [
-    vnode.h("li", {key: 1}, "new li", []),
-    vnode.h("p", {key: 2}, "new p", []),
-    vnode.h("div", {key: 3}, "old div", [])
-  ]),
   vnode.h("h4", {key: 2}, "I AM h4 NEW", []),
   vnode.h("p", {key: 3}, "I AM P", []),
   vnode.h("h3", {key: 4}, "I AM H3 NEW")
@@ -57,7 +47,12 @@ const updateChildren = (vnodes, newVode, parentElm) => {
       newEndNode = newVode.children[--newEndIndex];
       oldEndNode = vnodes.children[--oldEndIndex];
     } else if (vnode.isSameNode(newEndNode, oldStartNode)) {
-      // 尾头
+      // 新尾旧头
+      // 1 2 3 4;
+      // 5 3 2 1;
+      apiDom.insertAfter(parentElm, newStartNode, oldStartNode);
+      newStartNode = newVode.children[++newStartIndex];
+      oldEndNode = vnodes.children[--oldEndIndex];
       console.log("log");
     } else {
       // 头头 头尾 尾尾 尾头都不相同

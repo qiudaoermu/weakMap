@@ -711,7 +711,7 @@ export default {
       console.log(this.dataDepartmentTree);
       console.log(this.checkedArr);
     },
-    //第一种便利
+    // 第一种便利
     setCheckedStatus(tree, departmentCode, status) {
       var retNode = null;
       function deepSearch(tree, departmentCode) {
@@ -802,7 +802,10 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
+::v-deep .el-tree-node__content {
+  background:red
+}
 .data-scrop-tree {
   display: flex;
   margin-top: 10px;
