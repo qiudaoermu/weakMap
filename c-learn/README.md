@@ -1,7 +1,9 @@
 ### c 语言转汇编
 
 gcc -S xxx.c -o xxx.s // c 转汇编
+
 gcc -c xxx.s -o xxx.o
+
 gcc xxx.o -o xxx //可执行文件
 
 汇编转二进制
